@@ -1,25 +1,51 @@
 project:
-  type: book
+  type: website
   output-dir: docs
 
-book:
-  title: "Time Series Analysis (TSA) Module for the ECDC EPIET & EUPHEM Program"
-  #author: "TSA 2025 Coordinating Group"
-  page-navigation: true
-  sidebar:                
+website:
+  title: "Intro to R Course"
+  
+  navbar:
+    background: dark        
+    foreground: light
+    pinned: true
+    search: true
+    left:
+      # - text: "---"
+      #   href: "scripts/copywright.qmd"
+      - text: "Copywright"
+        href: "scripts/copywright.qmd"
+      - text: "Practical Sessions"
+        href: "scripts/Sindex.qmd"   
+      - text: "Resources"
+        href: "scripts/resources.qmd"
+    tools:
+      - icon: github
+        menu:
+          - text: "Source Code"
+            url:  https://github.com/EPIET/IntroToRCourse/tree/main
+          - text: "Report a code issue"
+            url:  https://github.com/EPIET/IntroToRCourse/issues
+  
+
+  sidebar:
+  - id: sessions 
+    title: "Sessions"
     style: docked
-  chapters:
-    - href: index.qmd
-      text: "HOMEPAGE"
-    - part: "PRACTICALS"
-      chapters:
-        - "scripts/03-practical.qmd"
-        - "scripts/04-practical.qmd"
-        - "scripts/05-practical.qmd"
-        - "scripts/06-practical.qmd"
-        - "scripts/07-practical.qmd"
-        - "scripts/09-practical.qmd"
-        - "scripts/10-practical.qmd"
+    page-navigation: true
+    contents:
+      - text: "Welcome"
+        href: "scripts/Sindex.qmd"
+      - section: "Practicals"
+        contents:
+          - "scripts/S1-practical.qmd"
+
+  page-footer:
+    left: "© 2026 – Intro to R Course"
+    right:
+      - icon: github
+        href: https://github.com/EPIET/IntroToRCourse
+
 
 format:
   html:

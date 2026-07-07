@@ -1,46 +1,13 @@
+---
+sidebar: false
+toc: false
+---
+
 # Welcome {.unnumbered}
 
 ~~Welcome to the **Time Series Analysis** (**TSA**) module webpage of the *ECDC EPIET & EUPHEM* Program.~~
 
 ~~Here you will find the Practical Sessions 3-7, 9 and 10 of the TSA module 2025, including the instructions, guide and solution of the proposed exercises. Sessions 8 and 11 will be provided as stand-alone exercises~~
-
-# Copyright and License {.unnumbered}
-
-~~This exercises were originally designed in 2011 for the training needs of EPIET, PAE, NorFETP and Austrian FETP fellows. Many colleagues were involved in updating and maintaining these materials through the years, credit will be displayed soon~~
-
-Information and documents made available on ECDC web pages are public and may be reproduced and/or distributed, totally or in part, irrespective of the means and/or the formats used, for non-commercial purposes, provided that ECDC is always acknowledged as the source of the material. Such acknowledgement must be included in each copy of the material. Any reproduction for commercial purposes will require licensing or prior permission. Citations may be made from such material without prior permission, provided the source is always acknowledged. (http://ecdc.europa.eu/en/pages/legalnotice.aspx).
-
-**You are free:**
-
-- **to Share** — to copy, distribute and transmit the work
-
-- **to Remix** — to adapt the work
-
-**Under the following conditions:**
-
-- **Attribution** — You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). The best way to do this is to keep as it is the list of contributors: sources, authors and reviewers.
-
-- **Share Alike** — If you alter, transform, or build upon this work, you may distribute the resulting work only under the same or similar license to this one. Your changes must be documented. Under that condition, you are allowed to add your name to the list of contributors.
-
-You cannot sell this work alone, but you can use it as part of a teaching.
-
-**With the understanding that:**
-
-- **Waiver** — Any of the above conditions can be **waived** if you get permission from the copyright holder.
-
-- **Public Domain** — Where the work or any of its elements is in the **public domain** under applicable law, that status is in no way affected by the license.
-
-- **Other Rights** — In no way are any of the following rights affected by the license:
-
-  - Your fair dealing or **fair use** rights, or other applicable copyright exceptions and limitations;
-
-  - The author's **moral** rights;
-
-  - Rights other persons may have either in the work itself or in how the work is used, such as **publicity** or privacy rights.
-
-- **Notice** — For any reuse or distribution, you must make clear to others the license terms of this work by keeping together this work and the current license.
-
-**This licence is based on <http://creativecommons.org/licenses/by-sa/3.0/>**
 
 # How to prepare for the module {.unnumbered}
 
