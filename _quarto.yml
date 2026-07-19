@@ -16,7 +16,7 @@ website:
       - text: "Copywright"
         href: "scripts/copywright.qmd"
       - text: "Practical Sessions"
-        href: "scripts/Sindex.qmd"   
+        href: "scripts/S0_index.qmd"   
       - text: "Resources"
         href: "scripts/resources.qmd"
     tools:
@@ -35,10 +35,12 @@ website:
     page-navigation: true
     contents:
       - text: "Welcome"
-        href: "scripts/Sindex.qmd"
-      - section: "Practicals"
+        href: "scripts/S0_index.qmd"
+      - section: "Session 1"
         contents:
-          - "scripts/S1-practical.qmd"
+          - "scripts/S1E1.qmd"
+          - "scripts/S1E2.qmd"
+          - "scripts/S1E3.qmd"
 
   page-footer:
     left: "© 2026 – Intro to R Course"
@@ -61,6 +63,10 @@ format:
     number-depth: 2
     link-external-newwindow: true
     embed-resources: true
+    css: 
+      - include/webex.css
+    include-after-body: 
+      - include/webex.js 
     
 grid:
   body-width: 1500px
@@ -78,4 +84,3 @@ knitr:
 
 
 editor: visual
-

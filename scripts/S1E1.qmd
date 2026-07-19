@@ -1,0 +1,216 @@
+---
+title: "Getting familiar with RStudio"
+subtitle: "Session 1 practical exercises"
+format:
+  html:
+    code-fold: false
+---
+
+```{r}
+#| include: false
+library(webexercises)
+```
+
+Welcome to your new office!!
+
+You just arrived to your training site as the new EPIET & EUPHEM Fellow. After some rounds of introductions, explanations about the public health system, meeting with teams, project supervisors and colleagues, you finally have some time to sit on your computer and start preparing for the work to come and the exciting projects ahead.
+
+You have just been given access to a computer with R and RStudio installed. Before touching any data, take a few minutes to orient yourself. Everything you do in this course will happen inside RStudio — so knowing where things live matters.
+
+This first session will be mostly a guided exercise, with instructions and code you can use to move forward on the different tasks. As you progress on the R Journey, exercises will become more autonomous and less guided
+
+### The four panels
+
+Open RStudio. You should see four panels arranged on your screen. Each one has a specific role:
+
+| Panel         | Default position | What it does                           |
+|---------------|------------------|----------------------------------------|
+| Script editor | Top-left         | Where you write and save your code     |
+| R Console     | Bottom-left      | Where R actually runs your code        |
+| Environment   | Top-right        | Where your objects (data, values) live |
+| Auxiliary     | Bottom-right     | Files, plots, help, and packages       |
+
+::: column-margin
+RStudio empty view (click to enlarge)
+
+![](/images/exercises/S1E1_1_Rstudio.png){.lightbox}
+:::
+
+::: callout-note
+### Your screen may look different
+
+If you only see three panels, you probably don't have a script open yet. Go to **File → New File → R Script** to open one.
+:::
+
+Take a moment to locate each panel on your own screen before moving on
+
+## Part 1 · The Console
+
+The Console is where R executes code immediately. Think of it as a direct line to R — you type something, press Enter, and R responds right away.
+
+**Action** — Click on the Console panel and type the following, then press `Enter`:
+
+``` r
+2 + 2
+```
+
+The `[1]` is R telling you this is the first element of the result. For now, don't worry about it — you'll understand it better once we talk about vectors.
+
+**Action** — Now try typing just a word, without quotes:
+
+``` r
+disease
+```
+
+:::: column-margin
+::: callout-important
+### What just happened?
+
+You should have gotten an error: `Error: object 'disease' not found`.
+
+In R, any word written without quotes is interpreted as the name of an **object** — something you've stored in memory. Since you haven't created anything called `disease`, R doesn't know what you mean.
+:::
+::::
+
+**Action** — Now try the same word with quotes:
+
+``` r
+"disease"
+```
+
+This time R simply returns the text back to you. Quoted text is treated as a literal value, not an object name. This distinction — object vs. text — will come up constantly.
+
+**Action** — Now it's time to create your first object `disease` which contains the character "salmonella". Try out and then call the object to see the difference
+
+```{r}
+#| echo: false
+opts_a <- c(
+  "The code runs immediately when you press Enter",
+  "The code is not saved and will be lost when you close RStudio",
+  answer = "The code runs but the result is not shown until you save the script"
+)
+```
+
+**Which of the following is FALSE regarding the R Console?** `r longmcq(opts_a)`
+
+You have engaged with the R Console, a place where code is written and executed immediately, producing consequences like creating/modifying objects, executing functions, etc. However, if you want to run the code again - bad luck! It was thrown away in the R Void, and was lost forever. When working, you will typically want to execute code repeatedly, checking for mistakes until you get the right solution. You may also wish to keep the code in case you need to repeat the flow. This is where the **R Script** comes into play
+
+## Part 2 · The Script
+
+The Console is useful for quick calculations, but everything written there disappears the moment you run it. For real work, you write code in a **script** — a saved file that keeps your code intact and lets you run it again.
+
+**Action** — If you don't have a script open yet, go to **File → New File → R Script**. A new tab should appear in the top-left panel.
+
+**Action** — Type the following line in the script (not the Console):
+
+``` r
+2 + 2
+```
+
+Press `Enter`. Nothing happens — the cursor just moves to the next line. That's correct: in a script, `Enter` only creates a new line.
+
+**Action** — Now place your cursor on that line and press `Ctrl + Enter` (Windows/Linux) or `Cmd + Enter` (Mac).
+
+Watch what happens: the line is sent to the Console, executed, and the result appears there. The line stays in your script.
+
+
+------------------------------------------------------------------------
+
+::: callout-note
+### Reflection question
+
+You ran code in two places: the Console and the Script. In your day-to-day work as an epidemiologist using R, when would you use each one?
+
+There is no single correct answer — but think about reproducibility, sharing with colleagues, and coming back to your work six months later.
+:::
+
+------------------------------------------------------------------------
+
+## Part 3 · The Environment & Objects
+
+Before, you created an object named `disease` that contained the word "salmonella". Maybe you did not realize then, but something changed in the upper-right window: the **environment**. There, all the information you work with during your session is stored.
+
+Information in R takes the form of **objects** you create through assignment (**→**) as opposed to simple printing in the console. No information can live outside objects in R. If some action is not assigned to an object, it just gets dumped into the R Void and it's lost forever
+
+**Action** — Now create the following objects using the script:
+
+1.  `operation`, containing the numeric operation `(2 + 8) / 5`
+
+2.  `value`, containing the number 3
+
+Explore the environment, locate the objects and identify the information contained within. For now, our objects will only contain one single piece of info (a number or text)
+
+**Action** — Call the objects. Do it both in the script and the console, to see the difference
+
+**Action** — Now make these two objects interact, by adding `value` to `operation`. You don't need to create a new object yet
+
+::: callout-note
+### Before you continue
+
+Take a moment to reflect about object assignment, storing information, and the numerical operation you just performed. How would you like to save that info? Is there any consequence in how you do it?
+
+The way you save your objects do matter. Information not assigned is information lost. But then, it's not the same to save it in a new container than updating the existing one. Again, think about situations in which you would benefit from creating new objects with results and from updating existing objects
+:::
+
+**Action** — Create a new object named `result` and assign to it the addition `operation + value`. The go back to that code line, and execute it again. And again. Once more. Does it change the output?
+
+**Action** — In a different line, assign the addition to the object `value`, and then execute it multiple times, paying attention to the resulting value (you can see it either in the environment's object or by calling it after the operation). What happens now?
+
+**Bonus Action** — Now execute again your previous line creating the `result` object to see what happens
+
+When working in R, you will be constantly creating, modifying and overwriting objects. The question of whether to replace an existing object or to create a new one will depend on your own context and workflow. Try to keep in mind the chained nature of programming: piling up changes to data, creating derivative outputs and being able to trace back your work
+
+When you created a new object the flow was:\
+Existing info → operation → New object → next step → next step
+
+When you updated your existing object the flow was:\
+Existing info → operation → Existing info change → operation → Existing info change → ...
+
+The second flow became a loop of the sort, whit each iteration modifying the original data and therefore executing the code produced new results every time, as posed to the creating the new object, which granted the same output when executed every time. None of them is wrong, it just depends on your goal, but we will learn more about that in the coming exercises
+
+------------------------------------------------------------------------
+
+**You run the following lines of code, one by one. What will be the value of `result` after executing all the lines of code?**
+
+```{r}
+number <- 3        
+operation <- 10   
+result <- number + operation  
+number <- 5        
+```
+
+```{r}
+#| echo: false
+opts_b <- c(
+  answer = "13 — result was assigned when value was 3, and line 4 does not update it",
+  "15 — result updates automatically when value changes",
+  "8 — result recalculates using the new value minus operation",
+  "An error — you cannot reassign value after using it in result"
+)
+```
+
+`r longmcq(opts_b)`
+
+## Exercise summary
+
+This is what you practiced and learned:
+
+|  |  |
+|-------------------|-----------------------------------------------------|
+| **Rstudio panels** | Console, Script and Environment |
+| **Console vs Script** | One saves the code as a text document, the other just executes it and looses it |
+| **Execute code** | Code run from the scrip using "run" button or Ctrl /Cmd + Enter |
+| **Print code** | Code that is executed without assignment that is shown on the console and then dissapears |
+| **Assignment** | When information is stored in new or existing objects, appearing in the Environment |
+| **"Call" objects** | Write an object name and executing it to see its content on the console or panel |
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```

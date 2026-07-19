@@ -1,0 +1,15 @@
+{
+  "hash": "c62f23c716e5a134c796fd9a112d8be5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Resources\"\nsidebar: false\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(webexercises)\n#| echo: false\nopts_a <- c(\n  \"The code runs immediately when you press Enter\",\n  \"The code is not saved and will be lost when you close RStudio\",\n  answer = \"The code runs but the result is not shown until you save the script\"\n)\n\n#htmltools::HTML(longmcq(opts_a))\n```\n:::\n\n\n**Which of the following is FALSE regarding the R Console?** <div class='webex-radiogroup' id='radio_LLWJJXHLIE'><label><input type=\"radio\" autocomplete=\"off\" name=\"radio_LLWJJXHLIE\" value=\"\"></input> <span>The code runs immediately when you press Enter</span></label><label><input type=\"radio\" autocomplete=\"off\" name=\"radio_LLWJJXHLIE\" value=\"\"></input> <span>The code is not saved and will be lost when you close RStudio</span></label><label><input type=\"radio\" autocomplete=\"off\" name=\"radio_LLWJJXHLIE\" value=\"answer\"></input> <span>The code runs but the result is not shown until you save the script</span></label></div>\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
