@@ -163,7 +163,7 @@ the `pacman` library was developed to handle libraries in R more easily. Its mai
 pacman::p_load(rio, here, tidyverse)
 ```
 
-Notice this little **paradox**: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install `pacman` in your computer you will need to use the basic `instal.packages()` and `library()` functions. Once installed, we have a little trick under the sleeve called `package::function()`
+Notice this little **paradox**: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install `pacman` in your computer you will need to use the basic `install.packages()` and `library()` functions. Once installed, we have a little trick under the sleeve called `package::function()`
 
 ::: callout-tip
 ### `package::function()` syntax
@@ -256,11 +256,11 @@ imd_raw <- rio::import(here::here("data", "raw", "imd_S1.xlsx"))
 Two things are happening here:
 
 - `here::here()` builds the path to the file
-- `rio::import()` reads the file and stores it as an object called `imd` in your Environment
+- `rio::import()` reads the file and stores it as an object called `imd_raw` in your Environment
 
 Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.
 
-**Action** — Check your Environment panel — you should see `imd` appear there. What is different with this object compared with the previous ones?
+**Action** — Check your Environment panel — you should see `imd_raw` appear there. What is different with this object compared with the previous ones?
 
 ------------------------------------------------------------------------
 
@@ -271,14 +271,14 @@ Notice how we used one function to crate an output (a computer path) that is the
 Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be spitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking
 
 This is what you practiced and learned:
-|  |  |
+| | |
 |------------------------------------|------------------------------------|
 | **R Project** | A self-contained workspace anchored to a folder with a `.Rproj` file |
 | **Folder structure** | `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role |
 | **`install.packages()`** | Downloads a package to your computer — once per machine |
-| **`update.packages()`** | Updated an installed package to its more recent version — periodically |
+| **`update.packages()`** | Updates an installed package to its most recent version — periodically |
 | **`library()`** | Loads a package for your current session — every time you open R |
-| **`pacman::p_load()`** | Install or Update (if needed) and Loads a package |
+| **`pacman::p_load()`** | Installs or updates (if needed) AND loads a package |
 | **`here::here()`** | Builds portable file paths from your project root |
 | **`rio::import()`** | Reads data files into R as objects |
 

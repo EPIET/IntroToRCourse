@@ -11,7 +11,7 @@ format:
 library(webexercises)
 ```
 
-You head of department, Kassandra, has just handed you a small sample of the unit's surveillance data set (`imd_S1.xlsx`) — a few dozen cases from the invasive meningococcal disease registry. They are still working on your data permit, but this very little linelist can be useful for you to become acquainted with the data, and do a bit of practice before the actual work begins in a few days
+Your head of department, Kassandra, has just handed you a small sample of the unit's surveillance data set (`imd_S1.xlsx`) — a few dozen cases from the invasive meningococcal disease registry. They are still working on your data permit, but this very little linelist can be useful for you to become acquainted with the data, and do a bit of practice before the actual work begins in a few days
 
 *"Get familiar with it"*, she said. Before any analysis, before any cleaning, before any conclusions: you need to know what you are working with. That is what this exercise is about. If you haven't done it yet, go to the data set page to learn about the data you will be using through this course.
 
@@ -47,6 +47,13 @@ The parallel is exact:
 
 This model will not change. Every function you learn from here on fits this structure — the verbs will multiply, but the grammar stays the same.
 
+::: callout-tip
+### Spelling and capitalisation matter !
+The language analogy also applies to spelling, R will not understand if you type `mena` instead of `mean`.
+
+R is case-sensitive, it will not understand `MEAN` or `Mean`, only `mean`.
+:::
+
 ### Your first verbs
 
 Let us start with three simple functions that ask questions about your data set:
@@ -67,6 +74,7 @@ Each of these is a verb acting on the same object (`imd_raw`) but asking a diffe
 - `names()` — *"What are the column names?"*
 
 Notice that none of these need additional arguments. The object alone is enough. Some verbs are simple — just an action and a target.
+
 
 ```{r}
 #| echo: false
@@ -111,11 +119,11 @@ This tells R: *"From the object `imd_raw`, give me the column called `age`."* R 
 Notice when you write the `$` operator after the dataframe name, RStudio opens a little pop-up list containing the variable names. This can make it easier to navigate, and you can also start typing the name and the available names will narrow down to match your "search"
 :::
 
-As any other piece of information in R, you could very well start from loaded data and extract one variable into a new object for further use. Let'd do it for the sake of teaching - and then you will understand why it wouldn't be neccessary in the first place
+As any other piece of information in R, you could very well start from loaded data and extract one variable into a new object for further use. Let's do it for the sake of teaching - and then you will understand why it wouldn't be necessary in the first place
 
 **Action** — Save the age of your cases in a new object named `patients_age`
 
-And, since we have the object in our Environment, let's show something else. Before, you used `nrow()` to ask how many observations/row the data had. Now we have a vector, and we want to know how many values it contains, for which we have a function called `lenght()`
+And, since we have the object in our Environment, let's show something else. Before, you used `nrow()` to ask how many observations/row the data had. Now we have a vector, and we want to know how many values it contains, for which we have a function called `length()`
 
 **Action** — Compare the number of rows in `imd_raw` and the values contained in `patients_age`. Would you create an object for this action?
 
@@ -178,7 +186,7 @@ Read the output of each one carefully. Notice that `range()` returns two values 
 This is what you practiced and learned:
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Grammar Model** | Function = verb, object = what to act on, arguments = modifiers |
 | **`nrow()` , `ncol()` , `names()`** | Ask basic questions about a dataframe's structure |
 | **`$`** | Extracts a column from a dataframe as a vector |

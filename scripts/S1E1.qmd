@@ -199,8 +199,8 @@ This is what you practiced and learned:
 |-------------------|-----------------------------------------------------|
 | **Rstudio panels** | Console, Script and Environment |
 | **Console vs Script** | One saves the code as a text document, the other just executes it and looses it |
-| **Execute code** | Code run from the scrip using "run" button or Ctrl /Cmd + Enter |
-| **Print code** | Code that is executed without assignment that is shown on the console and then dissapears |
+| **Execute code** | Code run from the script using "run" button or Ctrl /Cmd + Enter |
+| **Print code** | Code that is executed without assignment that is shown on the console and then disappears |
 | **Assignment** | When information is stored in new or existing objects, appearing in the Environment |
 | **"Call" objects** | Write an object name and executing it to see its content on the console or panel |
 

@@ -1,5 +1,5 @@
 ---
-title: "Copywright"
+title: "Copyright"
 sidebar: false
 toc: false
 ---
