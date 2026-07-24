@@ -1,0 +1,114 @@
+---
+title: "Intro to Data Cleaning"
+subtitle: "Session 3 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+```
+
+Welcome back!
+
+How did you like working with the Tidyverse? Maybe before session 2 you believed working with code and data was more complicated, but your department colleagues handled you some nice, clean data you were able to use for getting yourself comfortable with your new tasks ahead. Today, your data permit was finally cleared and you can start working with the actual data from the surveillance registry.
+
+Kassandra has assigned you your first surveillance project: creating a new cleaning script for IMD using the most up-to-date R pipeline to replace the old one that was still in STATA. You can use the data from yesterday's session as a reference of how it should like at the end. Use the data dictionary to learn about the variables, and follow the instructions you will find during the exercises to arrive to the final cleaned format desired.
+
+In this exercises, you will learn the basics of data cleaning, starting with exploring your data to identify the errors and fix variables when needed. We will use this cleaned data in the following sessions, so back to work
+
+## Before you start
+
+Start the exercise by initializing a new cleaning script and name it `IMD_Cleaning.R`. Write the first pieces of information, activate the required libraries using `p_load()` and load the dirty dataset from `IMD_Sample_Dirty.xlsx` that you will find on the data folder. Save the data in an object named `imd_raw`
+
+Nothing new at this point!
+
+The whole exercise will become a single tidy pipe with all steps chained together. Initialize the chain by creating a new object called `imd_cleaning` to make sure we preserve the original data - trust me, you will need it!
+
+## Part 1 · Variable names
+
+The first thing you do with any new data is look at it. Before plotting, filtering, or calculating anything, you need to know what you are working with. The most straightforward way is by clicking on the object name in the environment window to open a data viewer tab (but you know this already). Take a moment to go through the dirty data, and compare it with the version you used yesterday. How many different things can you spot?
+
+Start with the column names:
+
+``` r
+names(imd_wk)
+```
+
+You should see something like this:
+
+```         
+ [1] "Disease"              "RegionID"             "Age"                 
+ [4] "Age (Months)"         "Sex"                  "KeyYear"             
+ [7] "KeyDate"              "Symptom onset date"   "ClinicalPresentation"
+[10] "Death"                "Country"              "Imported"            
+[13] "Diagnostic Date"      "Serogroup"            "Type of Case"        
+[16] "Lab Confirmed"
+```
+
+**Action** — Look carefully at these 16 names. How many problems can you spot before reading on?
+
+::: callout-note
+### What makes a bad column name in R?
+
+R can work with almost any column name, but some names cause consistent problems:
+
+-   **Capital letters** — R is case-sensitive. `Age` and `age` are two completely different things. A column called `Age` will break any code that references `age`.
+-   **Spaces** — A name with a space (`Symptom onset date`) must always be wrapped in backticks: `` `Symptom onset date` ``. Forgetting one backtick anywhere in your script causes an error.
+-   **Special characters** — Parentheses, slashes, and dots (`Age (Months)`, `Type of Case`) create the same backtick problem and can interfere with some functions.
+
+The convention in R is **snake_case**: all lowercase, words separated by underscores. `symptom_onset_date`. Clean, portable, predictable.
+:::
+
+### The smart fix
+
+The `janitor` package provides a function that automates the fixing of names of all variables: `clean_names()`. And it is compatible with the tidyverse
+
+**Action** — Start your cleaning pipeline with `clean_names()` and examine the output. Would you still change some name?
+
+**Action** — The age variable has two columns, one for year and one for months, however only one of the two is clearly identified. Let's manually change the `age` column for a more specific `age_years` matching `age_months` using the appropiate renaming function
+
+**Action** — Since we are here, let's also modify `key_year` to just `year`
+
+### The manual fix
+
+`clean_names()` really did a great job there, potentially saving you a fair amount of time. Should you had chosen the manual approach from the beginning, the code would look like this
+
+Notice how we had to write by hand every name in the old a new form. How many variables contain characters that require backticks (blank spaces, parenthesis). This increases the probability of spelling mistakes.
+
+```{r}
+#| eval: false
+#| # Manual name fixing
+imd_cleaning <- imd_wk %>%
+  rename(
+    # New name              # Old Name
+    disease               = Disease,
+    region_id             = RegionID,
+    age                   = Age,
+    age_months            = `Age (Months)`,
+    sex                   = Sex,
+    key_year              = KeyYear,
+    key_date              = KeyDate,
+    symptom_onset_date    = `Symptom onset date`,
+    clinical_presentation = ClinicalPresentation,
+    death                 = Death,
+    country               = Country,
+    imported              = Imported,
+    diagnostic_date       = `Diagnostic Date`,
+    serogroup             = Serogroup,
+    type_of_case          = `Type of Case`,
+    lab_confirmed         = `Lab Confirmed`
+  )
+```
+
+
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```

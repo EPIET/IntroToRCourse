@@ -113,7 +113,6 @@ Press `Enter`. Nothing happens — the cursor just moves to the next line. That'
 
 Watch what happens: the line is sent to the Console, executed, and the result appears there. The line stays in your script.
 
-
 ------------------------------------------------------------------------
 
 ::: callout-note
@@ -196,7 +195,7 @@ opts_b <- c(
 This is what you practiced and learned:
 
 |  |  |
-|-------------------|-----------------------------------------------------|
+|----|----|
 | **Rstudio panels** | Console, Script and Environment |
 | **Console vs Script** | One saves the code as a text document, the other just executes it and looses it |
 | **Execute code** | Code run from the script using "run" button or Ctrl /Cmd + Enter |

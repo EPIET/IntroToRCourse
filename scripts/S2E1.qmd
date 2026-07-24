@@ -1,0 +1,9 @@
+---
+title: "Data manipulation using Tidyverse: the 4 verbs"
+subtitle: "Session 2 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+```

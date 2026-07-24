@@ -34,8 +34,8 @@ This is the Grammar Model we will use throughout the course:
 verb(object, argument = specification)
 ```
 
-- In plain English: *"Calculate the mean of age, removing missing values."*
-- In R: `mean(imd_raw$age, na.rm = TRUE)`
+-   In plain English: *"Calculate the mean of age, removing missing values."*
+-   In R: `mean(imd_raw$age, na.rm = TRUE)`
 
 The parallel is exact:
 
@@ -49,6 +49,7 @@ This model will not change. Every function you learn from here on fits this stru
 
 ::: callout-tip
 ### Spelling and capitalisation matter !
+
 The language analogy also applies to spelling, R will not understand if you type `mena` instead of `mean`.
 
 R is case-sensitive, it will not understand `MEAN` or `Mean`, only `mean`.
@@ -69,12 +70,11 @@ names(imd_raw)
 
 Each of these is a verb acting on the same object (`imd_raw`) but asking a different question:
 
-- `nrow()` — *"How many rows does this have?"*
-- `ncol()` — *"How many columns does this have?"*
-- `names()` — *"What are the column names?"*
+-   `nrow()` — *"How many rows does this have?"*
+-   `ncol()` — *"How many columns does this have?"*
+-   `names()` — *"What are the column names?"*
 
 Notice that none of these need additional arguments. The object alone is enough. Some verbs are simple — just an action and a target.
-
 
 ```{r}
 #| echo: false
