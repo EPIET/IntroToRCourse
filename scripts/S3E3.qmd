@@ -1,0 +1,235 @@
+---
+title: "Recoding variables"
+subtitle: "Session 3 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+
+pacman::p_load(tidyverse, rio, here, janitor)
+
+imd_raw <- import(here("data", "IMD_Sample_Dirty.xlsx"))
+
+imd_cleaning <- imd_raw %>%
+  clean_names() %>%
+  rename(
+    age_years = age,
+    year      = key_year
+  )%>% 
+  mutate(
+    age_months         = as.numeric(age_months),
+    key_date           = ymd(key_date),
+    symptom_onset_date = ymd(symptom_onset_date),
+    diagnostic_date    = ymd(diagnostic_date)
+  )
+```
+
+Column names: ***fixed***. Variable types: ***fixed***. Now let's go for one of the messiest parts.
+
+Categorical variables in surveillance data are rarely clean. Depending on the data entry process of the system you are working with, and the quality checks, it's not unusual to find variables like `sex` entered as `M`, `m`, `Male`, `MALE`, or `masculino` depending on who filled in the form and on what day. When working with registry-based, structured surveillance data, this is less likely to occur, but think for example on data that gets collected on the spot i.e. during an outbreak, or ad-hoc excel collection tools. Or in case of different data merged together, for example lab + clinical data, where labels and variables codes that make total sense for one side are not so straightforward for the other.
+
+None of this is a data *error* exactly — it is just the reality of data collected by humans, across time, in a registry. Your job is to impose consistency.
+
+## Part 4 · Identify the problem first
+
+### Inspecting categories
+
+Before you recode anything, you need to see what you are dealing with. Two functions are useful here:
+
+- `unique()` — shows you every distinct value that appears in a column, with no repetition
+- `table()` — shows you every distinct value *and* how many times each one appears
+
+**Action** — Take a minute to think which variables you should explore to detect potential mistakes or corrections needed
+
+::: {.callout-tip collapse="true"}
+## Which variables are important to check?
+
+**All your categorical variables** should be explored at the very beginning of the cleaning pipe. Even small unnoticed errors can have an impact on your final output if you are not careful enough.
+
+Don't forget about variables that even if not categorical, may be hiding potential sources of errors
+:::
+
+**Action** — Once variables are identified, run `unique()` on all of them to unveil their values and start thinking on transformations needed
+
+::: {.callout-important appearance="simple" icon="false"}
+**How many variables contain very clear mistakes that need recoding**?
+
+`r fitb(2)`
+
+**Can you identify other variables that, even if not properly "mistakes", contain problematic values or would benefit from our intervention**?
+
+`r fitb(3)`
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon="false"}
+## See the answer
+
+Two variables need error fixing: `sex` and `type_of_case`, as both contain different versions of the same categories, therefore we will need to recode them
+
+Other three variables should have drawn your attention: `disease`, `imported` and `serogroup`. Don't worry if at first you didn't flag them as "problematic" because it is not so straightforward. We will work with all them in this exercise, and explain why they need attention
+:::
+
+#### Before you continue
+
+**Action** — Explore again the variable `serogroup` using both `unique()` and `table()`. Do you spot a key difference in the output?
+
+And yes, you are right: `table()` did not include the `NA` values in its output, thus potentially misguiding you when exploring variables. `NAs` are a fundamental part of a variable: they can represent legit missing information that can stay, or can be an indicator than something is wrong and require your attention.
+
+You can explore existing categories or values on a variable easily using `unique()` at this point. Just for you to know, you can force `table()` to include `NAs` by setting the argument `useNA = "always"`
+
+``` r
+table(imd_cleaning$serogroup, useNA = "always")
+```
+
+## Part 5 · Recoding the variables
+
+Let's the `recode()` function from the `dplyr` package to fix two variables: `sex` and `type_of_case`. It maps old values to new ones using a clean formula syntax:
+
+``` r
+recode_values(column, 
+              old_value         ~ "New Value",  # for single values
+              c("old1", "old2") ~ "New Value",  # for multiple values at onc
+              default = NA)                     # for non-matched values
+```
+
+It works inside `mutate()` calls, and you can overwrite existing variables or create new ones, depending on your needs
+
+- If you are just fixing a few values, the most simple approach is to modify existing columns
+
+- If you are completely changing a variable, it can be interesting to create a new one
+
+### Fixing sex and type_of_case
+
+The `sex` column has four distinct values when it should have two: `"M"` and `"m"` both mean Male, `"F"` and `"f"` both mean Female. For `type_of_case` we see how the secondary cases category is spitted into `"Second"` and `"Sec"` values, we need to correct it to only "Second" values
+
+**Action** — In the same `mutate()` withing your cleaning pipeline, modify `sex` to recode it into `"Male"` and `"Female"` categories, using `default = NA` for anything else.
+
+**Action** — In the same `mutate()`, change `type_of_case` so `"Sec"` turns into `"Second"`
+
+**Action** — After running the code, check with `unique()`that the recode went well for both variables
+
+### Fixing serogroup
+
+The `serogroup` column has a different problem in nature: it contains database codes that are not useful to present the data, `"B_NeisMen"`, `"C_NeisMen"`, and so on. Also, it contains too many cateogires that we could perfectly collapse into broader categories for the sake of simplicity - including making decissions about the `NA` values
+
+This is more related to **label** creation, more than error fixing. If during the first exploration of the variable you did not flag it as problematic that's ok. These decisions are made based on epidemiological, institutional or reporting criteria.
+
+**Action** — Inspect `serogroup` with `unique()` to see all the codes that need mapping.
+
+For this exercise, we will produce the following labels for our variables:
+
+- `"B"`, `"C"`, `"W"`, `"Y"` will represent the major serogroups
+
+- `"Other"` will group together the A and Other categories
+
+- `"Non Tipable"` will replace the NT category
+
+- `"Unknown"` will replace the missing values
+
+**Action** — Add `serogroup` to the same `mutate()` block and use `recoe_values()` to produce the necessary changes.
+
+**Action** — Verify the changes.
+
+::: callout-note
+### What happens to values not covered by your rules?
+
+With `recode_values()`, any value not listed in your mapping rules gets handled by the `default` argument. If you do not set `default`, unlisted values are left unchanged — which can be a silent problem if you missed a category. Setting `default = NA` makes the function strict: anything not explicitly mapped becomes missing, which is usually what you want in surveillance data.
+:::
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+opts1 <- c(
+  "It shows the first few values of a column, in order",
+  answer = "It returns every distinct value in a column, with no repetition",
+  "It counts how many times each value appears",
+  "It removes duplicate rows from a dataframe"
+)
+```
+
+**What does `unique()` return?**
+
+`r longmcq(opts1)`
+
+```{r}
+#| echo: false
+opts2 <- c(
+  "Nothing — `table()` always shows NA counts",
+  answer = "It makes NA appear as its own category in the count",
+  "It removes NA values from the table",
+  "It replaces NA with zero in the count"
+)
+```
+
+**What does `useNA = "always"` do in `table()`?**
+
+`r longmcq(opts2)`
+
+```{r}
+#| echo: false
+opts3 <- c(
+  answer = '`c("M", "m") ~ "Male"`',
+  '`c("Male") ~ c("M", "m")`',
+  '`"M" & "m" ~ "Male"`',
+  '`recode("M", "m", to = "Male")`'
+)
+```
+
+**How do you map multiple old values to one new value in `recode_values()`?**
+
+`r longmcq(opts3)`
+
+```{r}
+#| echo: false
+opts4 <- c(
+  "They are left unchanged",
+  "The function throws an error",
+  answer = "They become `NA` — any unlisted value is treated as missing",
+  "They are removed from the dataframe"
+)
+```
+
+**In `recode_values()`, what happens to a value that is not listed in any of your mapping rules if you set `default = NA`?**
+
+`r longmcq(opts4)`
+
+------------------------------------------------------------------------
+
+## Exercise summary
+
+**Your categorical variables are now consistent.** In E4 you will create two new derived variables, and produce the final clean dataset.
+
+This is what you learned today:
+
+| Function | Package | What it does |
+|----|----|----|
+| `unique()` | base R | Returns every distinct value in a column |
+| `table()` | base R | Counts occurrences of each value; use `useNA = "always"` |
+| `recode_values()` | dplyr | Maps old values to new ones using formula syntax |
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution — only after trying yourself!
+
+``` r
+mutate(
+  sex = recode_values(
+    sex,
+    c("M", "m") ~ "Male",
+    c("F", "f") ~ "Female",
+    default = NA
+  ),
+  serogroup = recode_values(
+    serogroup,
+    "B_NeisMen" ~ "B",
+    "C_NeisMen" ~ "C",
+    "Y_NeisMen" ~ "Y",
+    "W_NeisMen" ~ "W",
+    "NT_NeisMen" ~ "Non Tipable",
+    c("Other_NeisMen", "A_NeisMen") ~ "Other",
+    NA ~ "Unknown"
+  )
+)
+```
+:::

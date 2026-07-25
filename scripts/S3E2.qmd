@@ -1,0 +1,247 @@
+---
+title: "Variable Class"
+subtile: "Session 3 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+pacman::p_load(tidyverse, rio, here, janitor)
+
+imd_raw <- import(here("data", "IMD_Sample_Dirty.xlsx"))
+
+imd_cleaning <- imd_raw %>%
+  clean_names() %>%
+  rename(
+    age_years = age,
+    year      = key_year
+  )
+```
+
+Column names are now sorted. But a clean name does not mean the column contains the right *type* of data — and in R, type matters more than you might expect. A number stored as text cannot be used in calculations. A date stored as text cannot be used to compute time intervals or epidemiological weeks. R will not warn you about this automatically. It will just quietly produce wrong results, or throw an error at the worst possible moment.
+
+So the second step of any cleaning pipeline is to check what R *thinks* each variable is, and fix anything that is wrong.
+
+## Part 2 · Inspecting variable types
+
+You have already met `names()`. Now you need a function that shows you the type of each column at a glance. Run this on your cleaning object:
+
+``` r
+glimpse(imd_cleaning)
+```
+
+You should see something like this:
+
+```{r}
+#| echo: false
+glimpse(imd_cleaning)
+```
+
+Look at the type tags in angle brackets: `<chr>`, `<dbl>`, `<lgl>`. These are R's way of telling you what it thinks each column is.
+
+**Action** — Before reading on, look at the output and identify which columns have a type mismatch — where what R thinks the variable is does not match what it should actually be.
+
+**Action** — Try out the other functions for examining data: `str()`, `summary()`, `head()`
+
+::: {.callout-note collapse="true"}
+## The main variable types you will encounter
+
+| Tag      | Type             | Example                       |
+|----------|------------------|-------------------------------|
+| `<chr>`  | Character (text) | `"Male"`, `"Narnia"`, `"Yes"` |
+| `<dbl>`  | Double (number)  | `23`, `1999`, `3.5`           |
+| `<lgl>`  | Logical          | `TRUE`, `FALSE`, `NA`         |
+| `<date>` | Date             | `1999-03-12`                  |
+
+A column with dates showing as `<chr>` is one of the most common problems in real surveillance data. R sees `"1999-03-12"` as just a string of characters — it has no idea it represents a point in time.
+:::
+
+**Did you realize the ghost column?** Hint: it also bears one strange new variable type you hadn't seen before. Take a moment to look for it, and try to guess what may be happening
+
+## Part 3 · Fixing variables types
+
+### Fixing numbers
+
+The `age_months` column is stored as `<chr>`. This means R cannot use it in any calculation. The fix is straightforward: inside a `mutate()`, you overwrite the column with its numeric version using `as.numeric()`
+
+Remember that `mutate()` can modify existing variables
+
+``` r
+mutate(
+  variable = function(varaible)
+)
+```
+**Action** — Add this `mutate()` to your cleaning pipeline to fix `age_months`, run it, and check `glimpse()` again. Did `age_months` change to `<dbl>`?
+
+You will likely see this warning in your console:
+
+```r         
+Warning: NAs introduced by coercion
+```
+
+::: {.callout-tip}
+## What does "NAs introduced by coercion" mean?
+Do not panic. This is R being honest with you.
+When R tries to convert a character column to numeric, it succeeds for values like `"2"` or `"8"`. But some cells may contain text that cannot be converted — like a genuine missing value entered as blank or a data entry error. R converts those to `NA` and tells you about it.
+
+In this dataset this is expected and correct behavior. Warnings are only that: warnings. They want you to be aware something happened that is not an error inherently
+:::
+
+### Fixing dates
+
+Dates are the most common source of pain in surveillance data — and the most important to get right, since almost every epidemiological analysis depends on them.
+
+Look at your `glimpse()` output again. Three date columns are stored as `<chr>`:
+
+- `key_date`
+- `symptom_onset_date`  
+- `diagnostic_date`
+
+The `lubridate` package (part of tidyverse) provides a family of functions to convert text into real dates. The function name tells R what order to expect the date components:
+
+
+- `ymd()` → year, month, day (e.g. `"1999-03-12"`)
+- `dmy()` → day, month, year (e.g. `"12/03/1999"`)
+- `mdy()` → month, day, year (e.g. `"03/12/1999"`)
+
+**Action** — Check the actual values in your date columns to determine which format each one uses
+
+**Action** — Add the three date conversions to your `mutate()`. Use the right function for each column based on what you observed.
+
+::: {.callout-note collapse="true"}
+### Why does date format matter so much?
+
+`"03/12/1999"` is that the 3rd of December, or the 12th of March? Without knowing the format, R cannot tell. If you apply the wrong function, R may either return `NA` for every row, or worse — silently parse the dates incorrectly and give you plausible-looking wrong values.
+
+Always check the raw values before converting. Always.
+:::
+
+**Action** — After adding all conversions, run `glimpse()` one more time. Confirm that `age_months` is now `<dbl>` and that `key_date` and `symptom_onset_date` are now `<date>`. What about `diagnostic_date`?
+
+### Other functions for changing class
+
+You just used two ver relevant functions: `as.numeric()` and `ymd()` for numbers and dates. But other relevant functions exist and are needed:
+
+- `as.character()` transforms column values into text
+- `as.integer()` alternative version for numeric transformation
+- `as.factor()` a factor variable is slightly different, and will be covered further into the course
+- Many otrher `as.something()` functions exist that cover topics beyond the course (matrix, tibbles, vectors, etc.)
+
+-------------------------------------
+
+```{r}
+#| echo: false
+opts1 <- c(
+  "It shows the first 6 rows of a dataframe",
+  "It prints a summary of means and quartiles for each column",
+  answer = "It shows each column with its type tag and first few values",
+  "It checks for missing values in each column"
+)
+```
+
+**What does `glimpse()` show you that `head()` does not?**
+
+`r longmcq(opts1)`
+
+---
+
+```{r}
+#| echo: false
+opts2 <- c(
+  answer = "`<chr>`",
+  "`<dbl>`",
+  "`<date>`",
+  "`<lgl>`"
+)
+```
+
+**A date column that has not yet been converted will appear in `glimpse()` as:**
+
+`r longmcq(opts2)`
+
+
+```{r}
+#| echo: false
+opts3 <- c(
+  "It means the conversion failed and all values are now missing",
+  "It means the column contained non-numeric values that became NA — always a problem",
+  answer = "It means some values could not be converted to numeric and became NA — expected if the column had missing entries",
+  "It means you used the wrong function and should try `as.character()` instead"
+)
+```
+
+**You run `as.numeric()` on a column and see "NAs introduced by coercion". What does this mean?**
+
+`r longmcq(opts3)`
+
+::: {.callout-note collapse="true"}
+## 💬 Explanation
+
+"NAs introduced by coercion" is R being transparent, not alarming. When converting text to numbers, any value that cannot be parsed as a number — blanks, `"unknown"`, stray letters — becomes `NA`. This is the correct behaviour. The question is always whether the number of new NAs is what you would expect given your data.
+:::
+
+
+```{r}
+#| echo: false
+opts4 <- c(
+  "`mdy()`  — month, day, year",
+  "`dmy()`  — day, month, year",
+  answer = "`ymd()` — year, month, day",
+  "Any of them — lubridate detects the format automatically"
+)
+```
+
+**Which function would you use to convert the string `"1999-03-12"` to a date?**
+
+`r longmcq(opts4)`
+
+----
+
+## Exercise summary
+
+**Your columns now have the right types.** Numbers are numbers, dates are dates. In E3 you will tackle the messier problem: categorical variables with inconsistent labels. 
+
+We used these functions for achieving our goal:
+
+| Function | Package | What it does |
+|---|---|---|
+| `glimpse()` | dplyr | Shows column types and first values — your primary inspection tool |
+| `as.numeric()` | base R | Converts a column to numeric; non-convertible values become `NA` |
+| `ymd()` / `dmy()` | lubridate | Converts text to dates; function name = expected order of components |
+
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution - only after trying yourself!
+
+This is the full `mutate()` block to add to your pipeline after the name-cleaning step:
+
+``` r
+# Initialize cleaning pipe
+imd_cleaning <- imd_raw %>%
+  # Fix col names
+  clean_names() %>%
+  rename(
+    age_years = age,
+    year      = key_year
+  ) %>% 
+  # Change variables type
+  mutate(
+    age_months         = as.numeric(age_months),
+    key_date           = ymd(key_date),
+    symptom_onset_date = ymd(symptom_onset_date),
+    diagnostic_date    = ymd(diagnostic_date)
+  )
+```
+
+:::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```

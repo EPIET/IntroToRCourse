@@ -1,0 +1,15 @@
+{
+  "hash": "f79805e86fb5e9440356dbdeb883cd5a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Data manipulation using Tidyverse: the 4 verbs\"\nsubtitle: \"Session 2 practical exercises\"\n---\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -13,8 +13,8 @@ website:
     left:
       # - text: "---"
       #   href: "scripts/copywright.qmd"
-      - text: "Copywright"
-        href: "scripts/copywright.qmd"
+      - text: "Copyright"
+        href: "scripts/copyright.qmd"
       - text: "Practical Sessions"
         href: "scripts/S0_index.qmd"   
       - text: "Resources"
@@ -41,6 +41,15 @@ website:
           - "scripts/S1E1.qmd"
           - "scripts/S1E2.qmd"
           - "scripts/S1E3.qmd"
+      - section: "Session 2"
+        contents:
+          - "scripts/S2E1.qmd"
+      - section: "Session 3"
+        contents:
+          - "scripts/S3E1.qmd"
+          - "scripts/S3E2.qmd"
+          - "scripts/S3E3.qmd"
+          - "scripts/S3E4.qmd"
 
   page-footer:
     left: "© 2026 – Intro to R Course"
@@ -53,7 +62,7 @@ format:
   html:
     theme: cosmo
     page-layout: full
-    code-fold: true
+    code-fold: false
     code-summary: "Show the code"
     code-tools: true
     code-copy: true
@@ -67,6 +76,7 @@ format:
       - include/webex.css
     include-after-body: 
       - include/webex.js 
+    page-navigation: true
     
 grid:
   body-width: 1500px

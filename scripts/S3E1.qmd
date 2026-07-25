@@ -10,7 +10,7 @@ library(webexercises)
 
 Welcome back!
 
-How did you like working with the Tidyverse? Maybe before session 2 you believed working with code and data was more complicated, but your department colleagues handled you some nice, clean data you were able to use for getting yourself comfortable with your new tasks ahead. Today, your data permit was finally cleared and you can start working with the actual data from the surveillance registry.
+How did you like the Tidyverse? Maybe before session 2 you believed working with code and data was more complicated, but your department colleagues handled you some nice, clean data you were able to use for getting yourself comfortable with your new tasks ahead. Today, your data permit was finally cleared and you can start working with the actual data from the surveillance registry.
 
 Kassandra has assigned you your first surveillance project: creating a new cleaning script for IMD using the most up-to-date R pipeline to replace the old one that was still in STATA. You can use the data from yesterday's session as a reference of how it should like at the end. Use the data dictionary to learn about the variables, and follow the instructions you will find during the exercises to arrive to the final cleaned format desired.
 
@@ -31,7 +31,7 @@ The first thing you do with any new data is look at it. Before plotting, filteri
 Start with the column names:
 
 ``` r
-names(imd_wk)
+names(imd_raw)
 ```
 
 You should see something like this:
@@ -52,9 +52,9 @@ You should see something like this:
 
 R can work with almost any column name, but some names cause consistent problems:
 
--   **Capital letters** — R is case-sensitive. `Age` and `age` are two completely different things. A column called `Age` will break any code that references `age`.
--   **Spaces** — A name with a space (`Symptom onset date`) must always be wrapped in backticks: `` `Symptom onset date` ``. Forgetting one backtick anywhere in your script causes an error.
--   **Special characters** — Parentheses, slashes, and dots (`Age (Months)`, `Type of Case`) create the same backtick problem and can interfere with some functions.
+- **Capital letters** — R is case-sensitive. `Age` and `age` are two completely different things. A column called `Age` will break any code that references `age`.
+- **Spaces** — A name with a space (`Symptom onset date`) must always be wrapped in backticks: `` `Symptom onset date` ``. Forgetting one backtick anywhere in your script causes an error.
+- **Special characters** — Parentheses, slashes, and dots (`Age (Months)`, `Type of Case`) create the same backtick problem and can interfere with some functions.
 
 The convention in R is **snake_case**: all lowercase, words separated by underscores. `symptom_onset_date`. Clean, portable, predictable.
 :::
@@ -65,7 +65,7 @@ The `janitor` package provides a function that automates the fixing of names of 
 
 **Action** — Start your cleaning pipeline with `clean_names()` and examine the output. Would you still change some name?
 
-**Action** — The age variable has two columns, one for year and one for months, however only one of the two is clearly identified. Let's manually change the `age` column for a more specific `age_years` matching `age_months` using the appropiate renaming function
+**Action** — The age variable has two columns, one for year and one for months, however only one of the two is clearly identified. Let's manually change the `age` column for a more specific `age_years` matching `age_months` using the appropriate renaming function
 
 **Action** — Since we are here, let's also modify `key_year` to just `year`
 
@@ -73,7 +73,7 @@ The `janitor` package provides a function that automates the fixing of names of 
 
 `clean_names()` really did a great job there, potentially saving you a fair amount of time. Should you had chosen the manual approach from the beginning, the code would look like this
 
-Notice how we had to write by hand every name in the old a new form. How many variables contain characters that require backticks (blank spaces, parenthesis). This increases the probability of spelling mistakes.
+Notice how we had to write by hand every name in the old a new form. How many variables contain characters that require back-ticks (blank spaces, parenthesis). This increases the probability of spelling mistakes.
 
 ```{r}
 #| eval: false
@@ -100,7 +100,105 @@ imd_cleaning <- imd_wk %>%
   )
 ```
 
+Now imagine your data contains 30, or 60, or 130 variables. It's not so uncommon, actually
 
+So the usual pattern for variable name cleaning will be `clean_names()` followed by a manual `rename()` in a tidy pipeline. `clean_names()` applies a set of transformations to every column name at once:
+
+- Converts everything to lowercase
+- Replaces spaces and special characters with underscores
+- Removes duplicate underscores
+- Handles accented characters
+
+It does not know what your columns *mean* — it just makes the names syntactically safe and consistent.
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+opts1 <- c(
+  answer = "It converts all column names to lowercase snake_case automatically",
+  "It renames specific columns using a new_name = old_name syntax",
+  "It removes columns that contain missing values",
+  "It checks whether column names match a predefined standard"
+)
+```
+
+**What does `clean_names()` do?**
+
+`r longmcq(opts1)`
+
+```{r}
+#| echo: false
+opts2 <- c(
+  "janitor",
+  answer = "tidyverse (dplyr)",
+  "rio",
+  "base R — no package needed"
+)
+```
+
+**`rename()` belongs to which package?**
+
+`r longmcq(opts2)`
+
+```{r}
+#| echo: false
+opts3 <- c(
+  "`rename(old_name = new_name)`",
+  answer = "`rename(new_name = old_name)`",
+  "`rename(old_name, new_name)`",
+  "`rename(new_name, old_name)`"
+)
+```
+
+**Which syntax is correct for `rename()`?**
+
+`r longmcq(opts3)`
+
+```{r}
+#| echo: false
+opts4 <- c(
+  "Use `rename()` alone — it is more explicit and reliable",
+  "Use `clean_names()` alone — it handles everything automatically",
+  answer = "Use `clean_names()` first for the bulk of names, then `rename()` for specific adjustments",
+  "Use `names() <-` to overwrite column names directly"
+)
+```
+
+**What is the recommended workflow for cleaning column names in a real dataset?**
+
+`r longmcq(opts4)`
+
+------------------------------------------------------------------------
+
+## Exercise summary
+
+**Your dataset now has clean, consistent column names**. In the next exercise you will look inside those columns and fix their data types, the next step in data cleaning.
+
+These are the functions you learned in this exercise
+
+| Function | Package | What it does |
+|------------------------|------------------------|------------------------|
+| `names()` | base R | Returns or sets the column names of a dataframe |
+| `clean_names()` | janitor | Converts all names to lowercase snake_case automatically |
+| `rename()` | dplyr | Renames specific columns: `new_name = old_name` |
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution - only after trying yourself!
+
+This is how you initialize the data cleaning pipe and change the column's names
+
+``` r
+# Initialize cleaning pipe
+imd_cleaning <- imd_raw %>%
+  # Fix col names
+  clean_names() %>%
+  rename(
+    age_years = age,
+    year      = key_year
+  )
+```
+:::
 
 ```{=html}
 <script>

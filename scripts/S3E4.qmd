@@ -1,0 +1,371 @@
+---
+title: "Derived Variables & Export"
+subtitle: "Session 3 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+
+pacman::p_load(tidyverse, rio, here, janitor)
+
+imd_raw <- import(here("data", "IMD_Sample_Dirty.xlsx"))
+
+imd_cleaning <- imd_raw %>%
+  clean_names() %>%
+  rename(
+    age_years = age,
+    year      = key_year
+  ) %>%
+  mutate(
+    age_months         = as.numeric(age_months),
+    key_date           = ymd(key_date),
+    symptom_onset_date = ymd(symptom_onset_date),
+    diagnostic_date    = ymd(diagnostic_date)
+  ) %>%
+  mutate(
+    sex = recode_values(
+      sex,
+      c("M", "m") ~ "Male",
+      c("F", "f") ~ "Female",
+      default = NA
+    ),
+    type_of_case = recode_values(
+      type_of_case,
+      "Sec" ~ "Second",
+      default = NA
+    ),
+    serogroup = recode_values(
+      serogroup,
+      "B_NeisMen" ~ "B",
+      "C_NeisMen" ~ "C",
+      "Y_NeisMen" ~ "Y",
+      "W_NeisMen" ~ "W",
+      "NT_NeisMen" ~ "Non Tipable",
+      c("Other_NeisMen", "A_NeisMen") ~ "Other",
+      NA ~ "Unknown"
+    )
+  )
+```
+
+Column names: ***fixed***. Variable types: ***fixed***. Categories: ***fixed***. One last step remains.
+
+So far you have been cleaning what was already there. Now you need to *create* something new: two derived variables that do not exist in the raw data but are essential for any analysis — an age group classification and a case classification. After that, you will tidy up the dataset and export it as the clean file that will feed the rest of your work.
+
+## Part 6 · `case_when()` for complex tasks
+
+You already know `mutate()`: it creates or modifies variables, making use of supporting functions to enable variable creation. If you remember from previous sessions, we introduced `ifelse()` for simple two-way conditions (`age > 18`). But what happens when you need more than two categories or need to make use of other variables to define intrincate conditions? That is where `case_when()` comes in.
+
+`case_when()` evaluates a series of conditions in order and assigns the corresponding value to the first one that is `TRUE`. The syntax follows the same formula logic you already know from `recode_values()`:
+
+``` r
+case_when(
+  condition1 ~ "Value A",
+  condition2 ~ "Value B",
+  condition3 ~ "Value C",
+  TRUE       ~ "Everything else"
+)
+```
+
+The final `TRUE ~ "..."` is your safety net: it catches any row that did not match any of the conditions above. You should always include it — if you forget it, unmatched rows become `NA` silently.
+
+Here, `condition1` can represent any set of conditions using as many variables, logical criteria and complexity as needed. In session 2 we learned about logical operators, and now its time to put them to practice
+
+### Age groups
+
+The first derived variable is `age_group`. Epidemiological analysis of all diseases make use of age groups to categorize cases, defined according to every disease's specific age distribution. As meningococcal disease affects specially children, we will define the following age categories
+
+**Action** — Add a new `mutate()` to your pipeline that creates `age_group` using `case_when()` with the following categories:
+
+- \< 1
+
+- 1-4
+
+- 5-9
+
+- 10-14
+
+- 15-19
+
+- 20-24
+
+- 25-44
+
+- 45-64
+
+- 65+
+
+**Action** — After running it, check that all expected categories appear and the ***counts*** look plausible.
+
+::: callout-note
+### Conditions are evaluated in order — this matters
+
+`case_when()` stops at the first condition that is `TRUE` for each row. This means you can write overlapping conditions without conflict, as long as you order them correctly. In the age group example, a child aged 3 years satisfies both `age_years >= 1` and `age_years >= 1 & age_years < 5` — but because R evaluates conditions top to bottom and stops at the first match, you can be explicit about each range without worrying about overlap, as long as the most restrictive condition comes first.
+:::
+
+::: callout-important
+## Did you find this task boring and repetitive?
+
+It's only normal. Because logical conditions require explicit argument formulation, you are forced to write `age_years >= 5 & age_years < 10` at every single step. You can very easily slip writing one line, or mistake a `<` for a `<=` and the result will be messed up - something without you noticing. Imagine the impact it would have in an official disease report!
+
+This is a `case_when ()` classical exercise, to practice and become familiar with the use of the function. There are plenty of dedicated and more useful functions out there that will assist you in this specific task
+:::
+
+### Case classification
+
+The second derived variable we are creating is `case_classification`. This classification of cases is ubiquitous in epidemiology, and you will learn more about it during the Intro Course in a couple of weeks
+
+The classification logic for most communicable diseases surveillance is:
+
+- **Confirmed** — laboratory confirmation of the disease
+- **Probable** — compatible clinical presentation with and epidemiological link
+- **Suspected** — compatible clinical presentation without epidemiological link or laboratory confirmation
+- **Discarded** — none of the previous conditions are met
+
+This one is more complex because it combines information from will be combining information from different columns and creating the logical conditions required to classify cases accordingly
+
+**Action** — Identify in the data the columns needed to define the classification, and explore them to understand the existing categories and how to use them
+
+**Action** — Think carefully about the order of conditions for defining the categories before you write the code. Which category must be evaluated first, and why?
+
+::: {.callout-note collapse="true" appearance="simple" icon="false"}
+## See the answer
+
+We need the columns `lab_confirmed`, `type_of_case`, and `clinical_presentation` for the microbiological, epidemiological and clinical criteria.
+
+`Confirmed` must come first. If a case is lab confirmed, it should be classified as "Confirmed" regardless of what the other columns say — even if `type_of_case` or `clinical_presentation` are missing. If you place `Probable` or `Suspected` first, some confirmed cases could accidentally fall into those categories. In `case_when()`, order is logic.
+:::
+
+**Action** — Use `case_when()` to define a new variable `case_classification` with the following categories: `Confirmed`, `Probable`, `Suspected` and `Discarded`. Add it to the same `mutate()` block as `age_group` and implement the four-category classification.
+
+::: {.callout-tip collapse="true" appearance="simple"}
+## Hint
+
+`Probable` and `Suspected` rely on both negative (doesn't meet criteria) and positive conditions. The variables that define the conditions have multiple categories. Does it really matter whether one category or the other is present, or only the fact the the variable is not `NA`? Think about it
+:::
+
+**Action** — After creating the variable an executing the code, use `table()`to check the final count of cases on each classification
+
+::: {.callout-important appearance="simple" icon="false"}
+**How many confirmed cases of every category are there**?
+
+- Confirmed: `r fitb(1963)`
+- Probable: `r fitb(463)`
+- Suspected: `r fitb(214)`
+- Discarded: `r fitb(84)`
+:::
+
+## Part 7 · Final clean-up and export
+
+You are almost there. Data is now clean and ready to be used. Just one final note.
+
+The fact that data is clean doesn't mean that all the information contained within is valid or useful for us. In epidemiological surveillance, one of the worst errors we can make is count things that we shouldn't be counting. That happens when you include cases that doesn't match the criteria for being considered cases, or categories (years, regions, for example) that are not part of what you are exploring at the moment.
+
+At the same time, once cleaned, maybe not every column will be necessary for analyses, and we can get rid of noise
+
+### Filter unwanted records
+
+Remember at the beginning of the exercises when we flagged some variables but did nothing with them? I'm talking about `disease` and `imported` variables.
+
+**Action** — Explore both variables and think what we would like to filter out and why
+
+**Action** — Add a `filter()` at the end of your cleaning pipe
+
+::: {.callout-tip collapse="true" appearance="simple"}
+## Hint
+
+It's not unusual when extracting data that some unwanted registries get mixed-up with your query. In this case, it seems like some Pneumococcal disease cases were included. Additionally, you must have guessed that imported cases are to be taken away. This is, again, a conscious decision taken at institutional level - some countries may choose to retain them and report, other may drop them. This is reporting heterogeneity - something you will soon understand better during the fellowship!
+:::
+
+Great, we made the decision to eliminate cases from the other disease and those imported. Can you think of any other category of cases we can consider dropping? Maybe some category **we just created**
+
+**Action** — In the same `filter()`, include also `Discarded` cases
+
+### Drop unnecessary columns
+
+A clean dataset should only contain what is needed for analysis. Three columns can go now:
+
+- `diagnostic_date` — the ghost column, all `NA`, never filled in the registry
+- `disease` — every row is `"Mening"`, zero information content after filtering
+- `imported` — you have just filtered to `"No"` only, so this column is now a constant
+
+**Action** — Add a `select()` call using `-` to remove the three columns.
+
+::: callout-note
+### Why filter at the end and not at the beginning?
+
+You needed `lab_confirmed`, `type_of_case`, and `clinical_presentation` to *create* `case_classification`. If you had filtered out discarded cases at the start, you would not have been able to classify them — and you would not know which ones were discarded in the first place. Cleaning order matters: derive first, filter after.
+:::
+
+### Export
+
+Your pipeline is complete. The last step is to save the clean dataset so it can be used in the next sessions.
+
+**Action** — Use `export()` from `rio` to save the clean dataframe as `IMD_Sample_Clean.xlsx` in your `data` folder
+
+::: callout-note
+### Save the pipeline as a script, not just run it
+
+Remember: your cleaning script is a record of every decision you made. Save it as `IMD_Cleaning.R`, add comments explaining the reasoning behind key choices, and keep it in your `scripts` folder. Anyone reading it — including future you — should be able to understand not just *what* was done, but *why*.
+:::
+
+---
+
+```{r}
+#| echo: false
+opts1 <- c(
+  "It recodes categorical values like `recode_values()`",
+  "It filters rows based on a condition",
+  answer = "It assigns values based on a sequence of conditions evaluated in order",
+  "It creates groups like `group_by()`"
+)
+```
+
+**What does `case_when()` do?**
+
+`r longmcq(opts1)`
+
+
+```{r}
+#| echo: false
+opts2 <- c(
+  "They are left unchanged",
+  "The function throws an error",
+  answer = "They become `NA`",
+  "They take the value of the last condition"
+)
+```
+
+**What happens to rows that do not match any condition in `case_when()` if you do not include a final `TRUE ~` line?**
+
+`r longmcq(opts2)`
+
+
+```{r}
+#| echo: false
+opts3 <- c(
+  answer = "Because `case_when()` stops at the first matching condition — a confirmed case must be classified as Confirmed before any other rule can capture it",
+  "Because `lab_confirmed` is the first column in the dataframe",
+  "Because alphabetical order requires Confirmed to come before Probable",
+  "It does not matter — `case_when()` evaluates all conditions and picks the best match"
+)
+```
+
+**Why must the `Confirmed` condition appear first in the `case_classification` `case_when()` block?**
+
+`r longmcq(opts3)`
+
+
+```{r}
+#| echo: false
+opts4 <- c(
+  "At the very beginning, before any other step",
+  "Right after fixing column names",
+  answer = "After creating derived variables that depend on the columns being filtered",
+  "It does not matter — `filter()` produces the same result at any point in the pipeline"
+)
+```
+
+**Why is `filter()` placed at the end of the pipeline rather than the beginning?**
+
+`r longmcq(opts4)`
+
+---
+
+## Exercise summary
+
+**Your dataset is now clean.** `IMD_Sample_Clean.xlsx` is ready and waiting in your data folder — it is the dataset you will use in all subsequent sessions. You also fulfilled Kassandra's taks: produce a data cleaning script that anyone at the unit can use in the future, where you documented all changed made to the data, which is a key quality aspect
+
+This is also the end of Session 3 practical exercise, and the first half of the course. We went from no prior R knowledge to being able to manipulate and clean data using the most basic Tidyverse tools. With this knowledge you are already equipped to perform basic data tasks, including some of the most crucial functions of data manipulation
+
+In the next sessions, you will learn to describe and present results from your data in the form of basic tables and amazing `ggplot`graphs. For now, digest everything you learned and rest. See you for Session 4!
+
+These are the functions you learned:
+
+| Function | Package | What it does |
+|---|---|---|
+| `case_when()` | dplyr | Assigns values based on ordered conditions |
+| `filter()` | dplyr | Keeps rows matching a condition |
+| `select(-col)` | dplyr | Removes a column from the dataframe |
+| `export()` | rio | Saves a dataframe to a file |
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution — only after trying yourself!
+
+``` r
+imd_cleaning <- imd_raw %>%
+  clean_names() %>%
+  rename(
+    age_years = age,
+    year      = key_year
+  ) %>%
+  mutate(
+    age_months         = as.numeric(age_months),
+    key_date           = ymd(key_date),
+    symptom_onset_date = ymd(symptom_onset_date),
+    diagnostic_date    = ymd(diagnostic_date)
+  ) %>%
+  mutate(
+    sex = recode_values(
+      sex,
+      c("M", "m") ~ "Male",
+      c("F", "f") ~ "Female",
+      default = NA
+    ),
+    type_of_case = recode_values(
+      type_of_case,
+      "Sec" ~ "Second",
+      default = NA
+    ),
+    serogroup = recode_values(
+      serogroup,
+      "B_NeisMen" ~ "B",
+      "C_NeisMen" ~ "C",
+      "Y_NeisMen" ~ "Y",
+      "W_NeisMen" ~ "W",
+      "NT_NeisMen" ~ "Non Tipable",
+      c("Other_NeisMen", "A_NeisMen") ~ "Other",
+      NA ~ "Unknown"
+    )
+  ) %>%
+  mutate(
+    age_group = case_when(
+      age_years < 1                          ~ "< 1",
+      age_years >= 1  & age_years < 5        ~ "1-4",
+      age_years >= 5  & age_years < 10       ~ "5-9",
+      age_years >= 10 & age_years < 15       ~ "10-14",
+      age_years >= 15 & age_years < 20       ~ "15-19",
+      age_years >= 20 & age_years < 25       ~ "20-24",
+      age_years >= 25 & age_years < 45       ~ "25-44",
+      age_years >= 45 & age_years < 65       ~ "45-64",
+      age_years >= 65                        ~ "65+",
+      TRUE                                   ~ "Unknown"
+    ),
+    case_classification = case_when(
+      lab_confirmed == "Yes"                                                              ~ "Confirmed",
+      lab_confirmed == "No" & !is.na(type_of_case) & !is.na(clinical_presentation)       ~ "Probable",
+      lab_confirmed == "No" & is.na(type_of_case)  & !is.na(clinical_presentation)       ~ "Suspected",
+      TRUE                                                                                ~ "Discarded"
+    )
+  ) %>%
+  filter(
+    disease == "Mening",
+    imported == "No",
+    case_classification != "Discarded"
+  ) %>%
+  select(-diagnostic_date, -disease, -imported)
+
+export(imd_cleaning, here("data", "clean" ,"IMD_Sample_Clean.xlsx"))
+```
+:::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```

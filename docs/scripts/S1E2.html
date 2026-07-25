@@ -4830,7 +4830,7 @@ margin: 1em 0;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../scripts/copywright.html"> 
+    <a class="nav-link" href="../scripts/copywright.qmd"> 
 <span class="menu-text">Copywright</span></a>
   </li>  
   <li class="nav-item">
@@ -5113,7 +5113,7 @@ Install once, load every session
 <div class="cell" data-execute="false">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, here, tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Notice this little <strong>paradox</strong>: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install <code>pacman</code> in your computer you will need to use the basic <code>instal.packages()</code> and <code>library()</code> functions. Once installed, we have a little trick under the sleeve called <code>package::function()</code></p>
+<p>Notice this little <strong>paradox</strong>: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install <code>pacman</code> in your computer you will need to use the basic <code>install.packages()</code> and <code>library()</code> functions. Once installed, we have a little trick under the sleeve called <code>package::function()</code></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -5138,8 +5138,8 @@ Install once, load every session
 </div>
 <p>Run it and watch the Console. The first time may take a moment if any packages need downloading.</p>
 <strong>What does <code>install.packages()</code> actually do?</strong>
-<div id="radio_MKMBVXNIOR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MKMBVXNIOR" value> <span>It installs the package and makes it available permanently, no need to load it again</span></label><label><input type="radio" autocomplete="off" name="radio_MKMBVXNIOR" value="answer"> <span>It installs the package to your computer, but you still need to load it at the start of every R session</span></label><label><input type="radio" autocomplete="off" name="radio_MKMBVXNIOR" value> <span>It loads the package for this session only, and uninstalls it when you close R</span></label><label><input type="radio" autocomplete="off" name="radio_MKMBVXNIOR" value> <span>It checks if the package is up to date and updates it if necessary</span></label>
+<div id="radio_RLEIKUZYRS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RLEIKUZYRS" value> <span>It installs the package and makes it available permanently, no need to load it again</span></label><label><input type="radio" autocomplete="off" name="radio_RLEIKUZYRS" value="answer"> <span>It installs the package to your computer, but you still need to load it at the start of every R session</span></label><label><input type="radio" autocomplete="off" name="radio_RLEIKUZYRS" value> <span>It loads the package for this session only, and uninstalls it when you close R</span></label><label><input type="radio" autocomplete="off" name="radio_RLEIKUZYRS" value> <span>It checks if the package is up to date and updates it if necessary</span></label>
 </div>
 </section>
 </section>
@@ -5165,8 +5165,8 @@ Install once, load every session
 </div>
 <p>Run this line. R will print the full path — but it will not read the file yet. You are just constructing the address.</p>
 <strong>What type of output is here() producing</strong>
-<div id="radio_UILSQRANDY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UILSQRANDY" value> <span>A connection to the file, which allows R to start reading its contents </span></label><label><input type="radio" autocomplete="off" name="radio_UILSQRANDY" value="answer"> <span>A file path stored as a text string, which can be passed directly to other functions</span></label><label><input type="radio" autocomplete="off" name="radio_UILSQRANDY" value> <span>A special path object that automatically updates if you move your project to a different folder</span></label>
+<div id="radio_SFBRKPXJYP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SFBRKPXJYP" value> <span>A connection to the file, which allows R to start reading its contents </span></label><label><input type="radio" autocomplete="off" name="radio_SFBRKPXJYP" value="answer"> <span>A file path stored as a text string, which can be passed directly to other functions</span></label><label><input type="radio" autocomplete="off" name="radio_SFBRKPXJYP" value> <span>A special path object that automatically updates if you move your project to a different folder</span></label>
 </div>
 </section>
 <section id="importing-data" class="level3">
@@ -5180,10 +5180,10 @@ Install once, load every session
 <p>Two things are happening here:</p>
 <ul>
 <li><code>here::here()</code> builds the path to the file</li>
-<li><code>rio::import()</code> reads the file and stores it as an object called <code>imd</code> in your Environment</li>
+<li><code>rio::import()</code> reads the file and stores it as an object called <code>imd_raw</code> in your Environment</li>
 </ul>
 <p>Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.</p>
-<p><strong>Action</strong> — Check your Environment panel — you should see <code>imd</code> appear there. What is different with this object compared with the previous ones?</p>
+<p><strong>Action</strong> — Check your Environment panel — you should see <code>imd_raw</code> appear there. What is different with this object compared with the previous ones?</p>
 <hr>
 </section>
 </section>
@@ -5191,7 +5191,7 @@ Install once, load every session
 <h2 class="anchored" data-anchor-id="exercise-summary">Exercise summary</h2>
 <p><strong>Congrats! You have successfully created your basic R Infrastructure: folders, R Project, Libraries and Data Import</strong></p>
 <p>Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be spitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking</p>
-<p>This is what you practiced and learned: | | | |————————————|————————————| | <strong>R Project</strong> | A self-contained workspace anchored to a folder with a <code>.Rproj</code> file | | <strong>Folder structure</strong> | <code>data/raw</code>, <code>data/clean</code>, <code>scripts</code>, <code>outputs</code> — each with a clear role | | <strong><code>install.packages()</code></strong> | Downloads a package to your computer — once per machine | | <strong><code>update.packages()</code></strong> | Updated an installed package to its more recent version — periodically | | <strong><code>library()</code></strong> | Loads a package for your current session — every time you open R | | <strong><code>pacman::p_load()</code></strong> | Install or Update (if needed) and Loads a package | | <strong><code>here::here()</code></strong> | Builds portable file paths from your project root | | <strong><code>rio::import()</code></strong> | Reads data files into R as objects |</p>
+<p>This is what you practiced and learned: | | | |————————————|————————————| | <strong>R Project</strong> | A self-contained workspace anchored to a folder with a <code>.Rproj</code> file | | <strong>Folder structure</strong> | <code>data/raw</code>, <code>data/clean</code>, <code>scripts</code>, <code>outputs</code> — each with a clear role | | <strong><code>install.packages()</code></strong> | Downloads a package to your computer — once per machine | | <strong><code>update.packages()</code></strong> | Updates an installed package to its most recent version — periodically | | <strong><code>library()</code></strong> | Loads a package for your current session — every time you open R | | <strong><code>pacman::p_load()</code></strong> | Installs or updates (if needed) AND loads a package | | <strong><code>here::here()</code></strong> | Builds portable file paths from your project root | | <strong><code>rio::import()</code></strong> | Reads data files into R as objects |</p>
 <hr>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -6044,7 +6044,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, here, tidyverse)</span>
 <span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>Notice this little **paradox**: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install <span class="in">`pacman`</span> in your computer you will need to use the basic <span class="in">`instal.packages()`</span> and <span class="in">`library()`</span> functions. Once installed, we have a little trick under the sleeve called <span class="in">`package::function()`</span></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>Notice this little **paradox**: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install <span class="in">`pacman`</span> in your computer you will need to use the basic <span class="in">`install.packages()`</span> and <span class="in">`library()`</span> functions. Once installed, we have a little trick under the sleeve called <span class="in">`package::function()`</span></span>
 <span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
 <span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### `package::function()` syntax</span></span>
@@ -6137,11 +6137,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-280"><a href="#cb10-280" aria-hidden="true" tabindex="-1"></a>Two things are happening here:</span>
 <span id="cb10-281"><a href="#cb10-281" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-282"><a href="#cb10-282" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`here::here()`</span> builds the path to the file</span>
-<span id="cb10-283"><a href="#cb10-283" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`rio::import()`</span> reads the file and stores it as an object called <span class="in">`imd`</span> in your Environment</span>
+<span id="cb10-283"><a href="#cb10-283" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`rio::import()`</span> reads the file and stores it as an object called <span class="in">`imd_raw`</span> in your Environment</span>
 <span id="cb10-284"><a href="#cb10-284" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-285"><a href="#cb10-285" aria-hidden="true" tabindex="-1"></a>Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.</span>
 <span id="cb10-286"><a href="#cb10-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-287"><a href="#cb10-287" aria-hidden="true" tabindex="-1"></a>**Action** — Check your Environment panel — you should see <span class="in">`imd`</span> appear there. What is different with this object compared with the previous ones?</span>
+<span id="cb10-287"><a href="#cb10-287" aria-hidden="true" tabindex="-1"></a>**Action** — Check your Environment panel — you should see <span class="in">`imd_raw`</span> appear there. What is different with this object compared with the previous ones?</span>
 <span id="cb10-288"><a href="#cb10-288" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-289"><a href="#cb10-289" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb10-290"><a href="#cb10-290" aria-hidden="true" tabindex="-1"></a></span>
@@ -6152,14 +6152,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-295"><a href="#cb10-295" aria-hidden="true" tabindex="-1"></a>Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be spitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking</span>
 <span id="cb10-296"><a href="#cb10-296" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-297"><a href="#cb10-297" aria-hidden="true" tabindex="-1"></a>This is what you practiced and learned:</span>
-<span id="cb10-298"><a href="#cb10-298" aria-hidden="true" tabindex="-1"></a>|  |  |</span>
+<span id="cb10-298"><a href="#cb10-298" aria-hidden="true" tabindex="-1"></a>| | |</span>
 <span id="cb10-299"><a href="#cb10-299" aria-hidden="true" tabindex="-1"></a>|------------------------------------|------------------------------------|</span>
 <span id="cb10-300"><a href="#cb10-300" aria-hidden="true" tabindex="-1"></a>| **R Project** | A self-contained workspace anchored to a folder with a <span class="in">`.Rproj`</span> file |</span>
 <span id="cb10-301"><a href="#cb10-301" aria-hidden="true" tabindex="-1"></a>| **Folder structure** | <span class="in">`data/raw`</span>, <span class="in">`data/clean`</span>, <span class="in">`scripts`</span>, <span class="in">`outputs`</span> — each with a clear role |</span>
 <span id="cb10-302"><a href="#cb10-302" aria-hidden="true" tabindex="-1"></a>| **`install.packages()`** | Downloads a package to your computer — once per machine |</span>
-<span id="cb10-303"><a href="#cb10-303" aria-hidden="true" tabindex="-1"></a>| **`update.packages()`** | Updated an installed package to its more recent version — periodically |</span>
+<span id="cb10-303"><a href="#cb10-303" aria-hidden="true" tabindex="-1"></a>| **`update.packages()`** | Updates an installed package to its most recent version — periodically |</span>
 <span id="cb10-304"><a href="#cb10-304" aria-hidden="true" tabindex="-1"></a>| **`library()`** | Loads a package for your current session — every time you open R |</span>
-<span id="cb10-305"><a href="#cb10-305" aria-hidden="true" tabindex="-1"></a>| **`pacman::p_load()`** | Install or Update (if needed) and Loads a package |</span>
+<span id="cb10-305"><a href="#cb10-305" aria-hidden="true" tabindex="-1"></a>| **`pacman::p_load()`** | Installs or updates (if needed) AND loads a package |</span>
 <span id="cb10-306"><a href="#cb10-306" aria-hidden="true" tabindex="-1"></a>| **`here::here()`** | Builds portable file paths from your project root |</span>
 <span id="cb10-307"><a href="#cb10-307" aria-hidden="true" tabindex="-1"></a>| **`rio::import()`** | Reads data files into R as objects |</span>
 <span id="cb10-308"><a href="#cb10-308" aria-hidden="true" tabindex="-1"></a></span>
@@ -6198,7 +6198,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
