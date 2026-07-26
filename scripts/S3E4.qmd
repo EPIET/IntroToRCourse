@@ -181,6 +181,8 @@ Great, we made the decision to eliminate cases from the other disease and those 
 
 **Action** — In the same `filter()`, include also `Discarded` cases
 
+**Action** — How many rows are left in the dataframe after filtering? `r fitb(2627)`
+
 ### Drop unnecessary columns
 
 A clean dataset should only contain what is needed for analysis. Three columns can go now:
@@ -201,7 +203,9 @@ You needed `lab_confirmed`, `type_of_case`, and `clinical_presentation` to *crea
 
 Your pipeline is complete. The last step is to save the clean dataset so it can be used in the next sessions.
 
-**Action** — Use `export()` from `rio` to save the clean dataframe as `IMD_Sample_Clean.xlsx` in your `data` folder
+**Action** — Use `export()` from `rio` to save the clean dataframe as `IMD_Sample_Clean.csv` in your `data` folder
+
+Files in `.csv` format are more consistent, store more adequately variable's format, and are preferred when sharing data with colleagues. Other formats exists, including native `R` files, but for the sake of this course, we need to assume that other colleagues not working in R may need the file too
 
 ::: callout-note
 ### Save the pipeline as a script, not just run it
@@ -209,7 +213,7 @@ Your pipeline is complete. The last step is to save the clean dataset so it can 
 Remember: your cleaning script is a record of every decision you made. Save it as `IMD_Cleaning.R`, add comments explaining the reasoning behind key choices, and keep it in your `scripts` folder. Anyone reading it — including future you — should be able to understand not just *what* was done, but *why*.
 :::
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| echo: false
@@ -225,7 +229,6 @@ opts1 <- c(
 
 `r longmcq(opts1)`
 
-
 ```{r}
 #| echo: false
 opts2 <- c(
@@ -240,7 +243,6 @@ opts2 <- c(
 
 `r longmcq(opts2)`
 
-
 ```{r}
 #| echo: false
 opts3 <- c(
@@ -251,10 +253,9 @@ opts3 <- c(
 )
 ```
 
-**Why must the `Confirmed` condition appear first in the `case_classification` `case_when()` block?**
+**Why must the `Confirmed` condition appear first in the `case_classificationcase_when()` block?**
 
 `r longmcq(opts3)`
-
 
 ```{r}
 #| echo: false
@@ -270,7 +271,7 @@ opts4 <- c(
 
 `r longmcq(opts4)`
 
----
+------------------------------------------------------------------------
 
 ## Exercise summary
 
@@ -282,12 +283,12 @@ In the next sessions, you will learn to describe and present results from your d
 
 These are the functions you learned:
 
-| Function | Package | What it does |
-|---|---|---|
-| `case_when()` | dplyr | Assigns values based on ordered conditions |
-| `filter()` | dplyr | Keeps rows matching a condition |
-| `select(-col)` | dplyr | Removes a column from the dataframe |
-| `export()` | rio | Saves a dataframe to a file |
+| Function       | Package | What it does                               |
+|----------------|---------|--------------------------------------------|
+| `case_when()`  | dplyr   | Assigns values based on ordered conditions |
+| `filter()`     | dplyr   | Keeps rows matching a condition            |
+| `select(-col)` | dplyr   | Removes a column from the dataframe        |
+| `export()`     | rio     | Saves a dataframe to a file                |
 
 ::: {.callout-tip collapse="true"}
 ## 💡 Show solution — only after trying yourself!

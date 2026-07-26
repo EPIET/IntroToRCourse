@@ -1,0 +1,275 @@
+---
+title: "Filtering rows"
+subtitle: "Session 2 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+library(pacman)
+pacman::p_load(tidyverse, rio, here)
+
+imd <- import(here("data", "IMD_Sample_Clean.csv"))
+```
+
+You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the `filter()` function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of `filter()`, but also of the whole programming experience.
+
+Now you need to learn how to tell R *which rows you want* — and that means learning the language of logical conditions. A single condition is rarely enough in real epidemiological work, so you will also need to learn to combine them.
+
+To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
+
+| Operator  | Meaning                                                       |
+|-----------------------|-------------------------------------------------|
+| `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
+| `!=`      | Not equal to; "*different*"                                   |
+| `>` `>=`  | Greater than / greater than or equal to                       |
+| `<` `<=`  | Less than / less than or equal to                             |
+| `&`       | AND — both conditions must be true at the same time           |
+| `|`       | OR — at least one condition must be true                      |
+| `!`       | NOT — negates the condition that follows; "*opposite*"        |
+| `%in%`    | Present in a set of values; "*is part of*"                    |
+| `is.na()` | Identifies missing values (`NA`)                              |
+
+Keep this table in view. You will use every one of these today.
+
+## Part 2 · Logical operators
+
+### Equality and comparison
+
+The simplest conditions check whether a variable equals a specific value, or falls above or below a numeric threshold. You have already seen those a couple times in this course, for example when we filtered only cases from `R6`
+
+``` r
+imd_region <- imd %>%
+  filter(region == "R6")
+```
+
+From now on, this is the format of code we want to start emulating: calling the data *and then* using functions
+
+**Action** — Now filter for cases where `age_years` is *18 or older*. Assign it to an object `imd_adults`.
+
+**Action** — Filter for cases where `age_years` is strictly *less than* 18. Assign it to an object `imd_kids`. Do the two results together add up to the total rows in `imd`?
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint - counting rows
+
+Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition check. For example, you can type `nrow(imd) == nrow(imd_adults) + nrow(imd_kids)` as a control to ask "*Is the sum of rows of the two filtered dataframes exactly identical to the original rows of `imd`?"*
+:::
+
+Well, turns out we have missing rows. But, how is that even possible? If age logical conditions, some is either younger than 18, 18 or older than 18, which was covered by the `<` and the `>=`. The answer to that question is:
+
+**Action** — Might there be cases with missing `age_year` information? We can check by creating `img_age_missing` and filtering using the `is.na()` operator. Then, check again if all rows are covered through the three objects
+
+::: callout-important
+### Checking rows is your first quality control
+
+After every `filter()`, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using `nrow()` or other functions
+:::
+
+### Combining conditions 
+
+Most real filters combine more than one condition. The `&` and `|` operators let you do this — but they behave very differently, and confusing them is one of the most common sources of silent errors in data analysis.
+
+**Action** — Filter `imd` to keep only female cases from R6, combining both conditions with `&`. Assign the result to `imd_r6_f` and check the row count.
+
+`r fitb(323)`
+
+Inside `filter()`, separating conditions with a comma is equivalent to using `&`: both conditions must be true. These two lines produce identical results:
+
+``` r
+imd %>% filter(condition1 & condition2)
+imd %>% filter(condition1, condition2)
+```
+
+And it make sense! When executed with `&`, R created a single evaluation for both conditions, while the two arguments version executed the query sequentially, first retaining only those from `R6` and then, among cases from `R6` it retained only `Female` cases. The same result in two different approximations. That is only valid for `AND` (`&)` statements. If we try the same with other operators, the results slightly changes
+
+**Action** — Filter cases that are either from `R6` or `Female`using the `|` (OR) operator, creating the object `imd_r6_or_f` and compare the resulting number of rows with `imd_r6_f`
+
+Can you understand why the difference?
+
+::: {.callout-important collapse="true" appearance="simple"}
+### `|` is wider than you think
+
+With `|`, a row is retained if **either** condition is true — it does not need to satisfy both. This means your result will include all female cases from every region, *plus* all cases from R6 regardless of sex. In most surveillance contexts, this is not what you want. When in doubt, reach for `&`.
+:::
+
+### Selecting from a set with `%in%`
+
+Suppose you need to filter for cases from several specific regions — say, R1, R6, and R9. You could write:
+
+``` r
+imd_regions <- imd %>% 
+  filter(region_id == "R1" | region_id == "R6" | region_id == "R9")
+```
+
+This works, but grows unwieldy fast. The `%in%` operator is the clean solution: it checks whether a value is present anywhere in a set you define. Depending on the complexity and number of options, you can define the values directly using a vector in the filter function, or you could first create an object to serve as intermediary.
+
+Therefore, you could write any of the following:
+
+``` r
+imd %>% 
+  filter(variable1 %in% c("value1", "value2", "value3"))
+
+values <- c("value1", "value2", "value3")
+imd %>% 
+  filter(variable1 %in% values)
+```
+
+**Action** — Filter `imd` to keep cases from regions R1, R6, and R9 using `%in%`. Assign the result to `imd_regions`.
+
+**Action** — Now add a condition to also keep only female cases aged 18 or older. Assign the final result to `imd_filtered`. How many rows are left?
+
+`r fitb(257)`
+
+::: {.callout-tip collapse="true" appearance="simple"}
+## Hint
+
+You can chain all conditions in a single `filter()` using commas, or write them as separate `filter()` steps in the same pipeline — both work.
+:::
+
+### Missing values 
+
+You have already used `is.na()` to find cases with missing age information. But there is something deeper going on with missing values that is worth understanding — because it will save you from a very common and very silent mistake.
+
+The critical thing to know: **you cannot use `==` to find `NA`**. Try it in your console:
+
+``` r
+NA == NA
+```
+
+You might expect `TRUE`. R returns `NA`. The logic is sound: if a value is unknown, you cannot confirm it is equal to another unknown value. Two unknowns are not necessarily the same unknown. So R does not guess — it returns "I don't know". `is.na()` exists precisely to solve this. It does not compare — it simply asks "is this value missing?", and returns `TRUE` or `FALSE` cleanly.
+
+**Action** — Check how many cases in `imd` have a missing value in the `serogroup` variable? Create the `imd_serogroup_na` object for that.
+
+`r fitb(0)`
+
+Finding missing values is a common task when doing data cleaning, but that is tomorrow's topic. For now, we are also interested in discarding cases with `NA` values in some of its variables, something you will also do quite frequently in the future - believe me. For that, we can introduce the last of today's operators, the `!` - opposite operator
+
+When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having `NA` values in some column, we would do something like:
+
+``` r
+imd %>% 
+  filter(!is.na(variable1))
+```
+
+**Action** — Add to your previous filter chain a new condition to filter away cases with missing `age_years` values
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+opts1 <- c(
+  "It keeps rows where both conditions are true",
+  answer = "It keeps rows where at least one condition is true",
+  "It keeps rows where neither condition is true",
+  "It keeps rows where exactly one condition is true, but not both"
+)
+```
+
+**What does `filter(age_years > 18 | sex == "Female")` return?**
+
+`r longmcq(opts1)`
+
+```{r}
+#| echo: false
+opts2 <- c(
+  '`region_id == "R1" | region_id == "R6" | region_id == "R9"`',
+  '`region_id == c("R1", "R6", "R9")`',
+  answer = '`region_id %in% c("R1", "R6", "R9")`',
+  '`region_id & c("R1", "R6", "R9")`'
+)
+```
+
+**Which of the following correctly filters cases from regions R1, R6, and R9?**
+
+`r longmcq(opts2)`
+
+```{r}
+#| echo: false
+opts3 <- c(
+  answer = "Because `NA == NA` returns `NA`, not `TRUE` — R cannot confirm two unknown values are equal",
+  "Because `NA` is stored as a number and cannot be compared with `==`",
+  "Because `filter()` automatically removes `NA` before evaluating conditions",
+  "Because `==` only works with character variables, not missing values"
+)
+```
+
+**Why can't you use `== NA` to find missing values in `filter()`?**
+
+`r longmcq(opts3)`
+
+```{r}
+#| echo: false
+opts4 <- c(
+  "`filter(is.na(serogroup) == FALSE)`",
+  "`filter(serogroup != NA)`",
+  "`filter(is.na(serogroup) == 0)`",
+  answer = "`filter(!is.na(serogroup))`"
+)
+```
+
+**Which expression correctly keeps only rows where `serogroup` is not missing?**
+
+`r longmcq(opts4)`
+
+------------------------------------------------------------------------
+
+## Exercise summary
+
+Logical operators are the engine behind `filter()` — and behind most of the decisions your code will ever make. You now know how to select rows by equality, by range, by set membership, and how to handle the special case of missing values. Combined with the pipe, `filter()` gives you precise control over which data you are actually working with at any point in your analysis.
+
+But this is only the tip of the iceberg of Tidy, so let's continue to the verb of creation: `mutate()`
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution — only after trying yourself!
+
+``` r
+# Filter cases from Region 6
+md_r6 <- imd %>% filter(region_id == "R6")
+
+# Filter adults and kids cases
+imd_adults <- imd %>% filter(age_years >= 18)
+imd_kids <- imd %>% filter(age_years < 18)
+
+# Check the row sums of the filtered vs original data
+nrow(imd) == nrow(imd_kids) + nrow(imd_adults)    # what is happening?
+
+# Are there any missing age cases?
+imd_age_missing <- imd %>% filter(is.na(age_years))
+
+# Check again
+nrow(imd) == nrow(imd_kids) + nrow(imd_adults) + nrow(imd_age_missing) # now it works!
+
+# Filter both Region 6 AND Female cases
+imd_r6_f <- imd %>%
+  filter(region_id == "R6" & sex == "Female")
+
+# Filter Region 6 OR Female cases
+imd_r6_or_f <- imd %>%
+  filter(region_id == "R6" | sex == "Female")
+
+# Filter cases from any of R1, R6 or R9 regions
+imd_regions <- imd %>%
+  filter(region_id %in% c("R1", "R6", "R9"))
+
+# Combine all the different filters together
+imd_filtered <- imd %>%
+  filter(region_id %in% c("R1", "R6", "R9"),
+         age_years >= 18,
+         sex == "Female")
+
+# Is there any missing case in serogroup?
+imd_serogroup_na <- imd %>%
+  filter(is.na(serogroup))
+```
+:::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```

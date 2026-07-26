@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Intro to R Course - Data manipulation using Tidyverse: the 4 verbs</title>
+<title>Intro to R Course - Data manipulation using the Tidyverse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -1654,6 +1654,8 @@ async function fuseSearch(query, fuse, fuseOptions) {
 }
 </script>
 <meta name="quarto:offset" content="../">
+<link href="../scripts/S2E2.html" rel="next">
+<link href="../scripts/S1E3.html" rel="prev">
 <script>const sectionChanged = new CustomEvent("quarto-sectionChanged", {
   detail: {},
   bubbles: true,
@@ -4790,7 +4792,7 @@ margin: 1em 0;
 </style>
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -4808,11 +4810,11 @@ margin: 1em 0;
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../scripts/copywright.qmd"> 
-<span class="menu-text">Copywright</span></a>
+    <a class="nav-link" href="../scripts/copyright.html"> 
+<span class="menu-text">Copyright</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../scripts/S0_index.html"> 
+    <a class="nav-link active" href="../scripts/S0_index.html" aria-current="page"> 
 <span class="menu-text">Practical Sessions</span></a>
   </li>  
   <li class="nav-item">
@@ -4840,26 +4842,149 @@ margin: 1em 0;
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../scripts/S2E1.html">Session 2</a></li><li class="breadcrumb-item"><a href="../scripts/S2E1.html">Data manipulation using the Tidyverse</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S0_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Session 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S1E1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Getting familiar with RStudio</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S1E2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up your Workspace</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S1E3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Functions that make the work</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Session 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S2E1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data manipulation using the Tidyverse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S2E2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Filtering rows</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Session 3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S3E1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to Data Cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S3E2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Variable Class</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S3E3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recoding variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../scripts/S3E4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Derived Variables &amp; Export</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start" class="nav-link active" data-scroll-target="#before-you-start">Before you start</a></li>
+  <li><a href="#part-1-the-pipe-a-new-way-to-think-about-code" id="toc-part-1-the-pipe-a-new-way-to-think-about-code" class="nav-link" data-scroll-target="#part-1-the-pipe-a-new-way-to-think-about-code">Part 1 · The pipe — a new way to think about code</a>
+  <ul class="collapse">
+  <li><a href="#from-base-to-tidy-code" id="toc-from-base-to-tidy-code" class="nav-link" data-scroll-target="#from-base-to-tidy-code">From base to tidy code</a></li>
+  <li><a href="#the-pipe-as-and-then" id="toc-the-pipe-as-and-then" class="nav-link" data-scroll-target="#the-pipe-as-and-then">The pipe as “and then”</a></li>
+  <li><a href="#your-first-pipeline" id="toc-your-first-pipeline" class="nav-link" data-scroll-target="#your-first-pipeline">Your first pipeline</a></li>
+  </ul></li>
+  <li><a href="#exercise-summary" id="toc-exercise-summary" class="nav-link" data-scroll-target="#exercise-summary">Exercise Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../scripts/S2E1.html">Session 2</a></li><li class="breadcrumb-item"><a href="../scripts/S2E1.html">Data manipulation using the Tidyverse</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Data manipulation using Tidyverse: the 4 verbs</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Data manipulation using the Tidyverse</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Session 2 practical exercises</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-body">
 
     
   
@@ -4871,10 +4996,171 @@ margin: 1em 0;
 </header>
 
 
+<p><strong>Have you heard about Murphy law?</strong></p>
+<p>Yesterday, you were instructed to become familiar with IMD data from the department, as your supervisor is planning your first surveillance project around it. During the weekly department meeting, Kassandra, the head of department for infectious diseases epidemiology and surveillance, informed the team about a mail shared by one of the regions, <code>R6</code>, expressing concern about a recent rise in IMD cases among female young adults.</p>
+<p>They asked your department for assistance in evaluating this signal, specially for adding national context and background information about other regions. Your colleagues start organizing a small task force, and Kassandra immediately appoints you to the team so you can have a first-hand experience in your new Institute. Your task will be to analyze data from previous year of IMD surveillance of the affected region, and a few others that will allow comparison. It’s a cleaned, ready-to-use dataframe that epidemiologist in the unit know very well, with annual reports published already.</p>
+<p><em>The perfect task for a brand new EPIET fellow</em></p>
+<section id="before-you-start" class="level2">
+<h2 class="anchored" data-anchor-id="before-you-start">Before you start</h2>
+<p>Yesterday you learned how to prepare your workspace: the R Project, the clean script, libraries and data. You should at least have a working project within a folder structure that we provided you for this course</p>
+<p><strong>Action</strong> — Start a new script and save it as <code>S1_tidyverse</code></p>
+<p><strong>Action</strong> — Prepare the script for today’s work: add initial notes, activate libraries and load data</p>
+<ol type="1">
+<li><p>Remember you will need libraries for managing file paths and for importing data to R</p></li>
+<li><p>We will add a new library from now on: the <code>tidyverse</code></p></li>
+<li><p>Today’s dataframe is found in the <code>data</code> folder: <code>IMD_Sample_Clean.csv</code>. Load it and assign it to a new object called <code>imd</code>. Once loaded, click on your <code>imd</code> object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content</p></li>
+</ol>
+<p>Now, what is this <code>Tidyverse</code>we keep talking about??</p>
+</section>
+<section id="part-1-the-pipe-a-new-way-to-think-about-code" class="level2">
+<h2 class="anchored" data-anchor-id="part-1-the-pipe-a-new-way-to-think-about-code">Part 1 · The pipe — a new way to think about code</h2>
+<p>To start with your task, you first need to think about the instructions you were given and how to translate them into the code. This is the Grammar Model we are practicing. Remember the signal that arrived:</p>
+<ul>
+<li>Increase of cases in <code>R6</code> among <code>female</code> <code>young adults</code></li>
+</ul>
+<section id="from-base-to-tidy-code" class="level3">
+<h3 class="anchored" data-anchor-id="from-base-to-tidy-code">From base to tidy code</h3>
+<p>This is a <strong><em>sequence</em></strong> of three steps that are needed to explore the cases of concern. Let’s start by working slowly, in the way base R would expect you to do this job. The function we need for this task is <code>filter()</code>, the row selection function from <code>tidyverse</code>. We will explain it more deeply in a moment, just know that filter works like this</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data, condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>the function needs as first argument the data it will use, and then the logical condition that rows need to fulfill in order to be retained, for example, cases from the region <code>R6</code></p>
+<p><strong>Action</strong> — Filter <code>imd</code> cases to only those happening in region <code>R6</code>. you can do this using this code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(imd, region_id <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s break down the code:</p>
+<ul>
+<li><p>The data argument is <code>imd</code>, our working data object as we named it when loading</p></li>
+<li><p>The condition argument uses the variable <code>region_id</code> from the dataframe because we want only cases from one specific region among all existing regions in the data</p>
+<ul>
+<li><p>for the logical condition we used <code>==</code> which is the logical operator for “equal to”</p></li>
+<li><p>to select our region of interest, we used <code>&quot;R6&quot;</code> with quotes to indicate R we are referring to a literal character name to look for in the data variable</p></li>
+</ul></li>
+</ul>
+<p><strong>Action</strong> — copy the <code>filter()</code> code in your script and execute it. <strong><em>What happens?</em></strong></p>
+<p>Yeah, you are right! We did not assign the function to any object, therefore the results only got printed in the console and, therefore, was lost to the <em>R Void</em> forever.</p>
+<p><strong>Action</strong> — assign the filter operation to a new object <code>imd_filtered</code></p>
+<p>Cool, but that was only the first of three steps, we have two more to go! Let’s do it together in a simple way:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>imd_filtered         <span class="ot">&lt;-</span> <span class="fu">filter</span>(imd, region_id <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>imd_filtered_f       <span class="ot">&lt;-</span> <span class="fu">filter</span>(imd_filtered, sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>imd_filtered_f_adult <span class="ot">&lt;-</span> <span class="fu">filter</span>(imd_filtered_f, age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And again, let’s break it down</p>
+<ul>
+<li>As a sequence, every step relied in the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function</li>
+<li>Each filtering used the adequate variable: <code>region_id</code>, <code>sex</code> and <code>age</code> and a logical operator</li>
+</ul>
+<p>Working in such a step-wise way is useful: anyone reading your code can very quickly get the idea of the transformations that are happening, and that is always a relevant aspect to consider when writing code. Of course, it has downside of requiring more text, more objects, and unnecessary repetition that can lead to mistakes</p>
+<p>We could have done the same with only one line of code in the R base logic:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="fu">filter</span>(<span class="fu">filter</span>(imd, region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>), sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>), age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now when you read this, your head needs a few minits to understand what is happening. To really come up with the sequence, you need to start reading in the middle where <code>imd</code> is called for the first time, then it becomes a serires of nested functions, arranged inside-out. Not beautiful, but does the work in a single command, and saves you three objects</p>
+</section>
+<section id="the-pipe-as-and-then" class="level3">
+<h3 class="anchored" data-anchor-id="the-pipe-as-and-then">The pipe as “and then”</h3>
+<p>Now read this code:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Same result. But now the data flows <em>downward</em>, one step at a time, exactly in the order the steps happen. This is the logic of the <strong>pipe operator</strong> <code>%&gt;%</code></p>
+<p><code>%&gt;%</code> has one job: take what is on the left and pass it as the first argument to what is on the right. Read it as <strong>“and then”</strong>:</p>
+<blockquote class="blockquote">
+<p>Take <code>imd</code>, <strong>and then</strong> keep only female cases, <strong>and then</strong> keep only cases from R6, <strong>and then</strong> count the rows.</p>
+</blockquote>
+<p>Three properties of this style that will save you time:</p>
+<ul>
+<li>The dataframe is declared <strong><em>once</em></strong>, at the top. It is never repeated.</li>
+<li>Variable names can be called <strong><em>directly</em></strong> within tidyverse functions, not requiring quotation or <code>$</code> like base R.</li>
+<li>Code reads <strong><em>top to bottom</em></strong>, like a recipe, each step acts on the result of the step above.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The pipeline is a transformation chain
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of the pipe as an assembly line. The raw material (<code>imd</code>) enters at the top, passes through a series of stations (the verbs), and exits the other end transformed. Each station receives whatever came out of the previous one. Nothing is modified in place, a new object only exists if you assign it with <code>&lt;-</code></p>
+</div>
+</div>
+</section>
+<section id="your-first-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-pipeline">Your first pipeline</h3>
+<p><strong>Action</strong> — In your script, write the following and run it:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Look at the result in the console. How many rows does it have? It should be fewer than the full dataset — you have just retained only cases from R6.</p>
+<p><strong>Action</strong> — Now assign the result to a new object and inspect it:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>imd_region <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The original data is untouched
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Running a pipeline does <strong>not</strong> modify <code>imd</code>. Until you use <code>&lt;-</code> to assign the result to an object, the transformation exists only as output in the console — it is printed, not saved. This is intentional: your raw data stays intact, and you build on it without risk.</p>
+</div>
+</div>
+<p><strong>Action</strong> — Confirm this by running <code>nrow(imd)</code> after creating <code>imd_region</code>.</p>
+<hr>
+<p><strong>What does the <code>%&gt;%</code> operator do?</strong></p>
+<div id="radio_XTYRJWQOCT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XTYRJWQOCT" value> <span>It modifies the dataframe in place, updating it with the result of each step</span></label><label><input type="radio" autocomplete="off" name="radio_XTYRJWQOCT" value="answer"> <span>It takes the result on its left and passes it as input to the function on its right</span></label><label><input type="radio" autocomplete="off" name="radio_XTYRJWQOCT" value> <span>It runs two functions simultaneously and combines their output</span></label><label><input type="radio" autocomplete="off" name="radio_XTYRJWQOCT" value> <span>It saves the result of the previous step to a new object automatically</span></label>
+</div>
+<p><strong>In a tidy pipeline, how many times do you write the name of the dataframe?</strong></p>
+<div id="radio_AGHCFLWDSN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AGHCFLWDSN" value="answer"> <span>Once, at the top of the pipeline — it is then passed automatically to each step</span></label><label><input type="radio" autocomplete="off" name="radio_AGHCFLWDSN" value> <span>In every function call, so each step knows which data to use</span></label><label><input type="radio" autocomplete="off" name="radio_AGHCFLWDSN" value> <span>Only in the last step, where the final result is produced</span></label><label><input type="radio" autocomplete="off" name="radio_AGHCFLWDSN" value> <span>It does not need to be declared — tidyverse finds it automatically</span></label>
+</div>
+<p><strong>After running <code>imd_female &lt;- imd %&gt;% filter(sex == &quot;Female&quot;)</code>, what happens to the original <code>imd</code> object?</strong></p>
+<div id="radio_VJHGKKHHGC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VJHGKKHHGC" value> <span>The pipeline modifies <code>imd</code> directly, so <code>imd</code> now contains only female cases</span></label><label><input type="radio" autocomplete="off" name="radio_VJHGKKHHGC" value="answer"> <span><code>imd</code> is unchanged — the result only exists in <code>imd_female</code> because you assigned it with <code>&lt;-</code></span></label><label><input type="radio" autocomplete="off" name="radio_VJHGKKHHGC" value> <span>Both <code>imd</code> and <code>imd_female</code> are updated, since they reference the same data</span></label><label><input type="radio" autocomplete="off" name="radio_VJHGKKHHGC" value> <span>The pipeline discards the result unless you print it with <code>print()</code></span></label>
+</div>
+<hr>
+</section>
+</section>
+<section id="exercise-summary" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-summary">Exercise Summary</h2>
+<p>Now you have a grasp of what actually the pipe <code>%&gt;%</code> operator means when working with a Tidy workflow. In the following exercises you will learn more about its importance, and the huge advantages of working with it. We are just getting started!!</p>
+<p>This is what you learned:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>%&gt;%</code></td>
+<td>Pipe operator, chains tidy functions together sequentially, passing modified data to the next action</td>
+</tr>
+<tr class="even">
+<td><code>filter()</code></td>
+<td>Keeps rows matching a condition</td>
+</tr>
+</tbody>
+</table>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
 
 
 <!-- -->
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -5547,16 +5833,240 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Data manipulation using Tidyverse: the 4 verbs&quot;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> &quot;Session 2 practical exercises&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(webexercises)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../scripts/S1E3.html" class="pagination-link" aria-label="Functions that make the work">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Functions that make the work</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../scripts/S2E2.html" class="pagination-link" aria-label="Filtering rows">
+        <span class="nav-page-text">Filtering rows</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Data manipulation using the Tidyverse&quot;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> &quot;Session 2 practical exercises&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(webexercises)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, rio, here)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>imd <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;IMD_Sample_Clean.csv&quot;</span>))</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>**Have you heard about Murphy law?**</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>Yesterday, you were instructed to become familiar with IMD data from the department, as your supervisor is planning your first surveillance project around it. During the weekly department meeting, Kassandra, the head of department for infectious diseases epidemiology and surveillance, informed the team about a mail shared by one of the regions, <span class="in">`R6`</span>, expressing concern about a recent rise in IMD cases among female young adults.</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>They asked your department for assistance in evaluating this signal, specially for adding national context and background information about other regions. Your colleagues start organizing a small task force, and Kassandra immediately appoints you to the team so you can have a first-hand experience in your new Institute. Your task will be to analyze data from previous year of IMD surveillance of the affected region, and a few others that will allow comparison. It&#39;s a cleaned, ready-to-use dataframe that epidemiologist in the unit know very well, with annual reports published already.</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>*The perfect task for a brand new EPIET fellow*</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before you start</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>Yesterday you learned how to prepare your workspace: the R Project, the clean script, libraries and data. You should at least have a working project within a folder structure that we provided you for this course</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>**Action** — Start a new script and save it as <span class="in">`S1_tidyverse`</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>**Action** — Prepare the script for today&#39;s work: add initial notes, activate libraries and load data</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Remember you will need libraries for managing file paths and for importing data to R</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>We will add a new library from now on: the <span class="in">`tidyverse`</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Today&#39;s dataframe is found in the <span class="in">`data`</span> folder: <span class="in">`IMD_Sample_Clean.csv`</span>. Load it and assign it to a new object called <span class="in">`imd`</span>. Once loaded, click on your <span class="in">`imd`</span> object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>Now, what is this <span class="in">`Tidyverse`</span>we keep talking about??</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 1 · The pipe — a new way to think about code</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>To start with your task, you first need to think about the instructions you were given and how to translate them into the code. This is the Grammar Model we are practicing. Remember the signal that arrived:</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Increase of cases in <span class="in">`R6`</span> among <span class="in">`female`</span> <span class="in">`young adults`</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="fu">### From base to tidy code</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>This is a ***sequence*** of three steps that are needed to explore the cases of concern. Let&#39;s start by working slowly, in the way base R would expect you to do this job. The function we need for this task is <span class="in">`filter()`</span>, the row selection function from <span class="in">`tidyverse`</span>. We will explain it more deeply in a moment, just know that filter works like this</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(data, condition)</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>the function needs as first argument the data it will use, and then the logical condition that rows need to fulfill in order to be retained, for example, cases from the region <span class="in">`R6`</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>**Action** — Filter <span class="in">`imd`</span> cases to only those happening in region <span class="in">`R6`</span>. you can do this using this code:</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(imd, region_id <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>Let&#39;s break down the code:</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The data argument is <span class="in">`imd`</span>, our working data object as we named it when loading</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The condition argument uses the variable <span class="in">`region_id`</span> from the dataframe because we want only cases from one specific region among all existing regions in the data</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>for the logical condition we used <span class="in">`==`</span> which is the logical operator for &quot;equal to&quot;</span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>to select our region of interest, we used <span class="in">`&quot;R6&quot;`</span> with quotes to indicate R we are referring to a literal character name to look for in the data variable</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>**Action** — copy the `filter()` code in your script and execute it. ***What happens?***</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>Yeah, you are right! We did not assign the function to any object, therefore the results only got printed in the console and, therefore, was lost to the *R Void* forever.</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>**Action** — assign the filter operation to a new object <span class="in">`imd_filtered`</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>Cool, but that was only the first of three steps, we have two more to go! Let&#39;s do it together in a simple way:</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>imd_filtered         <span class="ot">&lt;-</span> <span class="fu">filter</span>(imd, region_id <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>imd_filtered_f       <span class="ot">&lt;-</span> <span class="fu">filter</span>(imd_filtered, sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>)</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>imd_filtered_f_adult <span class="ot">&lt;-</span> <span class="fu">filter</span>(imd_filtered_f, age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>And again, let&#39;s break it down</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As a sequence, every step relied in the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function</span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each filtering used the adequate variable: <span class="in">`region_id`</span>, <span class="in">`sex`</span> and <span class="in">`age`</span> and a logical operator</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>Working in such a step-wise way is useful: anyone reading your code can very quickly get the idea of the transformations that are happening, and that is always a relevant aspect to consider when writing code. Of course, it has downside of requiring more text, more objects, and unnecessary repetition that can lead to mistakes</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>We could have done the same with only one line of code in the R base logic:</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="fu">filter</span>(<span class="fu">filter</span>(imd, region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>), sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>), age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a>Now when you read this, your head needs a few minits to understand what is happening. To really come up with the sequence, you need to start reading in the middle where <span class="in">`imd`</span> is called for the first time, then it becomes a serires of nested functions, arranged inside-out. Not beautiful, but does the work in a single command, and saves you three objects</span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### The pipe as &quot;and then&quot;</span></span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>Now read this code:</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;Female&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>Same result. But now the data flows *downward*, one step at a time, exactly in the order the steps happen. This is the logic of the **pipe operator** <span class="in">`%&gt;%`</span></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="in">`%&gt;%`</span> has one job: take what is on the left and pass it as the first argument to what is on the right. Read it as **&quot;and then&quot;**:</span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Take </span><span class="in">`imd`</span><span class="at">, **and then** keep only female cases, **and then** keep only cases from R6, **and then** count the rows.</span></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a>Three properties of this style that will save you time:</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The dataframe is declared ***once***, at the top. It is never repeated.</span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variable names can be called ***directly*** within tidyverse functions, not requiring quotation or <span class="in">`$`</span> like base R.</span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Code reads ***top to bottom***, like a recipe, each step acts on the result of the step above.</span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### The pipeline is a transformation chain</span></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a>Think of the pipe as an assembly line. The raw material (<span class="in">`imd`</span>) enters at the top, passes through a series of stations (the verbs), and exits the other end transformed. Each station receives whatever came out of the previous one. Nothing is modified in place, a new object only exists if you assign it with <span class="in">`&lt;-`</span></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Your first pipeline</span></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a>**Action** — In your script, write the following and run it:</span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a>Look at the result in the console. How many rows does it have? It should be fewer than the full dataset — you have just retained only cases from R6.</span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a>**Action** — Now assign the result to a new object and inspect it:</span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>imd_region <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">&quot;R6&quot;</span>)</span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a><span class="fu">### The original data is untouched</span></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a>Running a pipeline does **not** modify <span class="in">`imd`</span>. Until you use <span class="in">`&lt;-`</span> to assign the result to an object, the transformation exists only as output in the console — it is printed, not saved. This is intentional: your raw data stays intact, and you build on it without risk.</span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a>**Action** — Confirm this by running <span class="in">`nrow(imd)`</span> after creating <span class="in">`imd_region`</span>.</span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb8-158"><a href="#cb8-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-161"><a href="#cb8-161" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-162"><a href="#cb8-162" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-163"><a href="#cb8-163" aria-hidden="true" tabindex="-1"></a>opts1 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb8-164"><a href="#cb8-164" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It modifies the dataframe in place, updating it with the result of each step&quot;</span>,</span>
+<span id="cb8-165"><a href="#cb8-165" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;It takes the result on its left and passes it as input to the function on its right&quot;</span>,</span>
+<span id="cb8-166"><a href="#cb8-166" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It runs two functions simultaneously and combines their output&quot;</span>,</span>
+<span id="cb8-167"><a href="#cb8-167" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It saves the result of the previous step to a new object automatically&quot;</span></span>
+<span id="cb8-168"><a href="#cb8-168" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-169"><a href="#cb8-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-170"><a href="#cb8-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-171"><a href="#cb8-171" aria-hidden="true" tabindex="-1"></a>**What does the `%&gt;%` operator do?**</span>
+<span id="cb8-172"><a href="#cb8-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-173"><a href="#cb8-173" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts1)`</span></span>
+<span id="cb8-174"><a href="#cb8-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-177"><a href="#cb8-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-178"><a href="#cb8-178" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-179"><a href="#cb8-179" aria-hidden="true" tabindex="-1"></a>opts2 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb8-180"><a href="#cb8-180" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;Once, at the top of the pipeline — it is then passed automatically to each step&quot;</span>,</span>
+<span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;In every function call, so each step knows which data to use&quot;</span>,</span>
+<span id="cb8-182"><a href="#cb8-182" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Only in the last step, where the final result is produced&quot;</span>,</span>
+<span id="cb8-183"><a href="#cb8-183" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It does not need to be declared — tidyverse finds it automatically&quot;</span></span>
+<span id="cb8-184"><a href="#cb8-184" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-185"><a href="#cb8-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-186"><a href="#cb8-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a>**In a tidy pipeline, how many times do you write the name of the dataframe?**</span>
+<span id="cb8-188"><a href="#cb8-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-189"><a href="#cb8-189" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts2)`</span></span>
+<span id="cb8-190"><a href="#cb8-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-193"><a href="#cb8-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-194"><a href="#cb8-194" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb8-195"><a href="#cb8-195" aria-hidden="true" tabindex="-1"></a>opts3 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb8-196"><a href="#cb8-196" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;The pipeline modifies `imd` directly, so `imd` now contains only female cases&quot;</span>,</span>
+<span id="cb8-197"><a href="#cb8-197" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;`imd` is unchanged — the result only exists in `imd_female` because you assigned it with `&lt;-`&quot;</span>,</span>
+<span id="cb8-198"><a href="#cb8-198" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Both `imd` and `imd_female` are updated, since they reference the same data&quot;</span>,</span>
+<span id="cb8-199"><a href="#cb8-199" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;The pipeline discards the result unless you print it with `print()`&quot;</span></span>
+<span id="cb8-200"><a href="#cb8-200" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-201"><a href="#cb8-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-202"><a href="#cb8-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-203"><a href="#cb8-203" aria-hidden="true" tabindex="-1"></a>**After running `imd_female &lt;- imd %&gt;% filter(sex == &quot;Female&quot;)`, what happens to the original `imd` object?**</span>
+<span id="cb8-204"><a href="#cb8-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-205"><a href="#cb8-205" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts3)`</span></span>
+<span id="cb8-206"><a href="#cb8-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-207"><a href="#cb8-207" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb8-208"><a href="#cb8-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-209"><a href="#cb8-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise Summary</span></span>
+<span id="cb8-210"><a href="#cb8-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-211"><a href="#cb8-211" aria-hidden="true" tabindex="-1"></a>Now you have a grasp of what actually the pipe <span class="in">`%&gt;%`</span> operator means when working with a Tidy workflow. In the following exercises you will learn more about its importance, and the huge advantages of working with it. We are just getting started!!</span>
+<span id="cb8-212"><a href="#cb8-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-213"><a href="#cb8-213" aria-hidden="true" tabindex="-1"></a>This is what you learned:</span>
+<span id="cb8-214"><a href="#cb8-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-215"><a href="#cb8-215" aria-hidden="true" tabindex="-1"></a>| Function | What it does |</span>
+<span id="cb8-216"><a href="#cb8-216" aria-hidden="true" tabindex="-1"></a>|----|----|</span>
+<span id="cb8-217"><a href="#cb8-217" aria-hidden="true" tabindex="-1"></a>| <span class="in">`%&gt;%`</span> | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |</span>
+<span id="cb8-218"><a href="#cb8-218" aria-hidden="true" tabindex="-1"></a>| <span class="in">`filter()`</span> | Keeps rows matching a condition |</span>
+<span id="cb8-219"><a href="#cb8-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-220"><a href="#cb8-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb8-221"><a href="#cb8-221" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb8-222"><a href="#cb8-222" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener(&quot;DOMContentLoaded&quot;, function() {</span></span>
+<span id="cb8-223"><a href="#cb8-223" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName(&quot;webex-radiogroup&quot;);</span></span>
+<span id="cb8-224"><a href="#cb8-224" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
+<span id="cb8-225"><a href="#cb8-225" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
+<span id="cb8-226"><a href="#cb8-226" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb8-227"><a href="#cb8-227" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
+<span id="cb8-228"><a href="#cb8-228" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb8-229"><a href="#cb8-229" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

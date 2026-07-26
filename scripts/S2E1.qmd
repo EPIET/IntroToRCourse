@@ -1,9 +1,221 @@
 ---
-title: "Data manipulation using Tidyverse: the 4 verbs"
+title: "Data manipulation using the Tidyverse"
 subtitle: "Session 2 practical exercises"
 ---
 
 ```{r}
 #| include: false
 library(webexercises)
+library(pacman)
+pacman::p_load(tidyverse, rio, here)
+
+imd <- import(here("data", "IMD_Sample_Clean.csv"))
+```
+
+**Have you heard about Murphy law?**
+
+Yesterday, you were instructed to become familiar with IMD data from the department, as your supervisor is planning your first surveillance project around it. During the weekly department meeting, Kassandra, the head of department for infectious diseases epidemiology and surveillance, informed the team about a mail shared by one of the regions, `R6`, expressing concern about a recent rise in IMD cases among female young adults.
+
+They asked your department for assistance in evaluating this signal, specially for adding national context and background information about other regions. Your colleagues start organizing a small task force, and Kassandra immediately appoints you to the team so you can have a first-hand experience in your new Institute. Your task will be to analyze data from previous year of IMD surveillance of the affected region, and a few others that will allow comparison. It's a cleaned, ready-to-use dataframe that epidemiologist in the unit know very well, with annual reports published already.
+
+*The perfect task for a brand new EPIET fellow*
+
+## Before you start
+
+Yesterday you learned how to prepare your workspace: the R Project, the clean script, libraries and data. You should at least have a working project within a folder structure that we provided you for this course
+
+**Action** — Start a new script and save it as `S1_tidyverse`
+
+**Action** — Prepare the script for today's work: add initial notes, activate libraries and load data
+
+1.  Remember you will need libraries for managing file paths and for importing data to R
+
+2.  We will add a new library from now on: the `tidyverse`
+
+3.  Today's dataframe is found in the `data` folder: `IMD_Sample_Clean.csv`. Load it and assign it to a new object called `imd`. Once loaded, click on your `imd` object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content
+
+Now, what is this `Tidyverse`we keep talking about??
+
+## Part 1 · The pipe — a new way to think about code
+
+To start with your task, you first need to think about the instructions you were given and how to translate them into the code. This is the Grammar Model we are practicing. Remember the signal that arrived:
+
+- Increase of cases in `R6` among `female` `young adults`
+
+### From base to tidy code
+
+This is a ***sequence*** of three steps that are needed to explore the cases of concern. Let's start by working slowly, in the way base R would expect you to do this job. The function we need for this task is `filter()`, the row selection function from `tidyverse`. We will explain it more deeply in a moment, just know that filter works like this
+
+``` r
+filter(data, condition)
+```
+
+the function needs as first argument the data it will use, and then the logical condition that rows need to fulfill in order to be retained, for example, cases from the region `R6`
+
+**Action** — Filter `imd` cases to only those happening in region `R6`. you can do this using this code:
+
+``` r
+filter(imd, region_id == "R6")
+```
+
+Let's break down the code:
+
+- The data argument is `imd`, our working data object as we named it when loading
+
+- The condition argument uses the variable `region_id` from the dataframe because we want only cases from one specific region among all existing regions in the data
+
+  - for the logical condition we used `==` which is the logical operator for "equal to"
+
+  - to select our region of interest, we used `"R6"` with quotes to indicate R we are referring to a literal character name to look for in the data variable
+
+**Action** — copy the `filter()` code in your script and execute it. ***What happens?***
+
+Yeah, you are right! We did not assign the function to any object, therefore the results only got printed in the console and, therefore, was lost to the *R Void* forever.
+
+**Action** — assign the filter operation to a new object `imd_filtered`
+
+Cool, but that was only the first of three steps, we have two more to go! Let's do it together in a simple way:
+
+``` r
+imd_filtered         <- filter(imd, region_id == "R6")
+imd_filtered_f       <- filter(imd_filtered, sex == "Female")
+imd_filtered_f_adult <- filter(imd_filtered_f, age >= 18)
+```
+
+And again, let's break it down
+
+- As a sequence, every step relied in the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function
+- Each filtering used the adequate variable: `region_id`, `sex` and `age` and a logical operator
+
+Working in such a step-wise way is useful: anyone reading your code can very quickly get the idea of the transformations that are happening, and that is always a relevant aspect to consider when writing code. Of course, it has downside of requiring more text, more objects, and unnecessary repetition that can lead to mistakes
+
+We could have done the same with only one line of code in the R base logic:
+
+``` r
+filter(filter(filter(imd, region == "R6"), sex == "Female"), age >= 18)
+```
+
+Now when you read this, your head needs a few minits to understand what is happening. To really come up with the sequence, you need to start reading in the middle where `imd` is called for the first time, then it becomes a serires of nested functions, arranged inside-out. Not beautiful, but does the work in a single command, and saves you three objects
+
+### The pipe as "and then"
+
+Now read this code:
+
+``` r
+imd %>%
+  filter(region == "R6") %>%
+  filter(sex == "Female") %>%
+  filter(age >= 18)
+```
+
+Same result. But now the data flows *downward*, one step at a time, exactly in the order the steps happen. This is the logic of the **pipe operator** `%>%`
+
+`%>%` has one job: take what is on the left and pass it as the first argument to what is on the right. Read it as **"and then"**:
+
+> Take `imd`, **and then** keep only female cases, **and then** keep only cases from R6, **and then** count the rows.
+
+Three properties of this style that will save you time:
+
+- The dataframe is declared ***once***, at the top. It is never repeated.
+- Variable names can be called ***directly*** within tidyverse functions, not requiring quotation or `$` like base R.
+- Code reads ***top to bottom***, like a recipe, each step acts on the result of the step above.
+
+::: callout-note
+### The pipeline is a transformation chain
+
+Think of the pipe as an assembly line. The raw material (`imd`) enters at the top, passes through a series of stations (the verbs), and exits the other end transformed. Each station receives whatever came out of the previous one. Nothing is modified in place, a new object only exists if you assign it with `<-`
+:::
+
+### Your first pipeline
+
+**Action** — In your script, write the following and run it:
+
+``` r
+imd %>%
+  filter(region == "R6")
+```
+
+Look at the result in the console. How many rows does it have? It should be fewer than the full dataset — you have just retained only cases from R6.
+
+**Action** — Now assign the result to a new object and inspect it:
+
+``` r
+imd_region <- imd %>%
+  filter(region == "R6")
+```
+
+::: callout-important
+### The original data is untouched
+
+Running a pipeline does **not** modify `imd`. Until you use `<-` to assign the result to an object, the transformation exists only as output in the console — it is printed, not saved. This is intentional: your raw data stays intact, and you build on it without risk.
+:::
+
+**Action** — Confirm this by running `nrow(imd)` after creating `imd_region`.
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+opts1 <- c(
+  "It modifies the dataframe in place, updating it with the result of each step",
+  answer = "It takes the result on its left and passes it as input to the function on its right",
+  "It runs two functions simultaneously and combines their output",
+  "It saves the result of the previous step to a new object automatically"
+)
+```
+
+**What does the `%>%` operator do?**
+
+`r longmcq(opts1)`
+
+```{r}
+#| echo: false
+opts2 <- c(
+  answer = "Once, at the top of the pipeline — it is then passed automatically to each step",
+  "In every function call, so each step knows which data to use",
+  "Only in the last step, where the final result is produced",
+  "It does not need to be declared — tidyverse finds it automatically"
+)
+```
+
+**In a tidy pipeline, how many times do you write the name of the dataframe?**
+
+`r longmcq(opts2)`
+
+```{r}
+#| echo: false
+opts3 <- c(
+  "The pipeline modifies `imd` directly, so `imd` now contains only female cases",
+  answer = "`imd` is unchanged — the result only exists in `imd_female` because you assigned it with `<-`",
+  "Both `imd` and `imd_female` are updated, since they reference the same data",
+  "The pipeline discards the result unless you print it with `print()`"
+)
+```
+
+**After running `imd_female <- imd %>% filter(sex == "Female")`, what happens to the original `imd` object?**
+
+`r longmcq(opts3)`
+
+------------------------------------------------------------------------
+
+## Exercise Summary
+
+Now you have a grasp of what actually the pipe `%>%` operator means when working with a Tidy workflow. In the following exercises you will learn more about its importance, and the huge advantages of working with it. We are just getting started!!
+
+This is what you learned:
+
+| Function | What it does |
+|----|----|
+| `%>%` | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
+| `filter()` | Keeps rows matching a condition |
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
 ```
