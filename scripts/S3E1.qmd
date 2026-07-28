@@ -78,7 +78,7 @@ Notice how we had to write by hand every name in the old a new form. How many va
 ```{r}
 #| eval: false
 #| # Manual name fixing
-imd_cleaning <- imd_wk %>%
+imd_cleaning <- imd_raw %>%
   rename(
     # New name              # Old Name
     disease               = Disease,

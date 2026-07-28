@@ -11,7 +11,8 @@ pacman::p_load(tidyverse, rio, here)
 
 imd <- import(here("data", "IMD_Sample_Clean.csv"))
 ```
-
+<!-- I think something that is implicit here but could be made explicit is that some filters only work on some types of variables
+ Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year >= "18") will not work -->
 You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the `filter()` function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of `filter()`, but also of the whole programming experience.
 
 Now you need to learn how to tell R *which rows you want* — and that means learning the language of logical conditions. A single condition is rarely enough in real epidemiological work, so you will also need to learn to combine them.
@@ -19,7 +20,7 @@ Now you need to learn how to tell R *which rows you want* — and that means lea
 To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
 
 | Operator  | Meaning                                                       |
-|-----------------------|-------------------------------------------------|
+|------------------------|------------------------------------------------|
 | `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
 | `!=`      | Not equal to; "*different*"                                   |
 | `>` `>=`  | Greater than / greater than or equal to                       |
@@ -40,7 +41,7 @@ The simplest conditions check whether a variable equals a specific value, or fal
 
 ``` r
 imd_region <- imd %>%
-  filter(region == "R6")
+  filter(region_id == "R6")
 ```
 
 From now on, this is the format of code we want to start emulating: calling the data *and then* using functions
@@ -65,7 +66,7 @@ Well, turns out we have missing rows. But, how is that even possible? If age log
 After every `filter()`, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using `nrow()` or other functions
 :::
 
-### Combining conditions 
+### Combining conditions
 
 Most real filters combine more than one condition. The `&` and `|` operators let you do this — but they behave very differently, and confusing them is one of the most common sources of silent errors in data analysis.
 
@@ -126,7 +127,7 @@ imd %>%
 You can chain all conditions in a single `filter()` using commas, or write them as separate `filter()` steps in the same pipeline — both work.
 :::
 
-### Missing values 
+### Missing values
 
 You have already used `is.na()` to find cases with missing age information. But there is something deeper going on with missing values that is worth understanding — because it will save you from a very common and very silent mistake.
 
@@ -142,7 +143,7 @@ You might expect `TRUE`. R returns `NA`. The logic is sound: if a value is unkno
 
 `r fitb(0)`
 
-Finding missing values is a common task when doing data cleaning, but that is tomorrow's topic. For now, we are also interested in discarding cases with `NA` values in some of its variables, something you will also do quite frequently in the future - believe me. For that, we can introduce the last of today's operators, the `!` - opposite operator
+Finding missing values is a common task when doing data cleaning, but that is tomorrow's topic. For now, we are only interested in discarding cases with `NA` values in some of their variables, something you will also do quite frequently in the future - believe me. For that, we can introduce the last of today's operators, the `!` - opposite operator
 
 When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having `NA` values in some column, we would do something like:
 

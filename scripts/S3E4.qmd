@@ -117,8 +117,8 @@ The second derived variable we are creating is `case_classification`. This class
 
 The classification logic for most communicable diseases surveillance is:
 
-- **Confirmed** — laboratory confirmation of the disease
-- **Probable** — compatible clinical presentation with and epidemiological link
+- **Confirmed** — laboratory confirmation of the disease 
+- **Probable** — compatible clinical presentation with and epidemiological link  <!-- Add "(compatible clinical presentation includes spesis and meningitis and being a secondary case means that there is an epideøiological link) ? They might not know the clinical presentation of IMD and what counts as an epi link-->
 - **Suspected** — compatible clinical presentation without epidemiological link or laboratory confirmation
 - **Discarded** — none of the previous conditions are met
 
@@ -253,7 +253,7 @@ opts3 <- c(
 )
 ```
 
-**Why must the `Confirmed` condition appear first in the `case_classificationcase_when()` block?**
+**Why must the `Confirmed` condition appear first in the `case_classification case_when()` block?**
 
 `r longmcq(opts3)`
 

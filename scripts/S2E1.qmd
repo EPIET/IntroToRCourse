@@ -34,7 +34,7 @@ Yesterday you learned how to prepare your workspace: the R Project, the clean sc
 
 3.  Today's dataframe is found in the `data` folder: `IMD_Sample_Clean.csv`. Load it and assign it to a new object called `imd`. Once loaded, click on your `imd` object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content
 
-Now, what is this `Tidyverse`we keep talking about??
+Now, what is this `tidyverse`we keep talking about??
 
 ## Part 1 · The pipe — a new way to think about code
 
@@ -79,23 +79,23 @@ Cool, but that was only the first of three steps, we have two more to go! Let's 
 ``` r
 imd_filtered         <- filter(imd, region_id == "R6")
 imd_filtered_f       <- filter(imd_filtered, sex == "Female")
-imd_filtered_f_adult <- filter(imd_filtered_f, age >= 18)
+imd_filtered_f_adult <- filter(imd_filtered_f, age_years >= 18)
 ```
 
 And again, let's break it down
 
-- As a sequence, every step relied in the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function
-- Each filtering used the adequate variable: `region_id`, `sex` and `age` and a logical operator
+- As a sequence, every step relied on the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function
+- Each filtering used the adequate variable: `region_id`, `sex` and `age_years` and a logical operator
 
 Working in such a step-wise way is useful: anyone reading your code can very quickly get the idea of the transformations that are happening, and that is always a relevant aspect to consider when writing code. Of course, it has downside of requiring more text, more objects, and unnecessary repetition that can lead to mistakes
 
 We could have done the same with only one line of code in the R base logic:
 
 ``` r
-filter(filter(filter(imd, region == "R6"), sex == "Female"), age >= 18)
+filter(filter(filter(imd, region_id == "R6"), sex == "Female"), age_years >= 18)
 ```
 
-Now when you read this, your head needs a few minits to understand what is happening. To really come up with the sequence, you need to start reading in the middle where `imd` is called for the first time, then it becomes a serires of nested functions, arranged inside-out. Not beautiful, but does the work in a single command, and saves you three objects
+Now when you read this, your head needs a few minutes to understand what is happening. To really come up with the sequence, you need to start reading in the middle where `imd` is called for the first time, then it becomes a series of nested functions, arranged inside-out. Not beautiful, but does the work in a single command, and saves you three objects
 
 ### The pipe as "and then"
 
@@ -103,16 +103,16 @@ Now read this code:
 
 ``` r
 imd %>%
-  filter(region == "R6") %>%
+  filter(region_id == "R6") %>%
   filter(sex == "Female") %>%
-  filter(age >= 18)
+  filter(age_years >= 18)
 ```
 
 Same result. But now the data flows *downward*, one step at a time, exactly in the order the steps happen. This is the logic of the **pipe operator** `%>%`
 
 `%>%` has one job: take what is on the left and pass it as the first argument to what is on the right. Read it as **"and then"**:
 
-> Take `imd`, **and then** keep only female cases, **and then** keep only cases from R6, **and then** count the rows.
+> Take `imd`, **and then** keep only cases from R6, **and then** keep only female cases, **and then** keep only the adults.
 
 Three properties of this style that will save you time:
 
@@ -132,7 +132,7 @@ Think of the pipe as an assembly line. The raw material (`imd`) enters at the to
 
 ``` r
 imd %>%
-  filter(region == "R6")
+  filter(region_id == "R6")
 ```
 
 Look at the result in the console. How many rows does it have? It should be fewer than the full dataset — you have just retained only cases from R6.
@@ -141,7 +141,7 @@ Look at the result in the console. How many rows does it have? It should be fewe
 
 ``` r
 imd_region <- imd %>%
-  filter(region == "R6")
+  filter(region_id == "R6")
 ```
 
 ::: callout-important
@@ -205,7 +205,7 @@ Now you have a grasp of what actually the pipe `%>%` operator means when working
 This is what you learned:
 
 | Function | What it does |
-|----|----|
+|------------------------------------|------------------------------------|
 | `%>%` | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
 | `filter()` | Keeps rows matching a condition |
 
