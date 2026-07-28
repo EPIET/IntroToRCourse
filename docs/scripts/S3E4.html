@@ -4282,20 +4282,20 @@ vertical-align: -.125em;
 </div>
 <hr>
 <p><strong>What does <code>case_when()</code> do?</strong></p>
-<div id="radio_WPPWGLZUID" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WPPWGLZUID" value> <span>It recodes categorical values like <code>recode_values()</code></span></label><label><input type="radio" autocomplete="off" name="radio_WPPWGLZUID" value> <span>It filters rows based on a condition</span></label><label><input type="radio" autocomplete="off" name="radio_WPPWGLZUID" value="answer"> <span>It assigns values based on a sequence of conditions evaluated in order</span></label><label><input type="radio" autocomplete="off" name="radio_WPPWGLZUID" value> <span>It creates groups like <code>group_by()</code></span></label>
+<div id="radio_LWGPODALMG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LWGPODALMG" value> <span>It recodes categorical values like <code>recode_values()</code></span></label><label><input type="radio" autocomplete="off" name="radio_LWGPODALMG" value> <span>It filters rows based on a condition</span></label><label><input type="radio" autocomplete="off" name="radio_LWGPODALMG" value="answer"> <span>It assigns values based on a sequence of conditions evaluated in order</span></label><label><input type="radio" autocomplete="off" name="radio_LWGPODALMG" value> <span>It creates groups like <code>group_by()</code></span></label>
 </div>
 <p><strong>What happens to rows that do not match any condition in <code>case_when()</code> if you do not include a final <code>TRUE ~</code> line?</strong></p>
-<div id="radio_YRDFDPSFHV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YRDFDPSFHV" value> <span>They are left unchanged</span></label><label><input type="radio" autocomplete="off" name="radio_YRDFDPSFHV" value> <span>The function throws an error</span></label><label><input type="radio" autocomplete="off" name="radio_YRDFDPSFHV" value="answer"> <span>They become <code>NA</code></span></label><label><input type="radio" autocomplete="off" name="radio_YRDFDPSFHV" value> <span>They take the value of the last condition</span></label>
+<div id="radio_GEICKCHWBW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GEICKCHWBW" value> <span>They are left unchanged</span></label><label><input type="radio" autocomplete="off" name="radio_GEICKCHWBW" value> <span>The function throws an error</span></label><label><input type="radio" autocomplete="off" name="radio_GEICKCHWBW" value="answer"> <span>They become <code>NA</code></span></label><label><input type="radio" autocomplete="off" name="radio_GEICKCHWBW" value> <span>They take the value of the last condition</span></label>
 </div>
 <p><strong>Why must the <code>Confirmed</code> condition appear first in the <code>case_classificationcase_when()</code> block?</strong></p>
-<div id="radio_RLABCZZDHJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RLABCZZDHJ" value="answer"> <span>Because <code>case_when()</code> stops at the first matching condition — a confirmed case must be classified as Confirmed before any other rule can capture it</span></label><label><input type="radio" autocomplete="off" name="radio_RLABCZZDHJ" value> <span>Because <code>lab_confirmed</code> is the first column in the dataframe</span></label><label><input type="radio" autocomplete="off" name="radio_RLABCZZDHJ" value> <span>Because alphabetical order requires Confirmed to come before Probable</span></label><label><input type="radio" autocomplete="off" name="radio_RLABCZZDHJ" value> <span>It does not matter — <code>case_when()</code> evaluates all conditions and picks the best match</span></label>
+<div id="radio_VYQVABLVML" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VYQVABLVML" value="answer"> <span>Because <code>case_when()</code> stops at the first matching condition — a confirmed case must be classified as Confirmed before any other rule can capture it</span></label><label><input type="radio" autocomplete="off" name="radio_VYQVABLVML" value> <span>Because <code>lab_confirmed</code> is the first column in the dataframe</span></label><label><input type="radio" autocomplete="off" name="radio_VYQVABLVML" value> <span>Because alphabetical order requires Confirmed to come before Probable</span></label><label><input type="radio" autocomplete="off" name="radio_VYQVABLVML" value> <span>It does not matter — <code>case_when()</code> evaluates all conditions and picks the best match</span></label>
 </div>
 <p><strong>Why is <code>filter()</code> placed at the end of the pipeline rather than the beginning?</strong></p>
-<div id="radio_FMGQJAMJFY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FMGQJAMJFY" value> <span>At the very beginning, before any other step</span></label><label><input type="radio" autocomplete="off" name="radio_FMGQJAMJFY" value> <span>Right after fixing column names</span></label><label><input type="radio" autocomplete="off" name="radio_FMGQJAMJFY" value="answer"> <span>After creating derived variables that depend on the columns being filtered</span></label><label><input type="radio" autocomplete="off" name="radio_FMGQJAMJFY" value> <span>It does not matter — <code>filter()</code> produces the same result at any point in the pipeline</span></label>
+<div id="radio_DDAUZMYSJR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DDAUZMYSJR" value> <span>At the very beginning, before any other step</span></label><label><input type="radio" autocomplete="off" name="radio_DDAUZMYSJR" value> <span>Right after fixing column names</span></label><label><input type="radio" autocomplete="off" name="radio_DDAUZMYSJR" value="answer"> <span>After creating derived variables that depend on the columns being filtered</span></label><label><input type="radio" autocomplete="off" name="radio_DDAUZMYSJR" value> <span>It does not matter — <code>filter()</code> produces the same result at any point in the pipeline</span></label>
 </div>
 <hr>
 </section>
@@ -5431,259 +5431,266 @@ window.onload = function() {
 <span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>The classification logic for most communicable diseases surveillance is:</span>
 <span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Confirmed** — laboratory confirmation of the disease</span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Probable** — compatible clinical presentation with and epidemiological link</span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Suspected** — compatible clinical presentation without epidemiological link or laboratory confirmation</span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Discarded** — none of the previous conditions are met</span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>This one is more complex because it combines information from will be combining information from different columns and creating the logical conditions required to classify cases accordingly</span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>**Action** — Identify in the data the columns needed to define the classification, and explore them to understand the existing categories and how to use them</span>
-<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>**Action** — Think carefully about the order of conditions for defining the categories before you write the code. Which category must be evaluated first, and why?</span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse=&quot;true&quot; appearance=&quot;simple&quot; icon=&quot;false&quot;}</span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## See the answer</span></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Confirmed** — laboratory confirmation of the disease</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Probable** — compatible clinical presentation with and epidemiological link</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Suspected** — compatible clinical presentation without epidemiological link or laboratory confirmation</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Discarded** — none of the previous conditions are met</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>=======</span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Confirmed** — laboratory confirmation of the disease </span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Probable** — compatible clinical presentation with and epidemiological link  <span class="co">&lt;!-- Add &quot;(compatible clinical presentation includes spesis and meningitis and being a secondary case means that there is an epideøiological link) ? They might not know the clinical presentation of IMD and what counts as an epi link--&gt;</span></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Suspected** — compatible clinical presentation without epidemiological link or laboratory confirmation</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Discarded** — none of the previous conditions are met</span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;&gt;&gt;&gt;&gt;&gt;&gt; 74953fd0d5b28de9ca142c63366349e8f7a4c0c8</span></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>This one is more complex because it combines information from will be combining information from different columns and creating the logical conditions required to classify cases accordingly</span>
 <span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>We need the columns <span class="in">`lab_confirmed`</span>, <span class="in">`type_of_case`</span>, and <span class="in">`clinical_presentation`</span> for the microbiological, epidemiological and clinical criteria.</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>**Action** — Identify in the data the columns needed to define the classification, and explore them to understand the existing categories and how to use them</span>
 <span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="in">`Confirmed`</span> must come first. If a case is lab confirmed, it should be classified as &quot;Confirmed&quot; regardless of what the other columns say — even if <span class="in">`type_of_case`</span> or <span class="in">`clinical_presentation`</span> are missing. If you place <span class="in">`Probable`</span> or <span class="in">`Suspected`</span> first, some confirmed cases could accidentally fall into those categories. In <span class="in">`case_when()`</span>, order is logic.</span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>**Action** — Use <span class="in">`case_when()`</span> to define a new variable <span class="in">`case_classification`</span> with the following categories: <span class="in">`Confirmed`</span>, <span class="in">`Probable`</span>, <span class="in">`Suspected`</span> and <span class="in">`Discarded`</span>. Add it to the same <span class="in">`mutate()`</span> block as <span class="in">`age_group`</span> and implement the four-category classification.</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>**Action** — Think carefully about the order of conditions for defining the categories before you write the code. Which category must be evaluated first, and why?</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse=&quot;true&quot; appearance=&quot;simple&quot; icon=&quot;false&quot;}</span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## See the answer</span></span>
 <span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot; appearance=&quot;simple&quot;}</span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a><span class="in">`Probable`</span> and <span class="in">`Suspected`</span> rely on both negative (doesn&#39;t meet criteria) and positive conditions. The variables that define the conditions have multiple categories. Does it really matter whether one category or the other is present, or only the fact the the variable is not <span class="in">`NA`</span>? Think about it</span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a>**Action** — After creating the variable an executing the code, use <span class="in">`table()`</span>to check the final count of cases on each classification</span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>::: {.callout-important appearance=&quot;simple&quot; icon=&quot;false&quot;}</span>
-<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>**How many confirmed cases of every category are there**?</span>
-<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Confirmed: <span class="in">`r fitb(1963)`</span></span>
-<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Probable: <span class="in">`r fitb(463)`</span></span>
-<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Suspected: <span class="in">`r fitb(214)`</span></span>
-<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Discarded: <span class="in">`r fitb(84)`</span></span>
-<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 7 · Final clean-up and export</span></span>
-<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>You are almost there. Data is now clean and ready to be used. Just one final note.</span>
-<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>The fact that data is clean doesn&#39;t mean that all the information contained within is valid or useful for us. In epidemiological surveillance, one of the worst errors we can make is count things that we shouldn&#39;t be counting. That happens when you include cases that doesn&#39;t match the criteria for being considered cases, or categories (years, regions, for example) that are not part of what you are exploring at the moment.</span>
-<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>At the same time, once cleaned, maybe not every column will be necessary for analyses, and we can get rid of noise</span>
-<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filter unwanted records</span></span>
-<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>Remember at the beginning of the exercises when we flagged some variables but did nothing with them? I&#39;m talking about <span class="in">`disease`</span> and <span class="in">`imported`</span> variables.</span>
-<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a>**Action** — Explore both variables and think what we would like to filter out and why</span>
-<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>**Action** — Add a <span class="in">`filter()`</span> at the end of your cleaning pipe</span>
-<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot; appearance=&quot;simple&quot;}</span>
-<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>We need the columns <span class="in">`lab_confirmed`</span>, <span class="in">`type_of_case`</span>, and <span class="in">`clinical_presentation`</span> for the microbiological, epidemiological and clinical criteria.</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="in">`Confirmed`</span> must come first. If a case is lab confirmed, it should be classified as &quot;Confirmed&quot; regardless of what the other columns say — even if <span class="in">`type_of_case`</span> or <span class="in">`clinical_presentation`</span> are missing. If you place <span class="in">`Probable`</span> or <span class="in">`Suspected`</span> first, some confirmed cases could accidentally fall into those categories. In <span class="in">`case_when()`</span>, order is logic.</span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>**Action** — Use <span class="in">`case_when()`</span> to define a new variable <span class="in">`case_classification`</span> with the following categories: <span class="in">`Confirmed`</span>, <span class="in">`Probable`</span>, <span class="in">`Suspected`</span> and <span class="in">`Discarded`</span>. Add it to the same <span class="in">`mutate()`</span> block as <span class="in">`age_group`</span> and implement the four-category classification.</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot; appearance=&quot;simple&quot;}</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="in">`Probable`</span> and <span class="in">`Suspected`</span> rely on both negative (doesn&#39;t meet criteria) and positive conditions. The variables that define the conditions have multiple categories. Does it really matter whether one category or the other is present, or only the fact the the variable is not <span class="in">`NA`</span>? Think about it</span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>**Action** — After creating the variable an executing the code, use <span class="in">`table()`</span>to check the final count of cases on each classification</span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>::: {.callout-important appearance=&quot;simple&quot; icon=&quot;false&quot;}</span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>**How many confirmed cases of every category are there**?</span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Confirmed: <span class="in">`r fitb(1963)`</span></span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Probable: <span class="in">`r fitb(463)`</span></span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Suspected: <span class="in">`r fitb(214)`</span></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Discarded: <span class="in">`r fitb(84)`</span></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 7 · Final clean-up and export</span></span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>You are almost there. Data is now clean and ready to be used. Just one final note.</span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a>The fact that data is clean doesn&#39;t mean that all the information contained within is valid or useful for us. In epidemiological surveillance, one of the worst errors we can make is count things that we shouldn&#39;t be counting. That happens when you include cases that doesn&#39;t match the criteria for being considered cases, or categories (years, regions, for example) that are not part of what you are exploring at the moment.</span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a>At the same time, once cleaned, maybe not every column will be necessary for analyses, and we can get rid of noise</span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filter unwanted records</span></span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>Remember at the beginning of the exercises when we flagged some variables but did nothing with them? I&#39;m talking about <span class="in">`disease`</span> and <span class="in">`imported`</span> variables.</span>
 <span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>It&#39;s not unusual when extracting data that some unwanted registries get mixed-up with your query. In this case, it seems like some Pneumococcal disease cases were included. Additionally, you must have guessed that imported cases are to be taken away. This is, again, a conscious decision taken at institutional level - some countries may choose to retain them and report, other may drop them. This is reporting heterogeneity - something you will soon understand better during the fellowship!</span>
-<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>Great, we made the decision to eliminate cases from the other disease and those imported. Can you think of any other category of cases we can consider dropping? Maybe some category **we just created**</span>
-<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>**Action** — In the same <span class="in">`filter()`</span>, include also <span class="in">`Discarded`</span> cases</span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>**Action** — Explore both variables and think what we would like to filter out and why</span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>**Action** — Add a <span class="in">`filter()`</span> at the end of your cleaning pipe</span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot; appearance=&quot;simple&quot;}</span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
 <span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>**Action** — How many rows are left in the dataframe after filtering? <span class="in">`r fitb(2627)`</span></span>
-<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### Drop unnecessary columns</span></span>
-<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>A clean dataset should only contain what is needed for analysis. Three columns can go now:</span>
-<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`diagnostic_date`</span> — the ghost column, all <span class="in">`NA`</span>, never filled in the registry</span>
-<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`disease`</span> — every row is <span class="in">`&quot;Mening&quot;`</span>, zero information content after filtering</span>
-<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`imported`</span> — you have just filtered to <span class="in">`&quot;No&quot;`</span> only, so this column is now a constant</span>
-<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>**Action** — Add a <span class="in">`select()`</span> call using <span class="in">`-`</span> to remove the three columns.</span>
-<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why filter at the end and not at the beginning?</span></span>
-<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>You needed <span class="in">`lab_confirmed`</span>, <span class="in">`type_of_case`</span>, and <span class="in">`clinical_presentation`</span> to *create* <span class="in">`case_classification`</span>. If you had filtered out discarded cases at the start, you would not have been able to classify them — and you would not know which ones were discarded in the first place. Cleaning order matters: derive first, filter after.</span>
-<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a><span class="fu">### Export</span></span>
-<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>Your pipeline is complete. The last step is to save the clean dataset so it can be used in the next sessions.</span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>It&#39;s not unusual when extracting data that some unwanted registries get mixed-up with your query. In this case, it seems like some Pneumococcal disease cases were included. Additionally, you must have guessed that imported cases are to be taken away. This is, again, a conscious decision taken at institutional level - some countries may choose to retain them and report, other may drop them. This is reporting heterogeneity - something you will soon understand better during the fellowship!</span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>Great, we made the decision to eliminate cases from the other disease and those imported. Can you think of any other category of cases we can consider dropping? Maybe some category **we just created**</span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>**Action** — In the same <span class="in">`filter()`</span>, include also <span class="in">`Discarded`</span> cases</span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>**Action** — How many rows are left in the dataframe after filtering? <span class="in">`r fitb(2627)`</span></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a><span class="fu">### Drop unnecessary columns</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>A clean dataset should only contain what is needed for analysis. Three columns can go now:</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`diagnostic_date`</span> — the ghost column, all <span class="in">`NA`</span>, never filled in the registry</span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`disease`</span> — every row is <span class="in">`&quot;Mening&quot;`</span>, zero information content after filtering</span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`imported`</span> — you have just filtered to <span class="in">`&quot;No&quot;`</span> only, so this column is now a constant</span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>**Action** — Add a <span class="in">`select()`</span> call using <span class="in">`-`</span> to remove the three columns.</span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why filter at the end and not at the beginning?</span></span>
 <span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>**Action** — Use <span class="in">`export()`</span> from <span class="in">`rio`</span> to save the clean dataframe as <span class="in">`IMD_Sample_Clean.csv`</span> in your <span class="in">`data`</span> folder</span>
-<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>Files in <span class="in">`.csv`</span> format are more consistent, store more adequately variable&#39;s format, and are preferred when sharing data with colleagues. Other formats exists, including native <span class="in">`R`</span> files, but for the sake of this course, we need to assume that other colleagues not working in R may need the file too</span>
-<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a><span class="fu">### Save the pipeline as a script, not just run it</span></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>You needed <span class="in">`lab_confirmed`</span>, <span class="in">`type_of_case`</span>, and <span class="in">`clinical_presentation`</span> to *create* <span class="in">`case_classification`</span>. If you had filtered out discarded cases at the start, you would not have been able to classify them — and you would not know which ones were discarded in the first place. Cleaning order matters: derive first, filter after.</span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a><span class="fu">### Export</span></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>Your pipeline is complete. The last step is to save the clean dataset so it can be used in the next sessions.</span>
 <span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>Remember: your cleaning script is a record of every decision you made. Save it as <span class="in">`IMD_Cleaning.R`</span>, add comments explaining the reasoning behind key choices, and keep it in your <span class="in">`scripts`</span> folder. Anyone reading it — including future you — should be able to understand not just *what* was done, but *why*.</span>
-<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>opts1 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It recodes categorical values like `recode_values()`&quot;</span>,</span>
-<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It filters rows based on a condition&quot;</span>,</span>
-<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;It assigns values based on a sequence of conditions evaluated in order&quot;</span>,</span>
-<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It creates groups like `group_by()`&quot;</span></span>
-<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a>**What does `case_when()` do?**</span>
-<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts1)`</span></span>
-<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a>opts2 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;They are left unchanged&quot;</span>,</span>
-<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;The function throws an error&quot;</span>,</span>
-<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;They become `NA`&quot;</span>,</span>
-<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;They take the value of the last condition&quot;</span></span>
-<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>**What happens to rows that do not match any condition in `case_when()` if you do not include a final `TRUE ~` line?**</span>
-<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts2)`</span></span>
-<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a>opts3 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;Because `case_when()` stops at the first matching condition — a confirmed case must be classified as Confirmed before any other rule can capture it&quot;</span>,</span>
-<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Because `lab_confirmed` is the first column in the dataframe&quot;</span>,</span>
-<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Because alphabetical order requires Confirmed to come before Probable&quot;</span>,</span>
-<span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It does not matter — `case_when()` evaluates all conditions and picks the best match&quot;</span></span>
-<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>**Why must the `Confirmed` condition appear first in the `case_classificationcase_when()` block?**</span>
-<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts3)`</span></span>
-<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a>opts4 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;At the very beginning, before any other step&quot;</span>,</span>
-<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Right after fixing column names&quot;</span>,</span>
-<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;After creating derived variables that depend on the columns being filtered&quot;</span>,</span>
-<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It does not matter — `filter()` produces the same result at any point in the pipeline&quot;</span></span>
-<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>**Why is `filter()` placed at the end of the pipeline rather than the beginning?**</span>
-<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts4)`</span></span>
-<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise summary</span></span>
-<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a>**Your dataset is now clean.** <span class="in">`IMD_Sample_Clean.xlsx`</span> is ready and waiting in your data folder — it is the dataset you will use in all subsequent sessions. You also fulfilled Kassandra&#39;s taks: produce a data cleaning script that anyone at the unit can use in the future, where you documented all changed made to the data, which is a key quality aspect</span>
-<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a>This is also the end of Session 3 practical exercise, and the first half of the course. We went from no prior R knowledge to being able to manipulate and clean data using the most basic Tidyverse tools. With this knowledge you are already equipped to perform basic data tasks, including some of the most crucial functions of data manipulation</span>
-<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a>In the next sessions, you will learn to describe and present results from your data in the form of basic tables and amazing <span class="in">`ggplot`</span>graphs. For now, digest everything you learned and rest. See you for Session 4!</span>
-<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a>These are the functions you learned:</span>
-<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Function       <span class="pp">|</span> Package <span class="pp">|</span> What it does                               <span class="pp">|</span></span>
-<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|---------|--------------------------------------------|</span></span>
-<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`case_when()`</span>  <span class="pp">|</span> dplyr   <span class="pp">|</span> Assigns values based on ordered conditions <span class="pp">|</span></span>
-<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`filter()`</span>     <span class="pp">|</span> dplyr   <span class="pp">|</span> Keeps rows matching a condition            <span class="pp">|</span></span>
-<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`select(-col)`</span> <span class="pp">|</span> dplyr   <span class="pp">|</span> Removes a column from the dataframe        <span class="pp">|</span></span>
-<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`export()`</span>     <span class="pp">|</span> rio     <span class="pp">|</span> Saves a dataframe to a file                <span class="pp">|</span></span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>**Action** — Use <span class="in">`export()`</span> from <span class="in">`rio`</span> to save the clean dataframe as <span class="in">`IMD_Sample_Clean.csv`</span> in your <span class="in">`data`</span> folder</span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a>Files in <span class="in">`.csv`</span> format are more consistent, store more adequately variable&#39;s format, and are preferred when sharing data with colleagues. Other formats exists, including native <span class="in">`R`</span> files, but for the sake of this course, we need to assume that other colleagues not working in R may need the file too</span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### Save the pipeline as a script, not just run it</span></span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>Remember: your cleaning script is a record of every decision you made. Save it as <span class="in">`IMD_Cleaning.R`</span>, add comments explaining the reasoning behind key choices, and keep it in your <span class="in">`scripts`</span> folder. Anyone reading it — including future you — should be able to understand not just *what* was done, but *why*.</span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>opts1 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It recodes categorical values like `recode_values()`&quot;</span>,</span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It filters rows based on a condition&quot;</span>,</span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;It assigns values based on a sequence of conditions evaluated in order&quot;</span>,</span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It creates groups like `group_by()`&quot;</span></span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>**What does `case_when()` do?**</span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts1)`</span></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a>opts2 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;They are left unchanged&quot;</span>,</span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;The function throws an error&quot;</span>,</span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;They become `NA`&quot;</span>,</span>
+<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;They take the value of the last condition&quot;</span></span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a>**What happens to rows that do not match any condition in `case_when()` if you do not include a final `TRUE ~` line?**</span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts2)`</span></span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>opts3 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;Because `case_when()` stops at the first matching condition — a confirmed case must be classified as Confirmed before any other rule can capture it&quot;</span>,</span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Because `lab_confirmed` is the first column in the dataframe&quot;</span>,</span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Because alphabetical order requires Confirmed to come before Probable&quot;</span>,</span>
+<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It does not matter — `case_when()` evaluates all conditions and picks the best match&quot;</span></span>
+<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>**Why must the `Confirmed` condition appear first in the `case_classification case_when()` block?**</span>
+<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts3)`</span></span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>opts4 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;At the very beginning, before any other step&quot;</span>,</span>
+<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Right after fixing column names&quot;</span>,</span>
+<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">&quot;After creating derived variables that depend on the columns being filtered&quot;</span>,</span>
+<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;It does not matter — `filter()` produces the same result at any point in the pipeline&quot;</span></span>
+<span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>**Why is `filter()` placed at the end of the pipeline rather than the beginning?**</span>
+<span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts4)`</span></span>
+<span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise summary</span></span>
+<span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>**Your dataset is now clean.** <span class="in">`IMD_Sample_Clean.xlsx`</span> is ready and waiting in your data folder — it is the dataset you will use in all subsequent sessions. You also fulfilled Kassandra&#39;s taks: produce a data cleaning script that anyone at the unit can use in the future, where you documented all changed made to the data, which is a key quality aspect</span>
+<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>This is also the end of Session 3 practical exercise, and the first half of the course. We went from no prior R knowledge to being able to manipulate and clean data using the most basic Tidyverse tools. With this knowledge you are already equipped to perform basic data tasks, including some of the most crucial functions of data manipulation</span>
+<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>In the next sessions, you will learn to describe and present results from your data in the form of basic tables and amazing <span class="in">`ggplot`</span>graphs. For now, digest everything you learned and rest. See you for Session 4!</span>
+<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>These are the functions you learned:</span>
 <span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot;}</span>
-<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a><span class="fu">## 💡 Show solution — only after trying yourself!</span></span>
-<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a>imd_cleaning <span class="ot">&lt;-</span> imd_raw <span class="sc">%&gt;%</span></span>
-<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_years =</span> age,</span>
-<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a>    <span class="at">year      =</span> key_year</span>
-<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_months         =</span> <span class="fu">as.numeric</span>(age_months),</span>
-<span id="cb3-315"><a href="#cb3-315" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_date           =</span> <span class="fu">ymd</span>(key_date),</span>
-<span id="cb3-316"><a href="#cb3-316" aria-hidden="true" tabindex="-1"></a>    <span class="at">symptom_onset_date =</span> <span class="fu">ymd</span>(symptom_onset_date),</span>
-<span id="cb3-317"><a href="#cb3-317" aria-hidden="true" tabindex="-1"></a>    <span class="at">diagnostic_date    =</span> <span class="fu">ymd</span>(diagnostic_date)</span>
-<span id="cb3-318"><a href="#cb3-318" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-319"><a href="#cb3-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-320"><a href="#cb3-320" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb3-321"><a href="#cb3-321" aria-hidden="true" tabindex="-1"></a>      sex,</span>
-<span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;m&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Male&quot;</span>,</span>
-<span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;f&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Female&quot;</span>,</span>
-<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
-<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>    <span class="at">type_of_case =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>      type_of_case,</span>
-<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Sec&quot;</span> <span class="sc">~</span> <span class="st">&quot;Second&quot;</span>,</span>
-<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
-<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>    <span class="at">serogroup =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>      serogroup,</span>
-<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;B_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
-<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;C_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;C&quot;</span>,</span>
-<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Y_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;Y&quot;</span>,</span>
-<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;W_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;W&quot;</span>,</span>
-<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;NT_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;Non Tipable&quot;</span>,</span>
-<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">&quot;Other_NeisMen&quot;</span>, <span class="st">&quot;A_NeisMen&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Other&quot;</span>,</span>
-<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA</span> <span class="sc">~</span> <span class="st">&quot;Unknown&quot;</span></span>
-<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&lt;</span> <span class="dv">1</span>                          <span class="sc">~</span> <span class="st">&quot;&lt; 1&quot;</span>,</span>
-<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">1</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">5</span>        <span class="sc">~</span> <span class="st">&quot;1-4&quot;</span>,</span>
-<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">5</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">10</span>       <span class="sc">~</span> <span class="st">&quot;5-9&quot;</span>,</span>
-<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">15</span>       <span class="sc">~</span> <span class="st">&quot;10-14&quot;</span>,</span>
-<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">20</span>       <span class="sc">~</span> <span class="st">&quot;15-19&quot;</span>,</span>
-<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">25</span>       <span class="sc">~</span> <span class="st">&quot;20-24&quot;</span>,</span>
-<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">45</span>       <span class="sc">~</span> <span class="st">&quot;25-44&quot;</span>,</span>
-<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">65</span>       <span class="sc">~</span> <span class="st">&quot;45-64&quot;</span>,</span>
-<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">65</span>                        <span class="sc">~</span> <span class="st">&quot;65+&quot;</span>,</span>
-<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                   <span class="sc">~</span> <span class="st">&quot;Unknown&quot;</span></span>
-<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_classification =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">&quot;Yes&quot;</span>                                                              <span class="sc">~</span> <span class="st">&quot;Confirmed&quot;</span>,</span>
-<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">&quot;No&quot;</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">&quot;Probable&quot;</span>,</span>
-<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">&quot;No&quot;</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(type_of_case)  <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">&quot;Suspected&quot;</span>,</span>
-<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                                                <span class="sc">~</span> <span class="st">&quot;Discarded&quot;</span></span>
-<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-362"><a href="#cb3-362" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">==</span> <span class="st">&quot;Mening&quot;</span>,</span>
-<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a>    imported <span class="sc">==</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a>    case_classification <span class="sc">!=</span> <span class="st">&quot;Discarded&quot;</span></span>
-<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>diagnostic_date, <span class="sc">-</span>disease, <span class="sc">-</span>imported)</span>
-<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(imd_cleaning, <span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;clean&quot;</span> ,<span class="st">&quot;IMD_Sample_Clean.xlsx&quot;</span>))</span>
-<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
-<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener(&quot;DOMContentLoaded&quot;, function() {</span></span>
-<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName(&quot;webex-radiogroup&quot;);</span></span>
-<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
-<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
-<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
-<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
-<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
-<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Function       <span class="pp">|</span> Package <span class="pp">|</span> What it does                               <span class="pp">|</span></span>
+<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------|---------|--------------------------------------------|</span></span>
+<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`case_when()`</span>  <span class="pp">|</span> dplyr   <span class="pp">|</span> Assigns values based on ordered conditions <span class="pp">|</span></span>
+<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`filter()`</span>     <span class="pp">|</span> dplyr   <span class="pp">|</span> Keeps rows matching a condition            <span class="pp">|</span></span>
+<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`select(-col)`</span> <span class="pp">|</span> dplyr   <span class="pp">|</span> Removes a column from the dataframe        <span class="pp">|</span></span>
+<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`export()`</span>     <span class="pp">|</span> rio     <span class="pp">|</span> Saves a dataframe to a file                <span class="pp">|</span></span>
+<span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot;}</span>
+<span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a><span class="fu">## 💡 Show solution — only after trying yourself!</span></span>
+<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a>imd_cleaning <span class="ot">&lt;-</span> imd_raw <span class="sc">%&gt;%</span></span>
+<span id="cb3-315"><a href="#cb3-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-316"><a href="#cb3-316" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb3-317"><a href="#cb3-317" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_years =</span> age,</span>
+<span id="cb3-318"><a href="#cb3-318" aria-hidden="true" tabindex="-1"></a>    <span class="at">year      =</span> key_year</span>
+<span id="cb3-319"><a href="#cb3-319" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-320"><a href="#cb3-320" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-321"><a href="#cb3-321" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_months         =</span> <span class="fu">as.numeric</span>(age_months),</span>
+<span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_date           =</span> <span class="fu">ymd</span>(key_date),</span>
+<span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a>    <span class="at">symptom_onset_date =</span> <span class="fu">ymd</span>(symptom_onset_date),</span>
+<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>    <span class="at">diagnostic_date    =</span> <span class="fu">ymd</span>(diagnostic_date)</span>
+<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">recode_values</span>(</span>
+<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>      sex,</span>
+<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;m&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Male&quot;</span>,</span>
+<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">&quot;F&quot;</span>, <span class="st">&quot;f&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Female&quot;</span>,</span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
+<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>    <span class="at">type_of_case =</span> <span class="fu">recode_values</span>(</span>
+<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>      type_of_case,</span>
+<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Sec&quot;</span> <span class="sc">~</span> <span class="st">&quot;Second&quot;</span>,</span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>    <span class="at">serogroup =</span> <span class="fu">recode_values</span>(</span>
+<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>      serogroup,</span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;B_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;B&quot;</span>,</span>
+<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;C_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;C&quot;</span>,</span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Y_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;Y&quot;</span>,</span>
+<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;W_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;W&quot;</span>,</span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;NT_NeisMen&quot;</span> <span class="sc">~</span> <span class="st">&quot;Non Tipable&quot;</span>,</span>
+<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">&quot;Other_NeisMen&quot;</span>, <span class="st">&quot;A_NeisMen&quot;</span>) <span class="sc">~</span> <span class="st">&quot;Other&quot;</span>,</span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA</span> <span class="sc">~</span> <span class="st">&quot;Unknown&quot;</span></span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&lt;</span> <span class="dv">1</span>                          <span class="sc">~</span> <span class="st">&quot;&lt; 1&quot;</span>,</span>
+<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">1</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">5</span>        <span class="sc">~</span> <span class="st">&quot;1-4&quot;</span>,</span>
+<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">5</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">10</span>       <span class="sc">~</span> <span class="st">&quot;5-9&quot;</span>,</span>
+<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">15</span>       <span class="sc">~</span> <span class="st">&quot;10-14&quot;</span>,</span>
+<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">20</span>       <span class="sc">~</span> <span class="st">&quot;15-19&quot;</span>,</span>
+<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">25</span>       <span class="sc">~</span> <span class="st">&quot;20-24&quot;</span>,</span>
+<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">45</span>       <span class="sc">~</span> <span class="st">&quot;25-44&quot;</span>,</span>
+<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">65</span>       <span class="sc">~</span> <span class="st">&quot;45-64&quot;</span>,</span>
+<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">65</span>                        <span class="sc">~</span> <span class="st">&quot;65+&quot;</span>,</span>
+<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                   <span class="sc">~</span> <span class="st">&quot;Unknown&quot;</span></span>
+<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-362"><a href="#cb3-362" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_classification =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">&quot;Yes&quot;</span>                                                              <span class="sc">~</span> <span class="st">&quot;Confirmed&quot;</span>,</span>
+<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">&quot;No&quot;</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">&quot;Probable&quot;</span>,</span>
+<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">&quot;No&quot;</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(type_of_case)  <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">&quot;Suspected&quot;</span>,</span>
+<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                                                <span class="sc">~</span> <span class="st">&quot;Discarded&quot;</span></span>
+<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">==</span> <span class="st">&quot;Mening&quot;</span>,</span>
+<span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a>    imported <span class="sc">==</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a>    case_classification <span class="sc">!=</span> <span class="st">&quot;Discarded&quot;</span></span>
+<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>diagnostic_date, <span class="sc">-</span>disease, <span class="sc">-</span>imported)</span>
+<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(imd_cleaning, <span class="fu">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;clean&quot;</span> ,<span class="st">&quot;IMD_Sample_Clean.xlsx&quot;</span>))</span>
+<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener(&quot;DOMContentLoaded&quot;, function() {</span></span>
+<span id="cb3-383"><a href="#cb3-383" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName(&quot;webex-radiogroup&quot;);</span></span>
+<span id="cb3-384"><a href="#cb3-384" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
+<span id="cb3-385"><a href="#cb3-385" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
+<span id="cb3-386"><a href="#cb3-386" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb3-387"><a href="#cb3-387" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
+<span id="cb3-388"><a href="#cb3-388" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb3-389"><a href="#cb3-389" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
