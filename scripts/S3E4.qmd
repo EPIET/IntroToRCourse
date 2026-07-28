@@ -126,12 +126,22 @@ This one is more complex because it combines information from will be combining 
 
 **Action** — Identify in the data the columns needed to define the classification, and explore them to understand the existing categories and how to use them
 
+::: {.callout-note collapse="true" appearance="simple" icon="false"}
+## See the answer
+
+We need the columns:
+
+-   `lab_confirmed` as the microbiological criteria
+
+-   `clinical_presentation` as the clinical criteria whether they present with sepsis, meningitis or both
+
+-   `type_of_case` as the epidemiological link for secondary cases - where a primary case was identified as risk contact
+:::
+
 **Action** — Think carefully about the order of conditions for defining the categories before you write the code. Which category must be evaluated first, and why?
 
 ::: {.callout-note collapse="true" appearance="simple" icon="false"}
 ## See the answer
-
-We need the columns `lab_confirmed`, `type_of_case`, and `clinical_presentation` for the microbiological, epidemiological and clinical criteria.
 
 `Confirmed` must come first. If a case is lab confirmed, it should be classified as "Confirmed" regardless of what the other columns say — even if `type_of_case` or `clinical_presentation` are missing. If you place `Probable` or `Suspected` first, some confirmed cases could accidentally fall into those categories. In `case_when()`, order is logic.
 :::
@@ -253,7 +263,7 @@ opts3 <- c(
 )
 ```
 
-**Why must the `Confirmed` condition appear first in the `case_classificationcase_when()` block?**
+**Why must the `Confirmed` condition appear first in the `case_classification case_when()` block?**
 
 `r longmcq(opts3)`
 

@@ -1,6 +1,6 @@
 ---
 title: "Variable Class"
-subtile: "Session 3 practical exercises"
+subtitle: "Session 3 practical exercises"
 ---
 
 ```{r}
@@ -42,6 +42,7 @@ Look at the type tags in angle brackets: `<chr>`, `<dbl>`, `<lgl>`. These are R'
 **Action** — Before reading on, look at the output and identify which columns have a type mismatch — where what R thinks the variable is does not match what it should actually be.
 
 **Action** — Try out the other functions for examining data: `str()`, `summary()`, `head()`
+<!--You're not including skim because it requires skimr?-->
 
 ::: {.callout-note collapse="true"}
 ## The main variable types you will encounter
@@ -68,21 +69,21 @@ Remember that `mutate()` can modify existing variables
 
 ``` r
 mutate(
-  variable = function(varaible)
+  variable = function(variable)
 )
 ```
 **Action** — Add this `mutate()` to your cleaning pipeline to fix `age_months`, run it, and check `glimpse()` again. Did `age_months` change to `<dbl>`?
 
 You will likely see this warning in your console:
 
-```r         
+``` r
 Warning: NAs introduced by coercion
 ```
 
-::: {.callout-tip}
+::: callout-tip
 ## What does "NAs introduced by coercion" mean?
-Do not panic. This is R being honest with you.
-When R tries to convert a character column to numeric, it succeeds for values like `"2"` or `"8"`. But some cells may contain text that cannot be converted — like a genuine missing value entered as blank or a data entry error. R converts those to `NA` and tells you about it.
+
+Do not panic. This is R being honest with you. When R tries to convert a character column to numeric, it succeeds for values like `"2"` or `"8"`. But some cells may contain text that cannot be converted — like a genuine missing value entered as blank or a data entry error. R converts those to `NA` and tells you about it.
 
 In this dataset this is expected and correct behavior. Warnings are only that: warnings. They want you to be aware something happened that is not an error inherently
 :::
@@ -94,11 +95,10 @@ Dates are the most common source of pain in surveillance data — and the most i
 Look at your `glimpse()` output again. Three date columns are stored as `<chr>`:
 
 - `key_date`
-- `symptom_onset_date`  
+- `symptom_onset_date`
 - `diagnostic_date`
 
 The `lubridate` package (part of tidyverse) provides a family of functions to convert text into real dates. The function name tells R what order to expect the date components:
-
 
 - `ymd()` → year, month, day (e.g. `"1999-03-12"`)
 - `dmy()` → day, month, year (e.g. `"12/03/1999"`)
@@ -125,9 +125,9 @@ You just used two ver relevant functions: `as.numeric()` and `ymd()` for numbers
 - `as.character()` transforms column values into text
 - `as.integer()` alternative version for numeric transformation
 - `as.factor()` a factor variable is slightly different, and will be covered further into the course
-- Many otrher `as.something()` functions exist that cover topics beyond the course (matrix, tibbles, vectors, etc.)
+- Many other `as.something()` functions exist that cover topics beyond the course (matrix, tibbles, vectors, etc.)
 
--------------------------------------
+------------------------------------------------------------------------
 
 ```{r}
 #| echo: false
@@ -143,7 +143,7 @@ opts1 <- c(
 
 `r longmcq(opts1)`
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| echo: false
@@ -158,7 +158,6 @@ opts2 <- c(
 **A date column that has not yet been converted will appear in `glimpse()` as:**
 
 `r longmcq(opts2)`
-
 
 ```{r}
 #| echo: false
@@ -180,7 +179,6 @@ opts3 <- c(
 "NAs introduced by coercion" is R being transparent, not alarming. When converting text to numbers, any value that cannot be parsed as a number — blanks, `"unknown"`, stray letters — becomes `NA`. This is the correct behaviour. The question is always whether the number of new NAs is what you would expect given your data.
 :::
 
-
 ```{r}
 #| echo: false
 opts4 <- c(
@@ -195,20 +193,20 @@ opts4 <- c(
 
 `r longmcq(opts4)`
 
-----
+------------------------------------------------------------------------
 
 ## Exercise summary
 
-**Your columns now have the right types.** Numbers are numbers, dates are dates. In E3 you will tackle the messier problem: categorical variables with inconsistent labels. 
+**Your columns now have the right types.** Numbers are numbers, dates are dates. In E3 you will tackle the messier problem: categorical variables with inconsistent labels.
 
 We used these functions for achieving our goal:
 
 | Function | Package | What it does |
-|---|---|---|
+|------------------------|------------------------|------------------------|
 | `glimpse()` | dplyr | Shows column types and first values — your primary inspection tool |
+| `mutate()` | dplyr | Creates or modifies columns |
 | `as.numeric()` | base R | Converts a column to numeric; non-convertible values become `NA` |
 | `ymd()` / `dmy()` | lubridate | Converts text to dates; function name = expected order of components |
-
 
 ::: {.callout-tip collapse="true"}
 ## 💡 Show solution - only after trying yourself!
@@ -232,7 +230,6 @@ imd_cleaning <- imd_raw %>%
     diagnostic_date    = ymd(diagnostic_date)
   )
 ```
-
 :::
 
 ```{=html}
