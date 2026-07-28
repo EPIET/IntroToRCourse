@@ -77,23 +77,23 @@ The first derived variable is `age_group`. Epidemiological analysis of all disea
 
 **Action** — Add a new `mutate()` to your pipeline that creates `age_group` using `case_when()` with the following categories:
 
-- \< 1
+-   \< 1
 
-- 1-4
+-   1-4
 
-- 5-9
+-   5-9
 
-- 10-14
+-   10-14
 
-- 15-19
+-   15-19
 
-- 20-24
+-   20-24
 
-- 25-44
+-   25-44
 
-- 45-64
+-   45-64
 
-- 65+
+-   65+
 
 **Action** — After running it, check that all expected categories appear and the ***counts*** look plausible.
 
@@ -117,10 +117,10 @@ The second derived variable we are creating is `case_classification`. This class
 
 The classification logic for most communicable diseases surveillance is:
 
-- **Confirmed** — laboratory confirmation of the disease
-- **Probable** — compatible clinical presentation with and epidemiological link
-- **Suspected** — compatible clinical presentation without epidemiological link or laboratory confirmation
-- **Discarded** — none of the previous conditions are met
+-   **Confirmed** — laboratory confirmation of the disease
+-   **Probable** — compatible clinical presentation with and epidemiological link
+-   **Suspected** — compatible clinical presentation without epidemiological link or laboratory confirmation
+-   **Discarded** — none of the previous conditions are met
 
 This one is more complex because it combines information from will be combining information from different columns and creating the logical conditions required to classify cases accordingly
 
@@ -149,10 +149,10 @@ We need the columns `lab_confirmed`, `type_of_case`, and `clinical_presentation`
 ::: {.callout-important appearance="simple" icon="false"}
 **How many confirmed cases of every category are there**?
 
-- Confirmed: `r fitb(1963)`
-- Probable: `r fitb(463)`
-- Suspected: `r fitb(214)`
-- Discarded: `r fitb(84)`
+-   Confirmed: `r fitb(1963)`
+-   Probable: `r fitb(463)`
+-   Suspected: `r fitb(214)`
+-   Discarded: `r fitb(84)`
 :::
 
 ## Part 7 · Final clean-up and export
@@ -187,9 +187,9 @@ Great, we made the decision to eliminate cases from the other disease and those 
 
 A clean dataset should only contain what is needed for analysis. Three columns can go now:
 
-- `diagnostic_date` — the ghost column, all `NA`, never filled in the registry
-- `disease` — every row is `"Mening"`, zero information content after filtering
-- `imported` — you have just filtered to `"No"` only, so this column is now a constant
+-   `diagnostic_date` — the ghost column, all `NA`, never filled in the registry
+-   `disease` — every row is `"Mening"`, zero information content after filtering
+-   `imported` — you have just filtered to `"No"` only, so this column is now a constant
 
 **Action** — Add a `select()` call using `-` to remove the three columns.
 

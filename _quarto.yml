@@ -45,6 +45,8 @@ website:
         contents:
           - "scripts/S2E1.qmd"
           - "scripts/S2E2.qmd"
+          - "scripts/S2E3.qmd"
+          - "scripts/S2E4.qmd"
       - section: "Session 3"
         contents:
           - "scripts/S3E1.qmd"

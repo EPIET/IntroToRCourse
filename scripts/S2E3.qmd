@@ -1,0 +1,295 @@
+---
+title: "Creating variables"
+subtitle: "Session 2 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+library(pacman)
+pacman::p_load(tidyverse, rio, here)
+
+imd <- import(here("data", "IMD_Sample_Clean.csv"))
+```
+
+You know how to select (filter) rows. This is one elemental task whenever you work with data. You also practiced logical operators for defining conditions. We told you that logical statements are ubiquitous in programming, and today we will keep proving that true.
+
+Now you need to learn how to create new information from the data you already have. That is the job of `mutate()` — the verb of creation. It adds new columns to your dataframe, or overwrites existing ones, based on operations you define, be it functions, logical conditions, or combinations of both usually. The key idea we will work today is tied to the vector nature of R, which means the columns in our data, and how to manipulate them - and learn their rules!
+
+### Before you start
+
+The previous exercise made you create many objects in the way, that are now useless for the next part. We should get rid of them before starting, to prevent the environment from overloading with too many objects. It's not that R cannot handle them, but imagine having to check one operation and looking for you object among a endless list of similar names, each with differing number of rows or columns. A `tidy` workspace will always be your best choice of action
+
+How can you clean all those objects? Simple, look the sweeper icon above the environment window - if you click on it, you will get a pop-up window asking you to confirm the action. Click "yes" and you are good to go.
+
+By the way, you also deleted your raw working object, `imd`. Fear not, for the script is there and you can quickly import it again by running one single line of code. Even better! How about you create a brand new script for this exercise? Feel free to name it yourself this time, and copy the basic initial lines for libraries and data. Just a few clicks and you are ready to start again, wasn't that easy?
+
+## Part 3 · The verb of creation
+
+`mutate()` works in a very simple manner, with a logic of `new_var = content` that we can use to tell R: "create a new variable named new_var that has the information provided by some function"
+
+``` r
+data %>% 
+  mutate(
+    new_variable = function()
+  )
+```
+
+Possibly the simplest example would be calculating the mean age of all cases in our data. In the last exercise, we were creating a lot of objects for every example, so let's now try a different approach
+
+**Action** — Create the variable `mean_age` using `mutate()` and the `mean()` function. Assign the result to the same `imd` object the are starting from - update itself
+
+1.  Pay attention to how the `imd` object in the environment window changes. Can you spot it?
+
+2.  Open the dataframe (click on it in the environment or call the object) to locate the new variable
+
+3.  What happened?
+
+### Learning to learn functions
+
+When working with the many existing functions, you need to learn how to be able to understand functions. We mentioned the `mean()` function in the presentation, and maybe you noticed something was missing: the `na.rm = TRUE` argument. Since `age_year` contains missing values, the function will fail unless we tell it explicitly to ignore those values in the calculation
+
+To learn more about the `mean()` function we can write `?mean()` in R, or just hit `F1` while the cursor is over the function. It will open the Help panel on the bottom-right window of RStudio
+
+::: {layout-ncol="2"}
+![](/images/exercises/S2E3_1_HelpView.png){.lightbox fig-align="right" width="30%"}
+
+![](/images/exercises/S2E3_2.png){.lightbox fig-align="left" width="30%"}
+:::
+
+::: column-margin
+Click on the images to enlarge
+:::
+
+You can see there everything you need to know about the usage of the function, especially the **arguments** that control the function behavior, in the case of `mean()` just two: *trim* and *na.rm* However other functions will have more complex possibilities, so always start here with new functions
+
+**Action** — Fix the code so we can actually calculate the mean age of all cases
+
+::: callout-important
+## A single value for all rows
+
+Here `mutate()` assigned all rows the same value. Why? Because it works in a vectorized way, like all R functions. If you use a 100 values for calculating a single summary indicator (mean, sum, median, variance, etc.) you still have a result consisting on a 100 values. It only turns out all the values are the same, but the length of the result is identical to the length of the input data. Since we are working with dataframes that have a number of rows, that is the vector length
+
+![](/images/exercises/S2E3_3.png){.lightbox fig-align="left" width="20%"}
+:::
+
+### Conditional variable definition
+
+A really common use of `mutate()` in epidemiology is creating categorical variables from existing numeric or character ones. We will start with simple binary categories of the type "yes-no" or 0-1, that are useful indicators e.g., did the case die? Was it an adult? Was it a confirmed case? Either yes, or no. The tool for this is the function `ifelse()`.
+
+`ifelse()` takes three arguments:
+
+``` r
+ifelse(condition, value_if_true, value_if_false)
+```
+
+If you check the **help** for the function, you will notice the arguments are called *test*, *yes*, *no*. For every row, R evaluates the defined **logical** condition. If it is true, the row gets the first value. If it is false, it gets the second. Clean and binary.
+
+Kassandra asked for cases among adult females from R6. Let's start building that selection step by step. First, we need to know which cases are adults.
+
+**Action** — Add a new column `adult` to `imd` that contains `1` for cases aged 18 or older, and `0` for the rest. Assign the result to `imd_adults`.
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+``` r
+imd_adults <- imd %>%
+  mutate(adult = ifelse(condition, 1, 0))
+```
+
+Replace `condition` with the appropriate logical expression for age.
+:::
+
+Now we have the adult indicator, now we can ask ourselves how many adults are there in our data, making use of the variable with just created - even at the same time we create it! `mutate()` can create multiple variables in a single call, using the comma to separate them as if they were arguments in other functions
+
+You can even use previously defined new variables for calculations in subsequent variables:
+
+``` r
+data %>% 
+  mutate(
+    new_variable = function(),
+    new_variable2 = function(), 
+    new_variable3 = function(variable2, ...)
+  )
+```
+
+**Action** — In the same mutate from before, create a second variable named `total_adults` using `sum()` over your `adult` variable. *You may want to check first the usage of `sum()`*
+
+How many adults cases are there?: `r fitb(703)`
+
+::: callout-important
+## Every row gets a different value
+
+This time, the `ifelse()` function is going row by row and examining wheter that observation meets the condition you defined, and assigning either the "yes" or "no" value you gave. So the result is a specific value per row, not one single, repeated number. This is, again, vectorial behavior: the output has the same lenght that the input data - in this, case, number of rows
+
+![](/images/exercises/S2E3_4.png){.lightbox fig-align="left" width="20%"}
+:::
+
+Since we defined `adult` as a numeric 0-1 variable, the `sum()` function was pretty straightforward, as it added up the `1` and `0` values resulting in the total number of 1s. Let's consider another possibility: 1. We are interested in the sum of all the non-adults `0` values only 2. We defined the binary variable as "yes" or "no" and want to do the calculations anyway
+
+For that, we can take advantage of the `tidyverse` way of working. Add the following line of code to your mutate function, right after `total_adults` to create the variable `total_underage`
+
+``` r
+total_underage = sum(adults == 0, na.rm = T)
+```
+
+Inside the `sum()`function we were able to use again a logical operator to indicate the specific value of `adults` we wanted to add up. And yes, before you ask, you could have very well do the sum with "yes" or "no" values if you had defined the variable like that
+
+That is possible because you can only sum numbers. BUT, if you use a logical condition, as we did with `ifelse()` or with `filter()`, R goes row by row evaluating the condition to `TRUE` or `FALSE`, the logical values. And these are equivalent to `1` and `0` values, respectively
+
+**Action** — How many female cases are there on the whole data? Create the variable `total_females` in the same `mutate()` as before: `r fitb(1244)`
+
+**Action** — Now you have the `total_adults` and `total_underage`. Add up their numbers, and compare it with the total rows of `imd`. Again, what is happening? Can you guess at this point without runnin any check?
+
+::: callout-note
+### What happens to `NA` in `ifelse()`?
+
+If `age_years` is `NA`, the condition `age_years >= 18` returns `NA` — not `TRUE` or `FALSE`. So `ifelse()` cannot assign either value and returns `NA` for that row. This is the correct behavior: R does not guess. You will see `NA` appearing in your table, which tells you those cases have missing age information.
+:::
+
+### Compound conditions
+
+A single condition is sometimes not enough. Kassandra's request was specific: adult females from R6. You already have counts for adults and females, but still need to mix them together. And yes - you just learned how to do it in a single step with `sum()` but I want you to practice a bit more with `ifelse()`, and then I'll explain something else
+
+**Action** — Add a new variable `adult_female` to `imd_adults` that contains `1` if the case is 18 or older **and** is female, and `0` otherwise. **Don't use our previously created variables**, just the original data.
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+You can use `&` inside the condition of `ifelse()`, exactly as you used it inside `filter()`.
+:::
+
+**Action** — Now count the adult female cases in a variable `total_adult_females`. How many are there? `r fitb(387)`
+
+### The limit of `mutate()` alone
+
+You now know that `mutate()` computes across the full column: every row, all at once. That is powerful. But it has a limit. Kassandra does not just want a global count of adult female cases. She wants to know how the burden distributes across years, across regions. Can you get the mean age by year using `mutate()`?
+
+**Action** — Try it. Filter `imd` for the year `1999`, calculate `mean_age`, and note the value. Then repeat for `2002`.
+
+The means differ — but you had to write two separate pipelines to see that. Now imagine doing this for every year, every region, every age group. `mutate()` alone cannot split the data before computing. It always works on the whole column at once.
+
+That limitation has a solution, and it is the subject of the next exercise.
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+opts1 <- c(
+  "It adds a new column and removes the original columns used in the calculation",
+  "It modifies existing columns in place, replacing their values",
+  answer = "It adds a new column, or overwrites an existing one, while keeping all other columns",
+  "It creates a new dataframe with only the newly created column"
+)
+```
+
+**What does `mutate()` do to the dataframe?**
+
+`r longmcq(opts1)`
+
+```{r}
+#| echo: false
+opts2 <- c(
+  answer = '`mutate(adult = ifelse(age_years >= 18, "Yes", "No"))`',
+  '`mutate(adult = ifelse("Yes", "No", age_years >= 18))`',
+  '`mutate(ifelse(age_years >= 18, adult = "Yes", adult = "No"))`',
+  '`mutate(adult = if(age_years >= 18) "Yes" else "No")`'
+)
+```
+
+**Which of the following correctly creates a column `adult` that is `"Yes"` for cases aged 18 or older?**
+
+`r longmcq(opts2)`
+
+```{r}
+#| echo: false
+opts3 <- c(
+  "It returns `FALSE`, because `NA` is not a valid age",
+  "It returns `TRUE`, because missing values are treated as zero",
+  answer = "It returns `NA`, because R cannot evaluate a condition on an unknown value",
+  "It throws an error and stops the pipeline"
+)
+```
+
+**What does `ifelse(NA >= 18, "Yes", "No")` return?**
+
+`r longmcq(opts3)`
+
+```{r}
+#| echo: false
+opts4 <- c(
+  "A single value — the global mean, printed in the console",
+  answer = "A new column where every row contains the same global mean value",
+  "A new column where each row contains the mean of its neighbours",
+  "An error, because `mean()` cannot be used inside `mutate()`"
+)
+```
+
+**When you use `mutate(mean_age = mean(age_years, na.rm = TRUE))`, what does the resulting `mean_age` column look like?**
+
+`r longmcq(opts4)`
+
+------------------------------------------------------------------------
+
+## Exercise summary
+
+`mutate()` is how you build new information from what you already have. Whether you are classifying rows with `ifelse()`, combining conditions to flag cases of interest, or computing summaries, the logic is always the same: define a new column in terms of existing ones, row by row.
+
+The global mean exercise showed the limit of `mutate()` alone. It can compute, but it cannot split the data into groups before computing. That is what comes next.
+
+::: callout-note
+### `mutate()` can also overwrite
+
+If you use `mutate()` with the name of a column that already exists, it will replace it. This is useful — and something you will do a lot in Session 3 when cleaning data. For now, we will always be creating new columns with names that do not yet exist.
+:::
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution — only after trying yourself!
+
+``` r
+# Libraries
+pacman::p_load(tidyverse, rio, here)
+
+# Data
+imd <- import(here("data", "IMD_Sample_Clean.csv"))
+
+# Global mean age of cases
+imd <- imd %>% 
+  mutate(
+    mean_age = mean(age_years, na.rm = T)
+  )
+
+# Mutates for indicator variables and sums
+imd_adults <- imd %>% 
+  mutate(
+    adults = ifelse(age_years >= 18, 1, 0),
+    total_adults = sum(adults, na.rm = T),
+    total_underage = sum(adults == 0, na.rm = T),
+    
+    total_female = sum(sex == "Female"),
+    
+    adult_female = ifelse(age_years >= 18 & sex == "Female", 1, 0),
+    total_adult_female = sum(adult_female, na.rm = T)
+  )
+
+# Get mean age for the year 1999 and 2000
+imd_99 <- imd %>% 
+  filter(year == 1999) %>% 
+  mutate(mean_age = mean(age_years, na.rm = T))
+
+imd_02 <- imd %>% 
+  filter(year == 2002) %>% 
+  mutate(mean_age = mean(age_years, na.rm = T))
+```
+:::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```
