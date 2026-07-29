@@ -11,8 +11,8 @@ website:
     pinned: true
     search: true
     left:
-      # - text: "---"
-      #   href: "scripts/copywright.qmd"
+      - text: "Prepare for the course"
+        href: "scripts/prepare.qmd"
       - text: "Copyright"
         href: "scripts/copyright.qmd"
       - text: "Practical Sessions"
