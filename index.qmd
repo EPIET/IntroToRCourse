@@ -1,9 +1,8 @@
 ---
+title: "Welcome"
 sidebar: false
 toc: false
 ---
-
-# Welcome {.unnumbered}
 
 Welcome to the **Intro to R Course** module webpage of the *ECDC EPIET & EUPHEM* Program.
 

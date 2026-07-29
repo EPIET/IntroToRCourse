@@ -24,7 +24,7 @@ website:
         menu:
           - text: "Source Code"
             url:  https://github.com/EPIET/IntroToRCourse/tree/main
-          - text: "Report a code issue"
+          - text: "Report an issue"
             url:  https://github.com/EPIET/IntroToRCourse/issues
   
 
