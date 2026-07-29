@@ -12,7 +12,7 @@ website:
     search: true
     left:
       - text: "Prepare for the course"
-        href: "scripts/prepare.qmd"
+        href: "scripts/preparation.qmd"
       - text: "Copyright"
         href: "scripts/copyright.qmd"
       - text: "Practical Sessions"
