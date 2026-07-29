@@ -10,6 +10,7 @@ assignees: ''
 **Where is the issue?**
 - Session: <!-- e.g. Session 3 -->
 - Exercise / file: <!-- e.g. S3E2, or the website navbar -->
+- Section / line 
 
 **What did you expect to happen?**
 
