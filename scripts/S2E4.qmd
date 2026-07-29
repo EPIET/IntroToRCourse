@@ -56,7 +56,7 @@ You will notice that instructions are getting complex step by step. Now you will
 1.  You must have realized that it takes more time and effort checking the result of this grouped operation. The dataset has 2627 rows and only has 4 years, so it takes a while to navigate. We can do better.
 
 2.  I'm teaching you a new function: `table()`. It's a very basic R function that counts observations for you. Probably, you would have benefited from it in the previous exercise, but I wanted you to fight with the data yourself for at least once. It doesn't work inside `tidy` pipes, so you need to call it apart.
-
+<!-- Why not teach tabyl? Works in the pipe and displays NA by default-->
 3.  Write `table(imd_grouped$mean_age_year)` and execute it to see in the console the different values present on the variable and how many times they are repeated, but now we are not interested in the count, but quickly checking the different values resulting from the grouped operation
 
 4.  How many different mean ages are there? `r fitb(4)`
@@ -181,7 +181,7 @@ These two combinations — `group_by() %>% mutate()` and `group_by() %>% summari
 These are the functions you learned:
 
 | Function | Package | What it does |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `group_by()` | dplyr | Splits the dataframe into groups for subsequent operations |
 | `ungroup()` | dplyr | Removes grouping so subsequent operations work on all rows |
 | `summarise()` | dplyr | Collapses each group into a single summary row |

@@ -47,7 +47,7 @@ Possibly the simplest example would be calculating the mean age of all cases in 
 
 ### Learning to learn functions
 
-When working with the many existing functions, you need to learn how to be able to understand functions. We mentioned the `mean()` function in the presentation, and maybe you noticed something was missing: the `na.rm = TRUE` argument. Since `age_year` contains missing values, the function will fail unless we tell it explicitly to ignore those values in the calculation
+When working with the many existing functions, you need to learn how to be able to understand functions. We mentioned the `mean()` function in the presentation, and maybe you noticed something was missing: the `na.rm = TRUE` argument. Since `age_years` contains missing values, the function will fail unless we tell it explicitly to ignore those values in the calculation
 
 To learn more about the `mean()` function we can write `?mean()` in R, or just hit `F1` while the cursor is over the function. It will open the Help panel on the bottom-right window of RStudio
 
@@ -125,7 +125,7 @@ This time, the `ifelse()` function is going row by row and examining wheter that
 ![](/images/exercises/S2E3_4.png){.lightbox fig-align="left" width="20%"}
 :::
 
-Since we defined `adult` as a numeric 0-1 variable, the `sum()` function was pretty straightforward, as it added up the `1` and `0` values resulting in the total number of 1s. Let's consider another possibility: 1. We are interested in the sum of all the non-adults `0` values only 2. We defined the binary variable as "yes" or "no" and want to do the calculations anyway
+Since we defined `adult` as a numeric 0-1 variable, the `sum()` function was pretty straightforward, as it added up the `1` and `0` values resulting in the total number of 1s. Let's consider another possibility: 1. We are interested in the sum of all the non-adults `0` values only. 2. We defined the binary variable as "yes" or "no" and want to do the calculations anyway
 
 For that, we can take advantage of the `tidyverse` way of working. Add the following line of code to your mutate function, right after `total_adults` to create the variable `total_underage`
 
@@ -139,7 +139,7 @@ That is possible because you can only sum numbers. BUT, if you use a logical con
 
 **Action** — How many female cases are there on the whole data? Create the variable `total_females` in the same `mutate()` as before: `r fitb(1244)`
 
-**Action** — Now you have the `total_adults` and `total_underage`. Add up their numbers, and compare it with the total rows of `imd`. Again, what is happening? Can you guess at this point without runnin any check?
+**Action** — Now you have the `total_adults` and `total_underage`. Add up their numbers, and compare it with the total rows of `imd`. Again, what is happening? Can you guess at this point without running any check?
 
 ::: callout-note
 ### What happens to `NA` in `ifelse()`?

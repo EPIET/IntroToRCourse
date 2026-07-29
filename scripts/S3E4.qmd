@@ -41,7 +41,7 @@ imd_cleaning <- imd_raw %>%
       "C_NeisMen" ~ "C",
       "Y_NeisMen" ~ "Y",
       "W_NeisMen" ~ "W",
-      "NT_NeisMen" ~ "Non Tipable",
+      "NT_NeisMen" ~ "Non Typable",
       c("Other_NeisMen", "A_NeisMen") ~ "Other",
       NA ~ "Unknown"
     )
@@ -54,7 +54,7 @@ So far you have been cleaning what was already there. Now you need to *create* s
 
 ## Part 6 · `case_when()` for complex tasks
 
-You already know `mutate()`: it creates or modifies variables, making use of supporting functions to enable variable creation. If you remember from previous sessions, we introduced `ifelse()` for simple two-way conditions (`age > 18`). But what happens when you need more than two categories or need to make use of other variables to define intrincate conditions? That is where `case_when()` comes in.
+You already know `mutate()`: it creates or modifies variables, making use of supporting functions to enable variable creation. If you remember from previous sessions, we introduced `ifelse()` for simple two-way conditions (`age > 18`). But what happens when you need more than two categories or need to make use of other variables to define intricate conditions? That is where `case_when()` comes in.
 
 `case_when()` evaluates a series of conditions in order and assigns the corresponding value to the first one that is `TRUE`. The syntax follows the same formula logic you already know from `recode_values()`:
 
@@ -66,7 +66,7 @@ case_when(
   TRUE       ~ "Everything else"
 )
 ```
-
+<!-- I think the recommended usage for the 'safety net' is now .default = "Everything else" -->
 The final `TRUE ~ "..."` is your safety net: it catches any row that did not match any of the conditions above. You should always include it — if you forget it, unmatched rows become `NA` silently.
 
 Here, `condition1` can represent any set of conditions using as many variables, logical criteria and complexity as needed. In session 2 we learned about logical operators, and now its time to put them to practice
@@ -108,7 +108,7 @@ The first derived variable is `age_group`. Epidemiological analysis of all disea
 
 It's only normal. Because logical conditions require explicit argument formulation, you are forced to write `age_years >= 5 & age_years < 10` at every single step. You can very easily slip writing one line, or mistake a `<` for a `<=` and the result will be messed up - something without you noticing. Imagine the impact it would have in an official disease report!
 
-This is a `case_when ()` classical exercise, to practice and become familiar with the use of the function. There are plenty of dedicated and more useful functions out there that will assist you in this specific task
+This is a `case_when ()` classical exercise, to practice and become familiar with the use of the function. There are plenty of dedicated and more useful functions out there that will assist you in this specific task.
 :::
 
 ### Case classification
@@ -124,7 +124,7 @@ The classification logic for most communicable diseases surveillance is:
 
 This one is more complex because it combines information from will be combining information from different columns and creating the logical conditions required to classify cases accordingly
 
-**Action** — Identify in the data the columns needed to define the classification, and explore them to understand the existing categories and how to use them
+**Action** — Identify in the data the columns needed to define the classification, and explore them to understand the existing categories and how to use them.
 
 ::: {.callout-note collapse="true" appearance="simple" icon="false"}
 ## See the answer
@@ -139,7 +139,7 @@ We need the columns:
 :::
 
 **Action** — Think carefully about the order of conditions for defining the categories before you write the code. Which category must be evaluated first, and why?
-
+<!-- If people struggle with this, asking them to draw a decision tree might help?-->
 ::: {.callout-note collapse="true" appearance="simple" icon="false"}
 ## See the answer
 
@@ -169,9 +169,9 @@ We need the columns:
 
 You are almost there. Data is now clean and ready to be used. Just one final note.
 
-The fact that data is clean doesn't mean that all the information contained within is valid or useful for us. In epidemiological surveillance, one of the worst errors we can make is count things that we shouldn't be counting. That happens when you include cases that doesn't match the criteria for being considered cases, or categories (years, regions, for example) that are not part of what you are exploring at the moment.
+The fact that data is clean doesn't mean that all the information contained within is valid or useful for us. In epidemiological surveillance, one of the worst errors we can make is count things that we shouldn't be counting. That happens when you include cases that don't match the criteria for being considered cases, or categories (years, regions, for example) that are not part of what you are exploring at the moment.
 
-At the same time, once cleaned, maybe not every column will be necessary for analyses, and we can get rid of noise
+At the same time, once cleaned, maybe not every column will be necessary for analyses, and we can get rid of noise.
 
 ### Filter unwanted records
 
@@ -187,7 +187,7 @@ Remember at the beginning of the exercises when we flagged some variables but di
 It's not unusual when extracting data that some unwanted registries get mixed-up with your query. In this case, it seems like some Pneumococcal disease cases were included. Additionally, you must have guessed that imported cases are to be taken away. This is, again, a conscious decision taken at institutional level - some countries may choose to retain them and report, other may drop them. This is reporting heterogeneity - something you will soon understand better during the fellowship!
 :::
 
-Great, we made the decision to eliminate cases from the other disease and those imported. Can you think of any other category of cases we can consider dropping? Maybe some category **we just created**
+Great, we made the decision to eliminate cases from the other disease and those that were imported. Can you think of any other category of cases we can consider dropping? Maybe some category **we just created**
 
 **Action** — In the same `filter()`, include also `Discarded` cases
 
@@ -213,9 +213,9 @@ You needed `lab_confirmed`, `type_of_case`, and `clinical_presentation` to *crea
 
 Your pipeline is complete. The last step is to save the clean dataset so it can be used in the next sessions.
 
-**Action** — Use `export()` from `rio` to save the clean dataframe as `IMD_Sample_Clean.csv` in your `data` folder
+**Action** — Use `export()` from `rio` to save the clean dataframe as `IMD_Sample_Clean.csv` in your `data` folder.
 
-Files in `.csv` format are more consistent, store more adequately variable's format, and are preferred when sharing data with colleagues. Other formats exists, including native `R` files, but for the sake of this course, we need to assume that other colleagues not working in R may need the file too
+Files in `.csv` format are more consistent, store more adequately variable's format, and are preferred when sharing data with colleagues. Other formats exists, including native `R` files, but for the sake of this course, we need to assume that other colleagues not working in R may need the file too.
 
 ::: callout-note
 ### Save the pipeline as a script, not just run it
@@ -285,9 +285,9 @@ opts4 <- c(
 
 ## Exercise summary
 
-**Your dataset is now clean.** `IMD_Sample_Clean.xlsx` is ready and waiting in your data folder — it is the dataset you will use in all subsequent sessions. You also fulfilled Kassandra's taks: produce a data cleaning script that anyone at the unit can use in the future, where you documented all changed made to the data, which is a key quality aspect
+**Your dataset is now clean.** `IMD_Sample_Clean.xlsx` is ready and waiting in your data folder — it is the dataset you will use in all subsequent sessions. You also fulfilled Kassandra's task: produce a data cleaning script that anyone at the unit can use in the future, where you documented all changes made to the data, which is a key quality aspect.
 
-This is also the end of Session 3 practical exercise, and the first half of the course. We went from no prior R knowledge to being able to manipulate and clean data using the most basic Tidyverse tools. With this knowledge you are already equipped to perform basic data tasks, including some of the most crucial functions of data manipulation
+This is also the end of Session 3 practical exercise, and the first half of the course. We went from no prior R knowledge to being able to manipulate and clean data using the most basic Tidyverse tools. With this knowledge you are already equipped to perform basic data tasks, including some of the most crucial functions of data manipulation.
 
 In the next sessions, you will learn to describe and present results from your data in the form of basic tables and amazing `ggplot`graphs. For now, digest everything you learned and rest. See you for Session 4!
 
@@ -299,6 +299,7 @@ These are the functions you learned:
 | `filter()`     | dplyr   | Keeps rows matching a condition            |
 | `select(-col)` | dplyr   | Removes a column from the dataframe        |
 | `export()`     | rio     | Saves a dataframe to a file                |
+
 
 ::: {.callout-tip collapse="true"}
 ## 💡 Show solution — only after trying yourself!
@@ -334,7 +335,7 @@ imd_cleaning <- imd_raw %>%
       "C_NeisMen" ~ "C",
       "Y_NeisMen" ~ "Y",
       "W_NeisMen" ~ "W",
-      "NT_NeisMen" ~ "Non Tipable",
+      "NT_NeisMen" ~ "Non Typable",
       c("Other_NeisMen", "A_NeisMen") ~ "Other",
       NA ~ "Unknown"
     )

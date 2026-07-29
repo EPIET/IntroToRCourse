@@ -204,7 +204,6 @@ We used these functions for achieving our goal:
 | Function | Package | What it does |
 |------------------------|------------------------|------------------------|
 | `glimpse()` | dplyr | Shows column types and first values — your primary inspection tool |
-| `mutate()` | dplyr | Creates or modifies columns |
 | `as.numeric()` | base R | Converts a column to numeric; non-convertible values become `NA` |
 | `ymd()` / `dmy()` | lubridate | Converts text to dates; function name = expected order of components |
 
