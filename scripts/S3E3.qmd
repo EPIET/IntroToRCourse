@@ -95,8 +95,8 @@ recode_values(column,
 
 It works inside `mutate()` calls, and you can overwrite existing variables or create new ones, depending on your needs
 
-- If you are just fixing a few values, the most simple approach is to modify existing columns
-<!-- i think examples could be nice as they might not grasp what we mean by "it works inside 'mutate()'
+- If you are just fixing a few values, the most simple approach is to modify existing columns \<!-- i think examples could be nice as they might not grasp what we mean by "it works inside 'mutate()'
+
 ``` r
 data %>%
 mutate(column = recode_values(column,           # keeping the name of the existing column
@@ -105,9 +105,8 @@ mutate(column = recode_values(column,           # keeping the name of the existi
               default = NA)                     # for non-matched values
 )
 ```
--->
-- If you are completely changing a variable, it can be interesting to create a new one
-<!--``` r
+
+--\> - If you are completely changing a variable, it can be interesting to create a new one <!--``` r
 data %>%
 mutate(new_column = recode_values(old_column,   # Creating a new column
               old_value         ~ "New Value",  # for single values
@@ -115,8 +114,7 @@ mutate(new_column = recode_values(old_column,   # Creating a new column
               default = NA)                     # for non-matched values
 )
 ```
--->
-### Fixing sex and type_of_case
+--> \### Fixing sex and type_of_case
 
 The `sex` column has four distinct values when it should have two: `"M"` and `"m"` both mean Male, `"F"` and `"f"` both mean Female. For `type_of_case` we see how the secondary cases category is spitted into `"Second"` and `"Sec"` values, we need to correct it to only "Second" values
 
@@ -230,6 +228,7 @@ This is what you learned today:
 ## 💡 Show solution — only after trying yourself!
 
 ``` r
+# Recoding mutate
 mutate(
   sex = recode_values(
     sex,

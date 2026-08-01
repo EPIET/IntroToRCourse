@@ -41,8 +41,7 @@ Look at the type tags in angle brackets: `<chr>`, `<dbl>`, `<lgl>`. These are R'
 
 **Action** — Before reading on, look at the output and identify which columns have a type mismatch — where what R thinks the variable is does not match what it should actually be.
 
-**Action** — Try out the other functions for examining data: `str()`, `summary()`, `head()`
-<!--You're not including skim because it requires skimr?-->
+**Action** — Try out the other functions for examining data: `str()`, `summary()`, `head()` <!--You're not including skim because it requires skimr?-->
 
 ::: {.callout-note collapse="true"}
 ## The main variable types you will encounter
@@ -72,6 +71,7 @@ mutate(
   variable = function(variable)
 )
 ```
+
 **Action** — Add this `mutate()` to your cleaning pipeline to fix `age_months`, run it, and check `glimpse()` again. Did `age_months` change to `<dbl>`?
 
 You will likely see this warning in your console:
@@ -214,14 +214,6 @@ We used these functions for achieving our goal:
 This is the full `mutate()` block to add to your pipeline after the name-cleaning step:
 
 ``` r
-# Initialize cleaning pipe
-imd_cleaning <- imd_raw %>%
-  # Fix col names
-  clean_names() %>%
-  rename(
-    age_years = age,
-    year      = key_year
-  ) %>% 
   # Change variables type
   mutate(
     age_months         = as.numeric(age_months),

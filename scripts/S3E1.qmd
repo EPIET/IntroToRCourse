@@ -189,6 +189,13 @@ These are the functions you learned in this exercise
 This is how you initialize the data cleaning pipe and change the column's names
 
 ``` r
+# Load libraries
+library(pacman)
+pacman::p_load(rio, here, janitor, tidyverse)
+
+# Import data
+imd_raw <- import(here("data", "IMD_Sample_Dirty.xlsx"))
+
 # Initialize cleaning pipe
 imd_cleaning <- imd_raw %>%
   # Fix col names
