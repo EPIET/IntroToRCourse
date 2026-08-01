@@ -9,7 +9,7 @@ library(webexercises)
 library(pacman)
 pacman::p_load(tidyverse, rio, here)
 
-imd <- import(here("data", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.csv"))
 ```
 
 **Have you heard about Murphy law?**

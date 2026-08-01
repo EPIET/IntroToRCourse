@@ -9,7 +9,7 @@ library(webexercises)
 
 pacman::p_load(tidyverse, rio, here, janitor)
 
-imd_raw <- import(here("data", "IMD_Sample_Dirty.xlsx"))
+imd_raw <- import(here("data", "raw", "IMD_Sample_Dirty.xlsx"))
 
 imd_cleaning <- imd_raw %>%
   clean_names() %>%
@@ -309,7 +309,7 @@ library(pacman)
 pacman::p_load(rio, here, janitor, tidyverse)
 
 # Import data
-imd_raw <- import(here("data", "IMD_Sample_Dirty.xlsx"))
+imd_raw <- import(here("data", "raw", "IMD_Sample_Dirty.xlsx"))
 
 # Initialize cleaning pipe
 imd_cleaning <- imd_raw %>%
