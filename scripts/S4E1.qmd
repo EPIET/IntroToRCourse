@@ -90,7 +90,7 @@ To fix this, R needs a variable class that carries **order** with it. That class
 
 A factor looks like a character variable but remembers the sequence its categories should follow. That memory is what R then uses in every table, every graph, and every summary you produce afterwards. There are two ways to create one.
 
-### The tidyverse way: `as_factor()`
+### The tidyverse way
 
 **Action** — Convert `age_group` into a factor with `as_factor()`, then `tabyl()` it again and inspect the levels with `levels()`. For now, do it in a new object `imd_factor`
 
@@ -106,7 +106,7 @@ Better? Different, certainly. But look carefully at the order you got: it's even
 
 It is not alphabetical any more, which feels like progress, but it is not meaningful either. This is not a flaw. `as_factor()` is excellent when your data already arrives in the right order, and it costs you one short line. It is simply the wrong tool for age groups.
 
-### The base R way: `factor(levels = )`
+### The base R way
 
 When you need a specific order, you write it out. Explicitly. Yourself. By hand. In the lecture, you saw how we did with `serogroup`, the order of the levels is something that we decide: B, C, W and Y need to come before Other, Non Typable and Unknown. Same problem, same solution: when the order matters and the data will not give it to you, you write it down.
 
@@ -287,7 +287,7 @@ levels(imd_factor$age_group)
 
 # Insert this code in your data cleaning script
 imd_cleaning <- imd_cleaning %>% 
-  arrange(age_group) %>% 
+  arrange(age_years) %>% 
   mutate(
     age_group = as_factor(age_group),
     serogroup = factor(serogroup,

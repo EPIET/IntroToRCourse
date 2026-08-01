@@ -4912,8 +4912,9 @@ margin: 1em 0;
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  here,    </span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  rio,</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  janitor, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  skimr, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  flextable,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  gtsummary,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level2">
@@ -5606,19 +5607,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>Participants need to have R, RTools, and RStudio installed in their computer. Preferably, the installation of these applications should be done in the stated order: R <span class="sc">\&gt;\&gt;</span> RTools <span class="sc">\&gt;\&gt;</span> RStudio. If you don’t have these applications installed yet, please do so following the instructions below:</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**R** should be installed in the participants’ computer. You can download it from <span class="co">[</span><span class="ot">here</span><span class="co">](https://cran.r-project.org/)</span>, on the section “Download and Install R”. Select the adequate version to your computer’s operating system.</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**R** should be installed in the participants’ computer. You can download it from <span class="co">[</span><span class="ot">here</span><span class="co">](https://cran.r-project.org/)</span>, on the section “Download and Install R”. Select the adequate version to your computer’s operating system.</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Latest version available is 4.6.1 (24^th^ Jun 2026). <span class="co">[</span><span class="ot">*You don’t need the latest version installed.*</span><span class="co">]</span>{.underline} However, it’s highly recommended to stay updated on at least the ‘major version’ (4.x.x) and not too many ‘minor versions’ (x.6.x) away, as packages tend to update to each of them. A warning message might show when using p_load if your R version is older than a package’s last update; however, it will work fine.</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Latest version available is 4.6.1 (24^th^ Jun 2026). <span class="co">[</span><span class="ot">*You don’t need the latest version installed.*</span><span class="co">]</span>{.underline} However, it’s highly recommended to stay updated on at least the ‘major version’ (4.x.x) and not too many ‘minor versions’ (x.6.x) away, as packages tend to update to each of them. A warning message might show when using p_load if your R version is older than a package’s last update; however, it will work fine.</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>***R usually requires administrative rights to be installed in your work computer.***</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>***R usually requires administrative rights to be installed in your work computer.***</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Multiple versions of R can be installed in one’s computer. If you have more than one R version installed on your computer, please make sure that you select the latest version when running RStudio (Top Menu: Settings <span class="sc">\&gt;</span> Global Options <span class="sc">\&gt;</span> Left Panel <span class="sc">\&gt;</span> R)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>Multiple versions of R can be installed in one’s computer. If you have more than one R version installed on your computer, please make sure that you select the latest version when running RStudio (Top Menu: Settings <span class="sc">\&gt;</span> Global Options <span class="sc">\&gt;</span> Left Panel <span class="sc">\&gt;</span> R)</span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**RTools (Windows users only)** should also be installed in the participants’ computer. You can download the necessary files by clicking <span class="co">[</span><span class="ot">here</span><span class="co">](https://cloud.r-project.org/bin/windows/Rtools/)</span> and selecting the latest available version (4.5 as of summer 2026)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**RTools (Windows users only)** should also be installed in the participants’ computer. You can download the necessary files by clicking <span class="co">[</span><span class="ot">here</span><span class="co">](https://cloud.r-project.org/bin/windows/Rtools/)</span> and selecting the latest available version (4.5 as of summer 2026)</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>For MacOS, RTools installation comprises the minimal installation of clang and gfortran as listed in the hyperlinked website. Usually the installation is automatic not requiring any active action from the user like in Windows</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>For MacOS, RTools installation comprises the minimal installation of clang and gfortran as listed in the hyperlinked website. Usually the installation is automatic not requiring any active action from the user like in Windows</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">**RStudio**</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span> can be used with previous versions without creating conflict with packages or R versions safely. Try to keep updated if possible.</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">**RStudio**</span><span class="co">](https://posit.co/download/rstudio-desktop/)</span> can be used with previous versions without creating conflict with packages or R versions safely. Try to keep updated if possible.</span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Libraries {.unnumbered}</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
@@ -5634,13 +5635,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  here,    </span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  rio,</span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  janitor, </span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  skimr, </span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  tidyverse)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>To download all neccessary datasets and files for this practicals, ~~click in [this link](https://github.com/EPIET/TimeSeriesAnalysis_2025/raw/refs/heads/main/download%20folder/_all_data_2025.zip)~~ and then save the zip file in the data folder of your project.</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  flextable,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  gtsummary,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  tidyverse)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>To download all neccessary datasets and files for this practicals, ~~click in [this link](https://github.com/EPIET/TimeSeriesAnalysis_2025/raw/refs/heads/main/download%20folder/_all_data_2025.zip)~~ and then save the zip file in the data folder of your project.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
