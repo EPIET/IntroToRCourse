@@ -178,7 +178,7 @@ opts4 <- c(
 These are the functions you learned in this exercise
 
 | Function | Package | What it does |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `names()` | base R | Returns or sets the column names of a dataframe |
 | `clean_names()` | janitor | Converts all names to lowercase snake_case automatically |
 | `rename()` | dplyr | Renames specific columns: `new_name = old_name` |

@@ -9,7 +9,7 @@ library(webexercises)
 library(pacman)
 pacman::p_load(tidyverse, rio, here)
 
-imd <- import(here("data", "clean", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 ```
 
 ```{=html}
@@ -24,7 +24,7 @@ Now you need to learn how to tell R *which rows you want* — and that means lea
 To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
 
 | Operator  | Meaning                                                       |
-|------------------|---------------------------------------------------|
+|-------------------|----------------------------------------------------|
 | `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
 | `!=`      | Not equal to; "*different*"                                   |
 | `>` `>=`  | Greater than / greater than or equal to                       |

@@ -374,7 +374,7 @@ imd_cleaning <- imd_raw %>%
   ) %>%
   select(-diagnostic_date, -disease, -imported)
 
-export(imd_cleaning, here("data", "clean" ,"IMD_Sample_Clean.xlsx"))
+export(imd_cleaning, here("data", "clean" ,"IMD_Sample_Clean.csv"))
 ```
 :::
 

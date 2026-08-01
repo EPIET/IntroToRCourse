@@ -9,7 +9,7 @@ library(webexercises)
 library(pacman)
 pacman::p_load(tidyverse, rio, here)
 
-imd <- import(here("data", "clean", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 ```
 
 The previous exercise ended with an open question: `mutate()` alone cannot split the data before computing. You had to run two separate pipelines to get the mean age for 1999 and 2002. The same is true for many other operations we will be interested in conducting in our daily work as epidemiologists.
@@ -196,7 +196,7 @@ These are the functions you learned:
 pacman::p_load(tidyverse, rio, here)
 
 # Data
-imd <- import(here("data", "clean", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 
 # Simple grouping
 imd %>%
