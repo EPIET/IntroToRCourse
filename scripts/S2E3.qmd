@@ -9,7 +9,7 @@ library(webexercises)
 library(pacman)
 pacman::p_load(tidyverse, rio, here)
 
-imd <- import(here("data", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 ```
 
 You know how to select (filter) rows. This is one elemental task whenever you work with data. You also practiced logical operators for defining conditions. We told you that logical statements are ubiquitous in programming, and today we will keep proving that true.
@@ -251,7 +251,7 @@ If you use `mutate()` with the name of a column that already exists, it will rep
 pacman::p_load(tidyverse, rio, here)
 
 # Data
-imd <- import(here("data", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 
 # Global mean age of cases
 imd <- imd %>% 

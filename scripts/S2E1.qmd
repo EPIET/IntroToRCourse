@@ -9,7 +9,7 @@ library(webexercises)
 library(pacman)
 pacman::p_load(tidyverse, rio, here)
 
-imd <- import(here("data", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 ```
 
 **Have you heard about Murphy law?**
@@ -32,7 +32,16 @@ Yesterday you learned how to prepare your workspace: the R Project, the clean sc
 
 2.  We will add a new library from now on: the `tidyverse`
 
-3.  Today's dataframe is found in the `data` folder: `IMD_Sample_Clean.csv`. Load it and assign it to a new object called `imd`. Once loaded, click on your `imd` object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content
+3.  Today's dataframe is found in the `data/clean` folder: `IMD_Sample_Clean.xlsx`. Load it and assign it to a new object called `imd`. Once loaded, click on your `imd` object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution — only after trying yourself!
+
+``` r
+# Data import
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
+```
+:::
 
 Now, what is this `tidyverse`we keep talking about??
 

@@ -178,7 +178,7 @@ opts4 <- c(
 These are the functions you learned in this exercise
 
 | Function | Package | What it does |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `names()` | base R | Returns or sets the column names of a dataframe |
 | `clean_names()` | janitor | Converts all names to lowercase snake_case automatically |
 | `rename()` | dplyr | Renames specific columns: `new_name = old_name` |
@@ -189,6 +189,13 @@ These are the functions you learned in this exercise
 This is how you initialize the data cleaning pipe and change the column's names
 
 ``` r
+# Load libraries
+library(pacman)
+pacman::p_load(rio, here, janitor, tidyverse)
+
+# Import data
+imd_raw <- import(here("data", "raw", "IMD_Sample_Dirty.xlsx"))
+
 # Initialize cleaning pipe
 imd_cleaning <- imd_raw %>%
   # Fix col names

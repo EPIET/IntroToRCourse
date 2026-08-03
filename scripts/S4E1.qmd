@@ -1,0 +1,309 @@
+---
+title: "Counting cases"
+subtitle: "Session 4 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+library(pacman)
+p_load(rio, here, tidyverse, janitor)
+
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
+```
+
+For three sessions you have been writing code for yourself. Nobody outside your office has seen a single line of it, and that was fine — the code *was* the goal. That changes from today. When we code and work with data, the goal is always to share something, to gain, or learn or analyze a piece of information that will trigger action.
+
+It's early in the morning, you just arrived to your office and Kassandra is already waiting for you, coffee in hand: *"We need to know who is actually getting sick. Something quick and informative for the afternoon meeting, a summary of the epidemiological situation we can share. Ages, years, the basics, you know. Make use of what you practiced last week"*
+
+Read that last sentence again. **Something we can share** — not something *you* can look at. From now on, everything you produce has an audience, and that audience does not read R console output.
+
+## Before you start
+
+Start a new script for this exercise, and choose the name based on our lecture today. You could also continue in the data cleaning script from last session, but it's better practice to **keep your scripts separated by task**, and limiting each of them to a single major goal, e.g. data cleaning, descriptive analysis, tables, a specific graph, etc.
+
+This way, each script is shorter, which means easier to read, understand and fix if needed. When spotting an error, you will arrive quicker to the line of interest, fix it and re-run it
+
+Load your packages and import the clean dataset produced in Session 3. Add the new packages we will be using today: `janitor`, `flextable` and `gtsummary`
+
+## Part 1 · Basic frequency tables
+
+### Bad tools
+
+You are not starting from zero. You already know how to count things in R — you used `table()` before.
+
+**Action** — Count the number of cases in each age group using `table()`. Include the missing values.
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+`table()` works on a vector, not on a dataframe. It's base R. You will need `$` to reach inside `imd`, and the argument `useNA = "always"` to show missing values.
+:::
+
+It works. You get your counts. So why are we still here?
+
+Because a table you can read is not the same as a table you can ***use***. Try to imagine doing any of the following with that output: keeping only the age groups with more than 50 cases, sorting them by frequency, adding a percentage column, or piping it into anything at all.
+
+**Action** — Assign your table to an object. Ask R what kind of object it produced.
+
+R answers `"table"`. Not `"data.frame"`. And that is the whole problem: everything you learned in Session 2,`filter()`, `mutate()`, `group_by()`, `%>%`, works on dataframes. A `table` object is a dead end. You can look at it and that is about it.
+
+### Clever tools
+
+`janitor::tabyl()` asks exactly the same question as `table()`: ***how many***? — but returns something you can keep working with.
+
+**Action** — Produce the same count of cases by age group, this time with `tabyl()`. Assign it to `imd_agecount`.
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+`tabyl()` is tidy-friendly: it takes the dataframe first, so it fits naturally at the end of a pipe. You pass the variable name directly, without `$` and without quotes.
+:::
+
+Three things happened at once, and all three matter.
+
+First, you got the percentages for free — no extra code, no dividing by `nrow()`. Second, if the variable has missing values you also get a `valid_percent` column, which excludes them from the denominator. Third, and most importantly:
+
+**Action** — Check what kind of object you just created.
+
+For the first time, and object has two classes: `"tabyl"` **and** `"data.frame"`. Some functions may create their specific object class, but still it's a dataframe that you see in your Environment, where you first table also lies under the "values" list below "data". See the difference. You can click on it, `filter()` it, `arrange()` it, add columns to it with `mutate()`, etc.
+
+::: callout-note
+### The same output, twice
+
+`tabyl()` also stays in **long format** — one row per category, one column per statistic. This is the tidy shape, and it is the shape every other tidyverse function expects to receive. Keep this in mind: it becomes the whole point of Exercise 2.
+:::
+
+------------------------------------------------------------------------
+
+## Part 2 · Something is wrong with your table
+
+Go back and look at `imd_agecount` properly. Not the numbers — the **order of the rows**. Do not panic. This is R being honest with you.
+
+**Action** — Ask R what class `age_group` is, using the simple `class()` function
+
+`"character"`. And R sorts character values alphabetically, one character at a time. It compares `"5"` against `"4"`, decides that 5 comes after 4, and cheerfully parks your 5-14 year old between the 45-64 and the 65+ groups. R did nothing wrong. It just has no idea that these labels mean ages.
+
+To fix this, R needs a variable class that carries **order** with it. That class is the **factor**.
+
+A factor looks like a character variable but remembers the sequence its categories should follow. That memory is what R then uses in every table, every graph, and every summary you produce afterwards. There are two ways to create one.
+
+### The tidyverse way
+
+**Action** — Convert `age_group` into a factor with `as_factor()`, then `tabyl()` it again and inspect the levels with `levels()`. For now, do it in a new object `imd_factor`
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+Factor conversion happens inside `mutate()`, overwriting the existing column — exactly the pattern you used throughout Session 3.
+:::
+
+Better? Different, certainly. But look carefully at the order you got: it's even worse!
+
+`as_factor()` orders the levels by **order of appearance in the data** — whichever age group happens to sit in row 1 becomes the first level. Your dataset is sorted by case, not by age, so the resulting order is essentially arbitrary - Go take a look at `imd` and see for yourself.
+
+It is not alphabetical any more, which feels like progress, but it is not meaningful either. This is not a flaw. `as_factor()` is excellent when your data already arrives in the right order, and it costs you one short line. It is simply the wrong tool for age groups.
+
+### The base R way
+
+When you need a specific order, you write it out. Explicitly. Yourself. By hand. In the lecture, you saw how we did with `serogroup`, the order of the levels is something that we decide: B, C, W and Y need to come before Other, Non Typable and Unknown. Same problem, same solution: when the order matters and the data will not give it to you, you write it down.
+
+We did it using this code:
+
+``` r
+imd_factor <- imd %>% 
+  mutate(
+    serogroup = factor(serogroup,
+                       levels = c("B", "C", "W", "Y", 
+                                  "Other", "Non Typable", "Unknown"))
+  )
+```
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+The labels inside `levels` must match the values in your data **exactly** — same spelling, same spaces, same capitalisation. A typo does not throw an error; it silently turns those cases into `NA`.
+:::
+
+Now, before typing anything: *do you really see yourself writing out every single age group by hand?*
+
+### Choosing your way
+
+I understand if you thought "*Do I really need to write all age groups, one by one by hand?*" And the answer is: *it depends.*
+
+You could do better, but that requires more code and bit if wit. If we are working with a numeric `age_years` variable and the levels sort themselves in the order they appear on data... then why don't we sort the data before creating the factor?
+
+`Tidy` has a function for that called `arrange()` that sorts the data based on one or more variables you provide as arguments.
+
+**Action** — In your `imd_factor` object: (1) arrange your data based on `age_years` and then (2) transform the `age_group` variable in a factor following the arranged order and (3) check on the levels again.
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+`arrange()` is a tidy verb like any other: it takes the dataframe first and fits in the middle of a pipe. Sort first, convert second — the order of the steps is the whole trick.
+
+## Solution {collapse="true"}
+
+``` r
+imd_factor <- imd %>% 
+  arrange(age_years) %>% 
+  mutate(age_group = as_factor(age_group))
+
+levels(imd_factor$age_group)
+```
+:::
+
+::: callout-important
+## Multiple options
+
+In R you will always have more than one way of arriving to your desired output. Which one is the best? Sometimes we can ask that questions because there is a clearly superior path, but some others it's plainly impossible.
+
+In terms of this factor problem, you could have very well just written the levels by hand, without worrying about the order of the data. But now you know the difference, and the trick that may become useful for you some day. This is another tip: every strategy may seem stupid for one problem but become brilliant for another. Extra tip: even if something is boring, like writing all categories by hand, it can still be a better option for consistency.
+:::
+
+### Exporting factors: the problem
+
+Maybe a though crossed your mind while learning about factors: ***Didn't it belong to the data cleaning process***?
+
+Having a character variable as an ordered factor is indeed relevant and useful, especially when you plan on creating graphs or tables with your data. However, the little drawback is that when exporting data into text-based formats like `xlsx` or `csv`, the factor memory is lost. However, another data format is capable of keep not only factors, but any feature you design for your data: the native R data format `.rds`.
+
+When exporting data using `export()` you just need to change the file extension from `.xlsx` or `.csv` to `.rds`. The resulting file is lightweight and carries away all the data format, class, and customization. Then you can `import()`it back exactly the same - this is why the library `rio` is so great!
+
+**Action** — Go back to your data cleaning script from Session 3, and include the in the cleaning pipe, after filtering, the code for `serogroup` and `age_group` factor conversion. Then add a new `export()` line, and save the dataframe with the `.rds`extension, in the same folder with the same name.
+
+::: callout-warning
+## Lessons learned
+
+By doing this, I want you to realize something:
+
+-   We created our Data Cleaning script, exported the results and worked with it today
+
+-   Then, we found out we could have done something different that will be useful for tables and tomorrow for graphs creation
+
+-   We can always go back, modify the script, execute it and, in a matter of minutes, we have updated our data workflow, and now we can continue without worrying about the `factor` format
+
+Everything you do when coding is dynamic, subject to change. You will make mistakes all the time, no matter how many years you code, we are all humans. Going back and forth changing scripts if day-to-day in programming, that's another reason to keep scripts task-oriented, easy-to-debug and quick to rerun
+:::
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+opts_1 <- c(
+  "Because `table()` cannot handle missing values",
+  "Because `table()` is slower than the tidyverse alternatives",
+  answer = "Because `table()` returns a `table` object, which cannot be piped into tidy verbs",
+  "Because `table()` only works with character variables"
+)
+```
+
+**Why is `table()` a poor starting point when you need to produce an output for someone else?**
+
+`r longmcq(opts_1)`
+
+```{r}
+#| echo: false
+opts_4 <- c(
+  "It returns a dataframe that can be manipulated with tidyverse verbs",
+  "It calculates percentages automatically",
+  "It can crosstabulate two variables",
+  answer = "It returns a list instead of a dataframe when given three variables"
+)
+```
+
+**Which of the following is NOT an advantage of `tabyl()` over `table()`?**
+
+`r longmcq(opts_4)`
+
+```{r}
+#| echo: false
+opts_2 <- c(
+  "`as_factor()` sorts the levels alphabetically, `factor()` sorts them numerically",
+  answer = "`as_factor()` orders the levels by order of appearance in the data, `factor()` uses the order you specify in `levels`",
+  "`as_factor()` works on characters and `factor()` only works on numbers",
+  "There is no difference — `as_factor()` is simply the tidyverse name for `factor()`"
+)
+```
+
+**What is the difference between `as_factor()` and `factor(levels = )`?**
+
+`r longmcq(opts_2)`
+
+## Exercise Summary
+
+Now you understand the importance of working with `data.frame` objects and the huge impact it has when interacting with the rich R library environment. You also learned about factors, but most importantly, you saw for yourself how natural and important it is to go back in your own work, change things and keep moving. You will integrate all these little things slowly as you work more often with R, and keep encountering situations that force you to step back and rethink - or ask AI
+
+Now this was the warm-up for the session, let's continue with the rest of exercises
+
+| Function | Package | What it does |
+|------------------------|-------------------|-----------------------------|
+| `table()` | base R | Counts the values of a vector; returns a `table` object, not a dataframe |
+| `class()` | base R | Tells you what kind of object you are holding |
+| `tabyl()` | janitor | Frequency table with counts and percentages, returned as a dataframe |
+| `as_factor()` | forcats (tidy) | Converts to factor, ordering levels by order of appearance in the data |
+| `factor(levels = )` | base R | Converts to factor with an order you write explicitly |
+| `levels()` | base R | Shows the order stored in a factor |
+| `arrange()` | dplyr (tidy) | Sorts the rows of a dataframe by one or more variables |
+| `export()` / `import()` | rio | Write and read data; use the `.rds` extension to keep factors and other R attributes |
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution — only after trying yourself!
+
+``` r
+# Load libraries
+library(pacman)
+p_load(rio, here, tidyverse, janitor)
+
+# Import data
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
+
+# Table vs Tyble
+table(imd$age_group, useNA = "always")
+
+table_base <- table(imd$age_group, useNA = "always")
+class(table_base)
+
+imd_agecount <- imd %>% 
+  tabyl(age_group)
+class(imd_agecount)
+
+# Factors
+class(imd$age_group)
+
+imd_factor <- imd %>% 
+  mutate(age_group = as_factor(age_group))
+
+imd_factor %>% 
+  tabyl(age_group)
+levels(imd_factor$age_group)
+
+# Arrange by age
+imd_factor <- imd %>% 
+  arrange(age_years) %>% 
+  mutate(age_group = as_factor(age_group))
+levels(imd_factor$age_group)
+
+# Insert this code in your data cleaning script
+imd_cleaning <- imd_cleaning %>% 
+  arrange(age_years) %>% 
+  mutate(
+    age_group = as_factor(age_group),
+    serogroup = factor(serogroup,
+                       levels = c("B", "C", "W", "Y", 
+                                  "Other", "Non Typable", "Unknown"))
+  )
+
+export(imd_cleaning, here("data", "clean" ,"IMD_Sample_Clean.rds"))
+```
+:::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```
