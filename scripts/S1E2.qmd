@@ -33,17 +33,17 @@ RStudio empty view (click to enlarge)
 ![](/images/exercises/S1E2_1_project.png){.lightbox}
 :::
 
-- Your scripts work on any computer, not just yours
-- Colleagues can open the same project without changing a single path
-- You always know where R is looking for files
+-   Your scripts work on any computer, not just yours
+-   Colleagues can open the same project without changing a single path
+-   You always know where R is looking for files
 
 You will recognise an R Project by the `.Rproj` file inside its folder — and by the project name shown in the **top-right corner of RStudio**.
 
 ### Create the folder structure
 
-As the R Project is essentially a self-contained folder, you will need to first create a folder structure in your computer to meet the project needs. For this course, we provided you with it already - also to demonstrate the power of R Projects for sharing and reproducibility. If you haven't downloaded the files yet go to this page
+As the R Project is essentially a self-contained folder, you will need to first create a folder structure in your computer to meet the project needs. For this course, we provided you with it already - also to demonstrate the power of R Projects for sharing and reproducibility. If you haven't downloaded the files yet go to this page <!--# link missing -->
 
-We recommend creating always the following subfolders:
+We recommend always creating the following subfolders:
 
 ```         
 IntroToRCourse/
@@ -69,15 +69,17 @@ Each folder has a specific role:
 The `raw/` folder holds your original files exactly as received. You never edit them — not in R, not in Excel, not at all. If something goes wrong during cleaning, the original data is always there to start again. This is one of the most important habits in reproducible data analysis.
 :::
 
-**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your new folders listed there.
+**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your new folders listed there. If not, click "Refresh file listing".
+
+![](images/clipboard-1632139368.png)
 
 ### Create your R Project
 
 **Action** — In RStudio, create a project through any of the following:
 
-- File → New Project → New Directory → New Project.
-- Create a project icon on the top-left menu
-- Project area at the top-right corner → Create new project
+-   File → New Project → New Directory → New Project.
+-   Create a project icon on the top-left menu
+-   Project area at the top-right corner → Create new project
 
 **Action** — Name your project `IntroToRCourse`. Choose the folder you downloaded for this course, that you can have store anywhere in your computer.
 
@@ -87,13 +89,13 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 
 ### Start your script and add coments
 
-Now the project and folders are ready, lets open a new R Script to start fresh and let's build it together. Initially, you will notice the script's name is `Unnamed1` which is a poor name, don't you think? Let's give it a decent name
+Now the project and folders are ready, lets open a new R Script to start fresh and let's build it together. Initially, you will notice the script's name is `Unnamed1` which is a poor name, don't you think? Let's give it a decent name.
 
-**Action** — Open a new script and save it first. Go to **File → Save As** or locate the Save button on the icon menu, navigate to your project's `scripts` folder, and name it `S1_practical.R`.
+**Action** — Open a new script and save it first. Go to **File → Save As** or locate the Save button on the icon menu, navigate to your project's `scripts` folder, and name it `S1_practical.R`. Every time you make some changes in your script, you'll notice the script's tab name turns red and gets an \*. Don't forget to save your script regularly, so your work doesn't get lost.
 
-No it's time you add some basic information about the script, like title, purpose, author, last date modified, etc. For this, you will learn how to use **comments**
+Now it's time you add some basic information about the script, like title, purpose, author, last date modified, etc. For this, you will learn how to use **comments**.
 
-In a script, if a line begins with a hash `#` R understands anything behind as no-code text. The color of the text will change (typically to green, but it depends on your appearance customization). Use this feature to add at the begining of the script some info:
+In a script, if a line begins with a hash `#` R understands anything behind as no-code text. The color of the text will change (typically to green, but it depends on your appearance customization). Use this feature to add at the beginning of the script some info:
 
 ```{r}
 # Title: my first script
@@ -255,8 +257,8 @@ imd_raw <- rio::import(here::here("data", "raw", "imd_S1.xlsx"))
 
 Two things are happening here:
 
-- `here::here()` builds the path to the file
-- `rio::import()` reads the file and stores it as an object called `imd_raw` in your Environment
+-   `here::here()` builds the path to the file
+-   `rio::import()` reads the file and stores it as an object called `imd_raw` in your Environment
 
 Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.
 
@@ -270,17 +272,7 @@ Notice how we used one function to crate an output (a computer path) that is the
 
 Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be spitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking
 
-This is what you practiced and learned:
-| | |
-|------------------------------------|------------------------------------|
-| **R Project** | A self-contained workspace anchored to a folder with a `.Rproj` file |
-| **Folder structure** | `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role |
-| **`install.packages()`** | Downloads a package to your computer — once per machine |
-| **`update.packages()`** | Updates an installed package to its most recent version — periodically |
-| **`library()`** | Loads a package for your current session — every time you open R |
-| **`pacman::p_load()`** | Installs or updates (if needed) AND loads a package |
-| **`here::here()`** | Builds portable file paths from your project root |
-| **`rio::import()`** | Reads data files into R as objects |
+This is what you practiced and learned: \| \| \| \|------------------------------------\|------------------------------------\| \| **R Project** \| A self-contained workspace anchored to a folder with a `.Rproj` file \| \| **Folder structure** \| `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role \| \| **`install.packages()`** \| Downloads a package to your computer — once per machine \| \| **`update.packages()`** \| Updates an installed package to its most recent version — periodically \| \| **`library()`** \| Loads a package for your current session — every time you open R \| \| **`pacman::p_load()`** \| Installs or updates (if needed) AND loads a package \| \| **`here::here()`** \| Builds portable file paths from your project root \| \| **`rio::import()`** \| Reads data files into R as objects \|
 
 ------------------------------------------------------------------------
 
