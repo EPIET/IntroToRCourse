@@ -87,7 +87,7 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 
 **Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your project folders listed there.
 
-### Start your script and add coments
+### Start your script and add comments
 
 Now the project and folders are ready, lets open a new R Script to start fresh and let's build it together. Initially, you will notice the script's name is `Unnamed1` which is a poor name, don't you think? Let's give it a decent name.
 
@@ -104,7 +104,7 @@ In a script, if a line begins with a hash `#` R understands anything behind as n
 # Last modified: 8th Sept 2026
 ```
 
-**Comments** are an essential part of every script. The serve several purposes: creating sections, explaining what is being done, leave comments for you or others to understand, have a clean code, and so on. We will use them from now on for everything we do.
+**Comments** are an essential part of every script. They serve several purposes: creating sections, explaining what is being done, leave comments for you or others to understand, have a clean code, and so on. We will use them from now on for everything we do.
 
 ## Part 5 · Libraries
 
@@ -152,13 +152,13 @@ The classic way to load a package is:
 library(pacman)
 ```
 
-This works perfectly well, but it has a limitation: if the package is not installed, it throws an error and stops. When you are sharing scripts with colleagues who may not have the same packages, this becomes a problem. Also, you need to remember three functions in order to keep your packages always ready, and we like efficiency
+This works perfectly well, but it has a limitation: if the package is not installed, it throws an error and stops. When you are sharing scripts with colleagues who may not have the same packages, this becomes a problem. Also, you need to remember three functions in order to keep your packages always ready, and we like efficiency.
 
-We can do better
+We can do better.
 
 ### Pacman for handling packages
 
-the `pacman` library was developed to handle libraries in R more easily. Its main function, `p_load()`, checks whether each package is installed — if it is, it loads it; if it is not, it installs it first and then loads it. One line, any number of packages, no errors from missing installations.
+The `pacman` library was developed to handle libraries in R more easily. Its main function, `p_load()`, checks whether each package is installed — if it is, it loads it; if it is not, it installs it first and then loads it. One line, any number of packages, no errors from missing installations.
 
 ```{r}
 #| execute: false
@@ -262,6 +262,8 @@ Two things are happening here:
 
 Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.
 
+`rio::import()` supports many file formats and automatically detects the type from the file extension. When importing an Excel workbook with multiple sheets, don't forget to specify the sheet if your data is not on the first one: `imd_raw <- rio::import(here::here("data", "raw", "IMD_S1.xlsx"), which = "Cases"`)).
+
 **Action** — Check your Environment panel — you should see `imd_raw` appear there. What is different with this object compared with the previous ones?
 
 ------------------------------------------------------------------------
@@ -270,13 +272,12 @@ Notice how we used one function to crate an output (a computer path) that is the
 
 **Congrats! You have successfully created your basic R Infrastructure: folders, R Project, Libraries and Data Import**
 
-Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be spitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking
+Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be splitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking
 
-<<<<<<< HEAD
 This is what you practiced and learned:
 
 |  |  |
-|:---------------------|:----------------------------------------------------|
+|:-----------------------------------|:-----------------------------------|
 | **R Project** | A self-contained workspace anchored to a folder with a `.Rproj` file |
 | **Folder structure** | `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role |
 | **`install.packages()`** | Downloads a package to your computer — once per machine |
@@ -285,7 +286,6 @@ This is what you practiced and learned:
 | **`pacman::p_load()`** | Installs or updates (if needed) AND loads a package |
 | **`here::here()`** | Builds portable file paths from your project root |
 | **`rio::import()`** | Reads data files into R as objects |
->>>>>>> main
 
 ------------------------------------------------------------------------
 

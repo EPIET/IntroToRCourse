@@ -14,7 +14,8 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 
 ```{=html}
 <!-- I think something that is implicit here but could be made explicit is that some filters only work on some types of variables
- Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year >= "18") will not work -->
+ Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year >= "18") will not work.
+ Maybe you can just write this in the solution? -->
 ```
 
 You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the `filter()` function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of `filter()`, but also of the whole programming experience.
@@ -24,11 +25,11 @@ Now you need to learn how to tell R *which rows you want* — and that means lea
 To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
 
 | Operator  | Meaning                                                       |
-|-------------------|----------------------------------------------------|
+|---------------------|---------------------------------------------------|
 | `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
 | `!=`      | Not equal to; "*different*"                                   |
-| `>` `>=`  | Greater than / greater than or equal to                       |
-| `<` `<=`  | Less than / less than or equal to                             |
+| `>`, `>=` | Greater than / greater than or equal to                       |
+| `<`, `<=` | Less than / less than or equal to                             |
 | `&`       | AND — both conditions must be true at the same time           |
 | `|`       | OR — at least one condition must be true                      |
 | `!`       | NOT — negates the condition that follows; "*opposite*"        |
@@ -83,11 +84,16 @@ Inside `filter()`, separating conditions with a comma is equivalent to using `&`
 ``` r
 imd %>% filter(condition1 & condition2)
 imd %>% filter(condition1, condition2)
+
+#And remember, you can achieve the same result if you just pipe filters one after another: 
+imd %>% 
+  filter(region_id == "R6") %>% 
+  filter(sex == "Female")
 ```
 
 And it make sense! When executed with `&`, R created a single evaluation for both conditions, while the two arguments version executed the query sequentially, first retaining only those from `R6` and then, among cases from `R6` it retained only `Female` cases. The same result in two different approximations. That is only valid for `AND` (`&)` statements. If we try the same with other operators, the results slightly changes
 
-**Action** — Filter cases that are either from `R6` or `Female`using the `|` (OR) operator, creating the object `imd_r6_or_f` and compare the resulting number of rows with `imd_r6_f`
+**Action** — Filter cases that are either from `R6` or `Female` using the `|` (OR) operator, creating the object `imd_r6_or_f` and compare the resulting number of rows with `imd_r6_f`
 
 Can you understand why the difference?
 
@@ -114,10 +120,13 @@ Therefore, you could write any of the following:
 imd %>% 
   filter(variable1 %in% c("value1", "value2", "value3"))
 
+# or: 
 values <- c("value1", "value2", "value3")
 imd %>% 
   filter(variable1 %in% values)
 ```
+
+To create a vector with multiple values, R uses the `c()` function, where `c` stands for *combine*, i.e. `c("value1", "value2", "value3")`. <!--# i don't remember defining this before and i know some strugle with this at the beggining... -->
 
 **Action** — Filter `imd` to keep cases from regions R1, R6, and R9 using `%in%`. Assign the result to `imd_regions`.
 
