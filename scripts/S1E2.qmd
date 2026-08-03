@@ -227,7 +227,7 @@ You have a file (`imd_S1.xlsx`) located in the raw data folder. Let's navigate t
 
 ```{r}
 #| eval: false
-here::here("data", "raw", "imd_S1.xlsx")
+here::here("data", "raw", "IMD_S1.xlsx")
 ```
 
 Run this line. R will print the full path — but it will not read the file yet. You are just constructing the address.
@@ -252,7 +252,7 @@ Now you will read the file for the first time.
 ```{r}
 #| eval: false
 # Load raw data
-imd_raw <- rio::import(here::here("data", "raw", "imd_S1.xlsx"))
+imd_raw <- rio::import(here::here("data", "raw", "IMD_S1.xlsx"))
 ```
 
 Two things are happening here:
@@ -272,7 +272,20 @@ Notice how we used one function to crate an output (a computer path) that is the
 
 Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be spitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking
 
-This is what you practiced and learned: \| \| \| \|------------------------------------\|------------------------------------\| \| **R Project** \| A self-contained workspace anchored to a folder with a `.Rproj` file \| \| **Folder structure** \| `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role \| \| **`install.packages()`** \| Downloads a package to your computer — once per machine \| \| **`update.packages()`** \| Updates an installed package to its most recent version — periodically \| \| **`library()`** \| Loads a package for your current session — every time you open R \| \| **`pacman::p_load()`** \| Installs or updates (if needed) AND loads a package \| \| **`here::here()`** \| Builds portable file paths from your project root \| \| **`rio::import()`** \| Reads data files into R as objects \|
+<<<<<<< HEAD
+This is what you practiced and learned:
+
+|  |  |
+|:---------------------|:----------------------------------------------------|
+| **R Project** | A self-contained workspace anchored to a folder with a `.Rproj` file |
+| **Folder structure** | `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role |
+| **`install.packages()`** | Downloads a package to your computer — once per machine |
+| **`update.packages()`** | Updates an installed package to its most recent version — periodically |
+| **`library()`** | Loads a package for your current session — every time you open R |
+| **`pacman::p_load()`** | Installs or updates (if needed) AND loads a package |
+| **`here::here()`** | Builds portable file paths from your project root |
+| **`rio::import()`** | Reads data files into R as objects |
+>>>>>>> main
 
 ------------------------------------------------------------------------
 

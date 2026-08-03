@@ -53,6 +53,10 @@ website:
           - "scripts/S3E2.qmd"
           - "scripts/S3E3.qmd"
           - "scripts/S3E4.qmd"
+      - section: "Session 4"
+        contents:
+          - "scripts/S4E1.qmd"
+          - "scripts/S4E2.qmd"
 
   page-footer:
     left: "© 2026 – Intro to R Course"

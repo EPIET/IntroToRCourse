@@ -1,0 +1,343 @@
+---
+title: "Crosstabulations and richer tables"
+subtitle: "Session 4 practical exercises"
+---
+
+```{r}
+#| include: false
+library(webexercises)
+library(pacman)
+p_load(rio, here, tidyverse, janitor, flextable)
+
+imd <- import(here("data", "clean", "IMD_Sample_Clean.rds"))
+```
+
+## Before you start
+
+Keep working in the same script you started in Exercise 1, but import the dataset again, this time the `.rds` file you produced at the end of the last exercise.
+
+``` r
+imd <- import(here("data", "clean", "IMD_Sample_Clean.rds"))
+```
+
+**Action** — Check the class of `age_group` and `serogroup`.
+
+The effort you made before going back to the cleaning script to add the factors and export again now pays off. You don't need to look and copy again the code to re-create the factors each time you need to produce any output across multiple scripts.
+
+------------------------------------------------------------------------
+
+## Part 3 · Adding a second variable
+
+Now you have a table with case counts per age group. You can however picture Kassandra reading your table and immediately asking: *"Has this changed over the years?"*
+
+Crosstabulating two variables with `tabyl()` costs you exactly one extra argument.
+
+**Action** — Produce a crosstabulation of `age_group` by `year` named `imd_agegroup_year`
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+The first variable you pass becomes the rows, the second becomes the columns. Nothing else changes.
+:::
+
+Rows are age groups, columns are years, cells are counts. Still a dataframe, and still respecting the factor you defined before. Notice something else: every combination is there, including the ones with zero cases. `tabyl()` fills those gaps for you.
+
+### Adorning the table
+
+Counts are basic elements in epidemiological reports, right? But counts alone are not always the goal, you may want to include additional information like percentages - sometimes together in the same cell, the classic `n (%)` that you have seen in a thousand surveillance reports.
+
+janitor has a family of functions for exactly this, all starting with `adorn_`, and all designed to be chained one after another. You are going to build the chain one link at a time, running it after each addition, so you can see what each one actually does.
+
+**Action** — Continue your crosstabulation and add `adorn_totals()`. Run it and look at the bottom of the table.
+
+**Action** — Now add `adorn_percentages()` to the chain
+
+::: callout-caution
+## Rows vs Columns
+
+Both functions set the **row** as their default argument, but result in opposite outputs:
+
+- `adorn_totals()` adds by default a new row with totals representing the number of cases per year
+
+  - The argument `where = "row")` lets you select which one to show rows or cols
+
+- `adorn_percentages()` computes proportions, therefore it uses a denominator that, by default is also the row, only this time that means that percentages add up to 100 in each row, representing the fraction of cases of each age group happening in each year.
+
+  - The argument `denominator = "row"` lets you choose again between row and col
+:::
+
+Same data, same code except for three characters, and a table that says two different things. Choose deliberately, and make sure your table title tells the reader which one you chose. You can play around with the arguments, also check the documentation with `?adorn_percentages()` or hitting `F1` while clicking over the function.
+
+**Action** — Change to column percentages and format them with one decimal adding `adorn_pct_formatting(digits = 1)` to the pipe. *What are the percentages representing now*?
+
+**Action** — Finally, add the counts and percentages together using `adorn_ns()` and playing with the argument `position =` to have percentages inside the brackets
+
+Five lines, no arithmetic done by hand, and every cell reads as `n (%)`.
+
+**Action** — Open `imd_adorned` and check the class of one of the year columns.
+
+Your numbers are now text. That is not a bug — `12 (30.0%)` is not a number and cannot be one. But it does mean the `adorn_ns()` command is a **one-way street**: once you adorn a table, you can display it, but you can no longer calculate with it. Adorn last, always.
+
+### Where tabyl stops
+
+Two variables were easy. Kassandra, who is on a roll, asks whether you could also break this down by sex.
+
+**Action** — Try it. Add `sex` as a third variable to your `tabyl()`, assign the result to `imd_threeway`, and check its class.
+
+**Action** — Print `imd_threeway` in the console, and click on it in the environment to open the viewer on it.
+
+`tabyl()` did not build one table with three variables. It built one separate table per level of `sex` and stacked them inside a container - therefore the class `list`. Useful for a quick look on screen; impossible to export as a single table to manipulate further.
+
+And there is a second, quieter limit. `tabyl()` counts. That is all it does. The moment Kassandra asks for something that is not a count — a mean age, a case fatality ratio — `tabyl()` has nothing to offer.
+
+So we are going to build the table ourselves, from scratch, with tools you already know. It takes three steps instead of one, and in exchange you get to decide exactly what goes in every cell.
+
+## Part 4 · Counting it yourself
+
+Back in Session 2 you learned to collapse a dataset into a summary with `group_by()` and `summarise()`. Counting cases by serogroup and year is exactly that.
+
+**Action** — Using `group_by()` and `summarise()`, count the number of cases for each combination of `serogroup` and `year`. Call the resulting column `n`, and assign it to the object `imd_tidy`
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+`group_by()` accepts more than one variable, separated by commas. The function that counts rows inside `summarise()` is `n()`, with nothing inside the brackets.
+:::
+
+This pattern of group and count is so common that dplyr ships a shortcut for it.
+
+**Action** — Reproduce the exact same result using `count()`. Assign it to `imd_counts`.
+
+**Action** — Check whether both dataframes are identical or not.
+
+One line instead of three, same output. `count()` is not a new concept, it is a wrap-up around the grouped count operation.
+
+### From long to table
+
+Look at `imd_counts` and compare it with `imd_adorned`. The second one actually looks like a table, while the first one is the classical tidy long format of data, where every combination of year-age group has a row with a value - and nonexistent combinations are not there. Perfect for data analysis, impossible to read for tables.
+
+This is the difference between the two shapes your data can take:
+
+- **Long format** — one row per observation, one column per variable. What every tidyverse function expects to receive.
+- **Wide format** — categories spread across columns. What humans expect to read.
+
+Your data is long. Your report needs wide. The function that moves between them is `pivot_wider()`. It needs to know three things: which variable supplies the new **column names**, which variable supplies the **values** to put in the cells, and what to write where there is nothing.
+
+**Action** — Reshape `imd_counts` so that each year becomes a column, the cells contain the counts, and empty combinations show `0`. Assign it to `imd_wide`.
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint - Arguments for pivoting
+
+```         
+imd_wide <- imd_counts %>%
+  pivot_wider(
+    names_from = ,
+    values_from = , 
+    values_fill = 
+  )
+```
+:::
+
+Without `values_fill = 0` those missing combinations would arrive as `NA`, and an `NA` in a count table is a lie: it suggests *unknown*, when what you actually observed was *none*
+
+## Part 5 · Making it an actual table
+
+`imd_wide` and `imd_adorned` have the right numbers in the right shape. They are still a tibble printed in a console or RStudio viewer, and Kassandra cannot paste a console into a meeting document. **`flextable`** takes a dataframe and turns it into an actual table object, formatted, with borders and headers, that can be sent to Word, PowerPoint or an HTML page.
+
+**Action** — Turn `imd_wide` and `imd_adorned` into a flextable. Assign it to `imd_table_1` and `imd_table_2` then call the objects to see your first graphical output in RStudio
+
+::: callout-note
+## Viewer Panel
+
+Meet the Viewer panel, where graphical outputs like graphs, HTML and other formats will appear when you call them, instead of the console. You will notice both objects are also stored in the Environment, with a text stating `Large flextable (7 elements)` instead of row/col numbers. Check `class(imd_table_1)`
+:::
+
+Also notice that the output format for `imd_table_1` is not the most appalling, with percentages in a second line below the count. We can do better using the `autofit()` function that lets flextable reshape the column's width to fit the content better:
+
+**Action** — add `autofit()` to the code and check again the result
+
+You have just completed the whole road: raw data → counts → shape → presentation. Each step did one job, and each step used a tool you can explain.
+
+### Saving your tables in Word
+
+Another advantage of `flextable` is that you can export the tables directly to Word documents, ready to be added to reports, presentations, etc. You will be able to manipulate them, adding format, shaping cells, borders, colors, etc.
+
+The `save_as_doc()` function from flextable will do the work for you. You can either pipe it at the end of the chain, or simply add the table object as the first argument, followed by the `path =` argument that you will complete using `here()` with the route and a filename with `.docx` extension, like when you import/export data
+
+**Action** — Save both tables using the `save_as_doc()` function from flextable in the `/output` folder you must have
+
+------------------------------------------------------------------------
+
+## Extra · Going back: `pivot_longer()`
+
+Every door in the tidyverse opens both ways. If `pivot_wider()` spreads categories into columns, `pivot_longer()` gathers columns back into rows.
+
+**Action** — Take `imd_wide` and return it to long format: one row per serogroup and year.
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+`pivot_longer()` needs to know which columns to gather (`cols = -serogroup`, meaning "everything except serogroup"), what to call the column holding the old column names (`names_to`), and what to call the column holding the values (`values_to`).
+:::
+
+::: {.callout-note collapse="true" appearance="simple" icon="false"}
+## Solution
+
+``` r
+imd_wide %>% 
+  pivot_longer(cols = -serogroup,
+               names_to = "year",
+               values_to = "n")
+```
+:::
+
+Almost your original `imd_counts`, with two differences worth noticing: the zeros you added are still there, and `year` came back as text, because column names are always text. Reshaping is reversible, but it is not free.
+
+You do not need `pivot_longer()` today. You will need it the day someone hands you a spreadsheet with one column per month, and you will remember that the door opens both ways.
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+opts_1 <- c(
+  "It removes the rows that contain missing values",
+  "It replaces missing values in the original dataset before pivoting",
+  answer = "It decides what to write in the cells of combinations that had no rows in the long data",
+  "It fills the table with zeros and then recalculates the counts"
+)
+```
+
+**What does `values_fill = 0` do in `pivot_wider()`?**
+
+`r longmcq(opts_1)`
+
+```{r}
+#| echo: false
+opts_2 <- c(
+  "Because it can only handle two variables",
+  "Because it does not calculate percentages",
+  answer = "Because it returns a list instead of a dataframe, and because it can only ever count",
+  "Because it loses the order of the factor levels"
+)
+```
+
+**Why did we stop using `tabyl()` halfway through this exercise?**
+
+`r longmcq(opts_2)`
+
+```{r}
+#| echo: false
+opts_3 <- c(
+  "Long format is the correct one; wide format is a bad practice we tolerate",
+  answer = "Long format is what tidyverse functions expect to receive; wide format is what people expect to read",
+  "Wide format takes up less memory, so it is preferred for large datasets",
+  "They are interchangeable — the difference is purely cosmetic"
+)
+```
+
+**What is the difference between long and wide format?**
+
+`r longmcq(opts_3)`
+
+```{r}
+#| echo: false
+opts_4 <- c(
+  "After `count()`, so the percentages are calculated correctly",
+  "Before `pivot_wider()`, because it only works on long data",
+  answer = "Last, because it turns the numbers into text and nothing can be calculated afterwards",
+  "At any point — the order of the `adorn_*` functions makes no difference"
+)
+```
+
+**At what point of a pipe should the `adorn_*` functions go?**
+
+`r longmcq(opts_4)`
+
+## Exercise Summary
+
+You started this exercise with a function that builds a table for you, and finished it building one yourself. That is not a step backwards. `tabyl()` is fast and it is right there when you need a quick crosstabulation, but it decides what the table contains. The `count()` → `pivot_wider()` → `flextable()` road is longer and yours: you choose the numbers, the shape and the format.
+
+In the next exercise, you will meet something you cannot just count
+
+| Function | Package | What it does |
+|------------------------|-------------------|-----------------------------|
+| `tabyl()` | janitor | Frequency table for one or two variables; three returns a list |
+| `adorn_totals()` | janitor | Adds a total row and/or column |
+| `adorn_percentages()` | janitor | Converts counts to proportions; `denominator = "row"`, `"col"` or `"all"` |
+| `adorn_pct_formatting()` | janitor | Formats proportions as readable percentages |
+| `adorn_ns()` | janitor | Puts the raw counts back next to the percentages |
+| `count()` | dplyr | Shortcut for `group_by()` + `summarise(n = n())` |
+| `pivot_wider()` | tidyr | Spreads a variable into columns; `names_from`, `values_from`, `values_fill` |
+| `pivot_longer()` | tidyr | Gathers columns back into rows; `cols`, `names_to`, `values_to` |
+| `flextable()` | flextable | Turns a dataframe into a formatted table object |
+| `autofit()` | flextable | Adjusts column widths to the content |
+
+::: {.callout-tip collapse="true"}
+## 💡 Show solution — only after trying yourself!
+
+``` r
+# Update Import data to .RDS file
+imd <- import(here("data", "clean", "IMD_Sample_Clean.rds"))
+
+# check factors
+class(imd$serogroup)
+class(imd$age_group)
+levels(imd$age_group)
+
+# Crosstabulation
+imd_agegroup_year <- imd %>% 
+  tabyl(age_group, year)
+
+# Adorn chain
+imd_adorned <- imd %>% 
+  tabyl(age_group, year) %>% 
+  adorn_totals(where = "row") %>% 
+  adorn_percentages(denominator = "col") %>% 
+  adorn_pct_formatting(digits = 1) %>% 
+  adorn_ns(position = "front")
+
+# Three-way tabyl
+imd_threeway <- imd %>% 
+  tabyl(age_group, year, sex)
+
+class(imd_threeway)
+
+# Tidy tables 
+imd_tidy <- imd %>% 
+  group_by(serogroup, year) %>% 
+  summarise(n = n())
+
+imd_counts <- imd %>% 
+  count(serogroup, year) 
+
+# Pivot wider
+imd_wide <- imd_counts %>% 
+  pivot_wider(names_from = year,
+              values_from = n,
+              values_fill = 0)
+
+# Flextables
+imd_table_1 <- imd_adorned %>% 
+  flextable() %>% 
+  autofit() %>% 
+  save_as_docx(path = here("outputs", "Table_1.docx"))
+
+
+imd_table_2 <- imd_wide %>% 
+  flextable() %>% 
+  autofit()
+
+save_as_docx(imd_table_2, path = here("outputs", "Table_1.docx"))
+```
+:::
+
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+});
+</script>
+```

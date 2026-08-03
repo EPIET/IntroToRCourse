@@ -9,10 +9,14 @@ library(webexercises)
 library(pacman)
 pacman::p_load(tidyverse, rio, here)
 
-imd <- import(here("data", "IMD_Sample_Clean.csv"))
+imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 ```
+
+```{=html}
 <!-- I think something that is implicit here but could be made explicit is that some filters only work on some types of variables
  Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year >= "18") will not work -->
+```
+
 You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the `filter()` function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of `filter()`, but also of the whole programming experience.
 
 Now you need to learn how to tell R *which rows you want* — and that means learning the language of logical conditions. A single condition is rarely enough in real epidemiological work, so you will also need to learn to combine them.
@@ -20,7 +24,7 @@ Now you need to learn how to tell R *which rows you want* — and that means lea
 To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
 
 | Operator  | Meaning                                                       |
-|------------------------|------------------------------------------------|
+|-------------------|----------------------------------------------------|
 | `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
 | `!=`      | Not equal to; "*different*"                                   |
 | `>` `>=`  | Greater than / greater than or equal to                       |

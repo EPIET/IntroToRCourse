@@ -7,19 +7,19 @@ subtitle: "Installation, libraries and data"
 
 Participants need to have R, RTools, and RStudio installed in their computer. Preferably, the installation of these applications should be done in the stated order: R \>\> RTools \>\> RStudio. If you don’t have these applications installed yet, please do so following the instructions below:
 
--   **R** should be installed in the participants’ computer. You can download it from [here](https://cran.r-project.org/), on the section “Download and Install R”. Select the adequate version to your computer’s operating system.
+- **R** should be installed in the participants’ computer. You can download it from [here](https://cran.r-project.org/), on the section “Download and Install R”. Select the adequate version to your computer’s operating system.
 
-    -   Latest version available is 4.6.1 (24^th^ Jun 2026). [*You don’t need the latest version installed.*]{.underline} However, it’s highly recommended to stay updated on at least the ‘major version’ (4.x.x) and not too many ‘minor versions’ (x.6.x) away, as packages tend to update to each of them. A warning message might show when using p_load if your R version is older than a package’s last update; however, it will work fine.
+  - Latest version available is 4.6.1 (24^th^ Jun 2026). [*You don’t need the latest version installed.*]{.underline} However, it’s highly recommended to stay updated on at least the ‘major version’ (4.x.x) and not too many ‘minor versions’ (x.6.x) away, as packages tend to update to each of them. A warning message might show when using p_load if your R version is older than a package’s last update; however, it will work fine.
 
-    -   ***R usually requires administrative rights to be installed in your work computer.***
+  - ***R usually requires administrative rights to be installed in your work computer.***
 
-    -   Multiple versions of R can be installed in one’s computer. If you have more than one R version installed on your computer, please make sure that you select the latest version when running RStudio (Top Menu: Settings \> Global Options \> Left Panel \> R)
+  - Multiple versions of R can be installed in one’s computer. If you have more than one R version installed on your computer, please make sure that you select the latest version when running RStudio (Top Menu: Settings \> Global Options \> Left Panel \> R)
 
--   **RTools (Windows users only)** should also be installed in the participants’ computer. You can download the necessary files by clicking [here](https://cloud.r-project.org/bin/windows/Rtools/) and selecting the latest available version (4.5 as of summer 2026)
+- **RTools (Windows users only)** should also be installed in the participants’ computer. You can download the necessary files by clicking [here](https://cloud.r-project.org/bin/windows/Rtools/) and selecting the latest available version (4.5 as of summer 2026)
 
-    -   For MacOS, RTools installation comprises the minimal installation of clang and gfortran as listed in the hyperlinked website. Usually the installation is automatic not requiring any active action from the user like in Windows
+  - For MacOS, RTools installation comprises the minimal installation of clang and gfortran as listed in the hyperlinked website. Usually the installation is automatic not requiring any active action from the user like in Windows
 
--   [**RStudio**](https://posit.co/download/rstudio-desktop/) can be used with previous versions without creating conflict with packages or R versions safely. Try to keep updated if possible.
+- [**RStudio**](https://posit.co/download/rstudio-desktop/) can be used with previous versions without creating conflict with packages or R versions safely. Try to keep updated if possible.
 
 ## Libraries {.unnumbered}
 
@@ -35,7 +35,8 @@ pacman::p_load(
   here,    
   rio,
   janitor, 
-  skimr, 
+  flextable,
+  gtsummary,
   tidyverse)
 ```
 
