@@ -1,5 +1,5 @@
 ---
-title: "Counting cases with `tabyl()`"
+title: "Counting cases"
 subtitle: "Session 4 practical exercises"
 ---
 
@@ -14,7 +14,7 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 
 For three sessions you have been writing code for yourself. Nobody outside your office has seen a single line of it, and that was fine — the code *was* the goal. That changes from today. When we code and work with data, the goal is always to share something, to gain, or learn or analyze a piece of information that will trigger action.
 
-It's early in the morning, you just arrive to your office and Kassandra is already waiting for you, coffee in hand: *"We need to know who is actually getting sick. Something quick and informative for the afternoon meeting, a summary of the epidemiological situation we can share. Ages, years, the basics, you know. Make use of what you practiced last week"*
+It's early in the morning, you just arrived to your office and Kassandra is already waiting for you, coffee in hand: *"We need to know who is actually getting sick. Something quick and informative for the afternoon meeting, a summary of the epidemiological situation we can share. Ages, years, the basics, you know. Make use of what you practiced last week"*
 
 Read that last sentence again. **Something we can share** — not something *you* can look at. From now on, everything you produce has an audience, and that audience does not read R console output.
 
@@ -25,8 +25,6 @@ Start a new script for this exercise, and choose the name based on our lecture t
 This way, each script is shorter, which means easier to read, understand and fix if needed. When spotting an error, you will arrive quicker to the line of interest, fix it and re-run it
 
 Load your packages and import the clean dataset produced in Session 3. Add the new packages we will be using today: `janitor`, `flextable` and `gtsummary`
-
-------------------------------------------------------------------------
 
 ## Part 1 · Basic frequency tables
 
@@ -178,11 +176,11 @@ When exporting data using `export()` you just need to change the file extension 
 
 By doing this, I want you to realize something:
 
-- We created our Data Cleaning script, exported the results and worked with it today
+-   We created our Data Cleaning script, exported the results and worked with it today
 
-- Then, we found out we could have done something different that will be useful for tables and tomorrow for graphs creation
+-   Then, we found out we could have done something different that will be useful for tables and tomorrow for graphs creation
 
-- We can always go back, modify the script, execute it and, in a matter of minutes, we have updated our data workflow, and now we can continue without worrying about the `factor` format
+-   We can always go back, modify the script, execute it and, in a matter of minutes, we have updated our data workflow, and now we can continue without worrying about the `factor` format
 
 Everything you do when coding is dynamic, subject to change. You will make mistakes all the time, no matter how many years you code, we are all humans. Going back and forth changing scripts if day-to-day in programming, that's another reason to keep scripts task-oriented, easy-to-debug and quick to rerun
 :::

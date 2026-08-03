@@ -24,8 +24,6 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.rds"))
 
 The effort you made before going back to the cleaning script to add the factors and export again now pays off. You don't need to look and copy again the code to re-create the factors each time you need to produce any output across multiple scripts.
 
-------------------------------------------------------------------------
-
 ## Part 3 · Adding a second variable
 
 Now you have a table with case counts per age group. You can however picture Kassandra reading your table and immediately asking: *"Has this changed over the years?"*
@@ -48,7 +46,7 @@ Counts are basic elements in epidemiological reports, right? But counts alone ar
 
 janitor has a family of functions for exactly this, all starting with `adorn_`, and all designed to be chained one after another. You are going to build the chain one link at a time, running it after each addition, so you can see what each one actually does.
 
-**Action** — Continue your crosstabulation and add `adorn_totals()`. Run it and look at the bottom of the table.
+**Action** — Continue your crosstabulation and add `adorn_totals()`. Do it in a new object called `imd_adorned`. Run it and look at the bottom of the table.
 
 **Action** — Now add `adorn_percentages()` to the chain
 
@@ -57,13 +55,13 @@ janitor has a family of functions for exactly this, all starting with `adorn_`, 
 
 Both functions set the **row** as their default argument, but result in opposite outputs:
 
-- `adorn_totals()` adds by default a new row with totals representing the number of cases per year
+-   `adorn_totals()` adds by default a new row with totals representing the number of cases per year
 
-  - The argument `where = "row")` lets you select which one to show rows or cols
+    -   The argument `where = "row"` lets you select which one to show rows or cols
 
-- `adorn_percentages()` computes proportions, therefore it uses a denominator that, by default is also the row, only this time that means that percentages add up to 100 in each row, representing the fraction of cases of each age group happening in each year.
+-   `adorn_percentages()` computes proportions, therefore it uses a denominator that, by default is also the row, only this time that means that percentages add up to 100 in each row, representing the fraction of cases of each age group happening in each year.
 
-  - The argument `denominator = "row"` lets you choose again between row and col
+    -   The argument `denominator = "row"` lets you choose again between row and col
 :::
 
 Same data, same code except for three characters, and a table that says two different things. Choose deliberately, and make sure your table title tells the reader which one you chose. You can play around with the arguments, also check the documentation with `?adorn_percentages()` or hitting `F1` while clicking over the function.
@@ -76,7 +74,7 @@ Five lines, no arithmetic done by hand, and every cell reads as `n (%)`.
 
 **Action** — Open `imd_adorned` and check the class of one of the year columns.
 
-Your numbers are now text. That is not a bug — `12 (30.0%)` is not a number and cannot be one. But it does mean the `adorn_ns()` command is a **one-way street**: once you adorn a table, you can display it, but you can no longer calculate with it. Adorn last, always.
+Your numbers are now text. That is not a bug — `12 (30.0%)` is not a number and cannot be one. But it does mean the `adorn_*()` family is a **one-way street**: once you adorn a table, you can display it, but you can no longer calculate with it. Adorn last, always.
 
 ### Where tabyl stops
 
@@ -108,7 +106,7 @@ This pattern of group and count is so common that dplyr ships a shortcut for it.
 
 **Action** — Reproduce the exact same result using `count()`. Assign it to `imd_counts`.
 
-**Action** — Check whether both dataframes are identical or not.
+**Action** — Check visually whether both objects contain the same information or not.
 
 One line instead of three, same output. `count()` is not a new concept, it is a wrap-up around the grouped count operation.
 
@@ -118,8 +116,8 @@ Look at `imd_counts` and compare it with `imd_adorned`. The second one actually 
 
 This is the difference between the two shapes your data can take:
 
-- **Long format** — one row per observation, one column per variable. What every tidyverse function expects to receive.
-- **Wide format** — categories spread across columns. What humans expect to read.
+-   **Long format** — one row per observation, one column per variable. What every tidyverse function expects to receive.
+-   **Wide format** — categories spread across columns. What humans expect to read.
 
 Your data is long. Your report needs wide. The function that moves between them is `pivot_wider()`. It needs to know three things: which variable supplies the new **column names**, which variable supplies the **values** to put in the cells, and what to write where there is nothing.
 
@@ -152,7 +150,7 @@ Without `values_fill = 0` those missing combinations would arrive as `NA`, and a
 Meet the Viewer panel, where graphical outputs like graphs, HTML and other formats will appear when you call them, instead of the console. You will notice both objects are also stored in the Environment, with a text stating `Large flextable (7 elements)` instead of row/col numbers. Check `class(imd_table_1)`
 :::
 
-Also notice that the output format for `imd_table_1` is not the most appalling, with percentages in a second line below the count. We can do better using the `autofit()` function that lets flextable reshape the column's width to fit the content better:
+Also notice that the output format for `imd_table_1` is not the most appealing, with percentages in a second line below the count. We can do better using the `autofit()` function that lets flextable reshape the column's width to fit the content better:
 
 **Action** — add `autofit()` to the code and check again the result
 
@@ -162,26 +160,19 @@ You have just completed the whole road: raw data → counts → shape → presen
 
 Another advantage of `flextable` is that you can export the tables directly to Word documents, ready to be added to reports, presentations, etc. You will be able to manipulate them, adding format, shaping cells, borders, colors, etc.
 
-The `save_as_doc()` function from flextable will do the work for you. You can either pipe it at the end of the chain, or simply add the table object as the first argument, followed by the `path =` argument that you will complete using `here()` with the route and a filename with `.docx` extension, like when you import/export data
+The `save_as_docx()` function from flextable will do the work for you. You can either pipe it at the end of the chain, or simply add the table object as the first argument, followed by the `path =` argument that you will complete using `here()` with the route and a filename with `.docx` extension, like when you import/export data
 
-**Action** — Save both tables using the `save_as_doc()` function from flextable in the `/output` folder you must have
+**Action** — Save both tables using the `save_as_doc()` function from flextable in the `/outputs` folder you must have
 
 ------------------------------------------------------------------------
 
-## Extra · Going back: `pivot_longer()`
+## Extra · Going back to longer
+
+*This part is not for you to practice, but for you to know it exists. If you have time, read the lesson and copy the copy to see the result for yourself.*
 
 Every door in the tidyverse opens both ways. If `pivot_wider()` spreads categories into columns, `pivot_longer()` gathers columns back into rows.
 
-**Action** — Take `imd_wide` and return it to long format: one row per serogroup and year.
-
-::: {.callout-tip collapse="true" appearance="simple" icon="false"}
-## Hint
-
-`pivot_longer()` needs to know which columns to gather (`cols = -serogroup`, meaning "everything except serogroup"), what to call the column holding the old column names (`names_to`), and what to call the column holding the values (`values_to`).
-:::
-
-::: {.callout-note collapse="true" appearance="simple" icon="false"}
-## Solution
+**Action** — Take `imd_wide` and return it to long format: one row per serogroup and year. Here is the code:
 
 ``` r
 imd_wide %>% 
@@ -189,11 +180,16 @@ imd_wide %>%
                names_to = "year",
                values_to = "n")
 ```
+
+::: {.callout-tip collapse="true" appearance="simple" icon="false"}
+## Hint
+
+`pivot_longer()` needs to know which columns to gather (`cols = -serogroup`, meaning "everything except serogroup"), what to call the column holding the old column names (`names_to`), and what to call the column holding the values (`values_to`).
 :::
 
 Almost your original `imd_counts`, with two differences worth noticing: the zeros you added are still there, and `year` came back as text, because column names are always text. Reshaping is reversible, but it is not free.
 
-You do not need `pivot_longer()` today. You will need it the day someone hands you a spreadsheet with one column per month, and you will remember that the door opens both ways.
+You do not need `pivot_longer()` today. You will need it the day someone hands you a spreadsheet with one column per month or year, and you will remember that the door opens both ways.
 
 ------------------------------------------------------------------------
 
@@ -317,13 +313,13 @@ imd_wide <- imd_counts %>%
               values_fill = 0)
 
 # Flextables
-imd_table_1 <- imd_adorned %>% 
+imd_table_1 <- imd_wide %>% 
   flextable() %>% 
   autofit() %>% 
   save_as_docx(path = here("outputs", "Table_1.docx"))
 
 
-imd_table_2 <- imd_wide %>% 
+imd_table_2 <- imd_adorned %>% 
   flextable() %>% 
   autofit()
 
