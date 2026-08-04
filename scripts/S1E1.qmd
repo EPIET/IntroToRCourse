@@ -17,7 +17,7 @@ You just arrived to your training site as the new EPIET & EUPHEM Fellow. After s
 
 You have just been given access to a computer with R and RStudio installed. Before touching any data, take a few minutes to orient yourself. Everything you do in this course will happen inside RStudio — so knowing where things live matters.
 
-This first session will be mostly a guided exercise, with instructions and code you can use to move forward on the different tasks. As you progress on the R Journey, exercises will become more autonomous and less guided
+This first session will be mostly a guided exercise, with instructions and code you can use to move forward on the different tasks. As you progress on the R Journey, exercises will become more autonomous and less guided.
 
 ### The four panels
 
@@ -42,7 +42,7 @@ RStudio empty view (click to enlarge)
 If you only see three panels, you probably don't have a script open yet. Go to **File → New File → R Script** to open one.
 :::
 
-Take a moment to locate each panel on your own screen before moving on
+Take a moment to locate each panel on your own screen before moving on.
 
 ## Part 1 · The Console
 
@@ -80,7 +80,7 @@ In R, any word written without quotes is interpreted as the name of an **object*
 
 This time R simply returns the text back to you. Quoted text is treated as a literal value, not an object name. This distinction — object vs. text — will come up constantly.
 
-**Action** — Now it's time to create your first object `disease` which contains the character "salmonella". Try out and then call the object to see the difference
+**Action** — Now it's time to create your first object `disease` which contains the character "salmonella". Try out and then call the object to see the difference <!--# this asks for object assignment before it is explained (in Part 3). I wouldn't use this excercise here unless you explain it in presentation. -->
 
 ```{r}
 #| echo: false
@@ -93,7 +93,7 @@ opts_a <- c(
 
 **Which of the following is FALSE regarding the R Console?** `r longmcq(opts_a)`
 
-You have engaged with the R Console, a place where code is written and executed immediately, producing consequences like creating/modifying objects, executing functions, etc. However, if you want to run the code again - bad luck! It was thrown away in the R Void, and was lost forever. When working, you will typically want to execute code repeatedly, checking for mistakes until you get the right solution. You may also wish to keep the code in case you need to repeat the flow. This is where the **R Script** comes into play
+You have engaged with the R Console, a place where code is written and executed immediately, producing consequences like creating/modifying objects, executing functions, etc. However, if you want to run the code again - bad luck! It was thrown away in the R Void, and was lost forever. When working, you will typically want to execute code repeatedly, checking for mistakes until you get the right solution. You may also wish to keep the code in case you need to repeat the flow. This is where the **R Script** comes into play.
 
 ## Part 2 · The Script
 
@@ -120,16 +120,24 @@ Watch what happens: the line is sent to the Console, executed, and the result ap
 
 You ran code in two places: the Console and the Script. In your day-to-day work as an epidemiologist using R, when would you use each one?
 
-There is no single correct answer — but think about reproducibility, sharing with colleagues, and coming back to your work six months later.
+There is no single correct answer — but think about reproducibility, sharing with colleagues, and coming back to your work six months later. <!--# while this is true, in teaching R basics I propose to ALWAYS emphasise to ONLY write code in scripts, never console. so many frustration avoided this way. "If you can't save it, you're in the wrong place!" -->
 :::
 
 ------------------------------------------------------------------------
 
 ## Part 3 · The Environment & Objects
 
-Before, you created an object named `disease` that contained the word "salmonella". Maybe you did not realize then, but something changed in the upper-right window: the **environment**. There, all the information you work with during your session is stored.
+In the upper-right window is the tab **environment**. There, all the information you work with during your session is stored.
 
-Information in R takes the form of **objects** you create through assignment (**→**) as opposed to simple printing in the console. No information can live outside objects in R. If some action is not assigned to an object, it just gets dumped into the R Void and it's lost forever
+Information in R takes the form of **objects** you create through assignment (\<-) as opposed to simple printing in the console. No information can live outside objects in R. If some action is not assigned to an object, it just gets dumped into the R Void and it's lost forever.
+
+```{r}
+# The object name is written on the left and the value on the right.
+disease <- "salmonella"
+
+# You can simply call your new object, now that's stored in your enviroment:
+disease
+```
 
 **Action** — Now create the following objects using the script:
 
@@ -137,7 +145,7 @@ Information in R takes the form of **objects** you create through assignment (**
 
 2.  `value`, containing the number 3
 
-Explore the environment, locate the objects and identify the information contained within. For now, our objects will only contain one single piece of info (a number or text)
+Explore the environment, locate the objects and identify the information contained within. For now, our objects will only contain one single piece of info (a number or text).
 
 **Action** — Call the objects. Do it both in the script and the console, to see the difference
 
@@ -151,11 +159,11 @@ Take a moment to reflect about object assignment, storing information, and the n
 The way you save your objects do matter. Information not assigned is information lost. But then, it's not the same to save it in a new container than updating the existing one. Again, think about situations in which you would benefit from creating new objects with results and from updating existing objects
 :::
 
-**Action** — Create a new object named `result` and assign to it the addition `operation + value`. The go back to that code line, and execute it again. And again. Once more. Does it change the output?
+**Action** — Create a new object named `result` and assign to it the addition `operation + value`. Then go back to that code line, and execute it again. And again. Once more. Does it change the output?
 
 **Action** — In a different line, assign the addition to the object `value`, and then execute it multiple times, paying attention to the resulting value (you can see it either in the environment's object or by calling it after the operation). What happens now?
 
-**Bonus Action** — Now execute again your previous line creating the `result` object to see what happens
+**Bonus Action** — Now execute again your previous line creating the `result` object to see what happens.
 
 When working in R, you will be constantly creating, modifying and overwriting objects. The question of whether to replace an existing object or to create a new one will depend on your own context and workflow. Try to keep in mind the chained nature of programming: piling up changes to data, creating derivative outputs and being able to trace back your work
 
@@ -165,7 +173,7 @@ Existing info → operation → New object → next step → next step
 When you updated your existing object the flow was:\
 Existing info → operation → Existing info change → operation → Existing info change → ...
 
-The second flow became a loop of the sort, whit each iteration modifying the original data and therefore executing the code produced new results every time, as posed to the creating the new object, which granted the same output when executed every time. None of them is wrong, it just depends on your goal, but we will learn more about that in the coming exercises
+The second flow became a loop of the sort, with each iteration modifying the original data and therefore executing the code produced new results every time, as posed to the creating the new object, which granted the same output when executed every time. None of them is wrong, it just depends on your goal, but we will learn more about that in the coming exercises.
 
 ------------------------------------------------------------------------
 
@@ -195,7 +203,7 @@ opts_b <- c(
 This is what you practiced and learned:
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Rstudio panels** | Console, Script and Environment |
 | **Console vs Script** | One saves the code as a text document, the other just executes it and looses it |
 | **Execute code** | Code run from the script using "run" button or Ctrl /Cmd + Enter |

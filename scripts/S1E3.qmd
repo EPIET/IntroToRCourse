@@ -48,7 +48,7 @@ The parallel is exact:
 This model will not change. Every function you learn from here on fits this structure — the verbs will multiply, but the grammar stays the same.
 
 ::: callout-tip
-### Spelling and capitalisation matter !
+### Spelling and capitalisation matter!
 
 The language analogy also applies to spelling, R will not understand if you type `mena` instead of `mean`.
 
@@ -161,7 +161,7 @@ Now that you know how to extract a column, you can apply functions to it. This i
 
 **Action** — What is the mean `age` of your current cases? Use your age object and the data column and compare the result
 
-AS you can see, there is no point in creating an intermediate object when you can directly access the data using the `$` operator. This is usually the quickest way of accessing information within dataframes, and dataframes will be our main working objects for data analysis
+As you can see, there is no point in creating an intermediate object when you can directly access the data using the `$` operator. This is usually the quickest way of accessing information within dataframes, and dataframes will be our main working objects for data analysis
 
 Let's try a few more numeric functions, to see their different outputs
 
@@ -175,6 +175,7 @@ min(imd_raw$age)
 max(imd_raw$age)
 range(imd_raw$age)
 quantile(imd_raw$age)
+table(imd_raw$age)
 ```
 
 Read the output of each one carefully. Notice that `range()` returns two values and `quantile()` returns five — vectors can hold multiple values, and functions can return multiple values. Each of those functions is answering a very specific question. Think about their Grammar Model

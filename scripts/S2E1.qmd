@@ -43,13 +43,13 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 ```
 :::
 
-Now, what is this `tidyverse`we keep talking about??
+Now, what is this `tidyverse` we keep talking about??
 
 ## Part 1 · The pipe — a new way to think about code
 
 To start with your task, you first need to think about the instructions you were given and how to translate them into the code. This is the Grammar Model we are practicing. Remember the signal that arrived:
 
-- Increase of cases in `R6` among `female` `young adults`
+-   Increase of cases in `R6` among `female` `young adults`
 
 ### From base to tidy code
 
@@ -59,9 +59,9 @@ This is a ***sequence*** of three steps that are needed to explore the cases of 
 filter(data, condition)
 ```
 
-the function needs as first argument the data it will use, and then the logical condition that rows need to fulfill in order to be retained, for example, cases from the region `R6`
+The function needs as first argument the data it will use, and then the logical condition that rows need to fulfill in order to be retained, for example, cases from the region `R6`
 
-**Action** — Filter `imd` cases to only those happening in region `R6`. you can do this using this code:
+**Action** — Filter `imd` cases to only those happening in region `R6`. You can do this using this code:
 
 ``` r
 filter(imd, region_id == "R6")
@@ -69,13 +69,13 @@ filter(imd, region_id == "R6")
 
 Let's break down the code:
 
-- The data argument is `imd`, our working data object as we named it when loading
+-   The data argument is `imd`, our working data object as we named it when loading
 
-- The condition argument uses the variable `region_id` from the dataframe because we want only cases from one specific region among all existing regions in the data
+-   The condition argument uses the variable `region_id` from the dataframe because we want only cases from one specific region among all existing regions in the data
 
-  - for the logical condition we used `==` which is the logical operator for "equal to"
+    -   for the logical condition we used `==` which is the logical operator for "equal to"
 
-  - to select our region of interest, we used `"R6"` with quotes to indicate R we are referring to a literal character name to look for in the data variable
+    -   to select our region of interest, we used `"R6"` with quotes to indicate R we are referring to a literal character name to look for in the data variable
 
 **Action** — copy the `filter()` code in your script and execute it. ***What happens?***
 
@@ -91,10 +91,10 @@ imd_filtered_f       <- filter(imd_filtered, sex == "Female")
 imd_filtered_f_adult <- filter(imd_filtered_f, age_years >= 18)
 ```
 
-And again, let's break it down
+And again, let's break it down:
 
-- As a sequence, every step relied on the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function
-- Each filtering used the adequate variable: `region_id`, `sex` and `age_years` and a logical operator
+-   As a sequence, every step relied on the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function
+-   Each filtering used the adequate variable: `region_id`, `sex` and `age_years` and a logical operator
 
 Working in such a step-wise way is useful: anyone reading your code can very quickly get the idea of the transformations that are happening, and that is always a relevant aspect to consider when writing code. Of course, it has downside of requiring more text, more objects, and unnecessary repetition that can lead to mistakes
 
@@ -125,9 +125,9 @@ Same result. But now the data flows *downward*, one step at a time, exactly in t
 
 Three properties of this style that will save you time:
 
-- The dataframe is declared ***once***, at the top. It is never repeated.
-- Variable names can be called ***directly*** within tidyverse functions, not requiring quotation or `$` like base R.
-- Code reads ***top to bottom***, like a recipe, each step acts on the result of the step above.
+-   The dataframe is declared ***once***, at the top. It is never repeated.
+-   Variable names can be called ***directly*** within tidyverse functions, not requiring quotation or `$` like base R.
+-   Code reads ***top to bottom***, like a recipe, each step acts on the result of the step above.
 
 ::: callout-note
 ### The pipeline is a transformation chain
@@ -213,10 +213,21 @@ Now you have a grasp of what actually the pipe `%>%` operator means when working
 
 This is what you learned:
 
-| Function | What it does |
-|------------------------------------|------------------------------------|
-| `%>%` | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
-| `filter()` | Keeps rows matching a condition |
++----------------------------------+------------------------------------------------------------------------------------------------------+
+| Function                         | What it does                                                                                         |
++==================================+======================================================================================================+
+| `%>%`                            | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
+|                                  |                                                                                                      |
+|                                  | Shortcut:                                                                                            |
+|                                  |                                                                                                      |
+|                                  | -   Win: Ctrl + Shift + M                                                                            |
+|                                  |                                                                                                      |
+|                                  | <!-- -->                                                                                             |
+|                                  |                                                                                                      |
+|                                  | -   Mac: Cmd + Shift + M                                                                             |
++----------------------------------+------------------------------------------------------------------------------------------------------+
+| `filter()`                       | Keeps rows matching a condition                                                                      |
++----------------------------------+------------------------------------------------------------------------------------------------------+
 
 ```{=html}
 <script>
