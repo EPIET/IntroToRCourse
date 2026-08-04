@@ -15,7 +15,8 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 ```{=html}
 <!-- I think something that is implicit here but could be made explicit is that some filters only work on some types of variables
  Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year >= "18") will not work.
- Maybe you can just write this in the solution? -->
+ Maybe you can just write this in the solution? 
+ Javi: Added comments as column margin, lines 53 and 63, pointing out this potential error and prompting them to try -->
 ```
 
 You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the `filter()` function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of `filter()`, but also of the whole programming experience.
@@ -25,7 +26,7 @@ Now you need to learn how to tell R *which rows you want* — and that means lea
 To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
 
 | Operator  | Meaning                                                       |
-|---------------------|---------------------------------------------------|
+|------------------------|-----------------------------------------------|
 | `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
 | `!=`      | Not equal to; "*different*"                                   |
 | `>`, `>=` | Greater than / greater than or equal to                       |
@@ -49,16 +50,30 @@ imd_region <- imd %>%
   filter(region_id == "R6")
 ```
 
+::: column-margin
+Filters need to be defined with the adequate type of variable. Here, `region_id` is a character (text) variable, therefore the quotes in `"R6"`. Try running the same code without the quotes to see the error message.
+:::
+
 From now on, this is the format of code we want to start emulating: calling the data *and then* using functions
 
 **Action** — Now filter for cases where `age_years` is *18 or older*. Assign it to an object `imd_adults`.
 
 **Action** — Filter for cases where `age_years` is strictly *less than* 18. Assign it to an object `imd_kids`. Do the two results together add up to the total rows in `imd`?
 
+::: column-margin
+As we saw with `R6`, now try the opposite here with `age_years`: write the value 18 as a character string between quotes (`"18"`) instead of a numeric argument to see the error message. Take home message: define the logical conditions according to the variable type you are using or it won't work.
+:::
+
 ::: {.callout-tip collapse="true" appearance="simple" icon="false"}
 ## Hint - counting rows
 
-Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition check. For example, you can type `nrow(imd) == nrow(imd_adults) + nrow(imd_kids)` as a control to ask "*Is the sum of rows of the two filtered dataframes exactly identical to the original rows of `imd`?"*
+Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition check. For example, you can type:
+
+``` r
+nrow(imd) == nrow(imd_adults) + nrow(imd_kids)
+```
+
+as a control to ask "*Is the sum of rows of the two filtered dataframes exactly identical to the original rows of `imd`?"*
 :::
 
 Well, turns out we have missing rows. But, how is that even possible? If age logical conditions, some is either younger than 18, 18 or older than 18, which was covered by the `<` and the `>=`. The answer to that question is:
@@ -79,13 +94,17 @@ Most real filters combine more than one condition. The `&` and `|` operators let
 
 `r fitb(323)`
 
-Inside `filter()`, separating conditions with a comma is equivalent to using `&`: both conditions must be true. These two lines produce identical results:
+When using multiple conditions inside `filter()`, the default behavior is treating them as `AND` (`&`) operators. You can either separate the conditions with commas, like arguments; create a single condition using the `&` operator; or pipe two filters together. And the result would be the same:
 
 ``` r
-imd %>% filter(condition1 & condition2)
+# Remember, you can achieve the same result with these three codes
+# Comma separator
 imd %>% filter(condition1, condition2)
 
-#And remember, you can achieve the same result if you just pipe filters one after another: 
+# AND operator in a single condition
+imd %>% filter(condition1 & condition2)
+
+# Pipe of two consequtive filters
 imd %>% 
   filter(region_id == "R6") %>% 
   filter(sex == "Female")
@@ -126,7 +145,7 @@ imd %>%
   filter(variable1 %in% values)
 ```
 
-To create a vector with multiple values, R uses the `c()` function, where `c` stands for *combine*, i.e. `c("value1", "value2", "value3")`. <!--# i don't remember defining this before and i know some strugle with this at the beggining... -->
+To create a vector with multiple values, R uses the `c()` function, where `c` stands for *combine*, i.e. `c("value1", "value2", "value3")`. 
 
 **Action** — Filter `imd` to keep cases from regions R1, R6, and R9 using `%in%`. Assign the result to `imd_regions`.
 

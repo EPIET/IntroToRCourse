@@ -41,7 +41,7 @@ You will recognise an R Project by the `.Rproj` file inside its folder — and b
 
 ### Create the folder structure
 
-As the R Project is essentially a self-contained folder, you will need to first create a folder structure in your computer to meet the project needs. For this course, we provided you with it already - also to demonstrate the power of R Projects for sharing and reproducibility. If you haven't downloaded the files yet go to this page <!--# link missing -->
+As the R Project is essentially a self-contained folder, you will need to first create a folder structure in your computer to meet the project needs. For this course, we provided you with it already - also to demonstrate the power of R Projects for sharing and reproducibility. If you haven't downloaded the files yet go to [this page](/scripts/preparation.qmd)
 
 We recommend always creating the following subfolders:
 
@@ -71,7 +71,7 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 
 **Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your new folders listed there. If not, click "Refresh file listing".
 
-![](images/clipboard-1632139368.png)
+![](/images/exercises/S1E2_2_refresh.png)
 
 ### Create your R Project
 
@@ -277,7 +277,7 @@ Every time you start a new task in real life, you will need a Project to store e
 This is what you practiced and learned:
 
 |  |  |
-|:-----------------------------------|:-----------------------------------|
+|:---|:---|
 | **R Project** | A self-contained workspace anchored to a folder with a `.Rproj` file |
 | **Folder structure** | `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role |
 | **`install.packages()`** | Downloads a package to your computer — once per machine |

@@ -80,8 +80,6 @@ In R, any word written without quotes is interpreted as the name of an **object*
 
 This time R simply returns the text back to you. Quoted text is treated as a literal value, not an object name. This distinction — object vs. text — will come up constantly.
 
-**Action** — Now it's time to create your first object `disease` which contains the character "salmonella". Try out and then call the object to see the difference <!--# this asks for object assignment before it is explained (in Part 3). I wouldn't use this excercise here unless you explain it in presentation. -->
-
 ```{r}
 #| echo: false
 opts_a <- c(
@@ -129,15 +127,21 @@ There is no single correct answer — but think about reproducibility, sharing w
 
 In the upper-right window is the tab **environment**. There, all the information you work with during your session is stored.
 
-Information in R takes the form of **objects** you create through assignment (\<-) as opposed to simple printing in the console. No information can live outside objects in R. If some action is not assigned to an object, it just gets dumped into the R Void and it's lost forever.
+Information in R takes the form of **objects** you create through assignment (`<-`) as opposed to simple printing in the console. No information can live outside objects in R. If some action is not assigned to an object, it just gets dumped into the R Void and it's lost forever.
 
 ```{r}
 # The object name is written on the left and the value on the right.
 disease <- "salmonella"
 
-# You can simply call your new object, now that's stored in your enviroment:
+# You can simply "call" your new object, now that's stored in your environment:
 disease
 ```
+
+::: callout-important
+## "Calling" objects
+
+You will read this term quite often during the course, other lectures and when looking for information online. When you execute code and it is not assigned (`<-`) to another object, the information just gets "printed" in the console, and we name that action "to call an object". It's very useful to check the info it contains, the result of some operation or simply to take a look at it. You will see plenty of example in the coming exercises and sessions.
+:::
 
 **Action** — Now create the following objects using the script:
 
@@ -203,7 +207,7 @@ opts_b <- c(
 This is what you practiced and learned:
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Rstudio panels** | Console, Script and Environment |
 | **Console vs Script** | One saves the code as a text document, the other just executes it and looses it |
 | **Execute code** | Code run from the script using "run" button or Ctrl /Cmd + Enter |
