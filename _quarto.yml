@@ -43,22 +43,27 @@ website:
           - "scripts/S1E3.qmd"
       - section: "Session 2"
         contents:
-          - "scripts/S2E1.qmd"
+          - "scripts/S2E1_tidy.qmd"
           - "scripts/S2E2.qmd"
           - "scripts/S2E3.qmd"
           - "scripts/S2E4.qmd"
       - section: "Session 3"
         contents:
-          - "scripts/S3E1.qmd"
+          - "scripts/S3E1_datacleaning.qmd"
           - "scripts/S3E2.qmd"
           - "scripts/S3E3.qmd"
           - "scripts/S3E4.qmd"
       - section: "Session 4"
         contents:
-          - "scripts/S4E1.qmd"
+          - "scripts/S4E1_tables.qmd"
           - "scripts/S4E2.qmd"
           - "scripts/S4E3.qmd"
           - "scripts/S4E4.qmd"
+      - section: "Session 5"
+        contents:
+          - "scripts/S5E1_ggplot.qmd"
+          - "scripts/S5E2.qmd"
+          - "scripts/S5E3.qmd"
 
   page-footer:
     left: "© 2026 – Intro to R Course"

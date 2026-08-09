@@ -1,4 +1,14 @@
 ---
-title: "Resources"
-sidebar: false
+title: "Useful resources, material and content"
+sidebar: true
 ---
+
+In this page we will collect all relevant content you can use to support and enhance your R skills. The page will be organized in sections including link to each source. If you want to share something with the broad community, you can [open a suggestion issue](https://github.com/EPIET/IntroToRCourse/issues) proving URL and explanation of the materials
+
+## Online Books for free
+
+R for Data Science & ggplot2: Elegant Graphics for Data Analysis are two canonical textbooks written by the creators, maintainers and developers of the `Tidyverse`
+
+-   [R for Data Science (R4DS)](https://r4ds.hadley.nz/)
+
+-   [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)

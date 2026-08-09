@@ -36,12 +36,6 @@ Today we will use the single most important function of `gtsummary`: `tbl_summar
 The resulting table is large enough that you need to scroll down the viewer pane to see all table rows. If you want a better glance of the table, you can always click on the 'Show in new window' button next to the broom. Since `tbl_summary()` produces an HTML object, it will open in your browser
 :::
 
-::: column-margin
-Show in new window button (click to enlarge)
-
-![](/images/exercises/S4_E4_1.png){.lightbox}
-:::
-
 Two things are true about that output at the same time.
 
 1.  It is **impressive**: without telling it anything, the function went through every column, worked out whether it was numeric or categorical, chose a median with its interquartile range for the first kind and counts with percentages for the second, counted the missing values separately, and formatted the whole thing.
