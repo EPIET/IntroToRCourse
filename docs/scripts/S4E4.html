@@ -4274,16 +4274,16 @@ Order matters
 <p>Other than that, hopefully exporting a table to a Word document is no longer something exotic, but a repetitive step.</p>
 <hr>
 <p><strong>Why do you need <code>select()</code> before <code>tbl_summary()</code>?</strong></p>
-<div id="radio_IDFJKLRFHV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IDFJKLRFHV" value> <span>Because <code>tbl_summary()</code> can only handle four variables at a time</span></label><label><input type="radio" autocomplete="off" name="radio_IDFJKLRFHV" value="answer"> <span>Because <code>tbl_summary()</code> summarises every column it receives, so the choice of variables is made before it</span></label><label><input type="radio" autocomplete="off" name="radio_IDFJKLRFHV" value> <span>Because <code>select()</code> is needed to convert the variables into a format <code>tbl_summary()</code> accepts</span></label><label><input type="radio" autocomplete="off" name="radio_IDFJKLRFHV" value> <span>Because otherwise the numeric variables would be summarised as categorical</span></label>
+<div id="radio_CZCNZAXQPR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CZCNZAXQPR" value> <span>Because <code>tbl_summary()</code> can only handle four variables at a time</span></label><label><input type="radio" autocomplete="off" name="radio_CZCNZAXQPR" value="answer"> <span>Because <code>tbl_summary()</code> summarises every column it receives, so the choice of variables is made before it</span></label><label><input type="radio" autocomplete="off" name="radio_CZCNZAXQPR" value> <span>Because <code>select()</code> is needed to convert the variables into a format <code>tbl_summary()</code> accepts</span></label><label><input type="radio" autocomplete="off" name="radio_CZCNZAXQPR" value> <span>Because otherwise the numeric variables would be summarised as categorical</span></label>
 </div>
 <p><strong>What does the argument <code>by = sex</code> do in <code>tbl_summary()</code>?</strong></p>
-<div id="radio_USUIWVZYTM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_USUIWVZYTM" value> <span>It sorts the rows of the table by the values of <code>sex</code></span></label><label><input type="radio" autocomplete="off" name="radio_USUIWVZYTM" value> <span>It keeps only the cases of one sex and discards the rest</span></label><label><input type="radio" autocomplete="off" name="radio_USUIWVZYTM" value="answer"> <span>It turns the levels of <code>sex</code> into columns and describes every other variable within each of them</span></label><label><input type="radio" autocomplete="off" name="radio_USUIWVZYTM" value> <span>It adds <code>sex</code> as an extra row at the top of the table</span></label>
+<div id="radio_WFDUNOYGMT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WFDUNOYGMT" value> <span>It sorts the rows of the table by the values of <code>sex</code></span></label><label><input type="radio" autocomplete="off" name="radio_WFDUNOYGMT" value> <span>It keeps only the cases of one sex and discards the rest</span></label><label><input type="radio" autocomplete="off" name="radio_WFDUNOYGMT" value="answer"> <span>It turns the levels of <code>sex</code> into columns and describes every other variable within each of them</span></label><label><input type="radio" autocomplete="off" name="radio_WFDUNOYGMT" value> <span>It adds <code>sex</code> as an extra row at the top of the table</span></label>
 </div>
 <p><strong>What kind of object does <code>tbl_summary()</code> return?</strong></p>
-<div id="radio_WSCPREALGE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WSCPREALGE" value> <span>It is a flextable, so it can be exported directly with <code>save_as_docx()</code></span></label><label><input type="radio" autocomplete="off" name="radio_WSCPREALGE" value> <span>It is a dataframe, so it can be manipulated with tidy verbs</span></label><label><input type="radio" autocomplete="off" name="radio_WSCPREALGE" value="answer"> <span>It is a gtsummary object, and it must be converted with <code>as_flex_table()</code> before exporting</span></label><label><input type="radio" autocomplete="off" name="radio_WSCPREALGE" value> <span>It is a list, in the same way a three-variable <code>tabyl()</code> is</span></label>
+<div id="radio_KEHROIWVGF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KEHROIWVGF" value> <span>It is a flextable, so it can be exported directly with <code>save_as_docx()</code></span></label><label><input type="radio" autocomplete="off" name="radio_KEHROIWVGF" value> <span>It is a dataframe, so it can be manipulated with tidy verbs</span></label><label><input type="radio" autocomplete="off" name="radio_KEHROIWVGF" value="answer"> <span>It is a gtsummary object, and it must be converted with <code>as_flex_table()</code> before exporting</span></label><label><input type="radio" autocomplete="off" name="radio_KEHROIWVGF" value> <span>It is a list, in the same way a three-variable <code>tabyl()</code> is</span></label>
 </div>
 </section>
 </section>
@@ -4308,8 +4308,8 @@ The order in which you learned these things was not an accident
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
-<col style="width: 26%">
-<col style="width: 40%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -5554,7 +5554,7 @@ window.onload = function() {
 <span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Function <span class="pp">|</span> Package <span class="pp">|</span> What it does <span class="pp">|</span></span>
-<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a><span class="pp">|------------------------|-------------------|-----------------------------|</span></span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a><span class="pp">|----|----|----|</span></span>
 <span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`tbl_summary()`</span> <span class="pp">|</span> gtsummary <span class="pp">|</span> Builds a descriptive table, choosing statistics by variable type <span class="pp">|</span></span>
 <span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`by =`</span> <span class="pp">|</span> gtsummary <span class="pp">|</span> Splits the table into columns by the levels of a variable <span class="pp">|</span></span>
 <span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`missing = &quot;no&quot;`</span> <span class="pp">|</span> gtsummary <span class="pp">|</span> Hides the rows counting missing values <span class="pp">|</span></span>

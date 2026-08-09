@@ -209,7 +209,7 @@ Two graphs, two different problems solved. The first taught you a genuinely reus
 The second showed that bar, line and area are three faces of the same idea, and that switching from line to area is often the fix when too many crossing lines stop being readable. In the next excercise, the calendar itself becomes the subject of the plot, one day at a time.
 
 | Function | Package | What it does |
-|------------------------|-------------------|-----------------------------|
+|----|----|----|
 | `floor_date()` | lubridate | Rounds a date down to the start of a given unit (day, month, year...) |
 | `bind_rows()` | dplyr | Stacks two tables with matching columns into one |
 | `scale_color_manual()` | ggplot2 | Assigns specific colors to specific category values, written by hand |
