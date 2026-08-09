@@ -26,7 +26,7 @@ Now you need to learn how to tell R *which rows you want* — and that means lea
 To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
 
 | Operator  | Meaning                                                       |
-|------------------------|-----------------------------------------------|
+|-----------|---------------------------------------------------------------|
 | `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
 | `!=`      | Not equal to; "*different*"                                   |
 | `>`, `>=` | Greater than / greater than or equal to                       |
@@ -145,7 +145,7 @@ imd %>%
   filter(variable1 %in% values)
 ```
 
-To create a vector with multiple values, R uses the `c()` function, where `c` stands for *combine*, i.e. `c("value1", "value2", "value3")`. 
+To create a vector with multiple values, R uses the `c()` function, where `c` stands for *combine*, i.e. `c("value1", "value2", "value3")`.
 
 **Action** — Filter `imd` to keep cases from regions R1, R6, and R9 using `%in%`. Assign the result to `imd_regions`.
 
