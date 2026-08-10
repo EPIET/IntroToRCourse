@@ -1,6 +1,8 @@
 ---
 title: "Lines - tracking trends"
 subtitle: "Session 5 practical exercises"
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r}
@@ -98,8 +100,10 @@ Finnish the plot:
 **Action** — Add a theme of your choice, and `labs()` for the axes, legend title and a report-ready title.
 
 ```{r}
-#| fig-align: "center"
-#| out-width: "80%"
+#| echo: false
+#| fig-align: center
+#| fig-width: 8.5
+#| out-width: 80%
 # Monthly series by sex (unknown sex excluded)
 imd_monthly_sex <- imd %>%
   filter(!is.na(sex)) %>%
@@ -151,7 +155,7 @@ imd_monthly_sex_total %>%
     color = "Sex",
     title = "Monthly IMD cases, overall and by sex"
   ) +
-  theme_classic()
+  theme_classic() 
 ```
 
 ## Part 9 · From line to area

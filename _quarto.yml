@@ -64,6 +64,7 @@ website:
           - "scripts/S5E1_ggplot.qmd"
           - "scripts/S5E2.qmd"
           - "scripts/S5E3.qmd"
+          - "scripts/S5E4.qmd"
 
   page-footer:
     left: "© 2026 – Intro to R Course"
@@ -85,7 +86,7 @@ format:
     toc-expand: true
     number-depth: 2
     link-external-newwindow: true
-    embed-resources: true
+    embed-resources: false
     css: 
       - include/webex.css
     include-after-body: 
