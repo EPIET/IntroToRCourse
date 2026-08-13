@@ -33,9 +33,9 @@ RStudio empty view (click to enlarge)
 ![](/images/exercises/S1E2_1_project.png){.lightbox}
 :::
 
--   Your scripts work on any computer, not just yours
--   Colleagues can open the same project without changing a single path
--   You always know where R is looking for files
+- Your scripts work on any computer, not just yours
+- Colleagues can open the same project without changing a single path
+- You always know where R is looking for files
 
 You will recognise an R Project by the `.Rproj` file inside its folder — and by the project name shown in the **top-right corner of RStudio**.
 
@@ -69,7 +69,7 @@ Each folder has a specific role:
 The `raw/` folder holds your original files exactly as received. You never edit them — not in R, not in Excel, not at all. If something goes wrong during cleaning, the original data is always there to start again. This is one of the most important habits in reproducible data analysis.
 :::
 
-**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your new folders listed there. If not, click "Refresh file listing".
+**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right (Auxiliary) panel. You should see your new folders listed there. If not, click "Refresh file listing".
 
 ![](/images/exercises/S1E2_2_refresh.png)
 
@@ -77,11 +77,15 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 
 **Action** — In RStudio, create a project through any of the following:
 
--   File → New Project → New Directory → New Project.
--   Create a project icon on the top-left menu
--   Project area at the top-right corner → Create new project
+1.  File → New Project → New Directory → New Project.
 
-**Action** — Name your project `IntroToRCourse`. Choose the folder you downloaded for this course, that you can have store anywhere in your computer.
+2.  Create a project icon on the top-left menu
+
+3.  Project area at the top-right corner → Create new project
+
+![](/images/exercises/S1E2_3_project.png)
+
+**Action** — Select **Existing Directory** and choose the folder `IntroToRCourse` you have previously saved on your computer.
 
 **Action** — Click **Create Project**. RStudio will reload and your project name should now appear in the top-right corner.
 
@@ -175,7 +179,9 @@ Notice we wrote `pacman::p_load()` instead of loading `pacman` first with `libra
 
 You should have all the needed libraries for the course already installed, as stated in the instructions you received beforehand. You can find them in this page, copy the code and install all libraries.
 
-**Action** — In your `S1_practical.R` script, add a libraries section after the first comments, and load the following packages using `pacman::p_load()`:
+**Action** — In your `S1_practical.R` script, add a section named `libraries` after the first comments. To do so, use Ctrl + Shift + R`(Windows/Linux) or`Cmd + Shift + R\` (Mac), alternatively **Code → Insert Section**.
+
+**Action** — load the following packages using `pacman::p_load()`:
 
 ```{r}
 #| eval: false
@@ -212,6 +218,12 @@ read.csv("C:/Users/yourname/Documents/IntroToRCourse/data/raw/imd_S1.xlsx")
 ```
 
 This works — but only on your computer. The moment a colleague opens the same script, or you move the project to a different folder, the path breaks. This is a fragile way to work.
+
+::: callout-tip
+### `file path` syntax
+
+Notice that we use forward slashes (`/`, not , which are used in file paths in Windows.
+:::
 
 ### The `here()` solution
 
@@ -257,8 +269,8 @@ imd_raw <- rio::import(here::here("data", "raw", "IMD_S1.xlsx"))
 
 Two things are happening here:
 
--   `here::here()` builds the path to the file
--   `rio::import()` reads the file and stores it as an object called `imd_raw` in your Environment
+- `here::here()` builds the path to the file
+- `rio::import()` reads the file and stores it as an object called `imd_raw` in your Environment
 
 Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.
 
@@ -277,7 +289,7 @@ Every time you start a new task in real life, you will need a Project to store e
 This is what you practiced and learned:
 
 |  |  |
-|:---|:---|
+|:-----------------------------------|:-----------------------------------|
 | **R Project** | A self-contained workspace anchored to a folder with a `.Rproj` file |
 | **Folder structure** | `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role |
 | **`install.packages()`** | Downloads a package to your computer — once per machine |

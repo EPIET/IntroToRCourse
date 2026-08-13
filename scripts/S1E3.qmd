@@ -34,8 +34,8 @@ This is the Grammar Model we will use throughout the course:
 verb(object, argument = specification)
 ```
 
--   In plain English: *"Calculate the mean of age, removing missing values."*
--   In R: `mean(imd_raw$age, na.rm = TRUE)`
+- In plain English: *"Calculate the mean of age, removing missing values."*
+- In R: `mean(imd_raw$age, na.rm = TRUE)`
 
 The parallel is exact:
 
@@ -70,9 +70,9 @@ names(imd_raw)
 
 Each of these is a verb acting on the same object (`imd_raw`) but asking a different question:
 
--   `nrow()` — *"How many rows does this have?"*
--   `ncol()` — *"How many columns does this have?"*
--   `names()` — *"What are the column names?"*
+- `nrow()` — *"How many rows does this have?"*
+- `ncol()` — *"How many columns does this have?"*
+- `names()` — *"What are the column names?"*
 
 Notice that none of these need additional arguments. The object alone is enough. Some verbs are simple — just an action and a target.
 
@@ -187,11 +187,10 @@ Read the output of each one carefully. Notice that `range()` returns two values 
 This is what you practiced and learned:
 
 |  |  |
-|----|----|
+|------------------------------------|------------------------------------|
 | **Grammar Model** | Function = verb, object = what to act on, arguments = modifiers |
 | **`nrow()` , `ncol()` , `names()`** | Ask basic questions about a dataframe's structure |
 | **`$`** | Extracts a column from a dataframe as a vector |
-| **`class()`** | Returns the type of an object or column |
 | **`length()`** | Returns the number of elements in a vector |
 | **`mean()` , `sum()` , `min()` , `max()`** | Numeric summaries of a vector |
 | **`range()` , `quantile()`** | Return multiple values describing the distribution |
