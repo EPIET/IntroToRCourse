@@ -23,7 +23,7 @@ When you begin a new project, these are the steps we recommend you to ALWAYS fol
 
 ### What is an R Project?
 
-An R Project is a folder that R treats as a self-contained workspace. When you open a project, RStudio automatically sets that folder as the starting point for all file paths. This means:
+An R Project is a folder that R treats as a self-contained workspace. When you open a project, RStudio automatically sets that folder as the starting point for all file paths. If you write paths relative to this project folder, rather than using absolute paths tied to your computer, the same scripts can work for everyone. This means:
 
 ::: column-margin
 **Always check the top-right corner** Every time you open RStudio, glance at the top-right corner. If it says **Project: (None)**, your project is not active. Always open RStudio by double-clicking your `.Rproj` file — not the `.R` script directly.
@@ -33,9 +33,11 @@ RStudio empty view (click to enlarge)
 ![](/images/exercises/S1E2_1_project.png){.lightbox}
 :::
 
-- Your scripts work on any computer, not just yours
-- Colleagues can open the same project without changing a single path
-- You always know where R is looking for files
+- Shorter paths: write `data/file.csv` instead of a long, computer-specific path such as `C:/Users/.../data/file.csv`
+- Portable scripts: colleagues can run the same code without rewriting file paths 
+- Consistent structure: everyone works from the same project folder
+- Fewer path errors: R has a predictable starting point for finding files
+
 
 You will recognise an R Project by the `.Rproj` file inside its folder — and by the project name shown in the **top-right corner of RStudio**.
 
@@ -76,6 +78,7 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 ### Create your R Project
 
 **Action** — In RStudio, create a project through any of the following:
+
 
 1.  File → New Project → New Directory → New Project.
 
