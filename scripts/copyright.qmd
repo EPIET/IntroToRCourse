@@ -1,12 +1,10 @@
 ---
-title: "Copyright"
+title: "Copyright and License"
 sidebar: false
 toc: false
 ---
 
-# Copyright and License {.unnumbered}
-
-~~This exercises were originally designed in 2011 for the training needs of EPIET, PAE, NorFETP and Austrian FETP fellows. Many colleagues were involved in updating and maintaining these materials through the years, credit will be displayed soon~~
+The **Intro to R Course** of the *ECDC EPIET & EUPHEM Program* was developed for the first time in 2026 to provide every starting cohort with the basics of data manipulation using the statistical software R, and RStudio
 
 Information and documents made available on ECDC web pages are public and may be reproduced and/or distributed, totally or in part, irrespective of the means and/or the formats used, for non-commercial purposes, provided that ECDC is always acknowledged as the source of the material. Such acknowledgement must be included in each copy of the material. Any reproduction for commercial purposes will require licensing or prior permission. Citations may be made from such material without prior permission, provided the source is always acknowledged. (http://ecdc.europa.eu/en/pages/legalnotice.aspx).
 
@@ -41,3 +39,13 @@ You cannot sell this work alone, but you can use it as part of a teaching.
 - **Notice** — For any reuse or distribution, you must make clear to others the license terms of this work by keeping together this work and the current license.
 
 **This licence is based on <http://creativecommons.org/licenses/by-sa/3.0/>**
+
+## Data source and licence
+
+Data for this course was kindly provided by Instituto de Salud Carlos III, Spain, who coordinates with the Autonomous Regions and the Ministry of Health the Communicable Diseases Surveillance System (Sistema de Vigilancia de Enfermedades Transmisibles, SIVIET).
+
+- The information used in this course consist on four years of surveillance data (1999-2002) of Invasive Meningococcal Disease (IMD) in four Spanish regions, that were anonymized for privacy purposes.
+
+- Data underwent a manipulation process for "dirtying" the data, including codification mistakes, missing values, and recategorization, for pedagogical purposes.
+
+- This data doesn't represent, and doesn't replace, official case figures and epidemiological reports. You can consult all available information (in Spanish) online in [here](https://cne.isciii.es/servicios/enfermedades-transmisibles/enfermedades-a-z/enfermedad-meningococica-invasora)
