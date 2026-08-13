@@ -1,1 +1,0 @@
-This folder contains all neccessary files for the Intro to R Course 
