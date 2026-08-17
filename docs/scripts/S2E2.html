@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Filtering rows – Intro to R Course</title>
+<title>Intro to R Course - Logical conditions and Tidy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,9 +21,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,16 +65,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <link href="../scripts/S2E3.html" rel="next">
 <link href="../scripts/S2E1_tidy.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dc4e846c9b32336015c61c2b77864e2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../include/webex.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -120,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -143,9 +141,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroToRCourse/tree/main">
@@ -164,11 +162,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../scripts/S2E1_tidy.html">Session 2</a></li><li class="breadcrumb-item"><a href="../scripts/S2E2.html">Filtering rows</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../scripts/S2E1_tidy.html">Session 2</a></li><li class="breadcrumb-item"><a href="../scripts/S2E2.html">Logical conditions and Tidy</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -187,9 +185,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Session 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -216,9 +214,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Session 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -232,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../scripts/S2E2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Filtering rows</span></a>
+ <span class="menu-text">Logical conditions and Tidy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -251,9 +249,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Session 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -286,9 +284,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Session 4</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -321,9 +319,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Session 5</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -378,9 +376,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content page-columns page-full column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../scripts/S2E1_tidy.html">Session 2</a></li><li class="breadcrumb-item"><a href="../scripts/S2E2.html">Filtering rows</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../scripts/S2E1_tidy.html">Session 2</a></li><li class="breadcrumb-item"><a href="../scripts/S2E2.html">Logical conditions and Tidy</a></li></ol></nav>
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Filtering rows</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Logical conditions and Tidy</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Session 2 practical exercises</p>
 </div>
 
@@ -401,14 +399,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- I think something that is implicit here but could be made explicit is that some filters only work on some types of variables
  Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year >= "18") will not work.
  Maybe you can just write this in the solution? 
- Javi: Added comments as column margin, lines 53 and 63, pointing out this potential error and prompting them to try -->
+ Javi: Added comments as column margin, lines 53 and 63, pointing out this potential error and prompting them to try
+ Yulia: I am not sure if it makes sense to let them use filter() etc. if they haven't looked at the data systematically (e.g. being aware of NAs). I don't mean data cleaning, but rather the functions from S3E2: glimpse(), str(), summary(), and head().
+ Javi: From the pure data manipulation logic it wouldn't make sense, of course. First you know about your data, then filter as appropriate. But I'm not following that logic, the idea is that they understand tidy verbs, what manipulating data is, and that it can actually be easy. Therefore the use of already cleaned data, and simple, guided instructions. My logic is: first learn what programming and manipulating data means, then how you should actually do it from scratch, once you are not that afraid of code and logic
+ -->
 <p>You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the <code>filter()</code> function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of <code>filter()</code>, but also of the whole programming experience.</p>
 <p>Now you need to learn how to tell R <em>which rows you want</em> — and that means learning the language of logical conditions. A single condition is rarely enough in real epidemiological work, so you will also need to learn to combine them.</p>
-<p>To do that precisely, you need <strong>logical operators</strong> — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:</p>
-<table class="caption-top table">
+<p>To do that precisely, you need <strong>logical operators</strong> — the symbols R uses to evaluate whether a condition is true or false. Here is the full set you will be using today:</p>
+<table class="table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 85%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -455,23 +456,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>Keep this table in view. You will use every one of these today.</p>
+<p>Keep this table in view. You will use every operator today.</p>
 <section id="part-2-logical-operators" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="part-2-logical-operators">Part 2 · Logical operators</h2>
 <section id="equality-and-comparison" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="equality-and-comparison">Equality and comparison</h3>
-<p>The simplest conditions check whether a variable equals a specific value, or falls above or below a numeric threshold. You have already seen those a couple times in this course, for example when we filtered only cases from <code>R6</code></p>
+<p>The simplest conditions to check are whether a variable equals a specific value, or falls above or below a numeric threshold. You have already seen those a couple times in this course, for example when we filtered only cases from <code>R6</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>imd_region <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>Filters need to be defined with the adequate type of variable. Here, <code>region_id</code> is a character (text) variable, therefore the quotes in <code>"R6"</code>. Try running the same code without the quotes to see the error message.</p>
-</div></div><p>From now on, this is the format of code we want to start emulating: calling the data <em>and then</em> using functions</p>
+<p>Filters need to be defined using the appropriate variable type. Here, <code>region_id</code> is a character (text) variable, therefore the value <code>"R6"</code> is written in quotes. Try running the same code without the quotes to see the error message.</p>
+</div></div><p>From now on, this is the format of code we want to start emulating: calling the data <em>and then</em> using functions.</p>
 <p><strong>Action</strong> — Now filter for cases where <code>age_years</code> is <em>18 or older</em>. Assign it to an object <code>imd_adults</code>.</p>
 <p><strong>Action</strong> — Filter for cases where <code>age_years</code> is strictly <em>less than</em> 18. Assign it to an object <code>imd_kids</code>. Do the two results together add up to the total rows in <code>imd</code>?</p>
 
+<!-- to determine the class variable is only introduced later. Maybe a reference to S3E2 would be good: Note, we’ll take a deep dive into variable classes tomorrow. JAVI: added in the column margin -->
 <div class="no-row-height column-margin column-container"><div class="">
-<p>As we saw with <code>R6</code>, now try the opposite here with <code>age_years</code>: write the value 18 as a character string between quotes (<code>"18"</code>) instead of a numeric argument to see the error message. Take home message: define the logical conditions according to the variable type you are using or it won’t work.</p>
+<p>As we saw with <code>R6</code>, quotation marks indicate that a value is a character variable in R. Now try the same with <code>age_years</code>: use <code>"18"</code> instead of the numeric value <code>18</code> to see the error message. Take home message: Make sure the value you use in the logical condition has the appropriate type you are using or it won’t work.</p>
+<p>Note that we will take a deep dive into variable classes tomorrow, learning how to check and change it</p>
 </div></div><div class="callout callout-style-simple callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -484,14 +487,14 @@ Hint - counting rows
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition check. For example, you can type:</p>
+<p>Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition checks. For example, you can type:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd) <span class="sc">==</span> <span class="fu">nrow</span>(imd_adults) <span class="sc">+</span> <span class="fu">nrow</span>(imd_kids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>as a control to ask “<em>Is the sum of rows of the two filtered dataframes exactly identical to the original rows of <code>imd</code>?“</em></p>
+<p>as a control to ask “<em>Is the sum of the rows in the two filtered dataframes exactly equal to the original number of rows in <code>imd</code>?“</em></p>
 </div>
 </div>
 </div>
-<p>Well, turns out we have missing rows. But, how is that even possible? If age logical conditions, some is either younger than 18, 18 or older than 18, which was covered by the <code>&lt;</code> and the <code>&gt;=</code>. The answer to that question is:</p>
-<p><strong>Action</strong> — Might there be cases with missing <code>age_year</code> information? We can check by creating <code>img_age_missing</code> and filtering using the <code>is.na()</code> operator. Then, check again if all rows are covered through the three objects</p>
+<p>Well, turns out we have missing rows. But, how is that even possible? If the age logical conditions mean that someone is either younger than 18, or 18 and older, shouldn’t all cases be covered by the <code>&lt;</code> and the <code>&gt;=</code> conditions. The answer to that question is:</p>
+<p><strong>Action</strong> — Might there be cases with missing <code>age_year</code> information? We can check by creating <code>imd_age_missing</code> and filtering using the <code>is.na()</code> operator. Then, check again if all rows are covered across the three objects.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -502,29 +505,29 @@ Checking rows is your first quality control
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>After every <code>filter()</code>, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using <code>nrow()</code> or other functions</p>
+<p>After every <code>filter()</code>, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using <code>nrow()</code> or other functions.</p>
 </div>
 </div>
 </section>
 <section id="combining-conditions" class="level3">
 <h3 class="anchored" data-anchor-id="combining-conditions">Combining conditions</h3>
 <p>Most real filters combine more than one condition. The <code>&amp;</code> and <code>|</code> operators let you do this — but they behave very differently, and confusing them is one of the most common sources of silent errors in data analysis.</p>
-<p><strong>Action</strong> — Filter <code>imd</code> to keep only female cases from R6, combining both conditions with <code>&amp;</code>. Assign the result to <code>imd_r6_f</code> and check the row count.</p>
+<p><strong>Action</strong> — Filter <code>imd</code> to keep only female cases from R6, combining both conditions with <code>&amp;</code>. Assign the result to <code>imd_r6_f</code> and type below the row count.</p>
 <p><input class="webex-solveme nospaces" size="3" data-answer="[&quot;323&quot;]"></p>
 <p>When using multiple conditions inside <code>filter()</code>, the default behavior is treating them as <code>AND</code> (<code>&amp;</code>) operators. You can either separate the conditions with commas, like arguments; create a single condition using the <code>&amp;</code> operator; or pipe two filters together. And the result would be the same:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remember, you can achieve the same result with these three codes</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comma separator</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comma-separated conditions</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition1, condition2)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># AND operator in a single condition</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditions combined with the AND operator</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition1 <span class="sc">&amp;</span> condition2)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipe of two consequtive filters</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Two consequtive filters</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Female"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>And it make sense! When executed with <code>&amp;</code>, R created a single evaluation for both conditions, while the two arguments version executed the query sequentially, first retaining only those from <code>R6</code> and then, among cases from <code>R6</code> it retained only <code>Female</code> cases. The same result in two different approximations. That is only valid for <code>AND</code> (<code>&amp;)</code> statements. If we try the same with other operators, the results slightly changes</p>
-<p><strong>Action</strong> — Filter cases that are either from <code>R6</code> or <code>Female</code> using the <code>|</code> (OR) operator, creating the object <code>imd_r6_or_f</code> and compare the resulting number of rows with <code>imd_r6_f</code></p>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(condition1) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(condition2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And it makes sense! With <code>&amp;</code>, R evaluated both conditions together. With comma-separated conditions or two consecutive filters, the same two conditions are applied, so the result is the same. First retaining only cases from <code>R6</code> and then, among these retained only <code>Female</code> cases. That is only valid for <code>AND</code> (<code>&amp;)</code> statements. If we try the same with other operators, the results change slightly.</p>
+<p><strong>Action</strong> — Filter cases that are either from <code>R6</code> or <code>Female</code> using the <code>|</code> (OR) operator, creating the object <code>imd_r6_or_f</code> and compare the resulting number of rows with <code>imd_r6_f</code>.</p>
 <p>Can you understand why the difference?</p>
 <div class="callout callout-style-simple callout-important callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -548,7 +551,7 @@ Checking rows is your first quality control
 <p>Suppose you need to filter for cases from several specific regions — say, R1, R6, and R9. You could write:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R1"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R9"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This works, but grows unwieldy fast. The <code>%in%</code> operator is the clean solution: it checks whether a value is present anywhere in a set you define. Depending on the complexity and number of options, you can define the values directly using a vector in the filter function, or you could first create an object to serve as intermediary.</p>
+<p>This works, but the code grows unwieldy fast. The <code>%in%</code> operator is the clean solution: it checks whether a value is present anywhere in a set you define. Depending on the complexity and number of options, you can define the values directly using a vector in the filter function, or you could first create an object to serve as intermediary.</p>
 <p>Therefore, you could write any of the following:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"value1"</span>, <span class="st">"value2"</span>, <span class="st">"value3"</span>))</span>
@@ -583,38 +586,44 @@ Hint
 <p>You have already used <code>is.na()</code> to find cases with missing age information. But there is something deeper going on with missing values that is worth understanding — because it will save you from a very common and very silent mistake.</p>
 <p>The critical thing to know: <strong>you cannot use <code>==</code> to find <code>NA</code></strong>. Try it in your console:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You might expect <code>TRUE</code>. R returns <code>NA</code>. The logic is sound: if a value is unknown, you cannot confirm it is equal to another unknown value. Two unknowns are not necessarily the same unknown. So R does not guess — it returns “I don’t know”. <code>is.na()</code> exists precisely to solve this. It does not compare — it simply asks “is this value missing?”, and returns <code>TRUE</code> or <code>FALSE</code> cleanly.</p>
-<p><strong>Action</strong> — Check how many cases in <code>imd</code> have a missing value in the <code>serogroup</code> variable? Create the <code>imd_serogroup_na</code> object for that.</p>
+<p>You might expect <code>TRUE</code>. R returns <code>NA</code>. The logic is sound: if a value is unknown, you cannot confirm it is equal to another unknown value. Two unknowns are not necessarily the same unknown. So R does not guess — it returns “I don’t know”. <code>is.na()</code> exists precisely to solve this. It does not compare — it simply asks “is this value missing?”, and returns <code>TRUE</code> or <code>FALSE</code>.</p>
+<p><strong>Action</strong> — Check how many cases in <code>imd</code> have a missing value in the <code>serogroup</code> variable? Create the <code>imd_serogroup_na</code> object for that and type the number below:</p>
 <p><input class="webex-solveme nospaces" size="1" data-answer="[&quot;0&quot;]"></p>
-<p>Finding missing values is a common task when doing data cleaning, but that is tomorrow’s topic. For now, we are only interested in discarding cases with <code>NA</code> values in some of their variables, something you will also do quite frequently in the future - believe me. For that, we can introduce the last of today’s operators, the <code>!</code> - opposite operator</p>
-<p>When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having <code>NA</code> values in some column, we would do something like:</p>
+<p>Finding missing values is a common task when doing data cleaning, but that is tomorrow’s topic. For now, we are only interested in discarding cases with <code>NA</code> values in some of their variables, something you will also do quite frequently in the future - believe me.</p>
+<p>For that, we can introduce the last of today’s operators, the <code>!</code> - <strong><em>opposite or negation</em></strong> operator. When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having <code>NA</code> values in some column, we would do something like:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(variable1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Action</strong> — Add to your previous filter chain a new condition to filter away cases with missing <code>age_years</code> values</p>
+<p><strong>Action</strong> — Create a new object <code>imd_age_na</code> that contains only cases with missing <code>age_years</code> values. How many cases are there?</p>
+<p><input class="webex-solveme nospaces" size="3" data-answer="[&quot;112&quot;]"></p>
+<p><strong>Action</strong> — Rather than an object with missing <code>age_years</code> cases, we want a dataframe <em>without</em> them this time. Call it <code>imd_age_clean</code>. Use the same filter with <code>!</code> to achieve that. How many rows are left?</p>
+<p><input class="webex-solveme nospaces" size="4" data-answer="[&quot;2515&quot;]"></p>
+<p><strong>Optional</strong> — How can you use <code>nrow()</code> to check that <code>imd_age_clean</code> has effectively filtered the adequate number of rows? This one can be trickier, but give it a try!</p>
+<!-- Instructions are not clear. Also not included in solution at the end. 
+JAVI: You were right! I changed the task with more steps but clearer approach, and added the solution at the end. Thanks!! -->
 <hr>
 <p><strong>What does <code>filter(age_years &gt; 18 | sex == "Female")</code> return?</strong></p>
-<div id="radio_HSMCBBTKVG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HSMCBBTKVG" value=""> <span>It keeps rows where both conditions are true</span></label><label><input type="radio" autocomplete="off" name="radio_HSMCBBTKVG" value="answer"> <span>It keeps rows where at least one condition is true</span></label><label><input type="radio" autocomplete="off" name="radio_HSMCBBTKVG" value=""> <span>It keeps rows where neither condition is true</span></label><label><input type="radio" autocomplete="off" name="radio_HSMCBBTKVG" value=""> <span>It keeps rows where exactly one condition is true, but not both</span></label>
+<div id="radio_BRBOIKGAUQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BRBOIKGAUQ" value=""> <span>It keeps rows where both conditions are true</span></label><label><input type="radio" autocomplete="off" name="radio_BRBOIKGAUQ" value="answer"> <span>It keeps rows where at least one condition is true</span></label><label><input type="radio" autocomplete="off" name="radio_BRBOIKGAUQ" value=""> <span>It keeps rows where neither condition is true</span></label><label><input type="radio" autocomplete="off" name="radio_BRBOIKGAUQ" value=""> <span>It keeps rows where exactly one condition is true, but not both</span></label>
 </div>
 <p><strong>Which of the following correctly filters cases from regions R1, R6, and R9?</strong></p>
-<div id="radio_FHUHYHHXWT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FHUHYHHXWT" value=""> <span><code>region_id == "R1" | region_id == "R6" | region_id == "R9"</code></span></label><label><input type="radio" autocomplete="off" name="radio_FHUHYHHXWT" value=""> <span><code>region_id == c("R1", "R6", "R9")</code></span></label><label><input type="radio" autocomplete="off" name="radio_FHUHYHHXWT" value="answer"> <span><code>region_id %in% c("R1", "R6", "R9")</code></span></label><label><input type="radio" autocomplete="off" name="radio_FHUHYHHXWT" value=""> <span><code>region_id &amp; c("R1", "R6", "R9")</code></span></label>
+<div id="radio_YUEWPNLFIA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YUEWPNLFIA" value=""> <span><code>region_id == "R1" | region_id == "R6" | region_id == "R9"</code></span></label><label><input type="radio" autocomplete="off" name="radio_YUEWPNLFIA" value=""> <span><code>region_id == c("R1", "R6", "R9")</code></span></label><label><input type="radio" autocomplete="off" name="radio_YUEWPNLFIA" value="answer"> <span><code>region_id %in% c("R1", "R6", "R9")</code></span></label><label><input type="radio" autocomplete="off" name="radio_YUEWPNLFIA" value=""> <span><code>region_id &amp; c("R1", "R6", "R9")</code></span></label>
 </div>
 <p><strong>Why can’t you use <code>== NA</code> to find missing values in <code>filter()</code>?</strong></p>
-<div id="radio_FHYXUIRPUN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FHYXUIRPUN" value="answer"> <span>Because <code>NA == NA</code> returns <code>NA</code>, not <code>TRUE</code> — R cannot confirm two unknown values are equal</span></label><label><input type="radio" autocomplete="off" name="radio_FHYXUIRPUN" value=""> <span>Because <code>NA</code> is stored as a number and cannot be compared with <code>==</code></span></label><label><input type="radio" autocomplete="off" name="radio_FHYXUIRPUN" value=""> <span>Because <code>filter()</code> automatically removes <code>NA</code> before evaluating conditions</span></label><label><input type="radio" autocomplete="off" name="radio_FHYXUIRPUN" value=""> <span>Because <code>==</code> only works with character variables, not missing values</span></label>
+<div id="radio_CRKKCPWAQH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CRKKCPWAQH" value="answer"> <span>Because <code>NA == NA</code> returns <code>NA</code>, not <code>TRUE</code> — R cannot confirm two unknown values are equal</span></label><label><input type="radio" autocomplete="off" name="radio_CRKKCPWAQH" value=""> <span>Because <code>NA</code> is stored as a number and cannot be compared with <code>==</code></span></label><label><input type="radio" autocomplete="off" name="radio_CRKKCPWAQH" value=""> <span>Because <code>filter()</code> automatically removes <code>NA</code> before evaluating conditions</span></label><label><input type="radio" autocomplete="off" name="radio_CRKKCPWAQH" value=""> <span>Because <code>==</code> only works with character variables, not missing values</span></label>
 </div>
 <p><strong>Which expression correctly keeps only rows where <code>serogroup</code> is not missing?</strong></p>
-<div id="radio_HPMJTWZHMG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HPMJTWZHMG" value=""> <span><code>filter(is.na(serogroup) == FALSE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_HPMJTWZHMG" value=""> <span><code>filter(serogroup != NA)</code></span></label><label><input type="radio" autocomplete="off" name="radio_HPMJTWZHMG" value=""> <span><code>filter(is.na(serogroup) == 0)</code></span></label><label><input type="radio" autocomplete="off" name="radio_HPMJTWZHMG" value="answer"> <span><code>filter(!is.na(serogroup))</code></span></label>
+<div id="radio_RUWOBQITQI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RUWOBQITQI" value=""> <span><code>filter(is.na(serogroup) == FALSE)</code></span></label><label><input type="radio" autocomplete="off" name="radio_RUWOBQITQI" value=""> <span><code>filter(serogroup != NA)</code></span></label><label><input type="radio" autocomplete="off" name="radio_RUWOBQITQI" value=""> <span><code>filter(is.na(serogroup) == 0)</code></span></label><label><input type="radio" autocomplete="off" name="radio_RUWOBQITQI" value="answer"> <span><code>filter(!is.na(serogroup))</code></span></label>
 </div>
 <hr>
 </section>
 </section>
 <section id="exercise-summary" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-summary">Exercise summary</h2>
-<p>Logical operators are the engine behind <code>filter()</code> — and behind most of the decisions your code will ever make. You now know how to select rows by equality, by range, by set membership, and how to handle the special case of missing values. Combined with the pipe, <code>filter()</code> gives you precise control over which data you are actually working with at any point in your analysis.</p>
-<p>But this is only the tip of the iceberg of Tidy, so let’s continue to the verb of creation: <code>mutate()</code></p>
+<p>Logical operators are the engine behind <code>filter()</code> — and behind most of the decisions your code will ever make. You now know how to select rows by equality, by range, by set membership (using <code>%in%</code>), and how to handle the special case of missing values. Combined with the pipe, <code>filter()</code> gives you precise control over which data you are actually working with at any point in your analysis.</p>
+<p>But this is only the tip of the Tidy iceberg, so let’s continue to the verb of creation: <code>mutate()</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -628,7 +637,7 @@ Hint
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cases from Region 6</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>md_r6 <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>imd_region <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter adults and kids cases</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>imd_adults <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_years <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
@@ -645,25 +654,40 @@ Hint
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter both Region 6 AND Female cases</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>imd_r6_f <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">&amp;</span> sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">&amp;</span> sex <span class="sc">==</span> <span class="st">"Female"</span>) <span class="co"># order of conditions doesn't matter</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Region 6 OR Female cases</span></span>
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>imd_r6_or_f <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cases from any of R1, R6 or R9 regions</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>))</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all the different filters together</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>imd_filtered <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>),</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>         age_years <span class="sc">&gt;=</span> <span class="dv">18</span>,</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>         sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Is there any missing case in serogroup?</span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>imd_serogroup_na <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(serogroup))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R1"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R9"</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co"># better option using %in%</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>))</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all the different filters together</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>imd_filtered <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>),</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>         age_years <span class="sc">&gt;=</span> <span class="dv">18</span>,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>         sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Is there any missing case in serogroup?</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>imd_serogroup_na <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(serogroup))</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Missing age cases</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>imd_age_na <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(age_years))</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset without missing age_year cases</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>imd_age_clean <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_years))</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="co"># We can check the difference in rows is correct</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd_age_clean) <span class="sc">==</span> (<span class="fu">nrow</span>(imd) <span class="sc">-</span> <span class="fu">nrow</span>(imd_age_na))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -684,709 +708,489 @@ document.addEventListener("DOMContentLoaded", function() {
 </main> <!-- /main -->
 <script>
 
-
-
 /* update total correct if #webex-total_correct exists */
-
 update_total_correct = function() {
-
   console.log("webex: update total_correct");
 
-
-
   var t = document.getElementsByClassName("webex-total_correct");
-
   for (var i = 0; i < t.length; i++) {
-
     p = t[i].parentElement;
-
     var correct = p.getElementsByClassName("webex-correct").length;
-
     var solvemes = p.getElementsByClassName("webex-solveme").length;
-
     var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
-
     var selects = p.getElementsByClassName("webex-select").length;
 
-
-
     t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
-
   }
-
 }
-
-
 
 /* webex-solution button toggling function */
-
 b_func = function() {
-
   console.log("webex: toggle hide");
 
-
-
   var cl = this.parentElement.classList;
-
   if (cl.contains('open')) {
-
     cl.remove("open");
-
   } else {
-
     cl.add("open");
-
   }
-
 }
-
-
 
 /* check answers */
-
 check_func = function() {
-
   console.log("webex: check answers");
 
-
-
   var cl = this.parentElement.classList;
-
   if (cl.contains('unchecked')) {
-
     cl.remove("unchecked");
-
     this.innerHTML = "Hide Answers";
-
   } else {
-
     cl.add("unchecked");
-
     this.innerHTML = "Show Answers";
-
   }
-
 }
-
-
 
 /* function for checking solveme answers */
-
 solveme_func = function(e) {
-
   console.log("webex: check solveme");
 
-
-
   var real_answers = JSON.parse(this.dataset.answer);
-
   var my_answer = this.value;
-
   var cl = this.classList;
-
   if (cl.contains("ignorecase")) {
-
     my_answer = my_answer.toLowerCase();
-
   }
-
   if (cl.contains("nospaces")) {
-
     my_answer = my_answer.replace(/ /g, "")
-
   }
-
-
 
   if (my_answer == "") {
-
     cl.remove("webex-correct");
-
     cl.remove("webex-incorrect");
-
   } else if (real_answers.includes(my_answer)) {
-
     cl.add("webex-correct");
-
     cl.remove("webex-incorrect");
-
   } else {
-
     cl.add("webex-incorrect");
-
     cl.remove("webex-correct");
-
   }
-
-
 
   // match numeric answers within a specified tolerance
-
   if(this.dataset.tol > 0){
-
     var tol = JSON.parse(this.dataset.tol);
-
     var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
-
     if (matches.reduce((a, b) => a + b, 0) > 0) {
-
       cl.add("webex-correct");
-
     } else {
-
       cl.remove("webex-correct");
-
     }
-
   }
-
-
 
   // added regex bit
-
   if (cl.contains("regex")){
-
     answer_regex = RegExp(real_answers.join("|"))
-
     if (answer_regex.test(my_answer)) {
-
       cl.add("webex-correct");
-
     }
-
   }
 
-
-
   update_total_correct();
-
 }
 
-
-
 /* function for checking select answers */
-
 select_func = function(e) {
-
   console.log("webex: check select");
-
-
 
   var cl = this.classList
 
-
-
   /* add style */
-
   cl.remove("webex-incorrect");
-
   cl.remove("webex-correct");
-
   if (this.value == "answer") {
-
     cl.add("webex-correct");
-
   } else if (this.value != "blank") {
-
     cl.add("webex-incorrect");
-
   }
 
-
-
   update_total_correct();
-
 }
-
-
 
 /* function for checking radiogroups answers */
-
 radiogroups_func = function(e) {
-
   console.log("webex: check radiogroups");
 
-
-
   var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
-
   var cl = checked_button.parentElement.classList;
-
   var labels = checked_button.parentElement.parentElement.children;
 
-
-
   /* get rid of styles */
-
   for (i = 0; i < labels.length; i++) {
-
     labels[i].classList.remove("webex-incorrect");
-
     labels[i].classList.remove("webex-correct");
-
   }
-
-
 
   /* add style */
-
   if (checked_button.value == "answer") {
-
     cl.add("webex-correct");
-
   } else {
-
     cl.add("webex-incorrect");
-
   }
 
-
-
   update_total_correct();
-
 }
-
-
 
 window.onload = function() {
-
   console.log("webex onload");
-
   /* set up solution buttons */
-
   var buttons = document.getElementsByTagName("button");
 
-
-
   for (var i = 0; i < buttons.length; i++) {
-
     if (buttons[i].parentElement.classList.contains('webex-solution')) {
-
       buttons[i].onclick = b_func;
-
     }
-
   }
-
-
 
   var check_sections = document.getElementsByClassName("webex-check");
-
   console.log("check:", check_sections.length);
-
   for (var i = 0; i < check_sections.length; i++) {
-
     check_sections[i].classList.add("unchecked");
 
-
-
     let btn = document.createElement("button");
-
     btn.innerHTML = "Show Answers";
-
     btn.classList.add("webex-check-button");
-
     btn.onclick = check_func;
-
     check_sections[i].appendChild(btn);
 
-
-
     let spn = document.createElement("span");
-
     spn.classList.add("webex-total_correct");
-
     check_sections[i].appendChild(spn);
-
   }
-
-
 
   /* set up webex-solveme inputs */
-
   var solveme = document.getElementsByClassName("webex-solveme");
 
-
-
   for (var i = 0; i < solveme.length; i++) {
-
     /* make sure input boxes don't auto-anything */
-
     solveme[i].setAttribute("autocomplete","off");
-
     solveme[i].setAttribute("autocorrect", "off");
-
     solveme[i].setAttribute("autocapitalize", "off");
-
     solveme[i].setAttribute("spellcheck", "false");
-
     solveme[i].value = "";
 
-
-
     /* adjust answer for ignorecase or nospaces */
-
     var cl = solveme[i].classList;
-
     var real_answer = solveme[i].dataset.answer;
-
     if (cl.contains("ignorecase")) {
-
       real_answer = real_answer.toLowerCase();
-
     }
-
     if (cl.contains("nospaces")) {
-
       real_answer = real_answer.replace(/ /g, "");
-
     }
-
     solveme[i].dataset.answer = real_answer;
 
-
-
     /* attach checking function */
-
     solveme[i].onkeyup = solveme_func;
-
     solveme[i].onchange = solveme_func;
 
-
-
     solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
-
   }
-
-
 
   /* set up radiogroups */
-
   var radiogroups = document.getElementsByClassName("webex-radiogroup");
-
   for (var i = 0; i < radiogroups.length; i++) {
-
     radiogroups[i].onchange = radiogroups_func;
-
   }
-
-
 
   /* set up selects */
-
   var selects = document.getElementsByClassName("webex-select");
-
   for (var i = 0; i < selects.length; i++) {
-
     selects[i].onchange = select_func;
-
     selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
-
   }
 
-
-
   update_total_correct();
-
 }
 
-
-
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
       }
       return false;
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
           }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
       }
     }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1394,161 +1198,185 @@ window.onload = function() {
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../scripts/S2E1_tidy.html" class="pagination-link" aria-label="Data manipulation using the Tidyverse">
@@ -1562,7 +1390,7 @@ window.onload = function() {
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Filtering rows"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Logical conditions and Tidy"</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Session 2 practical exercises"</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
@@ -1579,297 +1407,332 @@ window.onload = function() {
 <span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- I think something that is implicit here but could be made explicit is that some filters only work on some types of variables</span></span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="in"> Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year &gt;= "18") will not work.</span></span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="in"> Maybe you can just write this in the solution? </span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="in"> Javi: Added comments as column margin, lines 53 and 63, pointing out this potential error and prompting them to try --&gt;</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the <span class="in">`filter()`</span> function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of <span class="in">`filter()`</span>, but also of the whole programming experience.</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>Now you need to learn how to tell R *which rows you want* — and that means learning the language of logical conditions. A single condition is rarely enough in real epidemiological work, so you will also need to learn to combine them.</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Operator  <span class="pp">|</span> Meaning                                                       <span class="pp">|</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------|---------------------------------------------------------------|</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`==`</span>      <span class="pp">|</span> Exactly equal to, meaning absolute equivalence; "*identical*" <span class="pp">|</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`!=`</span>      <span class="pp">|</span> Not equal to; "*different*"                                   <span class="pp">|</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`&gt;`</span>, <span class="in">`&gt;=`</span> <span class="pp">|</span> Greater than / greater than or equal to                       <span class="pp">|</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`&lt;`</span>, <span class="in">`&lt;=`</span> <span class="pp">|</span> Less than / less than or equal to                             <span class="pp">|</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`&amp;`</span>       <span class="pp">|</span> AND — both conditions must be true at the same time           <span class="pp">|</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`|`</span>       <span class="pp">|</span> OR — at least one condition must be true                      <span class="pp">|</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`!`</span>       <span class="pp">|</span> NOT — negates the condition that follows; "*opposite*"        <span class="pp">|</span></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`%in%`</span>    <span class="pp">|</span> Present in a set of values; "*is part of*"                    <span class="pp">|</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`is.na()`</span> <span class="pp">|</span> Identifies missing values (<span class="in">`NA`</span>)                              <span class="pp">|</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>Keep this table in view. You will use every one of these today.</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 2 · Logical operators</span></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Equality and comparison</span></span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>The simplest conditions check whether a variable equals a specific value, or falls above or below a numeric threshold. You have already seen those a couple times in this course, for example when we filtered only cases from <span class="in">`R6`</span></span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>imd_region <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>)</span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>Filters need to be defined with the adequate type of variable. Here, <span class="in">`region_id`</span> is a character (text) variable, therefore the quotes in <span class="in">`"R6"`</span>. Try running the same code without the quotes to see the error message.</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>From now on, this is the format of code we want to start emulating: calling the data *and then* using functions</span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>**Action** — Now filter for cases where <span class="in">`age_years`</span> is *18 or older*. Assign it to an object <span class="in">`imd_adults`</span>.</span>
-<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>**Action** — Filter for cases where <span class="in">`age_years`</span> is strictly *less than* 18. Assign it to an object <span class="in">`imd_kids`</span>. Do the two results together add up to the total rows in <span class="in">`imd`</span>?</span>
-<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
-<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>As we saw with <span class="in">`R6`</span>, now try the opposite here with <span class="in">`age_years`</span>: write the value 18 as a character string between quotes (<span class="in">`"18"`</span>) instead of a numeric argument to see the error message. Take home message: define the logical conditions according to the variable type you are using or it won't work.</span>
-<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" appearance="simple" icon="false"}</span>
-<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint - counting rows</span></span>
-<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition check. For example, you can type:</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="in"> Javi: Added comments as column margin, lines 53 and 63, pointing out this potential error and prompting them to try</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="in"> Yulia: I am not sure if it makes sense to let them use filter() etc. if they haven't looked at the data systematically (e.g. being aware of NAs). I don't mean data cleaning, but rather the functions from S3E2: glimpse(), str(), summary(), and head().</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="in"> Javi: From the pure data manipulation logic it wouldn't make sense, of course. First you know about your data, then filter as appropriate. But I'm not following that logic, the idea is that they understand tidy verbs, what manipulating data is, and that it can actually be easy. Therefore the use of already cleaned data, and simple, guided instructions. My logic is: first learn what programming and manipulating data means, then how you should actually do it from scratch, once you are not that afraid of code and logic</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="in"> --&gt;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the <span class="in">`filter()`</span> function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of <span class="in">`filter()`</span>, but also of the whole programming experience.</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>Now you need to learn how to tell R *which rows you want* — and that means learning the language of logical conditions. A single condition is rarely enough in real epidemiological work, so you will also need to learn to combine them.</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether a condition is true or false. Here is the full set you will be using today:</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>| Operator  | Meaning                                                       |</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>|------------------|------------------------------------------------------|</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>| <span class="in">`==`</span>      | Exactly equal to, meaning absolute equivalence; "*identical*" |</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>| <span class="in">`!=`</span>      | Not equal to; "*different*"                                   |</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>| <span class="in">`&gt;`</span>, <span class="in">`&gt;=`</span> | Greater than / greater than or equal to                       |</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>| <span class="in">`&lt;`</span>, <span class="in">`&lt;=`</span> | Less than / less than or equal to                             |</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>| <span class="in">`&amp;`</span>       | AND — both conditions must be true at the same time           |</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>| <span class="in">`|`</span>       | OR — at least one condition must be true                      |</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>| <span class="in">`!`</span>       | NOT — negates the condition that follows; "*opposite*"        |</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>| <span class="in">`%in%`</span>    | Present in a set of values; "*is part of*"                    |</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>| <span class="in">`is.na()`</span> | Identifies missing values (<span class="in">`NA`</span>)                              |</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>Keep this table in view. You will use every operator today.</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 2 · Logical operators</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Equality and comparison</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>The simplest conditions to check are whether a variable equals a specific value, or falls above or below a numeric threshold. You have already seen those a couple times in this course, for example when we filtered only cases from <span class="in">`R6`</span>.</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>imd_region <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>Filters need to be defined using the appropriate variable type. Here, <span class="in">`region_id`</span> is a character (text) variable, therefore the value <span class="in">`"R6"`</span> is written in quotes. Try running the same code without the quotes to see the error message.</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>From now on, this is the format of code we want to start emulating: calling the data *and then* using functions.</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>**Action** — Now filter for cases where <span class="in">`age_years`</span> is *18 or older*. Assign it to an object <span class="in">`imd_adults`</span>.</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>**Action** — Filter for cases where <span class="in">`age_years`</span> is strictly *less than* 18. Assign it to an object <span class="in">`imd_kids`</span>. Do the two results together add up to the total rows in <span class="in">`imd`</span>?</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>As we saw with <span class="in">`R6`</span>, quotation marks indicate that a value is a character variable in R. Now try the same with <span class="in">`age_years`</span>: use <span class="in">`"18"`</span> instead of the numeric value <span class="in">`18`</span> to see the error message. Take home message: Make sure the value you use in the logical condition has the appropriate type you are using or it won't work.</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>Note that we will take a deep dive into variable classes tomorrow, learning how to check and change it</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd) <span class="sc">==</span> <span class="fu">nrow</span>(imd_adults) <span class="sc">+</span> <span class="fu">nrow</span>(imd_kids)</span>
-<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>as a control to ask "*Is the sum of rows of the two filtered dataframes exactly identical to the original rows of `imd`?"*</span>
-<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- to determine the class variable is only introduced later. Maybe a reference to S3E2 would be good: Note, we’ll take a deep dive into variable classes tomorrow. JAVI: added in the column margin --&gt;</span></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" appearance="simple" icon="false"}</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint - counting rows</span></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition checks. For example, you can type:</span>
 <span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>Well, turns out we have missing rows. But, how is that even possible? If age logical conditions, some is either younger than 18, 18 or older than 18, which was covered by the <span class="in">`&lt;`</span> and the <span class="in">`&gt;=`</span>. The answer to that question is:</span>
-<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>**Action** — Might there be cases with missing <span class="in">`age_year`</span> information? We can check by creating <span class="in">`img_age_missing`</span> and filtering using the <span class="in">`is.na()`</span> operator. Then, check again if all rows are covered through the three objects</span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd) <span class="sc">==</span> <span class="fu">nrow</span>(imd_adults) <span class="sc">+</span> <span class="fu">nrow</span>(imd_kids)</span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
-<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a><span class="fu">### Checking rows is your first quality control</span></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>as a control to ask "*Is the sum of the rows in the two filtered dataframes exactly equal to the original number of rows in `imd`?"*</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>After every <span class="in">`filter()`</span>, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using <span class="in">`nrow()`</span> or other functions</span>
-<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a><span class="fu">### Combining conditions</span></span>
-<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>Most real filters combine more than one condition. The <span class="in">`&amp;`</span> and <span class="in">`|`</span> operators let you do this — but they behave very differently, and confusing them is one of the most common sources of silent errors in data analysis.</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>Well, turns out we have missing rows. But, how is that even possible? If the age logical conditions mean that someone is either younger than 18, or 18 and older, shouldn't all cases be covered by the <span class="in">`&lt;`</span> and the <span class="in">`&gt;=`</span> conditions. The answer to that question is:</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>**Action** — Might there be cases with missing <span class="in">`age_year`</span> information? We can check by creating <span class="in">`imd_age_missing`</span> and filtering using the <span class="in">`is.na()`</span> operator. Then, check again if all rows are covered across the three objects.</span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>::: callout-important</span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a><span class="fu">### Checking rows is your first quality control</span></span>
 <span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>**Action** — Filter <span class="in">`imd`</span> to keep only female cases from R6, combining both conditions with <span class="in">`&amp;`</span>. Assign the result to <span class="in">`imd_r6_f`</span> and check the row count.</span>
-<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(323)`</span></span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>When using multiple conditions inside <span class="in">`filter()`</span>, the default behavior is treating them as <span class="in">`AND`</span> (<span class="in">`&amp;`</span>) operators. You can either separate the conditions with commas, like arguments; create a single condition using the <span class="in">`&amp;`</span> operator; or pipe two filters together. And the result would be the same:</span>
-<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Remember, you can achieve the same result with these three codes</span></span>
-<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Comma separator</span></span>
-<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition1, condition2)</span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>After every <span class="in">`filter()`</span>, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using <span class="in">`nrow()`</span> or other functions.</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a><span class="fu">### Combining conditions</span></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>Most real filters combine more than one condition. The <span class="in">`&amp;`</span> and <span class="in">`|`</span> operators let you do this — but they behave very differently, and confusing them is one of the most common sources of silent errors in data analysis.</span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>**Action** — Filter <span class="in">`imd`</span> to keep only female cases from R6, combining both conditions with <span class="in">`&amp;`</span>. Assign the result to <span class="in">`imd_r6_f`</span> and type below the row count.</span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(323)`</span></span>
 <span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a><span class="co"># AND operator in a single condition</span></span>
-<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition1 <span class="sc">&amp;</span> condition2)</span>
-<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipe of two consequtive filters</span></span>
-<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
-<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
-<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>And it make sense! When executed with <span class="in">`&amp;`</span>, R created a single evaluation for both conditions, while the two arguments version executed the query sequentially, first retaining only those from <span class="in">`R6`</span> and then, among cases from <span class="in">`R6`</span> it retained only <span class="in">`Female`</span> cases. The same result in two different approximations. That is only valid for <span class="in">`AND`</span> (<span class="in">`&amp;)`</span> statements. If we try the same with other operators, the results slightly changes</span>
-<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>**Action** — Filter cases that are either from <span class="in">`R6`</span> or <span class="in">`Female`</span> using the <span class="in">`|`</span> (OR) operator, creating the object <span class="in">`imd_r6_or_f`</span> and compare the resulting number of rows with <span class="in">`imd_r6_f`</span></span>
-<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>Can you understand why the difference?</span>
-<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true" appearance="simple"}</span>
-<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### `|` is wider than you think</span></span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>When using multiple conditions inside <span class="in">`filter()`</span>, the default behavior is treating them as <span class="in">`AND`</span> (<span class="in">`&amp;`</span>) operators. You can either separate the conditions with commas, like arguments; create a single condition using the <span class="in">`&amp;`</span> operator; or pipe two filters together. And the result would be the same:</span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Remember, you can achieve the same result with these three codes</span></span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Comma-separated conditions</span></span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition1, condition2)</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditions combined with the AND operator</span></span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(condition1 <span class="sc">&amp;</span> condition2)</span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Two consequtive filters</span></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(condition1) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(condition2)</span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>And it makes sense! With <span class="in">`&amp;`</span>, R evaluated both conditions together. With comma-separated conditions or two consecutive filters, the same two conditions are applied, so the result is the same. First retaining only cases from <span class="in">`R6`</span> and then, among these retained only <span class="in">`Female`</span> cases. That is only valid for <span class="in">`AND`</span> (<span class="in">`&amp;)`</span> statements. If we try the same with other operators, the results change slightly.</span>
 <span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>With <span class="in">`|`</span>, a row is retained if **either** condition is true — it does not need to satisfy both. This means your result will include all female cases from every region, *plus* all cases from R6 regardless of sex. In most surveillance contexts, this is not what you want. When in doubt, reach for <span class="in">`&amp;`</span>.</span>
-<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### Selecting from a set with `%in%`</span></span>
-<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>Suppose you need to filter for cases from several specific regions — say, R1, R6, and R9. You could write:</span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>**Action** — Filter cases that are either from <span class="in">`R6`</span> or <span class="in">`Female`</span> using the <span class="in">`|`</span> (OR) operator, creating the object <span class="in">`imd_r6_or_f`</span> and compare the resulting number of rows with <span class="in">`imd_r6_f`</span>.</span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>Can you understand why the difference?</span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a>::: {.callout-important collapse="true" appearance="simple"}</span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### `|` is wider than you think</span></span>
 <span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
-<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R1"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R9"</span>)</span>
-<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a>With <span class="in">`|`</span>, a row is retained if **either** condition is true — it does not need to satisfy both. This means your result will include all female cases from every region, *plus* all cases from R6 regardless of sex. In most surveillance contexts, this is not what you want. When in doubt, reach for <span class="in">`&amp;`</span>.</span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a><span class="fu">### Selecting from a set with `%in%`</span></span>
 <span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>This works, but grows unwieldy fast. The <span class="in">`%in%`</span> operator is the clean solution: it checks whether a value is present anywhere in a set you define. Depending on the complexity and number of options, you can define the values directly using a vector in the filter function, or you could first create an object to serve as intermediary.</span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>Suppose you need to filter for cases from several specific regions — say, R1, R6, and R9. You could write:</span>
 <span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>Therefore, you could write any of the following:</span>
-<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
-<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"value1"</span>, <span class="st">"value2"</span>, <span class="st">"value3"</span>))</span>
-<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a><span class="co"># or: </span></span>
-<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"value1"</span>, <span class="st">"value2"</span>, <span class="st">"value3"</span>)</span>
-<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
-<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable1 <span class="sc">%in%</span> values)</span>
-<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>To create a vector with multiple values, R uses the <span class="in">`c()`</span> function, where <span class="in">`c`</span> stands for *combine*, i.e. <span class="in">`c("value1", "value2", "value3")`</span>.</span>
-<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>**Action** — Filter <span class="in">`imd`</span> to keep cases from regions R1, R6, and R9 using <span class="in">`%in%`</span>. Assign the result to <span class="in">`imd_regions`</span>.</span>
-<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a>**Action** — Now add a condition to also keep only female cases aged 18 or older. Assign the final result to <span class="in">`imd_filtered`</span>. How many rows are left?</span>
-<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(257)`</span></span>
-<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" appearance="simple"}</span>
-<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R1"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R9"</span>)</span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>This works, but the code grows unwieldy fast. The <span class="in">`%in%`</span> operator is the clean solution: it checks whether a value is present anywhere in a set you define. Depending on the complexity and number of options, you can define the values directly using a vector in the filter function, or you could first create an object to serve as intermediary.</span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>Therefore, you could write any of the following:</span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable1 <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"value1"</span>, <span class="st">"value2"</span>, <span class="st">"value3"</span>))</span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a><span class="co"># or: </span></span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"value1"</span>, <span class="st">"value2"</span>, <span class="st">"value3"</span>)</span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable1 <span class="sc">%in%</span> values)</span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>To create a vector with multiple values, R uses the <span class="in">`c()`</span> function, where <span class="in">`c`</span> stands for *combine*, i.e. <span class="in">`c("value1", "value2", "value3")`</span>.</span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a>**Action** — Filter <span class="in">`imd`</span> to keep cases from regions R1, R6, and R9 using <span class="in">`%in%`</span>. Assign the result to <span class="in">`imd_regions`</span>.</span>
 <span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>You can chain all conditions in a single <span class="in">`filter()`</span> using commas, or write them as separate <span class="in">`filter()`</span> steps in the same pipeline — both work.</span>
-<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a><span class="fu">### Missing values</span></span>
-<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a>You have already used <span class="in">`is.na()`</span> to find cases with missing age information. But there is something deeper going on with missing values that is worth understanding — because it will save you from a very common and very silent mistake.</span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>**Action** — Now add a condition to also keep only female cases aged 18 or older. Assign the final result to <span class="in">`imd_filtered`</span>. How many rows are left?</span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(257)`</span></span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true" appearance="simple"}</span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hint</span></span>
 <span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a>The critical thing to know: **you cannot use `==` to find `NA`**. Try it in your console:</span>
-<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span></span>
-<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a>You might expect <span class="in">`TRUE`</span>. R returns <span class="in">`NA`</span>. The logic is sound: if a value is unknown, you cannot confirm it is equal to another unknown value. Two unknowns are not necessarily the same unknown. So R does not guess — it returns "I don't know". <span class="in">`is.na()`</span> exists precisely to solve this. It does not compare — it simply asks "is this value missing?", and returns <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span> cleanly.</span>
-<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a>**Action** — Check how many cases in <span class="in">`imd`</span> have a missing value in the <span class="in">`serogroup`</span> variable? Create the <span class="in">`imd_serogroup_na`</span> object for that.</span>
-<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(0)`</span></span>
-<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a>Finding missing values is a common task when doing data cleaning, but that is tomorrow's topic. For now, we are only interested in discarding cases with <span class="in">`NA`</span> values in some of their variables, something you will also do quite frequently in the future - believe me. For that, we can introduce the last of today's operators, the <span class="in">`!`</span> - opposite operator</span>
-<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a>When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having <span class="in">`NA`</span> values in some column, we would do something like:</span>
-<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
-<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(variable1))</span>
-<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a>You can chain all conditions in a single <span class="in">`filter()`</span> using commas, or write them as separate <span class="in">`filter()`</span> steps in the same pipeline — both work.</span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a><span class="fu">### Missing values</span></span>
+<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a>You have already used <span class="in">`is.na()`</span> to find cases with missing age information. But there is something deeper going on with missing values that is worth understanding — because it will save you from a very common and very silent mistake.</span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a>The critical thing to know: **you cannot use `==` to find `NA`**. Try it in your console:</span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">==</span> <span class="cn">NA</span></span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a>You might expect <span class="in">`TRUE`</span>. R returns <span class="in">`NA`</span>. The logic is sound: if a value is unknown, you cannot confirm it is equal to another unknown value. Two unknowns are not necessarily the same unknown. So R does not guess — it returns "I don't know". <span class="in">`is.na()`</span> exists precisely to solve this. It does not compare — it simply asks "is this value missing?", and returns <span class="in">`TRUE`</span> or <span class="in">`FALSE`</span>.</span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a>**Action** — Check how many cases in <span class="in">`imd`</span> have a missing value in the <span class="in">`serogroup`</span> variable? Create the <span class="in">`imd_serogroup_na`</span> object for that and type the number below:</span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(0)`</span></span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a>Finding missing values is a common task when doing data cleaning, but that is tomorrow's topic. For now, we are only interested in discarding cases with <span class="in">`NA`</span> values in some of their variables, something you will also do quite frequently in the future - believe me.</span>
 <span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a>**Action** — Add to your previous filter chain a new condition to filter away cases with missing <span class="in">`age_years`</span> values</span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a>For that, we can introduce the last of today's operators, the <span class="in">`!`</span> - ***opposite or negation*** operator. When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having <span class="in">`NA`</span> values in some column, we would do something like:</span>
 <span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a>opts1 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It keeps rows where both conditions are true"</span>,</span>
-<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"It keeps rows where at least one condition is true"</span>,</span>
-<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It keeps rows where neither condition is true"</span>,</span>
-<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It keeps rows where exactly one condition is true, but not both"</span></span>
-<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a>**What does `filter(age_years &gt; 18 | sex == "Female")` return?**</span>
-<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts1)`</span></span>
-<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a>opts2 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a>  <span class="st">'`region_id == "R1" | region_id == "R6" | region_id == "R9"`'</span>,</span>
-<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a>  <span class="st">'`region_id == c("R1", "R6", "R9")`'</span>,</span>
-<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">'`region_id %in% c("R1", "R6", "R9")`'</span>,</span>
-<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a>  <span class="st">'`region_id &amp; c("R1", "R6", "R9")`'</span></span>
-<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a>**Which of the following correctly filters cases from regions R1, R6, and R9?**</span>
-<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts2)`</span></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a>imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(variable1))</span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a>**Action** — Create a new object <span class="in">`imd_age_na`</span> that contains only cases with missing <span class="in">`age_years`</span> values. How many cases are there?</span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(112)`</span></span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a>**Action** — Rather than an object with missing <span class="in">`age_years`</span> cases, we want a dataframe *without* them this time. Call it <span class="in">`imd_age_clean`</span>. Use the same filter with <span class="in">`!`</span> to achieve that. How many rows are left?</span>
+<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a><span class="in">`r fitb(2515)`</span></span>
+<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a>**Optional** — How can you use <span class="in">`nrow()`</span> to check that <span class="in">`imd_age_clean`</span> has effectively filtered the adequate number of rows? This one can be trickier, but give it a try!</span>
+<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;!-- Instructions are not clear. Also not included in solution at the end. </span></span>
+<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a><span class="in">JAVI: You were right! I changed the task with more steps but clearer approach, and added the solution at the end. Thanks!! --&gt;</span></span>
+<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-215"><a href="#cb9-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-216"><a href="#cb9-216" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb9-217"><a href="#cb9-217" aria-hidden="true" tabindex="-1"></a>opts1 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-218"><a href="#cb9-218" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It keeps rows where both conditions are true"</span>,</span>
+<span id="cb9-219"><a href="#cb9-219" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"It keeps rows where at least one condition is true"</span>,</span>
+<span id="cb9-220"><a href="#cb9-220" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It keeps rows where neither condition is true"</span>,</span>
+<span id="cb9-221"><a href="#cb9-221" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It keeps rows where exactly one condition is true, but not both"</span></span>
+<span id="cb9-222"><a href="#cb9-222" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-223"><a href="#cb9-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb9-224"><a href="#cb9-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb9-229"><a href="#cb9-229" aria-hidden="true" tabindex="-1"></a>opts3 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-230"><a href="#cb9-230" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"Because `NA == NA` returns `NA`, not `TRUE` — R cannot confirm two unknown values are equal"</span>,</span>
-<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Because `NA` is stored as a number and cannot be compared with `==`"</span>,</span>
-<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Because `filter()` automatically removes `NA` before evaluating conditions"</span>,</span>
-<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Because `==` only works with character variables, not missing values"</span></span>
-<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a>**Why can't you use `== NA` to find missing values in `filter()`?**</span>
-<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts3)`</span></span>
+<span id="cb9-225"><a href="#cb9-225" aria-hidden="true" tabindex="-1"></a>**What does `filter(age_years &gt; 18 | sex == "Female")` return?**</span>
+<span id="cb9-226"><a href="#cb9-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-227"><a href="#cb9-227" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts1)`</span></span>
+<span id="cb9-228"><a href="#cb9-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-231"><a href="#cb9-231" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-232"><a href="#cb9-232" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb9-233"><a href="#cb9-233" aria-hidden="true" tabindex="-1"></a>opts2 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-234"><a href="#cb9-234" aria-hidden="true" tabindex="-1"></a>  <span class="st">'`region_id == "R1" | region_id == "R6" | region_id == "R9"`'</span>,</span>
+<span id="cb9-235"><a href="#cb9-235" aria-hidden="true" tabindex="-1"></a>  <span class="st">'`region_id == c("R1", "R6", "R9")`'</span>,</span>
+<span id="cb9-236"><a href="#cb9-236" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">'`region_id %in% c("R1", "R6", "R9")`'</span>,</span>
+<span id="cb9-237"><a href="#cb9-237" aria-hidden="true" tabindex="-1"></a>  <span class="st">'`region_id &amp; c("R1", "R6", "R9")`'</span></span>
+<span id="cb9-238"><a href="#cb9-238" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-239"><a href="#cb9-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb9-240"><a href="#cb9-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-244"><a href="#cb9-244" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb9-245"><a href="#cb9-245" aria-hidden="true" tabindex="-1"></a>opts4 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-246"><a href="#cb9-246" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`filter(is.na(serogroup) == FALSE)`"</span>,</span>
-<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`filter(serogroup != NA)`"</span>,</span>
-<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`filter(is.na(serogroup) == 0)`"</span>,</span>
-<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"`filter(!is.na(serogroup))`"</span></span>
-<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-251"><a href="#cb9-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a>**Which expression correctly keeps only rows where `serogroup` is not missing?**</span>
-<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts4)`</span></span>
+<span id="cb9-241"><a href="#cb9-241" aria-hidden="true" tabindex="-1"></a>**Which of the following correctly filters cases from regions R1, R6, and R9?**</span>
+<span id="cb9-242"><a href="#cb9-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-243"><a href="#cb9-243" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts2)`</span></span>
+<span id="cb9-244"><a href="#cb9-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-247"><a href="#cb9-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-248"><a href="#cb9-248" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb9-249"><a href="#cb9-249" aria-hidden="true" tabindex="-1"></a>opts3 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-250"><a href="#cb9-250" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"Because `NA == NA` returns `NA`, not `TRUE` — R cannot confirm two unknown values are equal"</span>,</span>
+<span id="cb9-251"><a href="#cb9-251" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Because `NA` is stored as a number and cannot be compared with `==`"</span>,</span>
+<span id="cb9-252"><a href="#cb9-252" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Because `filter()` automatically removes `NA` before evaluating conditions"</span>,</span>
+<span id="cb9-253"><a href="#cb9-253" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Because `==` only works with character variables, not missing values"</span></span>
+<span id="cb9-254"><a href="#cb9-254" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-255"><a href="#cb9-255" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb9-256"><a href="#cb9-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb9-257"><a href="#cb9-257" aria-hidden="true" tabindex="-1"></a>**Why can't you use `== NA` to find missing values in `filter()`?**</span>
 <span id="cb9-258"><a href="#cb9-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise summary</span></span>
+<span id="cb9-259"><a href="#cb9-259" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts3)`</span></span>
 <span id="cb9-260"><a href="#cb9-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-261"><a href="#cb9-261" aria-hidden="true" tabindex="-1"></a>Logical operators are the engine behind <span class="in">`filter()`</span> — and behind most of the decisions your code will ever make. You now know how to select rows by equality, by range, by set membership, and how to handle the special case of missing values. Combined with the pipe, <span class="in">`filter()`</span> gives you precise control over which data you are actually working with at any point in your analysis.</span>
-<span id="cb9-262"><a href="#cb9-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-263"><a href="#cb9-263" aria-hidden="true" tabindex="-1"></a>But this is only the tip of the iceberg of Tidy, so let's continue to the verb of creation: <span class="in">`mutate()`</span></span>
-<span id="cb9-264"><a href="#cb9-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-265"><a href="#cb9-265" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
-<span id="cb9-266"><a href="#cb9-266" aria-hidden="true" tabindex="-1"></a><span class="fu">## 💡 Show solution — only after trying yourself!</span></span>
-<span id="cb9-267"><a href="#cb9-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-268"><a href="#cb9-268" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
-<span id="cb9-269"><a href="#cb9-269" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cases from Region 6</span></span>
-<span id="cb9-270"><a href="#cb9-270" aria-hidden="true" tabindex="-1"></a>md_r6 <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>)</span>
-<span id="cb9-271"><a href="#cb9-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-272"><a href="#cb9-272" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter adults and kids cases</span></span>
-<span id="cb9-273"><a href="#cb9-273" aria-hidden="true" tabindex="-1"></a>imd_adults <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_years <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
-<span id="cb9-274"><a href="#cb9-274" aria-hidden="true" tabindex="-1"></a>imd_kids <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_years <span class="sc">&lt;</span> <span class="dv">18</span>)</span>
-<span id="cb9-275"><a href="#cb9-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-276"><a href="#cb9-276" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the row sums of the filtered vs original data</span></span>
-<span id="cb9-277"><a href="#cb9-277" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd) <span class="sc">==</span> <span class="fu">nrow</span>(imd_kids) <span class="sc">+</span> <span class="fu">nrow</span>(imd_adults)    <span class="co"># what is happening?</span></span>
+<span id="cb9-263"><a href="#cb9-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-264"><a href="#cb9-264" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb9-265"><a href="#cb9-265" aria-hidden="true" tabindex="-1"></a>opts4 <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-266"><a href="#cb9-266" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`filter(is.na(serogroup) == FALSE)`"</span>,</span>
+<span id="cb9-267"><a href="#cb9-267" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`filter(serogroup != NA)`"</span>,</span>
+<span id="cb9-268"><a href="#cb9-268" aria-hidden="true" tabindex="-1"></a>  <span class="st">"`filter(is.na(serogroup) == 0)`"</span>,</span>
+<span id="cb9-269"><a href="#cb9-269" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"`filter(!is.na(serogroup))`"</span></span>
+<span id="cb9-270"><a href="#cb9-270" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-271"><a href="#cb9-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-272"><a href="#cb9-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-273"><a href="#cb9-273" aria-hidden="true" tabindex="-1"></a>**Which expression correctly keeps only rows where `serogroup` is not missing?**</span>
+<span id="cb9-274"><a href="#cb9-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-275"><a href="#cb9-275" aria-hidden="true" tabindex="-1"></a><span class="in">`r longmcq(opts4)`</span></span>
+<span id="cb9-276"><a href="#cb9-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-277"><a href="#cb9-277" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb9-278"><a href="#cb9-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-279"><a href="#cb9-279" aria-hidden="true" tabindex="-1"></a><span class="co"># Are there any missing age cases?</span></span>
-<span id="cb9-280"><a href="#cb9-280" aria-hidden="true" tabindex="-1"></a>imd_age_missing <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(age_years))</span>
-<span id="cb9-281"><a href="#cb9-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-282"><a href="#cb9-282" aria-hidden="true" tabindex="-1"></a><span class="co"># Check again</span></span>
-<span id="cb9-283"><a href="#cb9-283" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd) <span class="sc">==</span> <span class="fu">nrow</span>(imd_kids) <span class="sc">+</span> <span class="fu">nrow</span>(imd_adults) <span class="sc">+</span> <span class="fu">nrow</span>(imd_age_missing) <span class="co"># now it works!</span></span>
+<span id="cb9-279"><a href="#cb9-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise summary</span></span>
+<span id="cb9-280"><a href="#cb9-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-281"><a href="#cb9-281" aria-hidden="true" tabindex="-1"></a>Logical operators are the engine behind <span class="in">`filter()`</span> — and behind most of the decisions your code will ever make. You now know how to select rows by equality, by range, by set membership (using <span class="in">`%in%`</span>), and how to handle the special case of missing values. Combined with the pipe, <span class="in">`filter()`</span> gives you precise control over which data you are actually working with at any point in your analysis.</span>
+<span id="cb9-282"><a href="#cb9-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-283"><a href="#cb9-283" aria-hidden="true" tabindex="-1"></a>But this is only the tip of the Tidy iceberg, so let's continue to the verb of creation: <span class="in">`mutate()`</span>.</span>
 <span id="cb9-284"><a href="#cb9-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-285"><a href="#cb9-285" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter both Region 6 AND Female cases</span></span>
-<span id="cb9-286"><a href="#cb9-286" aria-hidden="true" tabindex="-1"></a>imd_r6_f <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb9-287"><a href="#cb9-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">&amp;</span> sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
-<span id="cb9-288"><a href="#cb9-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-289"><a href="#cb9-289" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Region 6 OR Female cases</span></span>
-<span id="cb9-290"><a href="#cb9-290" aria-hidden="true" tabindex="-1"></a>imd_r6_or_f <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb9-291"><a href="#cb9-291" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
-<span id="cb9-292"><a href="#cb9-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-293"><a href="#cb9-293" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cases from any of R1, R6 or R9 regions</span></span>
-<span id="cb9-294"><a href="#cb9-294" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb9-295"><a href="#cb9-295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>))</span>
-<span id="cb9-296"><a href="#cb9-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-297"><a href="#cb9-297" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all the different filters together</span></span>
-<span id="cb9-298"><a href="#cb9-298" aria-hidden="true" tabindex="-1"></a>imd_filtered <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb9-299"><a href="#cb9-299" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>),</span>
-<span id="cb9-300"><a href="#cb9-300" aria-hidden="true" tabindex="-1"></a>         age_years <span class="sc">&gt;=</span> <span class="dv">18</span>,</span>
-<span id="cb9-301"><a href="#cb9-301" aria-hidden="true" tabindex="-1"></a>         sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
-<span id="cb9-302"><a href="#cb9-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-303"><a href="#cb9-303" aria-hidden="true" tabindex="-1"></a><span class="co"># Is there any missing case in serogroup?</span></span>
-<span id="cb9-304"><a href="#cb9-304" aria-hidden="true" tabindex="-1"></a>imd_serogroup_na <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
-<span id="cb9-305"><a href="#cb9-305" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(serogroup))</span>
-<span id="cb9-306"><a href="#cb9-306" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-307"><a href="#cb9-307" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-285"><a href="#cb9-285" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse="true"}</span>
+<span id="cb9-286"><a href="#cb9-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## 💡 Show solution — only after trying yourself!</span></span>
+<span id="cb9-287"><a href="#cb9-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-288"><a href="#cb9-288" aria-hidden="true" tabindex="-1"></a><span class="in">``` r</span></span>
+<span id="cb9-289"><a href="#cb9-289" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cases from Region 6</span></span>
+<span id="cb9-290"><a href="#cb9-290" aria-hidden="true" tabindex="-1"></a>imd_region <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span>)</span>
+<span id="cb9-291"><a href="#cb9-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-292"><a href="#cb9-292" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter adults and kids cases</span></span>
+<span id="cb9-293"><a href="#cb9-293" aria-hidden="true" tabindex="-1"></a>imd_adults <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_years <span class="sc">&gt;=</span> <span class="dv">18</span>)</span>
+<span id="cb9-294"><a href="#cb9-294" aria-hidden="true" tabindex="-1"></a>imd_kids <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age_years <span class="sc">&lt;</span> <span class="dv">18</span>)</span>
+<span id="cb9-295"><a href="#cb9-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-296"><a href="#cb9-296" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the row sums of the filtered vs original data</span></span>
+<span id="cb9-297"><a href="#cb9-297" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd) <span class="sc">==</span> <span class="fu">nrow</span>(imd_kids) <span class="sc">+</span> <span class="fu">nrow</span>(imd_adults)    <span class="co"># what is happening?</span></span>
+<span id="cb9-298"><a href="#cb9-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-299"><a href="#cb9-299" aria-hidden="true" tabindex="-1"></a><span class="co"># Are there any missing age cases?</span></span>
+<span id="cb9-300"><a href="#cb9-300" aria-hidden="true" tabindex="-1"></a>imd_age_missing <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">is.na</span>(age_years))</span>
+<span id="cb9-301"><a href="#cb9-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-302"><a href="#cb9-302" aria-hidden="true" tabindex="-1"></a><span class="co"># Check again</span></span>
+<span id="cb9-303"><a href="#cb9-303" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd) <span class="sc">==</span> <span class="fu">nrow</span>(imd_kids) <span class="sc">+</span> <span class="fu">nrow</span>(imd_adults) <span class="sc">+</span> <span class="fu">nrow</span>(imd_age_missing) <span class="co"># now it works!</span></span>
+<span id="cb9-304"><a href="#cb9-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-305"><a href="#cb9-305" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter both Region 6 AND Female cases</span></span>
+<span id="cb9-306"><a href="#cb9-306" aria-hidden="true" tabindex="-1"></a>imd_r6_f <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb9-307"><a href="#cb9-307" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">&amp;</span> sex <span class="sc">==</span> <span class="st">"Female"</span>) <span class="co"># order of conditions doesn't matter</span></span>
 <span id="cb9-308"><a href="#cb9-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-309"><a href="#cb9-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb9-310"><a href="#cb9-310" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
-<span id="cb9-311"><a href="#cb9-311" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener("DOMContentLoaded", function() {</span></span>
-<span id="cb9-312"><a href="#cb9-312" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName("webex-radiogroup");</span></span>
-<span id="cb9-313"><a href="#cb9-313" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
-<span id="cb9-314"><a href="#cb9-314" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
-<span id="cb9-315"><a href="#cb9-315" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
-<span id="cb9-316"><a href="#cb9-316" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
-<span id="cb9-317"><a href="#cb9-317" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
-<span id="cb9-318"><a href="#cb9-318" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb9-309"><a href="#cb9-309" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Region 6 OR Female cases</span></span>
+<span id="cb9-310"><a href="#cb9-310" aria-hidden="true" tabindex="-1"></a>imd_r6_or_f <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb9-311"><a href="#cb9-311" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
+<span id="cb9-312"><a href="#cb9-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-313"><a href="#cb9-313" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter cases from any of R1, R6 or R9 regions</span></span>
+<span id="cb9-314"><a href="#cb9-314" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-315"><a href="#cb9-315" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">==</span> <span class="st">"R1"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R6"</span> <span class="sc">|</span> region_id <span class="sc">==</span> <span class="st">"R9"</span>)</span>
+<span id="cb9-316"><a href="#cb9-316" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-317"><a href="#cb9-317" aria-hidden="true" tabindex="-1"></a><span class="co"># better option using %in%</span></span>
+<span id="cb9-318"><a href="#cb9-318" aria-hidden="true" tabindex="-1"></a>imd_regions <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb9-319"><a href="#cb9-319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>))</span>
+<span id="cb9-320"><a href="#cb9-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-321"><a href="#cb9-321" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all the different filters together</span></span>
+<span id="cb9-322"><a href="#cb9-322" aria-hidden="true" tabindex="-1"></a>imd_filtered <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb9-323"><a href="#cb9-323" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"R1"</span>, <span class="st">"R6"</span>, <span class="st">"R9"</span>),</span>
+<span id="cb9-324"><a href="#cb9-324" aria-hidden="true" tabindex="-1"></a>         age_years <span class="sc">&gt;=</span> <span class="dv">18</span>,</span>
+<span id="cb9-325"><a href="#cb9-325" aria-hidden="true" tabindex="-1"></a>         sex <span class="sc">==</span> <span class="st">"Female"</span>)</span>
+<span id="cb9-326"><a href="#cb9-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-327"><a href="#cb9-327" aria-hidden="true" tabindex="-1"></a><span class="co"># Is there any missing case in serogroup?</span></span>
+<span id="cb9-328"><a href="#cb9-328" aria-hidden="true" tabindex="-1"></a>imd_serogroup_na <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span></span>
+<span id="cb9-329"><a href="#cb9-329" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(serogroup))</span>
+<span id="cb9-330"><a href="#cb9-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-331"><a href="#cb9-331" aria-hidden="true" tabindex="-1"></a><span class="co"># Missing age cases</span></span>
+<span id="cb9-332"><a href="#cb9-332" aria-hidden="true" tabindex="-1"></a>imd_age_na <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-333"><a href="#cb9-333" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(age_years))</span>
+<span id="cb9-334"><a href="#cb9-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-335"><a href="#cb9-335" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset without missing age_year cases</span></span>
+<span id="cb9-336"><a href="#cb9-336" aria-hidden="true" tabindex="-1"></a>imd_age_clean <span class="ot">&lt;-</span> imd <span class="sc">%&gt;%</span> </span>
+<span id="cb9-337"><a href="#cb9-337" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_years))</span>
+<span id="cb9-338"><a href="#cb9-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-339"><a href="#cb9-339" aria-hidden="true" tabindex="-1"></a><span class="co"># We can check the difference in rows is correct</span></span>
+<span id="cb9-340"><a href="#cb9-340" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(imd_age_clean) <span class="sc">==</span> (<span class="fu">nrow</span>(imd) <span class="sc">-</span> <span class="fu">nrow</span>(imd_age_na))</span>
+<span id="cb9-341"><a href="#cb9-341" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-342"><a href="#cb9-342" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-343"><a href="#cb9-343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-344"><a href="#cb9-344" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb9-345"><a href="#cb9-345" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb9-346"><a href="#cb9-346" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener("DOMContentLoaded", function() {</span></span>
+<span id="cb9-347"><a href="#cb9-347" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName("webex-radiogroup");</span></span>
+<span id="cb9-348"><a href="#cb9-348" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
+<span id="cb9-349"><a href="#cb9-349" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
+<span id="cb9-350"><a href="#cb9-350" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb9-351"><a href="#cb9-351" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
+<span id="cb9-352"><a href="#cb9-352" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb9-353"><a href="#cb9-353" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

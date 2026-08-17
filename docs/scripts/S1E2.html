@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Setting up your Workspace – Intro to R Course</title>
+<title>Intro to R Course - Setting up your Workspace</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,9 +21,8 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,16 +65,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <link href="../scripts/S1E3.html" rel="next">
 <link href="../scripts/S1E1.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dc4e846c9b32336015c61c2b77864e2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -111,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../include/webex.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed slimcontent quarto-light">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -123,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -146,9 +144,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/EPIET/IntroToRCourse/tree/main">
@@ -167,11 +165,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../scripts/S1E1.html">Session 1</a></li><li class="breadcrumb-item"><a href="../scripts/S1E2.html">Setting up your Workspace</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -190,9 +188,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Session 1</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -219,9 +217,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Session 2</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -235,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../scripts/S2E2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Filtering rows</span></a>
+ <span class="menu-text">Logical conditions and Tidy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -254,9 +252,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Session 3</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -289,9 +287,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Session 4</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -324,9 +322,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Session 5</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -419,16 +417,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="part-4-your-r-project-and-folder-structure">Part 4 · Your R Project and folder structure</h2>
 <section id="what-is-an-r-project" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="what-is-an-r-project">What is an R Project?</h3>
-<p>An R Project is a folder that R treats as a self-contained workspace. When you open a project, RStudio automatically sets that folder as the starting point for all file paths. This means:</p>
+<p>An R Project is a folder that R treats as a self-contained workspace. When you open a project, RStudio automatically sets that folder as the starting point for all file paths. If you write paths relative to this project folder, rather than using absolute paths tied to your computer, the same scripts can work for everyone. This means:</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><strong>Always check the top-right corner</strong> Every time you open RStudio, glance at the top-right corner. If it says <strong>Project: (None)</strong>, your project is not active. Always open RStudio by double-clicking your <code>.Rproj</code> file — not the <code>.R</code> script directly.</p>
 <p>RStudio empty view (click to enlarge)</p>
 <p><a href="..\images/exercises/S1E2_1_project.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="..\images/exercises/S1E2_1_project.png" class="img-fluid"></a></p>
 </div></div><ul>
-<li>Your scripts work on any computer, not just yours</li>
-<li>Colleagues can open the same project without changing a single path</li>
-<li>You always know where R is looking for files</li>
+<li>Shorter paths: write <code>data/file.csv</code> instead of a long, computer-specific path such as <code>C:/Users/.../data/file.csv</code></li>
+<li>Portable scripts: colleagues can run the same code without rewriting file paths</li>
+<li>Consistent structure: everyone works from the same project folder</li>
+<li>Fewer path errors: R has a predictable starting point for finding files</li>
 </ul>
 <p>You will recognise an R Project by the <code>.Rproj</code> file inside its folder — and by the project name shown in the <strong>top-right corner of RStudio</strong>.</p>
 </section>
@@ -443,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ├── scripts/
 └── outputs/</code></pre>
 <p>Each folder has a specific role:</p>
-<table class="caption-top table">
+<table class="table">
 <thead>
 <tr class="header">
 <th>Folder</th>
@@ -482,18 +481,19 @@ Why keep raw data untouched?
 <p>The <code>raw/</code> folder holds your original files exactly as received. You never edit them — not in R, not in Excel, not at all. If something goes wrong during cleaning, the original data is always there to start again. This is one of the most important habits in reproducible data analysis.</p>
 </div>
 </div>
-<p><strong>Action</strong> — Once the folders exist, go back to RStudio and click the <strong>Files</strong> tab in the bottom-right panel. You should see your new folders listed there. If not, click “Refresh file listing”.</p>
+<p><strong>Action</strong> — Once the folders exist, go back to RStudio and click the <strong>Files</strong> tab in the bottom-right (Auxiliary) panel. You should see your new folders listed there. If not, click “Refresh file listing”.</p>
 <p><img src="..\images/exercises/S1E2_2_refresh.png" class="img-fluid"></p>
 </section>
 <section id="create-your-r-project" class="level3">
 <h3 class="anchored" data-anchor-id="create-your-r-project">Create your R Project</h3>
 <p><strong>Action</strong> — In RStudio, create a project through any of the following:</p>
-<ul>
-<li>File → New Project → New Directory → New Project.</li>
-<li>Create a project icon on the top-left menu</li>
-<li>Project area at the top-right corner → Create new project</li>
-</ul>
-<p><strong>Action</strong> — Name your project <code>IntroToRCourse</code>. Choose the folder you downloaded for this course, that you can have store anywhere in your computer.</p>
+<ol type="1">
+<li><p>File → New Project → New Directory → New Project.</p></li>
+<li><p>Create a project icon on the top-left menu</p></li>
+<li><p>Project area at the top-right corner → Create new project</p></li>
+</ol>
+<p><img src="..\images/exercises/S1E2_3_project.png" class="img-fluid"></p>
+<p><strong>Action</strong> — Select <strong>Existing Directory</strong> and choose the folder <code>IntroToRCourse</code> you have previously saved on your computer.</p>
 <p><strong>Action</strong> — Click <strong>Create Project</strong>. RStudio will reload and your project name should now appear in the top-right corner.</p>
 <p><strong>Action</strong> — Once the folders exist, go back to RStudio and click the <strong>Files</strong> tab in the bottom-right panel. You should see your project folders listed there.</p>
 </section>
@@ -572,7 +572,8 @@ Install once, load every session
 </div>
 </div>
 <p>You should have all the needed libraries for the course already installed, as stated in the instructions you received beforehand. You can find them in this page, copy the code and install all libraries.</p>
-<p><strong>Action</strong> — In your <code>S1_practical.R</code> script, add a libraries section after the first comments, and load the following packages using <code>pacman::p_load()</code>:</p>
+<p><strong>Action</strong> — In your <code>S1_practical.R</code> script, add a section named <code>libraries</code> after the first comments. To do so, use Ctrl + Shift + R<code>(Windows/Linux) or</code>Cmd + Shift + R` (Mac), alternatively <strong>Code → Insert Section</strong>.</p>
+<p><strong>Action</strong> — load the following packages using <code>pacman::p_load()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  pacman,     <span class="co"># for managing libraries </span></span>
@@ -582,8 +583,8 @@ Install once, load every session
 </div>
 <p>Run it and watch the Console. The first time may take a moment if any packages need downloading.</p>
 <strong>What does <code>install.packages()</code> actually do?</strong>
-<div id="radio_RLDCCPBXBJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RLDCCPBXBJ" value=""> <span>It installs the package and makes it available permanently, no need to load it again</span></label><label><input type="radio" autocomplete="off" name="radio_RLDCCPBXBJ" value="answer"> <span>It installs the package to your computer, but you still need to load it at the start of every R session</span></label><label><input type="radio" autocomplete="off" name="radio_RLDCCPBXBJ" value=""> <span>It loads the package for this session only, and uninstalls it when you close R</span></label><label><input type="radio" autocomplete="off" name="radio_RLDCCPBXBJ" value=""> <span>It checks if the package is up to date and updates it if necessary</span></label>
+<div id="radio_XSJKFCKSSB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XSJKFCKSSB" value=""> <span>It installs the package and makes it available permanently, no need to load it again</span></label><label><input type="radio" autocomplete="off" name="radio_XSJKFCKSSB" value="answer"> <span>It installs the package to your computer, but you still need to load it at the start of every R session</span></label><label><input type="radio" autocomplete="off" name="radio_XSJKFCKSSB" value=""> <span>It loads the package for this session only, and uninstalls it when you close R</span></label><label><input type="radio" autocomplete="off" name="radio_XSJKFCKSSB" value=""> <span>It checks if the package is up to date and updates it if necessary</span></label>
 </div>
 </section>
 </section>
@@ -596,6 +597,19 @@ Install once, load every session
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"C:/Users/yourname/Documents/IntroToRCourse/data/raw/imd_S1.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This works — but only on your computer. The moment a colleague opens the same script, or you move the project to a different folder, the path breaks. This is a fragile way to work.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>file path</code> syntax
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that we use forward slashes (<code>/</code>, not , which are used in file paths in Windows.</p>
+</div>
+</div>
 </section>
 <section id="the-here-solution" class="level3">
 <h3 class="anchored" data-anchor-id="the-here-solution">The <code>here()</code> solution</h3>
@@ -609,8 +623,8 @@ Install once, load every session
 </div>
 <p>Run this line. R will print the full path — but it will not read the file yet. You are just constructing the address.</p>
 <strong>What type of output is here() producing</strong>
-<div id="radio_FFLWGAVTRS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FFLWGAVTRS" value=""> <span>A connection to the file, which allows R to start reading its contents </span></label><label><input type="radio" autocomplete="off" name="radio_FFLWGAVTRS" value="answer"> <span>A file path stored as a text string, which can be passed directly to other functions</span></label><label><input type="radio" autocomplete="off" name="radio_FFLWGAVTRS" value=""> <span>A special path object that automatically updates if you move your project to a different folder</span></label>
+<div id="radio_CNVMWLGPIN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CNVMWLGPIN" value=""> <span>A connection to the file, which allows R to start reading its contents </span></label><label><input type="radio" autocomplete="off" name="radio_CNVMWLGPIN" value="answer"> <span>A file path stored as a text string, which can be passed directly to other functions</span></label><label><input type="radio" autocomplete="off" name="radio_CNVMWLGPIN" value=""> <span>A special path object that automatically updates if you move your project to a different folder</span></label>
 </div>
 </section>
 <section id="importing-data" class="level3">
@@ -637,7 +651,7 @@ Install once, load every session
 <p><strong>Congrats! You have successfully created your basic R Infrastructure: folders, R Project, Libraries and Data Import</strong></p>
 <p>Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be splitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking</p>
 <p>This is what you practiced and learned:</p>
-<table class="caption-top table">
+<table class="table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -695,709 +709,489 @@ document.addEventListener("DOMContentLoaded", function() {
 </main> <!-- /main -->
 <script>
 
-
-
 /* update total correct if #webex-total_correct exists */
-
 update_total_correct = function() {
-
   console.log("webex: update total_correct");
 
-
-
   var t = document.getElementsByClassName("webex-total_correct");
-
   for (var i = 0; i < t.length; i++) {
-
     p = t[i].parentElement;
-
     var correct = p.getElementsByClassName("webex-correct").length;
-
     var solvemes = p.getElementsByClassName("webex-solveme").length;
-
     var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
-
     var selects = p.getElementsByClassName("webex-select").length;
 
-
-
     t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
-
   }
-
 }
-
-
 
 /* webex-solution button toggling function */
-
 b_func = function() {
-
   console.log("webex: toggle hide");
 
-
-
   var cl = this.parentElement.classList;
-
   if (cl.contains('open')) {
-
     cl.remove("open");
-
   } else {
-
     cl.add("open");
-
   }
-
 }
-
-
 
 /* check answers */
-
 check_func = function() {
-
   console.log("webex: check answers");
 
-
-
   var cl = this.parentElement.classList;
-
   if (cl.contains('unchecked')) {
-
     cl.remove("unchecked");
-
     this.innerHTML = "Hide Answers";
-
   } else {
-
     cl.add("unchecked");
-
     this.innerHTML = "Show Answers";
-
   }
-
 }
-
-
 
 /* function for checking solveme answers */
-
 solveme_func = function(e) {
-
   console.log("webex: check solveme");
 
-
-
   var real_answers = JSON.parse(this.dataset.answer);
-
   var my_answer = this.value;
-
   var cl = this.classList;
-
   if (cl.contains("ignorecase")) {
-
     my_answer = my_answer.toLowerCase();
-
   }
-
   if (cl.contains("nospaces")) {
-
     my_answer = my_answer.replace(/ /g, "")
-
   }
-
-
 
   if (my_answer == "") {
-
     cl.remove("webex-correct");
-
     cl.remove("webex-incorrect");
-
   } else if (real_answers.includes(my_answer)) {
-
     cl.add("webex-correct");
-
     cl.remove("webex-incorrect");
-
   } else {
-
     cl.add("webex-incorrect");
-
     cl.remove("webex-correct");
-
   }
-
-
 
   // match numeric answers within a specified tolerance
-
   if(this.dataset.tol > 0){
-
     var tol = JSON.parse(this.dataset.tol);
-
     var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
-
     if (matches.reduce((a, b) => a + b, 0) > 0) {
-
       cl.add("webex-correct");
-
     } else {
-
       cl.remove("webex-correct");
-
     }
-
   }
-
-
 
   // added regex bit
-
   if (cl.contains("regex")){
-
     answer_regex = RegExp(real_answers.join("|"))
-
     if (answer_regex.test(my_answer)) {
-
       cl.add("webex-correct");
-
     }
-
   }
 
-
-
   update_total_correct();
-
 }
 
-
-
 /* function for checking select answers */
-
 select_func = function(e) {
-
   console.log("webex: check select");
-
-
 
   var cl = this.classList
 
-
-
   /* add style */
-
   cl.remove("webex-incorrect");
-
   cl.remove("webex-correct");
-
   if (this.value == "answer") {
-
     cl.add("webex-correct");
-
   } else if (this.value != "blank") {
-
     cl.add("webex-incorrect");
-
   }
 
-
-
   update_total_correct();
-
 }
-
-
 
 /* function for checking radiogroups answers */
-
 radiogroups_func = function(e) {
-
   console.log("webex: check radiogroups");
 
-
-
   var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
-
   var cl = checked_button.parentElement.classList;
-
   var labels = checked_button.parentElement.parentElement.children;
 
-
-
   /* get rid of styles */
-
   for (i = 0; i < labels.length; i++) {
-
     labels[i].classList.remove("webex-incorrect");
-
     labels[i].classList.remove("webex-correct");
-
   }
-
-
 
   /* add style */
-
   if (checked_button.value == "answer") {
-
     cl.add("webex-correct");
-
   } else {
-
     cl.add("webex-incorrect");
-
   }
 
-
-
   update_total_correct();
-
 }
-
-
 
 window.onload = function() {
-
   console.log("webex onload");
-
   /* set up solution buttons */
-
   var buttons = document.getElementsByTagName("button");
 
-
-
   for (var i = 0; i < buttons.length; i++) {
-
     if (buttons[i].parentElement.classList.contains('webex-solution')) {
-
       buttons[i].onclick = b_func;
-
     }
-
   }
-
-
 
   var check_sections = document.getElementsByClassName("webex-check");
-
   console.log("check:", check_sections.length);
-
   for (var i = 0; i < check_sections.length; i++) {
-
     check_sections[i].classList.add("unchecked");
 
-
-
     let btn = document.createElement("button");
-
     btn.innerHTML = "Show Answers";
-
     btn.classList.add("webex-check-button");
-
     btn.onclick = check_func;
-
     check_sections[i].appendChild(btn);
 
-
-
     let spn = document.createElement("span");
-
     spn.classList.add("webex-total_correct");
-
     check_sections[i].appendChild(spn);
-
   }
-
-
 
   /* set up webex-solveme inputs */
-
   var solveme = document.getElementsByClassName("webex-solveme");
 
-
-
   for (var i = 0; i < solveme.length; i++) {
-
     /* make sure input boxes don't auto-anything */
-
     solveme[i].setAttribute("autocomplete","off");
-
     solveme[i].setAttribute("autocorrect", "off");
-
     solveme[i].setAttribute("autocapitalize", "off");
-
     solveme[i].setAttribute("spellcheck", "false");
-
     solveme[i].value = "";
 
-
-
     /* adjust answer for ignorecase or nospaces */
-
     var cl = solveme[i].classList;
-
     var real_answer = solveme[i].dataset.answer;
-
     if (cl.contains("ignorecase")) {
-
       real_answer = real_answer.toLowerCase();
-
     }
-
     if (cl.contains("nospaces")) {
-
       real_answer = real_answer.replace(/ /g, "");
-
     }
-
     solveme[i].dataset.answer = real_answer;
 
-
-
     /* attach checking function */
-
     solveme[i].onkeyup = solveme_func;
-
     solveme[i].onchange = solveme_func;
 
-
-
     solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
-
   }
-
-
 
   /* set up radiogroups */
-
   var radiogroups = document.getElementsByClassName("webex-radiogroup");
-
   for (var i = 0; i < radiogroups.length; i++) {
-
     radiogroups[i].onchange = radiogroups_func;
-
   }
-
-
 
   /* set up selects */
-
   var selects = document.getElementsByClassName("webex-select");
-
   for (var i = 0; i < selects.length; i++) {
-
     selects[i].onchange = select_func;
-
     selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
-
   }
 
-
-
   update_total_correct();
-
 }
 
-
-
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
       }
       return false;
     }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
           }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-    const viewSource = window.document.getElementById('quarto-view-source') ||
-                       window.document.getElementById('quarto-code-tools-source');
-    if (viewSource) {
-      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-      viewSource.addEventListener("click", function(e) {
-        if (sourceUrl) {
-          // rstudio viewer pane
-          if (/\bcapabilities=\b/.test(window.location)) {
-            window.open(sourceUrl);
-          } else {
-            window.location.href = sourceUrl;
-          }
-        } else {
-          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-          modal.show();
-        }
-        return false;
-      });
-    }
-    function toggleCodeHandler(show) {
-      return function(e) {
-        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-        for (let i=0; i<detailsSrc.length; i++) {
-          const details = detailsSrc[i].parentElement;
-          if (show) {
-            details.open = true;
-          } else {
-            details.removeAttribute("open");
-          }
-        }
-        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-        const fromCls = show ? "hidden" : "unhidden";
-        const toCls = show ? "unhidden" : "hidden";
-        for (let i=0; i<cellCodeDivs.length; i++) {
-          const codeDiv = cellCodeDivs[i];
-          if (codeDiv.classList.contains(fromCls)) {
-            codeDiv.classList.remove(fromCls);
-            codeDiv.classList.add(toCls);
-          } 
-        }
-        return false;
       }
     }
-    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-    if (hideAllCode) {
-      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const showAllCode = window.document.getElementById("quarto-show-all-code");
-    if (showAllCode) {
-      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1405,161 +1199,185 @@ window.onload = function() {
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../scripts/S1E1.html" class="pagination-link" aria-label="Getting familiar with RStudio">
@@ -1597,7 +1415,7 @@ window.onload = function() {
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### What is an R Project?</span></span>
 <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>An R Project is a folder that R treats as a self-contained workspace. When you open a project, RStudio automatically sets that folder as the starting point for all file paths. This means:</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>An R Project is a folder that R treats as a self-contained workspace. When you open a project, RStudio automatically sets that folder as the starting point for all file paths. If you write paths relative to this project folder, rather than using absolute paths tied to your computer, the same scripts can work for everyone. This means:</span>
 <span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
 <span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>**Always check the top-right corner** Every time you open RStudio, glance at the top-right corner. If it says **Project: (None)**, your project is not active. Always open RStudio by double-clicking your <span class="in">`.Rproj`</span> file — not the <span class="in">`.R`</span> script directly.</span>
@@ -1607,273 +1425,288 @@ window.onload = function() {
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="al">![](/images/exercises/S1E2_1_project.png)</span>{.lightbox}</span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Your scripts work on any computer, not just yours</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Colleagues can open the same project without changing a single path</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>You always know where R is looking for files</span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>You will recognise an R Project by the <span class="in">`.Rproj`</span> file inside its folder — and by the project name shown in the **top-right corner of RStudio**.</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Shorter paths: write <span class="in">`data/file.csv`</span> instead of a long, computer-specific path such as <span class="in">`C:/Users/.../data/file.csv`</span></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Portable scripts: colleagues can run the same code without rewriting file paths </span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consistent structure: everyone works from the same project folder</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Fewer path errors: R has a predictable starting point for finding files</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Create the folder structure</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>You will recognise an R Project by the <span class="in">`.Rproj`</span> file inside its folder — and by the project name shown in the **top-right corner of RStudio**.</span>
 <span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>As the R Project is essentially a self-contained folder, you will need to first create a folder structure in your computer to meet the project needs. For this course, we provided you with it already - also to demonstrate the power of R Projects for sharing and reproducibility. If you haven't downloaded the files yet go to <span class="co">[</span><span class="ot">this page</span><span class="co">](/scripts/preparation.qmd)</span></span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Create the folder structure</span></span>
 <span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>We recommend always creating the following subfolders:</span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>As the R Project is essentially a self-contained folder, you will need to first create a folder structure in your computer to meet the project needs. For this course, we provided you with it already - also to demonstrate the power of R Projects for sharing and reproducibility. If you haven't downloaded the files yet go to <span class="co">[</span><span class="ot">this page</span><span class="co">](/scripts/preparation.qmd)</span></span>
 <span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="in">```         </span></span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a><span class="in">IntroToRCourse/</span></span>
-<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="in">├── data/</span></span>
-<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── raw/</span></span>
-<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── clean/</span></span>
-<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="in">├── scripts/</span></span>
-<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="in">└── outputs/</span></span>
-<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>Each folder has a specific role:</span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>We recommend always creating the following subfolders:</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a><span class="in">```         </span></span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a><span class="in">IntroToRCourse/</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a><span class="in">├── data/</span></span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a><span class="in">│   ├── raw/</span></span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a><span class="in">│   └── clean/</span></span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a><span class="in">├── scripts/</span></span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a><span class="in">└── outputs/</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Folder        <span class="pp">|</span> Purpose                                              <span class="pp">|</span></span>
-<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------------|------------------------------------------------------|</span></span>
-<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`data/raw/`</span>   <span class="pp">|</span> Original files, exactly as received — never modified <span class="pp">|</span></span>
-<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`data/clean/`</span> <span class="pp">|</span> Processed versions you create in R                   <span class="pp">|</span></span>
-<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`scripts/`</span>    <span class="pp">|</span> Your R scripts                                       <span class="pp">|</span></span>
-<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`outputs/`</span>    <span class="pp">|</span> Tables, plots, and reports you produce               <span class="pp">|</span></span>
-<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why keep raw data untouched?</span></span>
-<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>The <span class="in">`raw/`</span> folder holds your original files exactly as received. You never edit them — not in R, not in Excel, not at all. If something goes wrong during cleaning, the original data is always there to start again. This is one of the most important habits in reproducible data analysis.</span>
-<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your new folders listed there. If not, click "Refresh file listing".</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>Each folder has a specific role:</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>| Folder        | Purpose                                              |</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>|---------------|------------------------------------------------------|</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>| <span class="in">`data/raw/`</span>   | Original files, exactly as received — never modified |</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>| <span class="in">`data/clean/`</span> | Processed versions you create in R                   |</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>| <span class="in">`scripts/`</span>    | Your R scripts                                       |</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>| <span class="in">`outputs/`</span>    | Tables, plots, and reports you produce               |</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why keep raw data untouched?</span></span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>The <span class="in">`raw/`</span> folder holds your original files exactly as received. You never edit them — not in R, not in Excel, not at all. If something goes wrong during cleaning, the original data is always there to start again. This is one of the most important habits in reproducible data analysis.</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="al">![](/images/exercises/S1E2_2_refresh.png)</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a>**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right (Auxiliary) panel. You should see your new folders listed there. If not, click "Refresh file listing".</span>
 <span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### Create your R Project</span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="al">![](/images/exercises/S1E2_2_refresh.png)</span></span>
 <span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a>**Action** — In RStudio, create a project through any of the following:</span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Create your R Project</span></span>
 <span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>File → New Project → New Directory → New Project.</span>
-<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Create a project icon on the top-left menu</span>
-<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Project area at the top-right corner → Create new project</span>
-<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>**Action** — Name your project <span class="in">`IntroToRCourse`</span>. Choose the folder you downloaded for this course, that you can have store anywhere in your computer.</span>
-<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>**Action** — Click **Create Project**. RStudio will reload and your project name should now appear in the top-right corner.</span>
-<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your project folders listed there.</span>
-<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### Start your script and add comments</span></span>
-<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>Now the project and folders are ready, lets open a new R Script to start fresh and let's build it together. Initially, you will notice the script's name is <span class="in">`Unnamed1`</span> which is a poor name, don't you think? Let's give it a decent name.</span>
-<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>**Action** — Open a new script and save it first. Go to **File → Save As** or locate the Save button on the icon menu, navigate to your project's <span class="in">`scripts`</span> folder, and name it <span class="in">`S1_practical.R`</span>. Every time you make some changes in your script, you'll notice the script's tab name turns red and gets an <span class="sc">\*</span>. Don't forget to save your script regularly, so your work doesn't get lost.</span>
-<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>Now it's time you add some basic information about the script, like title, purpose, author, last date modified, etc. For this, you will learn how to use **comments**.</span>
-<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>In a script, if a line begins with a hash <span class="in">`#`</span> R understands anything behind as no-code text. The color of the text will change (typically to green, but it depends on your appearance customization). Use this feature to add at the beginning of the script some info:</span>
-<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Title: my first script</span></span>
-<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Function: Learn the basics of working in R</span></span>
-<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: your_name</span></span>
-<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Last modified: 8th Sept 2026</span></span>
-<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a>**Comments** are an essential part of every script. They serve several purposes: creating sections, explaining what is being done, leave comments for you or others to understand, have a clean code, and so on. We will use them from now on for everything we do.</span>
-<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 5 · Libraries</span></span>
-<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>R comes with a set of built-in functions — but much of what makes R powerful for epidemiology lives in **packages**: collections of functions written by the R community and freely available to install.</span>
-<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>Before you can use a package, two things need to happen:</span>
-<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Install** it — downloads the package to your computer (once per machine)</span>
-<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Load** it — makes the package available in your current session (every time you open R)</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>**Action** — In RStudio, create a project through any of the following:</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>File → New Project → New Directory → New Project.</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Create a project icon on the top-left menu</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Project area at the top-right corner → Create new project</span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a><span class="al">![](/images/exercises/S1E2_3_project.png)</span></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>**Action** — Select **Existing Directory** and choose the folder <span class="in">`IntroToRCourse`</span> you have previously saved on your computer.</span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>**Action** — Click **Create Project**. RStudio will reload and your project name should now appear in the top-right corner.</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>**Action** — Once the folders exist, go back to RStudio and click the **Files** tab in the bottom-right panel. You should see your project folders listed there.</span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a><span class="fu">### Start your script and add comments</span></span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>Now the project and folders are ready, lets open a new R Script to start fresh and let's build it together. Initially, you will notice the script's name is <span class="in">`Unnamed1`</span> which is a poor name, don't you think? Let's give it a decent name.</span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a>**Action** — Open a new script and save it first. Go to **File → Save As** or locate the Save button on the icon menu, navigate to your project's <span class="in">`scripts`</span> folder, and name it <span class="in">`S1_practical.R`</span>. Every time you make some changes in your script, you'll notice the script's tab name turns red and gets an <span class="sc">\*</span>. Don't forget to save your script regularly, so your work doesn't get lost.</span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a>Now it's time you add some basic information about the script, like title, purpose, author, last date modified, etc. For this, you will learn how to use **comments**.</span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>In a script, if a line begins with a hash <span class="in">`#`</span> R understands anything behind as no-code text. The color of the text will change (typically to green, but it depends on your appearance customization). Use this feature to add at the beginning of the script some info:</span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Title: my first script</span></span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a><span class="co"># Function: Learn the basics of working in R</span></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Author: your_name</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a><span class="co"># Last modified: 8th Sept 2026</span></span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-118"><a href="#cb10-118" aria-hidden="true" tabindex="-1"></a>**Comments** are an essential part of every script. They serve several purposes: creating sections, explaining what is being done, leave comments for you or others to understand, have a clean code, and so on. We will use them from now on for everything we do.</span>
+<span id="cb10-119"><a href="#cb10-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-120"><a href="#cb10-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 5 · Libraries</span></span>
 <span id="cb10-121"><a href="#cb10-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a><span class="fu">### Installing and loading packages</span></span>
+<span id="cb10-122"><a href="#cb10-122" aria-hidden="true" tabindex="-1"></a>R comes with a set of built-in functions — but much of what makes R powerful for epidemiology lives in **packages**: collections of functions written by the R community and freely available to install.</span>
 <span id="cb10-123"><a href="#cb10-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>The classic way to install a package is:</span>
+<span id="cb10-124"><a href="#cb10-124" aria-hidden="true" tabindex="-1"></a>Before you can use a package, two things need to happen:</span>
 <span id="cb10-125"><a href="#cb10-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a><span class="co">#| execute: false</span></span>
-<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb10-133"><a href="#cb10-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-134"><a href="#cb10-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a>This downloads the package from CRAN (the official R package repository) to your computer. You only need to do this once per machine — after that, the package lives on your computer and just needs to be loaded.</span>
-<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a>To update an already installed package to its latest version:</span>
-<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-126"><a href="#cb10-126" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Install** it — downloads the package to your computer (once per machine)</span>
+<span id="cb10-127"><a href="#cb10-127" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Load** it — makes the package available in your current session (every time you open R)</span>
+<span id="cb10-128"><a href="#cb10-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-129"><a href="#cb10-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### Installing and loading packages</span></span>
+<span id="cb10-130"><a href="#cb10-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-131"><a href="#cb10-131" aria-hidden="true" tabindex="-1"></a>The classic way to install a package is:</span>
+<span id="cb10-132"><a href="#cb10-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-135"><a href="#cb10-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-136"><a href="#cb10-136" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a><span class="co">#| execute: false</span></span>
+<span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>This downloads the package from CRAN (the official R package repository) to your computer. You only need to do this once per machine — after that, the package lives on your computer and just needs to be loaded.</span>
+<span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-144"><a href="#cb10-144" aria-hidden="true" tabindex="-1"></a>To update an already installed package to its latest version:</span>
 <span id="cb10-145"><a href="#cb10-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-146"><a href="#cb10-146" aria-hidden="true" tabindex="-1"></a>Installing/Updating is something that happens in your computer but not in your R Session. An installed package also needs to be <span class="in">`loaded`</span> in order to become active and use the new functions provided</span>
-<span id="cb10-147"><a href="#cb10-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a>:::: column-margin</span>
-<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="fu">### Install once, load every session</span></span>
-<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a>A common source of confusion: <span class="in">`install.packages()`</span> and <span class="in">`library()`</span> do very different things. Installing is like buying a book and putting it on your shelf. Loading is like taking it off the shelf to read it. You only buy it once, but you need to pick it up every time you want to use it.</span>
-<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a>::::</span>
-<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>The classic way to load a package is:</span>
-<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
-<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-148"><a href="#cb10-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-149"><a href="#cb10-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a>Installing/Updating is something that happens in your computer but not in your R Session. An installed package also needs to be <span class="in">`loaded`</span> in order to become active and use the new functions provided</span>
+<span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a>:::: column-margin</span>
+<span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a><span class="fu">### Install once, load every session</span></span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>A common source of confusion: <span class="in">`install.packages()`</span> and <span class="in">`library()`</span> do very different things. Installing is like buying a book and putting it on your shelf. Loading is like taking it off the shelf to read it. You only buy it once, but you need to pick it up every time you want to use it.</span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>::::</span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a>The classic way to load a package is:</span>
 <span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a>This works perfectly well, but it has a limitation: if the package is not installed, it throws an error and stops. When you are sharing scripts with colleagues who may not have the same packages, this becomes a problem. Also, you need to remember three functions in order to keep your packages always ready, and we like efficiency.</span>
-<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a>We can do better.</span>
-<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pacman for handling packages</span></span>
-<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a>The <span class="in">`pacman`</span> library was developed to handle libraries in R more easily. Its main function, <span class="in">`p_load()`</span>, checks whether each package is installed — if it is, it loads it; if it is not, it installs it first and then loads it. One line, any number of packages, no errors from missing installations.</span>
-<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="co">#| execute: false</span></span>
-<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, here, tidyverse)</span>
-<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-168"><a href="#cb10-168" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-169"><a href="#cb10-169" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pacman)</span>
+<span id="cb10-170"><a href="#cb10-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-171"><a href="#cb10-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-172"><a href="#cb10-172" aria-hidden="true" tabindex="-1"></a>This works perfectly well, but it has a limitation: if the package is not installed, it throws an error and stops. When you are sharing scripts with colleagues who may not have the same packages, this becomes a problem. Also, you need to remember three functions in order to keep your packages always ready, and we like efficiency.</span>
+<span id="cb10-173"><a href="#cb10-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-174"><a href="#cb10-174" aria-hidden="true" tabindex="-1"></a>We can do better.</span>
+<span id="cb10-175"><a href="#cb10-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-176"><a href="#cb10-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pacman for handling packages</span></span>
+<span id="cb10-177"><a href="#cb10-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-178"><a href="#cb10-178" aria-hidden="true" tabindex="-1"></a>The <span class="in">`pacman`</span> library was developed to handle libraries in R more easily. Its main function, <span class="in">`p_load()`</span>, checks whether each package is installed — if it is, it loads it; if it is not, it installs it first and then loads it. One line, any number of packages, no errors from missing installations.</span>
 <span id="cb10-179"><a href="#cb10-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-180"><a href="#cb10-180" aria-hidden="true" tabindex="-1"></a>Notice this little **paradox**: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install <span class="in">`pacman`</span> in your computer you will need to use the basic <span class="in">`install.packages()`</span> and <span class="in">`library()`</span> functions. Once installed, we have a little trick under the sleeve called <span class="in">`package::function()`</span></span>
-<span id="cb10-181"><a href="#cb10-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a><span class="fu">### `package::function()` syntax</span></span>
-<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a>Notice we wrote <span class="in">`pacman::p_load()`</span> instead of loading <span class="in">`pacman`</span> first with <span class="in">`library(pacman)`</span>. The <span class="in">`::`</span> syntax lets you call a function from a package without loading the whole package — useful for one-off calls or to make clear which package a function comes from. You will see this throughout the course.</span>
-<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a>You should have all the needed libraries for the course already installed, as stated in the instructions you received beforehand. You can find them in this page, copy the code and install all libraries.</span>
-<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a>**Action** — In your <span class="in">`S1_practical.R`</span> script, add a libraries section after the first comments, and load the following packages using <span class="in">`pacman::p_load()`</span>:</span>
+<span id="cb10-182"><a href="#cb10-182" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-183"><a href="#cb10-183" aria-hidden="true" tabindex="-1"></a><span class="co">#| execute: false</span></span>
+<span id="cb10-184"><a href="#cb10-184" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(rio, here, tidyverse)</span>
+<span id="cb10-185"><a href="#cb10-185" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-186"><a href="#cb10-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-187"><a href="#cb10-187" aria-hidden="true" tabindex="-1"></a>Notice this little **paradox**: we need to install and load a package for installing/updating/loading packages. There is nothing we can do with it. The very first time you install <span class="in">`pacman`</span> in your computer you will need to use the basic <span class="in">`install.packages()`</span> and <span class="in">`library()`</span> functions. Once installed, we have a little trick under the sleeve called <span class="in">`package::function()`</span></span>
+<span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-189"><a href="#cb10-189" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb10-190"><a href="#cb10-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### `package::function()` syntax</span></span>
 <span id="cb10-191"><a href="#cb10-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a>  pacman,     <span class="co"># for managing libraries </span></span>
-<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a>  rio,        <span class="co"># for importing any file format</span></span>
-<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a>  here        <span class="co"># for route management within R Projects</span></span>
-<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-201"><a href="#cb10-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-202"><a href="#cb10-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a>Run it and watch the Console. The first time may take a moment if any packages need downloading.</span>
-<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a>opts_lib <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It installs the package and makes it available permanently, no need to load it again"</span>,</span>
-<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"It installs the package to your computer, but you still need to load it at the start of every R session"</span>,</span>
-<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It loads the package for this session only, and uninstalls it when you close R"</span>,</span>
-<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It checks if the package is up to date and updates it if necessary"</span></span>
-<span id="cb10-214"><a href="#cb10-214" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-215"><a href="#cb10-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a>**What does `install.packages()` actually do?** <span class="in">`r longmcq(opts_lib)`</span></span>
-<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 6 · File paths and importing data</span></span>
-<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### The problem with file paths</span></span>
-<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a>When R reads a file, it needs to know exactly where that file lives on your computer. The naive approach is to write the full path:</span>
-<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-227"><a href="#cb10-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-228"><a href="#cb10-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-229"><a href="#cb10-229" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"C:/Users/yourname/Documents/IntroToRCourse/data/raw/imd_S1.xlsx"</span>)</span>
-<span id="cb10-230"><a href="#cb10-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-192"><a href="#cb10-192" aria-hidden="true" tabindex="-1"></a>Notice we wrote <span class="in">`pacman::p_load()`</span> instead of loading <span class="in">`pacman`</span> first with <span class="in">`library(pacman)`</span>. The <span class="in">`::`</span> syntax lets you call a function from a package without loading the whole package — useful for one-off calls or to make clear which package a function comes from. You will see this throughout the course.</span>
+<span id="cb10-193"><a href="#cb10-193" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-194"><a href="#cb10-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a>You should have all the needed libraries for the course already installed, as stated in the instructions you received beforehand. You can find them in this page, copy the code and install all libraries.</span>
+<span id="cb10-196"><a href="#cb10-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-197"><a href="#cb10-197" aria-hidden="true" tabindex="-1"></a>**Action** — In your `S1_practical.R` script, add a section named `libraries` after the first comments. To do so, use Ctrl + Shift + R`(Windows/Linux) or`Cmd + Shift + R\` (Mac), alternatively **Code → Insert Section**.</span>
+<span id="cb10-198"><a href="#cb10-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-199"><a href="#cb10-199" aria-hidden="true" tabindex="-1"></a>**Action** — load the following packages using <span class="in">`pacman::p_load()`</span>:</span>
+<span id="cb10-200"><a href="#cb10-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-203"><a href="#cb10-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-204"><a href="#cb10-204" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-205"><a href="#cb10-205" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb10-206"><a href="#cb10-206" aria-hidden="true" tabindex="-1"></a>  pacman,     <span class="co"># for managing libraries </span></span>
+<span id="cb10-207"><a href="#cb10-207" aria-hidden="true" tabindex="-1"></a>  rio,        <span class="co"># for importing any file format</span></span>
+<span id="cb10-208"><a href="#cb10-208" aria-hidden="true" tabindex="-1"></a>  here        <span class="co"># for route management within R Projects</span></span>
+<span id="cb10-209"><a href="#cb10-209" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-210"><a href="#cb10-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-211"><a href="#cb10-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-212"><a href="#cb10-212" aria-hidden="true" tabindex="-1"></a>Run it and watch the Console. The first time may take a moment if any packages need downloading.</span>
+<span id="cb10-213"><a href="#cb10-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-216"><a href="#cb10-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-217"><a href="#cb10-217" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-218"><a href="#cb10-218" aria-hidden="true" tabindex="-1"></a>opts_lib <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb10-219"><a href="#cb10-219" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It installs the package and makes it available permanently, no need to load it again"</span>,</span>
+<span id="cb10-220"><a href="#cb10-220" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"It installs the package to your computer, but you still need to load it at the start of every R session"</span>,</span>
+<span id="cb10-221"><a href="#cb10-221" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It loads the package for this session only, and uninstalls it when you close R"</span>,</span>
+<span id="cb10-222"><a href="#cb10-222" aria-hidden="true" tabindex="-1"></a>  <span class="st">"It checks if the package is up to date and updates it if necessary"</span></span>
+<span id="cb10-223"><a href="#cb10-223" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-224"><a href="#cb10-224" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-225"><a href="#cb10-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-226"><a href="#cb10-226" aria-hidden="true" tabindex="-1"></a>**What does `install.packages()` actually do?** <span class="in">`r longmcq(opts_lib)`</span></span>
+<span id="cb10-227"><a href="#cb10-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-228"><a href="#cb10-228" aria-hidden="true" tabindex="-1"></a><span class="fu">## Part 6 · File paths and importing data</span></span>
+<span id="cb10-229"><a href="#cb10-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-230"><a href="#cb10-230" aria-hidden="true" tabindex="-1"></a><span class="fu">### The problem with file paths</span></span>
 <span id="cb10-231"><a href="#cb10-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-232"><a href="#cb10-232" aria-hidden="true" tabindex="-1"></a>This works — but only on your computer. The moment a colleague opens the same script, or you move the project to a different folder, the path breaks. This is a fragile way to work.</span>
+<span id="cb10-232"><a href="#cb10-232" aria-hidden="true" tabindex="-1"></a>When R reads a file, it needs to know exactly where that file lives on your computer. The naive approach is to write the full path:</span>
 <span id="cb10-233"><a href="#cb10-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-234"><a href="#cb10-234" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `here()` solution</span></span>
-<span id="cb10-235"><a href="#cb10-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-236"><a href="#cb10-236" aria-hidden="true" tabindex="-1"></a>The <span class="in">`here`</span> package solves this by building file paths relative to your R Project root — the folder where your <span class="in">`.Rproj`</span> file lives. Instead of writing the full path, you write:</span>
-<span id="cb10-237"><a href="#cb10-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-238"><a href="#cb10-238" aria-hidden="true" tabindex="-1"></a>**Action** — In your script, call <span class="in">`here::here()`</span> with no arguments and run it</span>
-<span id="cb10-239"><a href="#cb10-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-240"><a href="#cb10-240" aria-hidden="true" tabindex="-1"></a>You should see the full path to your project folder printed in the Console. That is the root <span class="in">`here()`</span> is working from. The way <span class="in">`here()`</span> works is by passing quoted folder names as arguments (separated by comma) to navigate from the root folder to the file or folder of your interest</span>
-<span id="cb10-241"><a href="#cb10-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-242"><a href="#cb10-242" aria-hidden="true" tabindex="-1"></a>You have a file (<span class="in">`imd_S1.xlsx`</span>) located in the raw data folder. Let's navigate to it:</span>
-<span id="cb10-243"><a href="#cb10-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-244"><a href="#cb10-244" aria-hidden="true" tabindex="-1"></a>**Action** — Build a path to the data file:</span>
+<span id="cb10-236"><a href="#cb10-236" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-237"><a href="#cb10-237" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-238"><a href="#cb10-238" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"C:/Users/yourname/Documents/IntroToRCourse/data/raw/imd_S1.xlsx"</span>)</span>
+<span id="cb10-239"><a href="#cb10-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-240"><a href="#cb10-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-241"><a href="#cb10-241" aria-hidden="true" tabindex="-1"></a>This works — but only on your computer. The moment a colleague opens the same script, or you move the project to a different folder, the path breaks. This is a fragile way to work.</span>
+<span id="cb10-242"><a href="#cb10-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-243"><a href="#cb10-243" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb10-244"><a href="#cb10-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### `file path` syntax</span></span>
 <span id="cb10-245"><a href="#cb10-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-248"><a href="#cb10-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-249"><a href="#cb10-249" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-250"><a href="#cb10-250" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"IMD_S1.xlsx"</span>)</span>
-<span id="cb10-251"><a href="#cb10-251" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-246"><a href="#cb10-246" aria-hidden="true" tabindex="-1"></a>Notice that we use forward slashes (<span class="in">`/`</span>, not , which are used in file paths in Windows.</span>
+<span id="cb10-247"><a href="#cb10-247" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-248"><a href="#cb10-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-249"><a href="#cb10-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### The `here()` solution</span></span>
+<span id="cb10-250"><a href="#cb10-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-251"><a href="#cb10-251" aria-hidden="true" tabindex="-1"></a>The <span class="in">`here`</span> package solves this by building file paths relative to your R Project root — the folder where your <span class="in">`.Rproj`</span> file lives. Instead of writing the full path, you write:</span>
 <span id="cb10-252"><a href="#cb10-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-253"><a href="#cb10-253" aria-hidden="true" tabindex="-1"></a>Run this line. R will print the full path — but it will not read the file yet. You are just constructing the address.</span>
+<span id="cb10-253"><a href="#cb10-253" aria-hidden="true" tabindex="-1"></a>**Action** — In your script, call <span class="in">`here::here()`</span> with no arguments and run it</span>
 <span id="cb10-254"><a href="#cb10-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-257"><a href="#cb10-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-258"><a href="#cb10-258" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb10-259"><a href="#cb10-259" aria-hidden="true" tabindex="-1"></a>opts_here <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb10-260"><a href="#cb10-260" aria-hidden="true" tabindex="-1"></a>  <span class="st">"A connection to the file, which allows R to start reading its contents "</span>,</span>
-<span id="cb10-261"><a href="#cb10-261" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"A file path stored as a text string, which can be passed directly to other functions"</span>,</span>
-<span id="cb10-262"><a href="#cb10-262" aria-hidden="true" tabindex="-1"></a>  <span class="st">"A special path object that automatically updates if you move your project to a different folder"</span></span>
-<span id="cb10-263"><a href="#cb10-263" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-264"><a href="#cb10-264" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-265"><a href="#cb10-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-266"><a href="#cb10-266" aria-hidden="true" tabindex="-1"></a>**What type of output is here() producing** <span class="in">`r longmcq(opts_here)`</span></span>
+<span id="cb10-255"><a href="#cb10-255" aria-hidden="true" tabindex="-1"></a>You should see the full path to your project folder printed in the Console. That is the root <span class="in">`here()`</span> is working from. The way <span class="in">`here()`</span> works is by passing quoted folder names as arguments (separated by comma) to navigate from the root folder to the file or folder of your interest</span>
+<span id="cb10-256"><a href="#cb10-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-257"><a href="#cb10-257" aria-hidden="true" tabindex="-1"></a>You have a file (<span class="in">`imd_S1.xlsx`</span>) located in the raw data folder. Let's navigate to it:</span>
+<span id="cb10-258"><a href="#cb10-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-259"><a href="#cb10-259" aria-hidden="true" tabindex="-1"></a>**Action** — Build a path to the data file:</span>
+<span id="cb10-260"><a href="#cb10-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-263"><a href="#cb10-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-264"><a href="#cb10-264" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-265"><a href="#cb10-265" aria-hidden="true" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"IMD_S1.xlsx"</span>)</span>
+<span id="cb10-266"><a href="#cb10-266" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-267"><a href="#cb10-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-268"><a href="#cb10-268" aria-hidden="true" tabindex="-1"></a><span class="fu">### Importing data</span></span>
+<span id="cb10-268"><a href="#cb10-268" aria-hidden="true" tabindex="-1"></a>Run this line. R will print the full path — but it will not read the file yet. You are just constructing the address.</span>
 <span id="cb10-269"><a href="#cb10-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-270"><a href="#cb10-270" aria-hidden="true" tabindex="-1"></a>Now you will read the file for the first time.</span>
-<span id="cb10-271"><a href="#cb10-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-272"><a href="#cb10-272" aria-hidden="true" tabindex="-1"></a>**Action** — Load your data using its path and the <span class="in">`import()`</span> function. Don't forget to assign it to a new object named <span class="in">`imd_raw`</span></span>
-<span id="cb10-273"><a href="#cb10-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-276"><a href="#cb10-276" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-277"><a href="#cb10-277" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb10-278"><a href="#cb10-278" aria-hidden="true" tabindex="-1"></a><span class="co"># Load raw data</span></span>
-<span id="cb10-279"><a href="#cb10-279" aria-hidden="true" tabindex="-1"></a>imd_raw <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"IMD_S1.xlsx"</span>))</span>
-<span id="cb10-280"><a href="#cb10-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-281"><a href="#cb10-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-282"><a href="#cb10-282" aria-hidden="true" tabindex="-1"></a>Two things are happening here:</span>
-<span id="cb10-283"><a href="#cb10-283" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-284"><a href="#cb10-284" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`here::here()`</span> builds the path to the file</span>
-<span id="cb10-285"><a href="#cb10-285" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`rio::import()`</span> reads the file and stores it as an object called <span class="in">`imd_raw`</span> in your Environment</span>
+<span id="cb10-272"><a href="#cb10-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-273"><a href="#cb10-273" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb10-274"><a href="#cb10-274" aria-hidden="true" tabindex="-1"></a>opts_here <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb10-275"><a href="#cb10-275" aria-hidden="true" tabindex="-1"></a>  <span class="st">"A connection to the file, which allows R to start reading its contents "</span>,</span>
+<span id="cb10-276"><a href="#cb10-276" aria-hidden="true" tabindex="-1"></a>  <span class="at">answer =</span> <span class="st">"A file path stored as a text string, which can be passed directly to other functions"</span>,</span>
+<span id="cb10-277"><a href="#cb10-277" aria-hidden="true" tabindex="-1"></a>  <span class="st">"A special path object that automatically updates if you move your project to a different folder"</span></span>
+<span id="cb10-278"><a href="#cb10-278" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-279"><a href="#cb10-279" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-280"><a href="#cb10-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-281"><a href="#cb10-281" aria-hidden="true" tabindex="-1"></a>**What type of output is here() producing** <span class="in">`r longmcq(opts_here)`</span></span>
+<span id="cb10-282"><a href="#cb10-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-283"><a href="#cb10-283" aria-hidden="true" tabindex="-1"></a><span class="fu">### Importing data</span></span>
+<span id="cb10-284"><a href="#cb10-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-285"><a href="#cb10-285" aria-hidden="true" tabindex="-1"></a>Now you will read the file for the first time.</span>
 <span id="cb10-286"><a href="#cb10-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-287"><a href="#cb10-287" aria-hidden="true" tabindex="-1"></a>Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.</span>
+<span id="cb10-287"><a href="#cb10-287" aria-hidden="true" tabindex="-1"></a>**Action** — Load your data using its path and the <span class="in">`import()`</span> function. Don't forget to assign it to a new object named <span class="in">`imd_raw`</span></span>
 <span id="cb10-288"><a href="#cb10-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-289"><a href="#cb10-289" aria-hidden="true" tabindex="-1"></a><span class="in">`rio::import()`</span> supports many file formats and automatically detects the type from the file extension. When importing an Excel workbook with multiple sheets, don't forget to specify the sheet if your data is not on the first one: <span class="in">`imd_raw &lt;- rio::import(here::here("data", "raw", "IMD_S1.xlsx"), which = "Cases"`</span>)).</span>
-<span id="cb10-290"><a href="#cb10-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-291"><a href="#cb10-291" aria-hidden="true" tabindex="-1"></a>**Action** — Check your Environment panel — you should see <span class="in">`imd_raw`</span> appear there. What is different with this object compared with the previous ones?</span>
-<span id="cb10-292"><a href="#cb10-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-293"><a href="#cb10-293" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb10-294"><a href="#cb10-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-295"><a href="#cb10-295" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise summary</span></span>
+<span id="cb10-291"><a href="#cb10-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-292"><a href="#cb10-292" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-293"><a href="#cb10-293" aria-hidden="true" tabindex="-1"></a><span class="co"># Load raw data</span></span>
+<span id="cb10-294"><a href="#cb10-294" aria-hidden="true" tabindex="-1"></a>imd_raw <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"IMD_S1.xlsx"</span>))</span>
+<span id="cb10-295"><a href="#cb10-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-296"><a href="#cb10-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-297"><a href="#cb10-297" aria-hidden="true" tabindex="-1"></a>**Congrats! You have successfully created your basic R Infrastructure: folders, R Project, Libraries and Data Import**</span>
+<span id="cb10-297"><a href="#cb10-297" aria-hidden="true" tabindex="-1"></a>Two things are happening here:</span>
 <span id="cb10-298"><a href="#cb10-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-299"><a href="#cb10-299" aria-hidden="true" tabindex="-1"></a>Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be splitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking</span>
-<span id="cb10-300"><a href="#cb10-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-301"><a href="#cb10-301" aria-hidden="true" tabindex="-1"></a>This is what you practiced and learned:</span>
-<span id="cb10-302"><a href="#cb10-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-303"><a href="#cb10-303" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  <span class="pp">|</span>  <span class="pp">|</span></span>
-<span id="cb10-304"><a href="#cb10-304" aria-hidden="true" tabindex="-1"></a><span class="pp">|:---|:---|</span></span>
-<span id="cb10-305"><a href="#cb10-305" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **R Project** <span class="pp">|</span> A self-contained workspace anchored to a folder with a <span class="in">`.Rproj`</span> file <span class="pp">|</span></span>
-<span id="cb10-306"><a href="#cb10-306" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **Folder structure** <span class="pp">|</span> <span class="in">`data/raw`</span>, <span class="in">`data/clean`</span>, <span class="in">`scripts`</span>, <span class="in">`outputs`</span> — each with a clear role <span class="pp">|</span></span>
-<span id="cb10-307"><a href="#cb10-307" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **`install.packages()`** <span class="pp">|</span> Downloads a package to your computer — once per machine <span class="pp">|</span></span>
-<span id="cb10-308"><a href="#cb10-308" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **`update.packages()`** <span class="pp">|</span> Updates an installed package to its most recent version — periodically <span class="pp">|</span></span>
-<span id="cb10-309"><a href="#cb10-309" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **`library()`** <span class="pp">|</span> Loads a package for your current session — every time you open R <span class="pp">|</span></span>
-<span id="cb10-310"><a href="#cb10-310" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **`pacman::p_load()`** <span class="pp">|</span> Installs or updates (if needed) AND loads a package <span class="pp">|</span></span>
-<span id="cb10-311"><a href="#cb10-311" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **`here::here()`** <span class="pp">|</span> Builds portable file paths from your project root <span class="pp">|</span></span>
-<span id="cb10-312"><a href="#cb10-312" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> **`rio::import()`** <span class="pp">|</span> Reads data files into R as objects <span class="pp">|</span></span>
+<span id="cb10-299"><a href="#cb10-299" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`here::here()`</span> builds the path to the file</span>
+<span id="cb10-300"><a href="#cb10-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`rio::import()`</span> reads the file and stores it as an object called <span class="in">`imd_raw`</span> in your Environment</span>
+<span id="cb10-301"><a href="#cb10-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-302"><a href="#cb10-302" aria-hidden="true" tabindex="-1"></a>Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.</span>
+<span id="cb10-303"><a href="#cb10-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-304"><a href="#cb10-304" aria-hidden="true" tabindex="-1"></a><span class="in">`rio::import()`</span> supports many file formats and automatically detects the type from the file extension. When importing an Excel workbook with multiple sheets, don't forget to specify the sheet if your data is not on the first one: <span class="in">`imd_raw &lt;- rio::import(here::here("data", "raw", "IMD_S1.xlsx"), which = "Cases"`</span>)).</span>
+<span id="cb10-305"><a href="#cb10-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-306"><a href="#cb10-306" aria-hidden="true" tabindex="-1"></a>**Action** — Check your Environment panel — you should see <span class="in">`imd_raw`</span> appear there. What is different with this object compared with the previous ones?</span>
+<span id="cb10-307"><a href="#cb10-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-308"><a href="#cb10-308" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb10-309"><a href="#cb10-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-310"><a href="#cb10-310" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercise summary</span></span>
+<span id="cb10-311"><a href="#cb10-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-312"><a href="#cb10-312" aria-hidden="true" tabindex="-1"></a>**Congrats! You have successfully created your basic R Infrastructure: folders, R Project, Libraries and Data Import**</span>
 <span id="cb10-313"><a href="#cb10-313" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-314"><a href="#cb10-314" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb10-314"><a href="#cb10-314" aria-hidden="true" tabindex="-1"></a>Every time you start a new task in real life, you will need a Project to store everything and work in a reproducible way, especially in collaborative settings. Projects will also be splitted into multiple scripts, with each one fulfilling one specific task (e.g., data cleaning, exploratory analysis, table production, etc.). All of them will start with some information on top, then libraries and data needed for the specific tasks. In no time you will find yourself reproducing these without even thinking</span>
 <span id="cb10-315"><a href="#cb10-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-316"><a href="#cb10-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb10-317"><a href="#cb10-317" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
-<span id="cb10-318"><a href="#cb10-318" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener("DOMContentLoaded", function() {</span></span>
-<span id="cb10-319"><a href="#cb10-319" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName("webex-radiogroup");</span></span>
-<span id="cb10-320"><a href="#cb10-320" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
-<span id="cb10-321"><a href="#cb10-321" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
-<span id="cb10-322"><a href="#cb10-322" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
-<span id="cb10-323"><a href="#cb10-323" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
-<span id="cb10-324"><a href="#cb10-324" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
-<span id="cb10-325"><a href="#cb10-325" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb10-316"><a href="#cb10-316" aria-hidden="true" tabindex="-1"></a>This is what you practiced and learned:</span>
+<span id="cb10-317"><a href="#cb10-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-318"><a href="#cb10-318" aria-hidden="true" tabindex="-1"></a>|  |  |</span>
+<span id="cb10-319"><a href="#cb10-319" aria-hidden="true" tabindex="-1"></a>|:-----------------------------------|:-----------------------------------|</span>
+<span id="cb10-320"><a href="#cb10-320" aria-hidden="true" tabindex="-1"></a>| **R Project** | A self-contained workspace anchored to a folder with a <span class="in">`.Rproj`</span> file |</span>
+<span id="cb10-321"><a href="#cb10-321" aria-hidden="true" tabindex="-1"></a>| **Folder structure** | <span class="in">`data/raw`</span>, <span class="in">`data/clean`</span>, <span class="in">`scripts`</span>, <span class="in">`outputs`</span> — each with a clear role |</span>
+<span id="cb10-322"><a href="#cb10-322" aria-hidden="true" tabindex="-1"></a>| **`install.packages()`** | Downloads a package to your computer — once per machine |</span>
+<span id="cb10-323"><a href="#cb10-323" aria-hidden="true" tabindex="-1"></a>| **`update.packages()`** | Updates an installed package to its most recent version — periodically |</span>
+<span id="cb10-324"><a href="#cb10-324" aria-hidden="true" tabindex="-1"></a>| **`library()`** | Loads a package for your current session — every time you open R |</span>
+<span id="cb10-325"><a href="#cb10-325" aria-hidden="true" tabindex="-1"></a>| **`pacman::p_load()`** | Installs or updates (if needed) AND loads a package |</span>
+<span id="cb10-326"><a href="#cb10-326" aria-hidden="true" tabindex="-1"></a>| **`here::here()`** | Builds portable file paths from your project root |</span>
+<span id="cb10-327"><a href="#cb10-327" aria-hidden="true" tabindex="-1"></a>| **`rio::import()`** | Reads data files into R as objects |</span>
+<span id="cb10-328"><a href="#cb10-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-329"><a href="#cb10-329" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb10-330"><a href="#cb10-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-331"><a href="#cb10-331" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb10-332"><a href="#cb10-332" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb10-333"><a href="#cb10-333" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener("DOMContentLoaded", function() {</span></span>
+<span id="cb10-334"><a href="#cb10-334" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName("webex-radiogroup");</span></span>
+<span id="cb10-335"><a href="#cb10-335" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
+<span id="cb10-336"><a href="#cb10-336" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
+<span id="cb10-337"><a href="#cb10-337" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb10-338"><a href="#cb10-338" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
+<span id="cb10-339"><a href="#cb10-339" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb10-340"><a href="#cb10-340" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
@@ -1896,37 +1729,30 @@ window.onload = function() {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
         }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
       }
-    });
-  
-  };
-  
-})();
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
           </script>
 
 
