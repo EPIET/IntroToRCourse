@@ -1,5 +1,5 @@
 ---
-title: "Filtering rows"
+title: "Logical conditions and Tidy"
 subtitle: "Session 2 practical exercises"
 ---
 
@@ -16,17 +16,20 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 <!-- I think something that is implicit here but could be made explicit is that some filters only work on some types of variables
  Also we could use this as an opportunity to remind them that filter(region == R6) and filter(age_year >= "18") will not work.
  Maybe you can just write this in the solution? 
- Javi: Added comments as column margin, lines 53 and 63, pointing out this potential error and prompting them to try -->
+ Javi: Added comments as column margin, lines 53 and 63, pointing out this potential error and prompting them to try
+ Yulia: I am not sure if it makes sense to let them use filter() etc. if they haven't looked at the data systematically (e.g. being aware of NAs). I don't mean data cleaning, but rather the functions from S3E2: glimpse(), str(), summary(), and head().
+ Javi: From the pure data manipulation logic it wouldn't make sense, of course. First you know about your data, then filter as appropriate. But I'm not following that logic, the idea is that they understand tidy verbs, what manipulating data is, and that it can actually be easy. Therefore the use of already cleaned data, and simple, guided instructions. My logic is: first learn what programming and manipulating data means, then how you should actually do it from scratch, once you are not that afraid of code and logic
+ -->
 ```
 
 You already know how to build a pipeline and are starting to grasp the logic of tidy data. We introduced the `filter()` function in the previous exercise in a simple manner, without entering in its more complicated aspects. And, partially, that happens because the function itself is not they key aspect of row selection. That role belongs to logical statements — the true heart not only of `filter()`, but also of the whole programming experience.
 
 Now you need to learn how to tell R *which rows you want* — and that means learning the language of logical conditions. A single condition is rarely enough in real epidemiological work, so you will also need to learn to combine them.
 
-To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether something is true or false for each row. Here is the full set you will be using today:
+To do that precisely, you need **logical operators** — the symbols R uses to evaluate whether a condition is true or false. Here is the full set you will be using today:
 
 | Operator  | Meaning                                                       |
-|-----------|---------------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | `==`      | Exactly equal to, meaning absolute equivalence; "*identical*" |
 | `!=`      | Not equal to; "*different*"                                   |
 | `>`, `>=` | Greater than / greater than or equal to                       |
@@ -37,13 +40,13 @@ To do that precisely, you need **logical operators** — the symbols R uses to e
 | `%in%`    | Present in a set of values; "*is part of*"                    |
 | `is.na()` | Identifies missing values (`NA`)                              |
 
-Keep this table in view. You will use every one of these today.
+Keep this table in view. You will use every operator today.
 
 ## Part 2 · Logical operators
 
 ### Equality and comparison
 
-The simplest conditions check whether a variable equals a specific value, or falls above or below a numeric threshold. You have already seen those a couple times in this course, for example when we filtered only cases from `R6`
+The simplest conditions to check are whether a variable equals a specific value, or falls above or below a numeric threshold. You have already seen those a couple times in this course, for example when we filtered only cases from `R6`.
 
 ``` r
 imd_region <- imd %>%
@@ -51,46 +54,50 @@ imd_region <- imd %>%
 ```
 
 ::: column-margin
-Filters need to be defined with the adequate type of variable. Here, `region_id` is a character (text) variable, therefore the quotes in `"R6"`. Try running the same code without the quotes to see the error message.
+Filters need to be defined using the appropriate variable type. Here, `region_id` is a character (text) variable, therefore the value `"R6"` is written in quotes. Try running the same code without the quotes to see the error message.
 :::
 
-From now on, this is the format of code we want to start emulating: calling the data *and then* using functions
+From now on, this is the format of code we want to start emulating: calling the data *and then* using functions.
 
 **Action** — Now filter for cases where `age_years` is *18 or older*. Assign it to an object `imd_adults`.
 
 **Action** — Filter for cases where `age_years` is strictly *less than* 18. Assign it to an object `imd_kids`. Do the two results together add up to the total rows in `imd`?
 
 ::: column-margin
-As we saw with `R6`, now try the opposite here with `age_years`: write the value 18 as a character string between quotes (`"18"`) instead of a numeric argument to see the error message. Take home message: define the logical conditions according to the variable type you are using or it won't work.
+As we saw with `R6`, quotation marks indicate that a value is a character variable in R. Now try the same with `age_years`: use `"18"` instead of the numeric value `18` to see the error message. Take home message: Make sure the value you use in the logical condition has the appropriate type you are using or it won't work.
+
+Note that we will take a deep dive into variable classes tomorrow, learning how to check and change it
 :::
+
+<!-- to determine the class variable is only introduced later. Maybe a reference to S3E2 would be good: Note, we’ll take a deep dive into variable classes tomorrow. JAVI: added in the column margin -->
 
 ::: {.callout-tip collapse="true" appearance="simple" icon="false"}
 ## Hint - counting rows
 
-Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition check. For example, you can type:
+Counting the number of rows of filtered dataframes is a wise action when working with large amounts of data. Since we are talking about logical operators, they can also be used outside functions, as pure condition checks. For example, you can type:
 
 ``` r
 nrow(imd) == nrow(imd_adults) + nrow(imd_kids)
 ```
 
-as a control to ask "*Is the sum of rows of the two filtered dataframes exactly identical to the original rows of `imd`?"*
+as a control to ask "*Is the sum of the rows in the two filtered dataframes exactly equal to the original number of rows in `imd`?"*
 :::
 
-Well, turns out we have missing rows. But, how is that even possible? If age logical conditions, some is either younger than 18, 18 or older than 18, which was covered by the `<` and the `>=`. The answer to that question is:
+Well, turns out we have missing rows. But, how is that even possible? If the age logical conditions mean that someone is either younger than 18, or 18 and older, shouldn't all cases be covered by the `<` and the `>=` conditions. The answer to that question is:
 
-**Action** — Might there be cases with missing `age_year` information? We can check by creating `img_age_missing` and filtering using the `is.na()` operator. Then, check again if all rows are covered through the three objects
+**Action** — Might there be cases with missing `age_year` information? We can check by creating `imd_age_missing` and filtering using the `is.na()` operator. Then, check again if all rows are covered across the three objects.
 
 ::: callout-important
 ### Checking rows is your first quality control
 
-After every `filter()`, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using `nrow()` or other functions
+After every `filter()`, glance at the number of rows in the output. Does it go down when you expect it to? By roughly the amount you would expect? A filter that retains the same number of rows as the original — or drops to zero — is almost always a sign that something went wrong: a typo in the value, the wrong variable name, or a condition that is never true. There are many ways of checking this number: in the Environment window, opening the data viewer, calling the object in the console, using `nrow()` or other functions.
 :::
 
 ### Combining conditions
 
 Most real filters combine more than one condition. The `&` and `|` operators let you do this — but they behave very differently, and confusing them is one of the most common sources of silent errors in data analysis.
 
-**Action** — Filter `imd` to keep only female cases from R6, combining both conditions with `&`. Assign the result to `imd_r6_f` and check the row count.
+**Action** — Filter `imd` to keep only female cases from R6, combining both conditions with `&`. Assign the result to `imd_r6_f` and type below the row count.
 
 `r fitb(323)`
 
@@ -98,21 +105,21 @@ When using multiple conditions inside `filter()`, the default behavior is treati
 
 ``` r
 # Remember, you can achieve the same result with these three codes
-# Comma separator
+# Comma-separated conditions
 imd %>% filter(condition1, condition2)
 
-# AND operator in a single condition
+# Conditions combined with the AND operator
 imd %>% filter(condition1 & condition2)
 
-# Pipe of two consequtive filters
+# Two consequtive filters
 imd %>% 
-  filter(region_id == "R6") %>% 
-  filter(sex == "Female")
+  filter(condition1) %>% 
+  filter(condition2)
 ```
 
-And it make sense! When executed with `&`, R created a single evaluation for both conditions, while the two arguments version executed the query sequentially, first retaining only those from `R6` and then, among cases from `R6` it retained only `Female` cases. The same result in two different approximations. That is only valid for `AND` (`&)` statements. If we try the same with other operators, the results slightly changes
+And it makes sense! With `&`, R evaluated both conditions together. With comma-separated conditions or two consecutive filters, the same two conditions are applied, so the result is the same. First retaining only cases from `R6` and then, among these retained only `Female` cases. That is only valid for `AND` (`&)` statements. If we try the same with other operators, the results change slightly.
 
-**Action** — Filter cases that are either from `R6` or `Female` using the `|` (OR) operator, creating the object `imd_r6_or_f` and compare the resulting number of rows with `imd_r6_f`
+**Action** — Filter cases that are either from `R6` or `Female` using the `|` (OR) operator, creating the object `imd_r6_or_f` and compare the resulting number of rows with `imd_r6_f`.
 
 Can you understand why the difference?
 
@@ -131,7 +138,7 @@ imd_regions <- imd %>%
   filter(region_id == "R1" | region_id == "R6" | region_id == "R9")
 ```
 
-This works, but grows unwieldy fast. The `%in%` operator is the clean solution: it checks whether a value is present anywhere in a set you define. Depending on the complexity and number of options, you can define the values directly using a vector in the filter function, or you could first create an object to serve as intermediary.
+This works, but the code grows unwieldy fast. The `%in%` operator is the clean solution: it checks whether a value is present anywhere in a set you define. Depending on the complexity and number of options, you can define the values directly using a vector in the filter function, or you could first create an object to serve as intermediary.
 
 Therefore, you could write any of the following:
 
@@ -169,22 +176,35 @@ The critical thing to know: **you cannot use `==` to find `NA`**. Try it in your
 NA == NA
 ```
 
-You might expect `TRUE`. R returns `NA`. The logic is sound: if a value is unknown, you cannot confirm it is equal to another unknown value. Two unknowns are not necessarily the same unknown. So R does not guess — it returns "I don't know". `is.na()` exists precisely to solve this. It does not compare — it simply asks "is this value missing?", and returns `TRUE` or `FALSE` cleanly.
+You might expect `TRUE`. R returns `NA`. The logic is sound: if a value is unknown, you cannot confirm it is equal to another unknown value. Two unknowns are not necessarily the same unknown. So R does not guess — it returns "I don't know". `is.na()` exists precisely to solve this. It does not compare — it simply asks "is this value missing?", and returns `TRUE` or `FALSE`.
 
-**Action** — Check how many cases in `imd` have a missing value in the `serogroup` variable? Create the `imd_serogroup_na` object for that.
+**Action** — Check how many cases in `imd` have a missing value in the `serogroup` variable? Create the `imd_serogroup_na` object for that and type the number below:
 
 `r fitb(0)`
 
-Finding missing values is a common task when doing data cleaning, but that is tomorrow's topic. For now, we are only interested in discarding cases with `NA` values in some of their variables, something you will also do quite frequently in the future - believe me. For that, we can introduce the last of today's operators, the `!` - opposite operator
+Finding missing values is a common task when doing data cleaning, but that is tomorrow's topic. For now, we are only interested in discarding cases with `NA` values in some of their variables, something you will also do quite frequently in the future - believe me.
 
-When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having `NA` values in some column, we would do something like:
+For that, we can introduce the last of today's operators, the `!` - ***opposite or negation*** operator. When placed right before another condition, it tells R to do the exact opposite. Therefore, if we want to keep rows NOT having `NA` values in some column, we would do something like:
 
 ``` r
 imd %>% 
   filter(!is.na(variable1))
 ```
 
-**Action** — Add to your previous filter chain a new condition to filter away cases with missing `age_years` values
+**Action** — Create a new object `imd_age_na` that contains only cases with missing `age_years` values. How many cases are there?
+
+`r fitb(112)`
+
+**Action** — Rather than an object with missing `age_years` cases, we want a dataframe *without* them this time. Call it `imd_age_clean`. Use the same filter with `!` to achieve that. How many rows are left?
+
+`r fitb(2515)`
+
+**Optional** — How can you use `nrow()` to check that `imd_age_clean` has effectively filtered the adequate number of rows? This one can be trickier, but give it a try!
+
+```{=html}
+<!-- Instructions are not clear. Also not included in solution at the end. 
+JAVI: You were right! I changed the task with more steps but clearer approach, and added the solution at the end. Thanks!! -->
+```
 
 ------------------------------------------------------------------------
 
@@ -248,16 +268,16 @@ opts4 <- c(
 
 ## Exercise summary
 
-Logical operators are the engine behind `filter()` — and behind most of the decisions your code will ever make. You now know how to select rows by equality, by range, by set membership, and how to handle the special case of missing values. Combined with the pipe, `filter()` gives you precise control over which data you are actually working with at any point in your analysis.
+Logical operators are the engine behind `filter()` — and behind most of the decisions your code will ever make. You now know how to select rows by equality, by range, by set membership (using `%in%`), and how to handle the special case of missing values. Combined with the pipe, `filter()` gives you precise control over which data you are actually working with at any point in your analysis.
 
-But this is only the tip of the iceberg of Tidy, so let's continue to the verb of creation: `mutate()`
+But this is only the tip of the Tidy iceberg, so let's continue to the verb of creation: `mutate()`.
 
 ::: {.callout-tip collapse="true"}
 ## 💡 Show solution — only after trying yourself!
 
 ``` r
 # Filter cases from Region 6
-md_r6 <- imd %>% filter(region_id == "R6")
+imd_region <- imd %>% filter(region_id == "R6")
 
 # Filter adults and kids cases
 imd_adults <- imd %>% filter(age_years >= 18)
@@ -274,13 +294,17 @@ nrow(imd) == nrow(imd_kids) + nrow(imd_adults) + nrow(imd_age_missing) # now it 
 
 # Filter both Region 6 AND Female cases
 imd_r6_f <- imd %>%
-  filter(region_id == "R6" & sex == "Female")
+  filter(region_id == "R6" & sex == "Female") # order of conditions doesn't matter
 
 # Filter Region 6 OR Female cases
 imd_r6_or_f <- imd %>%
   filter(region_id == "R6" | sex == "Female")
 
 # Filter cases from any of R1, R6 or R9 regions
+imd_regions <- imd %>% 
+  filter(region_id == "R1" | region_id == "R6" | region_id == "R9")
+  
+# better option using %in%
 imd_regions <- imd %>%
   filter(region_id %in% c("R1", "R6", "R9"))
 
@@ -293,6 +317,17 @@ imd_filtered <- imd %>%
 # Is there any missing case in serogroup?
 imd_serogroup_na <- imd %>%
   filter(is.na(serogroup))
+
+# Missing age cases
+imd_age_na <- imd %>% 
+  filter(is.na(age_years))
+
+# Dataset without missing age_year cases
+imd_age_clean <- imd %>% 
+  filter(!is.na(age_years))
+
+# We can check the difference in rows is correct
+nrow(imd_age_clean) == (nrow(imd) - nrow(imd_age_na))
 ```
 :::
 
