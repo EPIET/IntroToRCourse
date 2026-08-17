@@ -14,25 +14,25 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 
 **Have you heard about Murphy law?**
 
-Yesterday, you were instructed to become familiar with IMD data from the department, as your supervisor is planning your first surveillance project around it. During the weekly department meeting, Kassandra, the head of department for infectious diseases epidemiology and surveillance, informed the team about a mail shared by one of the regions, `R6`, expressing concern about a recent rise in IMD cases among female young adults.
+Yesterday, you were instructed to become familiar with IMD data from the department, as your supervisor is planning your first surveillance project around it. During the weekly department meeting, Kassandra, the head of department for infectious diseases epidemiology and surveillance, informed the team about an email shared by one of the regions, `R6`, expressing concern about a recent rise in IMD cases among female young adults.
 
-They asked your department for assistance in evaluating this signal, specially for adding national context and background information about other regions. Your colleagues start organizing a small task force, and Kassandra immediately appoints you to the team so you can have a first-hand experience in your new Institute. Your task will be to analyze data from previous year of IMD surveillance of the affected region, and a few others that will allow comparison. It's a cleaned, ready-to-use dataframe that epidemiologist in the unit know very well, with annual reports published already.
+They asked your department for assistance in evaluating this signal, especially for adding national context and background information about other regions. Your colleagues start organizing a small task force, and Kassandra immediately appoints you to the team so you can get some first-hand experience at your new Institute. Your task will be to analyze IMD surveillance data from previous years of the affected region, and a few otherregions for comparison. It's a cleaned, ready-to-use dataframe that epidemiologists in the unit know very well, with annual reports published already.
 
-*The perfect task for a brand new EPIET fellow*
+*The perfect task for a brand new EPIET and EUPHEM fellow.*
 
 ## Before you start
 
-Yesterday you learned how to prepare your workspace: the R Project, the clean script, libraries and data. You should at least have a working project within a folder structure that we provided you for this course
+Yesterday, you learned how to set up an R Project, start a script, use packages, and apply functions to your data. To continue with today's session, you should open the saved project `IntroToRCourse.Rproj`.
 
-**Action** — Start a new script and save it as `S1_tidyverse`
+**Action** — Start a new script and save it as `S2_tidyverse`.
 
-**Action** — Prepare the script for today's work: add initial notes, activate libraries and load data
+**Action** — Prepare the script for today's work: add initial notes, activate libraries and load data.
 
-1.  Remember you will need libraries for managing file paths and for importing data to R
+1.  Remember you will need libraries for managing file paths and for importing data to R.
 
-2.  We will add a new library from now on: the `tidyverse`
+2.  We will add a new library from now on: the `tidyverse`.
 
-3.  Today's dataframe is found in the `data/clean` folder: `IMD_Sample_Clean.xlsx`. Load it and assign it to a new object called `imd`. Once loaded, click on your `imd` object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content
+3.  Today's dataframe is found in the `data/clean` folder: `IMD_Sample_Clean.xlsx`. Load it and assign it to a new object called `imd`. Once loaded, click on your `imd` object in the Environment window to open the data viewer and explore the data for a while: familiarize yourself with the variables, the structure and some of the content.
 
 ::: {.callout-tip collapse="true"}
 ## 💡 Show solution — only after trying yourself!
@@ -47,19 +47,24 @@ Now, what is this `tidyverse` we keep talking about??
 
 ## Part 1 · The pipe — a new way to think about code
 
-To start with your task, you first need to think about the instructions you were given and how to translate them into the code. This is the Grammar Model we are practicing. Remember the signal that arrived:
+## Filter: retaining the meaningful 
 
--   Increase of cases in `R6` among `female` `young adults`
+<!-- that's not base R; base R is using [] or subset. Here it's dplyr package. JAVI: Just dumped the base R references, I believe it is simpler now -->
 
-### From base to tidy code
+To start your task, you first need to think about the instructions you were given and how to translate them into code. This is the Grammar Model we are practicing. Remember the signal that arrived:
 
-This is a ***sequence*** of three steps that are needed to explore the cases of concern. Let's start by working slowly, in the way base R would expect you to do this job. The function we need for this task is `filter()`, the row selection function from `tidyverse`. We will explain it more deeply in a moment, just know that filter works like this
+- Increase in cases in `R6` among `female` `young adults`
+
+This is a ***sequence*** of three steps that are needed to explore the cases of concern. Let's start by working slowly.
+
+The first thing we need to do is keep only the rows that match the criteria from the signal. The function we need for this task is `filter()`, the row selection function from `tidyverse`. This is how the functions works:
 
 ``` r
-filter(data, condition)
+# General use of a filter function
+filter(data, condition) 
 ```
 
-The function needs as first argument the data it will use, and then the logical condition that rows need to fulfill in order to be retained, for example, cases from the region `R6`
+The function needs as first argument the data it will use, and then the logical condition that rows need to fulfill in order to be retained, for example, cases from the region `R6`.
 
 **Action** — Filter `imd` cases to only those happening in region `R6`. You can do this using this code:
 
@@ -69,19 +74,19 @@ filter(imd, region_id == "R6")
 
 Let's break down the code:
 
--   The data argument is `imd`, our working data object as we named it when loading
+- The data argument is `imd`, our imported working dataframe.
 
--   The condition argument uses the variable `region_id` from the dataframe because we want only cases from one specific region among all existing regions in the data
+- The condition argument uses the variable `region_id` from the dataframe. This is the variable we want to check.
 
-    -   for the logical condition we used `==` which is the logical operator for "equal to"
+  - for the logical condition, we used `==` which is the logical operator for "is equal to"
 
-    -   to select our region of interest, we used `"R6"` with quotes to indicate R we are referring to a literal character name to look for in the data variable
+  - to select our region of interest, we used `"R6"` with quotes because it is a character value in the `region_id` variable.
 
 **Action** — copy the `filter()` code in your script and execute it. ***What happens?***
 
 Yeah, you are right! We did not assign the function to any object, therefore the results only got printed in the console and, therefore, was lost to the *R Void* forever.
 
-**Action** — assign the filter operation to a new object `imd_filtered`
+**Action** — assign the filter operation to a new object `imd_filtered`.
 
 Cool, but that was only the first of three steps, we have two more to go! Let's do it together in a simple way:
 
@@ -93,18 +98,18 @@ imd_filtered_f_adult <- filter(imd_filtered_f, age_years >= 18)
 
 And again, let's break it down:
 
--   As a sequence, every step relied on the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function
--   Each filtering used the adequate variable: `region_id`, `sex` and `age_years` and a logical operator
+- As a sequence, every step relied on the previous result: first we filtered the region, then that new dataframe was filtered for sex, and the resulting data for age. Every new step required the creation of a new object, and using it in the next function.
+- Each filtering used the adequate variable: `region_id`, `sex` and `age_years` and a logical operator.
 
-Working in such a step-wise way is useful: anyone reading your code can very quickly get the idea of the transformations that are happening, and that is always a relevant aspect to consider when writing code. Of course, it has downside of requiring more text, more objects, and unnecessary repetition that can lead to mistakes
+Working in such a step-wise way is useful: anyone reading your code can very quickly get the idea of the transformations that are happening, and that is always a relevant aspect to consider when writing code. Of course, it has downside of requiring more text, more objects, and unnecessary repetition that can lead to mistakes.
 
-We could have done the same with only one line of code in the R base logic:
+Steps can be chained together. Before `Tidy`, the only way of chaining commands was called **nesting**, which consist in using the *data* argument of the function to write another function instead of direct data. You could then build matrioshka code like this one:
 
 ``` r
 filter(filter(filter(imd, region_id == "R6"), sex == "Female"), age_years >= 18)
 ```
 
-Now when you read this, your head needs a few minutes to understand what is happening. To really come up with the sequence, you need to start reading in the middle where `imd` is called for the first time, then it becomes a series of nested functions, arranged inside-out. Not beautiful, but does the work in a single command, and saves you three objects
+Now when you read this, your head needs a few minutes to understand what is happening. To really come up with the sequence, you need to start reading in the middle where `imd` is called for the first time, then it becomes a series of nested functions, arranged inside-out. Not beautiful, but does the work in a single command, and saves you three objects.
 
 ### The pipe as "and then"
 
@@ -125,14 +130,14 @@ Same result. But now the data flows *downward*, one step at a time, exactly in t
 
 Three properties of this style that will save you time:
 
--   The dataframe is declared ***once***, at the top. It is never repeated.
--   Variable names can be called ***directly*** within tidyverse functions, not requiring quotation or `$` like base R.
--   Code reads ***top to bottom***, like a recipe, each step acts on the result of the step above.
+- The dataframe is declared ***once***, at the top. It is never repeated.
+- Variable names can be called ***directly*** within tidyverse functions, not requiring quotation or `$` like base R.
+- Code reads ***top to bottom***, like a recipe, each step acts on the result of the step above.
 
 ::: callout-note
 ### The pipeline is a transformation chain
 
-Think of the pipe as an assembly line. The raw material (`imd`) enters at the top, passes through a series of stations (the verbs), and exits the other end transformed. Each station receives whatever came out of the previous one. Nothing is modified in place, a new object only exists if you assign it with `<-`
+Think of the pipe as an assembly line. The raw material (`imd`) enters at the top, passes through a series of stations (the verbs), and exits the other end transformed. Each station receives whatever came out of the previous one. Nothing is modified in place, a new object only exists if you assign it with `<-`.
 :::
 
 ### Your first pipeline
@@ -213,18 +218,18 @@ Now you have a grasp of what actually the pipe `%>%` operator means when working
 
 This is what you learned:
 
-+------------+------------------------------------------------------------------------------------------------------+
-| Function   | What it does                                                                                         |
-+============+======================================================================================================+
-| `%>%`      | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
-|            |                                                                                                      |
-|            | Shortcut:                                                                                            |
-|            |                                                                                                      |
-|            | -   Win: Ctrl + Shift + M                                                                            |
-|            | -   Mac: Cmd + Shift + M                                                                             |
-+------------+------------------------------------------------------------------------------------------------------+
-| `filter()` | Keeps rows matching a condition                                                                      |
-+------------+------------------------------------------------------------------------------------------------------+
++---------------+------------------------------------------------------------------------------------------------------+
+| Function      | What it does                                                                                         |
++===============+======================================================================================================+
+| `%>%`         | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
+|               |                                                                                                      |
+|               | Shortcut:                                                                                            |
+|               |                                                                                                      |
+|               | - Win: Ctrl + Shift + M                                                                              |
+|               | - Mac: Cmd + Shift + M                                                                               |
++---------------+------------------------------------------------------------------------------------------------------+
+| `filter()`    | Retains rows matching a condition                                                                    |
++---------------+------------------------------------------------------------------------------------------------------+
 
 ```{=html}
 <script>

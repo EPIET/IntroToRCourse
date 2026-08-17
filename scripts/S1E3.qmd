@@ -187,7 +187,7 @@ Read the output of each one carefully. Notice that `range()` returns two values 
 This is what you practiced and learned:
 
 |  |  |
-|------------------------------------|------------------------------------|
+|----|----|
 | **Grammar Model** | Function = verb, object = what to act on, arguments = modifiers |
 | **`nrow()` , `ncol()` , `names()`** | Ask basic questions about a dataframe's structure |
 | **`$`** | Extracts a column from a dataframe as a vector |
