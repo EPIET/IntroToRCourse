@@ -14,7 +14,7 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 
 The previous exercise ended with an open question: `mutate()` alone cannot split the data before computing. You had to run two separate pipelines to get the mean age for 1999 and 2002. The same is true for many other operations we will be interested in conducting in our daily work as epidemiologists.
 
-Think about epi tables and summaries. Think about the reporting of surveillance or outbreak data, epidemiological trends and population characteristics. We are usually interested in differences across time (years, epi weeks), groups of people (sex, age groups) and places (regions, provinces, towns). If we lacked a way of quickly computing all those, R would not have become so widespread and famous.
+Think about epi tables and summaries. Think about the reporting of surveillance or outbreak data, epidemiological trends and population characteristics. We are usually interested in differences across time (years, epi weeks), groups of people (sex, age groups) and places (regions, provinces, towns). If we didn't have a way of quickly computing all off these, R would not have become so widespread and famous.
 
 The answer to that limitation is `group_by()`, and the concept of grouped operations
 
@@ -27,11 +27,11 @@ imd %>%
   group_by(year)
 ```
 
-The dataframe looks identical to `imd`. Same rows, same columns, same values. But something has changed — look at the header in the console output. You will see a line that reads `# Groups: year [4]`. R has placed an invisible wall between the years, splitting the dataframe into four mini-dataframes that happen to be stacked on top of each other.
+The dataframe looks identical to `imd`. Same rows, same columns, same values. But something has changed — look at the header in the console output. You will see a line that reads `# Groups: year [4]`. R has placed an invisible wall between the years, splitting the dataframe into four "mini-dataframes" that happen to be stacked on top of each other.
 
 From this point on, any verb that follows in the pipeline will operate **inside each group separately**, not across the whole dataset.
 
-You can group by as many variables as needed, as long as they make sense. You just need to write every grouping variable name a comma-separated arguments. Grouping will happen in the same order to specify the variables.
+You can group by as many variables as needed, as long as they make sense. You just need to write each grouping variable name as a comma-separated argument. Grouping will happen in the same order in which you specify the variables.
 
 ::: callout-important
 ### `group_by()` is a false friend
@@ -46,18 +46,24 @@ Now that you understand the walls, let's put them to use. A grouped `mutate()` c
 ::: {.callout-warning appearance="minimal"}
 ## Things start getting interesting
 
-You will notice that instructions are getting complex step by step. Now you will start needing more than one function or operation for some of the tasks ahead. Let's remember the Grammar Model we are using to learn. Take the first task below, and before writing or executing, think for a minute about how the sentence translates into `tidy` functions
+You will notice that the instructions are getting more complex step by step. Now you will start needing more than one function or operation for some of the tasks ahead. Let's remember the Grammar Model we are using to learn. Take the first task below, and before writing or executing any code, think for a minute about how the sentence translates into `tidy` functions.
 :::
 
 **Action** — Calculate the mean age by `year` using a grouped `mutate()`. Assign the result to `imd_grouped`. Don't forget to `ungroup()` the data afterwards.
 
-**Action** — Open `imd_grouped` and look at `mean_age_year`. Youy will need to scroll down the dataframe in the viewer (in case you didn't know: you can do it). How does it differ from the global mean you calculated in the previous exercise?
+**Action** — Open `imd_grouped` and look at `mean_age_year`. You will need to scroll down the dataframe in the viewer (in case you didn't know, you can do this). How does it differ from the global mean you calculated in the previous exercise?
 
-1.  You must have realized that it takes more time and effort checking the result of this grouped operation. The dataset has 2627 rows and only has 4 years, so it takes a while to navigate. We can do better.
+1.  You must have realized that it takes more time and effort to check the result of this grouped operation. The dataset has 2627 rows and only 4 years, so it takes a while to navigate. We can do better.
 
-2.  I'm teaching you a new function: `table()`. It's a very basic R function that counts observations for you. Probably, you would have benefited from it in the previous exercise, but I wanted you to fight with the data yourself for at least once. It doesn't work inside `tidy` pipes, so you need to call it apart.
+2.  Let's introduce a new function: `table()`. It's a very basic R function that counts observations for you. Probably, you would have benefited from using it in the previous exercise, but we wanted you to fight with the data yourself for at least once. It doesn't work inside `tidy` pipes, so you need to call it separately.
 
-3.  Write `table(imd_grouped$mean_age_year)` and execute it to see in the console the different values present on the variable and how many times they are repeated, but now we are not interested in the count, but quickly checking the different values resulting from the grouped operation
+```{=html}
+<!-- Yulia: Note, janitor::tabyl() will be introduced in session 4.
+Could be already considered here as an alternative to table().
+Also for table (not specifically her) the argument useNA would be useful to know.-->
+```
+
+3.  Write `table(imd_grouped$mean_age_year)` and execute it to see in the console the different values present on the variable and how many times they are repeated, but now we are not interested in the counts here, but in quickly checking the different values resulting from the grouped operation.
 
 4.  How many different mean ages are there? `r fitb(4)`
 
@@ -66,12 +72,12 @@ You will notice that instructions are getting complex step by step. Now you will
 ::: {.callout-tip collapse="true" appearance="simple" icon="false"}
 ## Expected grouped output
 
-As you guessed, we got ourselves one mean age value per level of the grouping variable: if we have four years of data, then we asked R to calculate one mean age of cases per year, therefore four different results
+As you guessed, we got one mean age value for each level of the grouping variable: if we have four years of data, then we asked R to calculate one mean age of cases per year, resulting in four different values.
 :::
 
 Now try adding a **second grouping variable**. Instead of splitting only by year, split by year **and** sex simultaneously.
 
-**Action** — Repeat the grouped `mutate()`, this time grouping by both `year` and `sex`. Assign the result to `imd_grouped2` and inspect the new `mean_age_year` column. Repeat the steps from the previous action. but ***first*** answer the question below:
+**Action** — Repeat the grouped `mutate()`, this time grouping by both `year` and `sex`. Assign the result to `imd_grouped2` and inspect the new `mean_age_year` column. Repeat the steps from the previous action, but ***first*** answer the question below:
 
 1.  Before running the code, how many different mean age values are expected? `r fitb(8:12)`
 
@@ -80,26 +86,31 @@ Now try adding a **second grouping variable**. Instead of splitting only by year
 ::: {.callout-tip collapse="true" appearance="simple" icon="false"}
 ## Explanation
 
-The correct answer to the question is a number between 8 and 12. Try writing down any of those in the question box above, you'll see they are still correct. But why? If your answer was just 8, you guessed correctly that 4 years with "male" and "female" options every year equals the 8 values. And you'd be correct if it didn't happen to exist a third empty category, that doesn't need to be present in all years - thus leading to the actual 9 results output.
+The correct answer to the question is a number between 8 and 12. Try writing down any of those in the question box above, you'll see they are still correct. But why? If your answer was just 8, you guessed correctly that 4 years with "male" and "female" options every year would give you 8 values. And you'd be correct if there wasn't a third category, the `NA` category, in the `sex` variable, that doesn't have to be present in all years - thus leading to the actual 9 results output.
 
-This example is useful for making you think about inconsistencies between your results and what you would expect under perfect conditions - something that will save you a lot of time and error in the future!
+This example is useful for making you think about inconsistencies between your results and what you would expect under perfect conditions - something that will save you a lot of time and prevent errors in the future!
 :::
 
 Notice that `imd_grouped2` still has the same number of rows as `imd`. A grouped `mutate()` never collapses the data — it always returns a dataframe of the same size, with the group-specific result repeated for every row in that group.
 
 ## Part 5 · `summarise()` — the verb of destruction
+```{=html}
+<!-- Yulia: Are you sure you want to call it that? I would associate “destruction” with something like rm(), select(), or, let's say, the different join functions. What about “aggregation”?
 
-A grouped `mutate()` keeps every row. The original data did not change, it only created new information the length of the original data. Sometimes you do not need every row: you just need one number per group, the summary or the count or other output you are looking for. That is what `summarise()` does: it collapses each group into a single summary row.
+If we labelled mutate() the verb of creation, we can call summarise() the verb of aggregation because it aggregates your data into a summary of each group, producing something different from the data you were originally working with.-->
+```
+
+A grouped `mutate()` keeps every row. The original data did not change, it only created new information while keeping the same number of rows. Sometimes you do not need every row: you just need one number per group, the summary or the count, or other output you are looking for. That is what `summarise()` does: it collapses each group into a single summary row.
 
 If we labelled `mutate()` the verb of creation, we can call `summarise()` the verb of destruction because it is producing something completely different for you, that will not resemble at all the data you were originally working with.
 
-Using summarise is as simple as using `mutate()` - they behave identically using the `new_var = function()` logic. See for yourself:
+Using summarise is as simple as using `mutate()` - they behave identically using the `new_variable = function()` logic. See for yourself:
 
 **Action** — Calculate the mean age by year using `group_by()` + `summarise()`. Assign the result to `imd_summary`.
 
-**Action** — Compare the existing rows of both `imd_grouped` and `imd_summary`. What happened to the data?
+**Action** — Compare the number of existing rows of both `imd_grouped` and `imd_summary`. What happened to the data?
 
-The result has one row per year — four rows total. `summarise()` consumed the groups and produced a clean summary table. This is the key difference from `mutate()`:
+The result has one row per year — four rows total. `summarise()` aggregated the groups and produced a clean summary table. This is the key difference to `mutate()`:
 
 |             | `mutate()`                    | `summarise()`           |
 |-------------|-------------------------------|-------------------------|
@@ -110,7 +121,7 @@ The result has one row per year — four rows total. `summarise()` consumed the 
 
 **Action** — Now group by both `year` and `sex` and repeat the summary in `imd_summary2`. How many rows does the result have, and why?
 
-You can keep adding variables to `summarise()` without a limit, to produce tables with as much information as you want. You will always have columns for the grouping variables to identify the combination summaries.
+You can keep adding variables to `summarise()` without a limit, to produce tables with as much information as you want. You will always have columns for the grouping variables to identify the corresponding summaries.
 
 ------------------------------------------------------------------------
 
@@ -119,7 +130,7 @@ You can keep adding variables to `summarise()` without a limit, to produce table
 opts1 <- c(
   "It merges rows that share the same value in the grouping variable",
   "It reorders the rows so that groups appear together",
-  answer = "It places invisible walls between groups so subsequent verbs operate within each group separately",
+  answer = "It places invisible walls between groups, so subsequent verbs operate within each group separately",
   "It filters the data to keep only the rows belonging to the first group"
 )
 ```
