@@ -37,7 +37,7 @@ data %>%
 
 Possibly the simplest example would be calculating the mean age of all cases in our data. In the last exercise, we were creating a lot of objects for every example, so let's now try a different approach
 
-**Action** — Create the variable `mean_age` using `mutate()` and the `mean()` function. Assign the result to the same `imd` object the are starting from - update itself
+**Action** — Create the variable `mean_age` using `mutate()` and the `mean()` function. Assign it to the same `imd` dataframe you are starting from.
 
 1.  Pay attention to how the `imd` object in the environment window changes. Can you spot it?
 
@@ -125,7 +125,13 @@ This time, the `ifelse()` function is going row by row and examining wheter that
 ![](/images/exercises/S2E3_4.png){.lightbox fig-align="left" width="20%"}
 :::
 
-Since we defined `adult` as a numeric 0-1 variable, the `sum()` function was pretty straightforward, as it added up the `1` and `0` values resulting in the total number of 1s. Let's consider another possibility: 1. We are interested in the sum of all the non-adults `0` values only 2. We defined the binary variable as "yes" or "no" and want to do the calculations anyway
+Since we defined `adult` as a numeric 0-1 variable, the `sum()` function was pretty straightforward, as it added up the `1` and `0` values resulting in the total number of 1s.
+
+Let's consider another possibility:
+
+1\. We are interested in the sum of all the non-adults `0` values only
+
+2\. We defined the binary variable as "yes" or "no" and want to do the calculations anyway
 
 For that, we can take advantage of the `tidyverse` way of working. Add the following line of code to your mutate function, right after `total_adults` to create the variable `total_underage`
 
@@ -266,7 +272,7 @@ imd_adults <- imd %>%
     total_adults = sum(adults, na.rm = T),
     total_underage = sum(adults == 0, na.rm = T),
     
-    total_female = sum(sex == "Female"),
+    total_female = sum(sex == "Female", na.rm = T), # you need na.rm bc some values are miss
     
     adult_female = ifelse(age_years >= 18 & sex == "Female", 1, 0),
     total_adult_female = sum(adult_female, na.rm = T)

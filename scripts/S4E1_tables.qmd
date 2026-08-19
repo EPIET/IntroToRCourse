@@ -236,7 +236,7 @@ Now you understand the importance of working with `data.frame` objects and the h
 Now this was the warm-up for the session, let's continue with the rest of exercises
 
 | Function | Package | What it does |
-|------------------------|-------------------|-----------------------------|
+|----|----|----|
 | `table()` | base R | Counts the values of a vector; returns a `table` object, not a dataframe |
 | `class()` | base R | Tells you what kind of object you are holding |
 | `tabyl()` | janitor | Frequency table with counts and percentages, returned as a dataframe |

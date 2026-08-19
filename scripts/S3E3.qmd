@@ -37,8 +37,8 @@ None of this is a data *error* exactly — it is just the reality of data collec
 
 Before you recode anything, you need to see what you are dealing with. Two functions are useful here:
 
-- `unique()` — shows you every distinct value that appears in a column, with no repetition
-- `table()` — shows you every distinct value *and* how many times each one appears
+-   `unique()` — shows you every distinct value that appears in a column, with no repetition
+-   `table()` — shows you every distinct value *and* how many times each one appears
 
 **Action** — Take a minute to think which variables you should explore to detect potential mistakes or corrections needed
 
@@ -84,37 +84,47 @@ table(imd_cleaning$serogroup, useNA = "always")
 
 ## Part 5 · Recoding the variables
 
-Let's the `recode()` function from the `dplyr` package to fix two variables: `sex` and `type_of_case`. It maps old values to new ones using a clean formula syntax:
+Let's use the functions from the `dplyr` package to fix two variables: `sex` and `type_of_case`. With dplyr you can either recode or replace values. Usually we `recode_values()` when we're creating an entirely new variable. And we use `replace_values()` when partially updating an existing one. Most important distincion is what happens with non-matched values. In recode, we define that in the end, in replace they stay the same as they were. Both functions map old values to new ones using a clean formula syntax: <!--# recode is from older version of dplyr... now type_of_case needs replace_values(). recode_values as used in solution will only recode Sec to Second, everything else will be miss...  -->
 
 ``` r
 recode_values(column, 
               old_value         ~ "New Value",  # for single values
               c("old1", "old2") ~ "New Value",  # for multiple values at once
-              default = NA)                     # for non-matched values
+              default = NA)                     # non-matched values are recoded to NA
+
+replace_values(column, 
+               old_value         ~ "New Value",  # for single values
+               c("old1", "old2") ~ "New Value")  # for multiple values at once
+                                                 # non-matched values stay the same
 ```
 
 It works inside `mutate()` calls, and you can overwrite existing variables or create new ones, depending on your needs
 
-- If you are just fixing a few values, the most simple approach is to modify existing columns \<!-- i think examples could be nice as they might not grasp what we mean by "it works inside 'mutate()'
+-   If you are just fixing a few values, the most simple approach is to modify existing columns \<!-- i think examples could be nice as they might not grasp what we mean by "it works inside 'mutate()'
 
-``` r
-data %>%
-mutate(column = recode_values(column,           # keeping the name of the existing column
-              old_value         ~ "New Value",  # for single values
-              c("old1", "old2") ~ "New Value",  # for multiple values at once
-              default = NA)                     # for non-matched values
-)
-```
+    `````         
+    ````         
+    ``` r
+    data %>%
+    mutate(column = recode_values(column,           # keeping the name of the existing column
+                  old_value         ~ "New Value",  # for single values
+                  c("old1", "old2") ~ "New Value",  # for multiple values at once
+                  default = NA)                     # for non-matched values
+    )
+    ```
 
---\> - If you are completely changing a variable, it can be interesting to create a new one <!--``` r
-data %>%
-mutate(new_column = recode_values(old_column,   # Creating a new column
-              old_value         ~ "New Value",  # for single values
-              c("old1", "old2") ~ "New Value",  # for multiple values at once
-              default = NA)                     # for non-matched values
-)
-```
---> \### Fixing sex and type_of_case
+    --\> - If you are completely changing a variable, it can be interesting to create a new one <!--``` r
+    data %>%
+    mutate(new_column = recode_values(old_column,   # Creating a new column
+                  old_value         ~ "New Value",  # for single values
+                  c("old1", "old2") ~ "New Value",  # for multiple values at once
+                  default = NA)                     # for non-matched values
+    )
+    ```
+    --> \### Fixing sex and type_of_case
+    `````
+
+    \`\`\`\`
 
 The `sex` column has four distinct values when it should have two: `"M"` and `"m"` both mean Male, `"F"` and `"f"` both mean Female. For `type_of_case` we see how the secondary cases category is spitted into `"Second"` and `"Sec"` values, we need to correct it to only "Second" values
 
@@ -134,13 +144,13 @@ This is more related to **label** creation, more than error fixing. If during th
 
 For this exercise, we will produce the following labels for our variables:
 
-- `"B"`, `"C"`, `"W"`, `"Y"` will represent the major serogroups
+-   `"B"`, `"C"`, `"W"`, `"Y"` will represent the major serogroups
 
-- `"Other"` will group together the A and Other categories
+-   `"Other"` will group together the A and Other categories
 
-- `"Non Typable"` will replace the NT category
+-   `"Non Typable"` will replace the NT category
 
-- `"Unknown"` will replace the missing values
+-   `"Unknown"` will replace the missing values
 
 **Action** — Add `serogroup` to the same `mutate()` block and use `recoe_values()` to produce the necessary changes.
 
@@ -222,7 +232,7 @@ This is what you learned today:
 |------------------------|------------------------|------------------------|
 | `unique()` | base R | Returns every distinct value in a column |
 | `table()` | base R | Counts occurrences of each value; use `useNA = "always"` |
-| `recode_values()` | dplyr | Maps old values to new ones using formula syntax |
+| `recode_values(), replace_values()` | dplyr | Maps old values to new ones using formula syntax |
 
 ::: {.callout-tip collapse="true"}
 ## 💡 Show solution — only after trying yourself!
@@ -235,6 +245,10 @@ mutate(
     c("M", "m") ~ "Male",
     c("F", "f") ~ "Female",
     default = NA
+  ),
+  type_of_case = replace_values(
+    type_of_case,
+    "Sec" ~ "Second"
   ),
   serogroup = recode_values(
     serogroup,

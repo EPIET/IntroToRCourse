@@ -218,7 +218,7 @@ Had we started here, you would have a table you could not defend. That is the di
 :::
 
 | Function | Package | What it does |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `tbl_summary()` | gtsummary | Builds a descriptive table, choosing statistics by variable type |
 | `by =` | gtsummary | Splits the table into columns by the levels of a variable |
 | `missing = "no"` | gtsummary | Hides the rows counting missing values |

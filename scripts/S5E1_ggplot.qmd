@@ -89,7 +89,6 @@ You can tell `geom_jitter()` to use a fixed color, size and transparency for eve
 ![](/images/exercises/S5E1_2.png){.lightbox width="95"}
 :::
 
-
 **Action** — Filter away missing `sex`values before piping data into the `ggplot()` call.
 
 **Action** — Set the points to `color = "steelblue"`, `size = 2` and `alpha = 0.6`. Keep the vertical, one-argument-per-line style. Also, play with the 2 and 0.6 values to see how they change the plot. The `alpha` can range between 0-1 only.
@@ -126,9 +125,9 @@ Let's fix the `age_years` axis appearance by changing the breaks — the little 
 ![](/images/exercises/S5E1_3.png){.lightbox width="132"}
 :::
 
-**Action** — Add `scale_x_continous()` with the arguments `name` and `breaks`
+**Action** — Add `scale_y_continuous()` with the arguments `name` and `breaks`
 
-**Action** — Use either a vector `c(0, 5, 15, ...)` with your breaks of choice or the `seq(from, to, each)` function specifying the initial and final values, and the width of each jump i.e., from 0 to 90 years with 10 years jumps.
+**Action** — Use either a vector `c(0, 5, 15, ...)` with your breaks of choice or the `seq(from, to, by)` function specifying the initial and final values, and the width of each jump i.e., from 0 to 90 years with 10 years jumps.
 
 Tell me something: is the legend in this graph really necessary? Is it contributing information that the labels of your `sex` axis is not providing? Not really. We only used the `color` aesthetic because we wanted one separate color for males and females. Can we get rid of that? Well, of course.
 
@@ -152,7 +151,7 @@ Now, the plot started looking quite good! Still, that grey default background is
 ![](/images/exercises/S5E1_4.png){.lightbox width="130"}
 :::
 
-**Action** — Finalise the plot code with a default call to any theme: `theme_minimal()`, `bw` or `classical`
+**Action** — Finalise the plot code with a default call to any theme: `theme_minimal()`, `bw` or `classic`
 
 From this exercise onward, we will be adding one of the themes at the end of every plot - it's up to you which one you prefer of fits better with the graph.
 
@@ -229,7 +228,7 @@ Nothing here required a new concept; it required getting your hands used to the 
 | `geom_jitter()` | ggplot2 | Draws individual points, nudging apart the ones that overlap |
 | `color`, `size`, `alpha` (outside `aes()`) | ggplot2 | Fixed style, identical for every point |
 | `color`, `size`, `alpha` (inside `aes()`) | ggplot2 | Represent a variable from the data |
-| ``` scale_x_continuous()``scale_y_continuous() ``` | ggplot2 | Modify x/y axis when a continuous variable is supplied |
+| `scale_x_continuous(), scale_y_continuous()` | ggplot2 | Modify x/y axis when a continuous variable is supplied |
 | `scale_color_discrete()` | ggplot2 | Modify the color aesthetic inside `aes()` when a categorical variable is mapped |
 | `theme_minimal()` | ggplot2 | Applies a predefined visual theme |
 | `ggsave()` | ggplot2 | Saves the last plot drawn to a file |
@@ -341,7 +340,7 @@ jitter_plot <- imd %>%
 ggsave(
   plot     = jitter_plot,
   filename = "age_sex_jitter.png",
-  path     = here("output"),
+  path     = here("outputs"),
   units    = "in",
   width    = 7,
   height   = 5,

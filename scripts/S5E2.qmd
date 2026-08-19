@@ -24,7 +24,7 @@ Continue in your Session 5 script, where your data and libraries are already loa
 
 ### Letting R count for you
 
-`geom_bar()` does something none of yesterday's geometries did: it counts *for* you. Give it a single categorical variable and it tallies the rows in each category on its own — no `count()`, no `tabyl()`, nothing pre-cooked.
+`geom_bar()` does something all of yesterday's geometries did: it counts *for* you. Give it a single categorical variable and it tallies the rows in each category on its own — no `count()`, no `tabyl()`, nothing pre-cooked.
 
 **Action** — Build a bar chart of `serogroup` alone: `x = serogroup`. What about `y`?
 
@@ -167,7 +167,7 @@ Two geometries that look almost identical but expect opposite things from you: `
 In the next exercise, the x axis stops being a handful of categories and becomes a full timeline.
 
 | Function | Package | What it does |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `geom_bar()` | ggplot2 | Counts rows per category itself; only accepts `x` (or `y`, never both) |
 | `geom_col()` | ggplot2 | Plots a `y` you already computed; needs pre-summarised data |
 | `fill` | ggplot2 | Aesthetic for the interior color of bars and other filled geometries |
