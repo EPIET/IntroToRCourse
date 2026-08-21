@@ -13,7 +13,7 @@ library(webexercises)
 
 Your head of department, Kassandra, has just handed you a small sample of the unit's surveillance data set (`imd_S1.xlsx`) — a few dozen cases from the invasive meningococcal disease registry. They are still working on your data permit, but this very little linelist can be useful for you to become acquainted with the data, and do a bit of practice before the actual work begins in a few days
 
-*"Get familiar with it"*, she said. Before any analysis, before any cleaning, before any conclusions: you need to know what you are working with. That is what this exercise is about. If you haven't done it yet, go to the data set page to learn about the data you will be using through this course. <!--# what do you mean with data set page?  -->
+*"Get familiar with it"*, she said. Before any analysis, before any cleaning, before any conclusions: you need to know what you are working with. That is what this exercise is about. 
 
 Make sure `imd_raw` is loaded in your Environment before you start. If it is not, go back to E2 and re-run your import lines.
 
@@ -34,8 +34,8 @@ This is the Grammar Model we will use throughout the course:
 verb(object, argument = specification)
 ```
 
--   In plain English: *"Calculate the mean of age, removing missing values."*
--   In R: `mean(imd_raw$age, na.rm = TRUE)`
+- In plain English: *"Calculate the mean of age, removing missing values."*
+- In R: `mean(imd_raw$age, na.rm = TRUE)`
 
 The parallel is exact:
 
@@ -70,9 +70,9 @@ names(imd_raw)
 
 Each of these is a verb acting on the same object (`imd_raw`) but asking a different question:
 
--   `nrow()` — *"How many rows does this have?"*
--   `ncol()` — *"How many columns does this have?"*
--   `names()` — *"What are the column names?"*
+- `nrow()` — *"How many rows does this have?"*
+- `ncol()` — *"How many columns does this have?"*
+- `names()` — *"What are the column names?"*
 
 Notice that none of these need additional arguments. The object alone is enough. Some verbs are simple — just an action and a target.
 

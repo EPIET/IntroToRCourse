@@ -33,10 +33,10 @@ RStudio empty view (click to enlarge)
 ![](/images/exercises/S1E2_1_project.png){.lightbox}
 :::
 
--   Shorter paths: write `data/file.csv` instead of a long, computer-specific path such as `C:/Users/.../data/file.csv`
--   Portable scripts: colleagues can run the same code without rewriting file paths
--   Consistent structure: everyone works from the same project folder
--   Fewer path errors: R has a predictable starting point for finding files
+- Shorter paths: write `data/file.csv` instead of a long, computer-specific path such as `C:/Users/.../data/file.csv`
+- Portable scripts: colleagues can run the same code without rewriting file paths
+- Consistent structure: everyone works from the same project folder
+- Fewer path errors: R has a predictable starting point for finding files
 
 You will recognise an R Project by the `.Rproj` file inside its folder — and by the project name shown in the **top-right corner of RStudio**.
 
@@ -86,7 +86,7 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 
 ![](/images/exercises/S1E2_3_project.png)
 
-**Action** — Select **Existing Directory** and choose the folder `IntroToRCourse` you have previously saved on your computer. <!--# when you extract rar, folder's actualy named IntroToR_Course -->
+**Action** — Select **Existing Directory** and choose the folder `IntroToR_Course` you have previously saved on your computer. 
 
 **Action** — Click **Create Project**. RStudio will reload and your project name should now appear in the top-right corner.
 
@@ -270,8 +270,8 @@ imd_raw <- rio::import(here::here("data", "raw", "IMD_S1.xlsx"))
 
 Two things are happening here:
 
--   `here::here()` builds the path to the file
--   `rio::import()` reads the file and stores it as an object called `imd_raw` in your Environment
+- `here::here()` builds the path to the file
+- `rio::import()` reads the file and stores it as an object called `imd_raw` in your Environment
 
 Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.
 
