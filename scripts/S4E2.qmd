@@ -323,7 +323,7 @@ imd_table_2 <- imd_adorned %>%
   flextable() %>% 
   autofit()
 
-save_as_docx(imd_table_2, path = here("outputs", "Table_1.docx"))
+save_as_docx(imd_table_2, path = here("outputs", "Table_2.docx"))
 ```
 :::
 

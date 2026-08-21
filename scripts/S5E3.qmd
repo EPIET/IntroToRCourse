@@ -55,11 +55,29 @@ Since the output is still a real date, you get naturally ordered categories for 
 
 ### A trick: turn a summary into a third category
 
-You now have two separate tables that both describe cases over time — one split by sex, one not. To plot them as three lines on the same chart with one shared legend, the cleanest way is to make "Total" look like a third value of `sex`, and stack both tables into one unsing `bind_rows().`
+You now have two separate tables that both describe cases over time — one split by sex, one not. To plot them as three lines on the same chart with one shared legend, the cleanest way is to make "Total" look like a third value of `sex`, and stack both tables into one using `bind_rows().`
 
-`bind_rows()` is a Tidy function that takes dataframes as arguments, and paste their rows together. There is one condition, though: they must have exactly the **same variable in number, name and class**. And we are missing one variable in the total count:
+`bind_rows()` is a Tidy function that takes dataframes as arguments, and paste their rows together. There is one condition for it to work **properly**: they must have exactly the *same variable in number, name and class*.
 
-**Action** — Add a new column to `imd_monthly_total`: `sex = "Total"` — a fixed value, the same for every row, not derived from anything. identical name and class.
+::: {.callout-warning colapse="true"}
+## Silent mistakes
+
+`bind_rows()` is one of those functions that can go wrong without you noticing at first glance.
+
+- If a variable exists only in one dataframe, it will get pasted and completed with NAs in the rows corresponding to the other object
+
+- If two variables have slightly different names, i.e., `sex` and `Sex`, the function will fill in the empty spots with NAs
+
+- If variable class is different, the function will try to coerce one of the two to the other, with unknown results
+
+Always double check the result of `bind_rows()` before assuming it worked because you did not get any error or warning
+:::
+
+<!--# not really true, i.e. if we bind them, sex for total will just have NA, with no warning or error JAVI: you are right, those were the condictions for base rbind(); updated -->
+
+We need a new variable for the total count in order to bind together:
+
+**Action** — Add a new column to `imd_monthly_total`: `sex = "Total"` — a fixed value, the same for every row, not derived from anything. Identical name and class.
 
 **Action** — Combine both tables with `bind_rows()` into `imd_monthly_sex_total`.
 
@@ -90,6 +108,8 @@ scale_color_manual(
 )
 ```
 :::
+
+Notice, that when we were colouring shapes (bars or columns), we used scale fill function. Now that we're colouring lines, we need to use scale color function.
 
 ## Final plot - Trend by sex
 
@@ -213,7 +233,7 @@ Two graphs, two different problems solved. The first taught you a genuinely reus
 The second showed that bar, line and area are three faces of the same idea, and that switching from line to area is often the fix when too many crossing lines stop being readable. In the next excercise, the calendar itself becomes the subject of the plot, one day at a time.
 
 | Function | Package | What it does |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `floor_date()` | lubridate | Rounds a date down to the start of a given unit (day, month, year...) |
 | `bind_rows()` | dplyr | Stacks two tables with matching columns into one |
 | `scale_color_manual()` | ggplot2 | Assigns specific colors to specific category values, written by hand |
