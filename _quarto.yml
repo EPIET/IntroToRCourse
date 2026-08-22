@@ -65,6 +65,9 @@ website:
           - "scripts/S5E2.qmd"
           - "scripts/S5E3.qmd"
           - "scripts/S5E4.qmd"
+      - section: "Session 5"
+        contents:
+          - "scripts/S6E1.qmd"
 
   page-footer:
     left: "© 2026 – Intro to R Course"
