@@ -28,7 +28,7 @@ You have never calculated a rate in R. And you just received two population data
 
 Well. Almost nobody.
 
-## Part 1 · Asking to be taught, not to be rescued
+## Part 1 · Ask to be taught, not to be rescued
 
 You are about to ask an AI for help. How you ask determines what you learn.
 
@@ -311,7 +311,7 @@ But notice what the AI could not do for you. It did not know that `Females` and 
 Every one of those came from you. The join is the easy half. The next exercise reverses the arrangement: you will ask the AI to do something you already know how to check, and find out what happens when nobody checks.
 
 | Function | Package | What it does |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | `left_join()` | dplyr | Adds columns from a second table, matching rows by a key; keeps every row of the first table |
 | `by = c(...)` | dplyr | States explicitly which variables form the key, and pairs up differently-named ones |
 | `pivot_longer()` | tidyr | Turns a set of columns into two: one with the old names, one with the values |
