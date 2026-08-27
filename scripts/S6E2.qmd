@@ -1,5 +1,5 @@
 ---
-title: "Read in three seconds"
+title: "The design assistant"
 subtitle: "Session 6 practical exercises"
 ---
 
