@@ -1,3 +1,26 @@
 ---
-title: "SessionIndex"
+title: "Practical Exercises"
+subtitle: "How to get the most out of it"
 ---
+
+### Exercises
+
+This series of exercises are designed to guide you through the R Journey in a self-paced way, starting from the most basic R aspects and concepts. You will find instructions and explanations inside, sometimes examples and hints to follow, and even code you can use directly. You will be accompanied by *Kassandra*, the head of department of infectious diseases epidemiology and surveillance, who will task you with your first assignments as a Fellow.
+
+Every session's exercises are grouped in pages were you will find between one and three challenges each. At the beginning, you will be mostly guided through the tasks, with extensive explanations and examples for you to follow. The idea is that you can become familiar with R is a smooth way.
+
+As exercises progress, the difficulty of the tasks and the autonomy expected from you will increase. However, you will be provided with a solution at the end of every exercise. Here are some tips for you:
+
+-   Exercises are designed to be completed each day in between 2 and 2:30 hours. If you need more time, that is perfectly fine. Each of us need a different time to learn and practice, so you can continue later on.
+
+-   At the start of each day, you may need something you produced in the previous day. Ideally, you have completed the exercises before the start of each session, yet once again you are provided with all necessary data for it not to halt you progress.
+
+-   Before starting the exercises, make sure you have downloaded the course folder with all necessary data and structure for the R Project.
+
+### Facilitators
+
+You will be accompanied by Facilitators all along. They will make sure you don't get stuck and explain everything as many times as needed. Now they are the experts, but they started exactly the same you may be starting now.
+
+-   When working in groups, feel free to ask questions in the same room. Your peers may also benefit from it, and the explanation. However, you can also request one of your facilitators to go on a separate room and ask in there.
+
+-   From time to time, facilitators will ask you to move to an individual room for a general check-in to follow-up on you.

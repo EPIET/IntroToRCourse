@@ -1,11 +1,54 @@
 ---
-title: "Welcome"
+title: "Intro to R Course for Field Epidemiology Training"
+subtitle: "ECDC EPIET & EUPHEM Program"
 sidebar: false
-toc: false
+toc: true
 ---
 
 Welcome to the **Intro to R Course** module webpage of the *ECDC EPIET & EUPHEM* Program.
 
-Here you will find the course material of the R intro course module 2026.
+This is the first edition to the course. It will take place during 6 half-days session from September 8th to 17th, spanning Tuesday-Wednesday-Thursday of the two weeks:
 
-(building)
+1.  Tuesday-Thursday 8th, 9th and 10th 13-16pm CET \[Week 1\]
+
+2.  Tuesday-Thursday 15th, 16th and 17th 13-16pm CET \[Week 2\]
+
+Additionally, we will have two troubleshooting sessions on Tuesday 8th and 15th, 11-12am in the morning, where you are invited to attend if you need technical assistance, have pending questions, or would like to have an individual follow-up session before and during the course.
+
+#### Module description summary
+
+The Intro to R Course provides a ground-level introduction to the R Programming software and environment, assuming no prior experience with this or any other programming language. The module is organized in six fully online half-day sessions consisting of brief presentations and plenty of practical exercises where fellows learn and consolidate their skills. Facilitators oversee small-size groups, to make sure everyone is on track, solve questions and problems and explain code if needed, but exercises are mainly self-guided.
+
+#### Target audience
+
+All fellows of every starting cohort, including EPIET, EUPHEM, EAP and any MediPIET/External participants considered eligible.
+
+Training of Trainers is possible, depending on availability of spots in groups.
+
+#### Intended learning outcomes (ILOs)
+
+By the end of this course, participants will be able to…
+
+1.  ***Navigate RStudio and organise an analysis project reproducibly***: work within the RStudio panes, use RStudio Projects together with here() for file paths, create and inspect objects, and import surveillance data with {rio}.
+
+2.  ***Verify results and interpret R's feedback rather than guessing***: check outputs manually against the data, read error and warning messages as information, and locate the source of a problem in a pipeline.
+
+3.  ***Transform a dataset using a small, reusable vocabulary of tidyverse verbs***: combine select(), filter(), mutate(), arrange(), group_by() and summarise() in pipelines built with the pipe %\>% to answer specific epidemiological questions.
+
+4.  ***Clean and prepare real-world surveillance data for analysis***: standardise variable names, convert and derive date variables with {lubridate}, recode categorical variables with case_match() and case_when(), and control factor levels explicitly with factor().
+
+5.  ·***Produce descriptive tables suitable for a surveillance report***: summarise counts, proportions and distributions by person, place and time, and format the result for presentation with {janitor} and {gtsummary}.
+
+6.  ***Build and export epidemiological graphics with {ggplot2}***: construct bar charts, line graphs and epicurves by ISO week using isoweek() and isoyear(), choose appropriate scales, colour palettes and themes, and save publication-ready output with ggsave().
+
+7.  ***Use AI assistants critically as a programming aid***: formulate an effective prompt for an R task, and evaluate, test and correct the code returned before trusting it
+
+#### How to prepare for the module
+
+Fellows must ensure that they have a working computer with R, RStudio and RTools (Windows users only) installed before the start of the module, and download the data folder for the course \[[link](scripts/preparation.qmd)\]. Given the module’s early start – when working computers may not be ready or configured by IT, it is highly recommended that fellows ***have their own computer for the course***.
+
+It is highly recommended that fellows go through the freely available Applied Epi R tutorials online.
+
+#### Course organizers
+
+*Main organizers:* Javier Del Águila Mejía (ISCIII, Spain) & Kostas Danis (ECDC, Sweden), EPIET Scientific Coordinators
