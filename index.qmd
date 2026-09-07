@@ -1,8 +1,6 @@
 ---
 title: "Intro to R Course for Field Epidemiology Training"
 subtitle: "ECDC EPIET & EUPHEM Program"
-sidebar: false
-toc: true
 ---
 
 Welcome to the **Intro to R Course** module webpage of the *ECDC EPIET & EUPHEM* Program.
@@ -15,17 +13,17 @@ This is the first edition to the course. It will take place during 6 half-days s
 
 Additionally, we will have two troubleshooting sessions on Tuesday 8th and 15th, 11-12am in the morning, where you are invited to attend if you need technical assistance, have pending questions, or would like to have an individual follow-up session before and during the course.
 
-#### Module description summary
+### Module description summary
 
 The Intro to R Course provides a ground-level introduction to the R Programming software and environment, assuming no prior experience with this or any other programming language. The module is organized in six fully online half-day sessions consisting of brief presentations and plenty of practical exercises where fellows learn and consolidate their skills. Facilitators oversee small-size groups, to make sure everyone is on track, solve questions and problems and explain code if needed, but exercises are mainly self-guided.
 
-#### Target audience
+### Target audience
 
 All fellows of every starting cohort, including EPIET, EUPHEM, EAP and any MediPIET/External participants considered eligible.
 
 Training of Trainers is possible, depending on availability of spots in groups.
 
-#### Intended learning outcomes (ILOs)
+### Intended learning outcomes (ILOs)
 
 By the end of this course, participants will be able to…
 
@@ -43,12 +41,12 @@ By the end of this course, participants will be able to…
 
 7.  ***Use AI assistants critically as a programming aid***: formulate an effective prompt for an R task, and evaluate, test and correct the code returned before trusting it
 
-#### How to prepare for the module
+### How to prepare for the module
 
 Fellows must ensure that they have a working computer with R, RStudio and RTools (Windows users only) installed before the start of the module, and download the data folder for the course \[[link](scripts/preparation.qmd)\]. Given the module’s early start – when working computers may not be ready or configured by IT, it is highly recommended that fellows ***have their own computer for the course***.
 
 It is highly recommended that fellows go through the freely available Applied Epi R tutorials online.
 
-#### Course organizers
+### Course organizers
 
 *Main organizers:* Javier Del Águila Mejía (ISCIII, Spain) & Kostas Danis (ECDC, Sweden), EPIET Scientific Coordinators
