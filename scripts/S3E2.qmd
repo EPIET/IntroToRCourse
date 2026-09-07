@@ -41,7 +41,7 @@ Look at the type tags in angle brackets: `<chr>`, `<dbl>`, `<lgl>`. These are R'
 
 **Action** — Before reading on, look at the output and identify which columns have a type mismatch — where what R thinks the variable is does not match what it should actually be.
 
-**Action** — Try out the other functions for examining data: `str()`, `summary()`, `head()` <!--You're not including skim because it requires skimr?-->
+**Action** — Try out the other functions for examining data: `str()`, `summary()`, `head()`
 
 ::: {.callout-note collapse="true"}
 ## The main variable types you will encounter
@@ -56,7 +56,7 @@ Look at the type tags in angle brackets: `<chr>`, `<dbl>`, `<lgl>`. These are R'
 A column with dates showing as `<chr>` is one of the most common problems in real surveillance data. R sees `"1999-03-12"` as just a string of characters — it has no idea it represents a point in time.
 :::
 
-**Did you realize the ghost column?** Hint: it also bears one strange new variable type you hadn't seen before. Take a moment to look for it, and try to guess what may be happening
+***Did you find the column with only missing values***? This is interpreted as logical in R, independently of what kind of information we intended to put there
 
 ## Part 3 · Fixing variables types
 
@@ -120,7 +120,7 @@ Always check the raw values before converting. Always.
 
 ### Other functions for changing class
 
-You just used two ver relevant functions: `as.numeric()` and `ymd()` for numbers and dates. But other relevant functions exist and are needed:
+You just used two very relevant functions: `as.numeric()` and `ymd()` for numbers and dates. But other relevant functions exist and are needed:
 
 - `as.character()` transforms column values into text
 - `as.integer()` alternative version for numeric transformation

@@ -71,9 +71,7 @@ The `janitor` package provides a function that automates the fixing of names of 
 
 ### The manual fix
 
-`clean_names()` really did a great job there, potentially saving you a fair amount of time. Should you had chosen the manual approach from the beginning, the code would look like this
-
-Notice how we had to write by hand every name in the old a new form. How many variables contain characters that require back-ticks (blank spaces, parenthesis). This increases the probability of spelling mistakes.
+`clean_names()` really did a great job there, potentially saving you a fair amount of time. Should you had chosen the manual approach from the beginning, the code would look like this:
 
 ```{r}
 #| eval: false
@@ -100,7 +98,9 @@ imd_cleaning <- imd_raw %>%
   )
 ```
 
-Now imagine your data contains 30, or 60, or 130 variables. It's not so uncommon, actually
+Notice how we had to write by hand every name in the old a new form. How many variables contain characters that require back-ticks (blank spaces, parenthesis). This increases the probability of spelling mistakes.
+
+Now imagine your data contains 30, or 60, or 130 variables. It's not so uncommon, actually.
 
 So the usual pattern for variable name cleaning will be `clean_names()` followed by a manual `rename()` in a tidy pipeline. `clean_names()` applies a set of transformations to every column name at once:
 
@@ -178,7 +178,7 @@ opts4 <- c(
 These are the functions you learned in this exercise
 
 | Function | Package | What it does |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | `names()` | base R | Returns or sets the column names of a dataframe |
 | `clean_names()` | janitor | Converts all names to lowercase snake_case automatically |
 | `rename()` | dplyr | Renames specific columns: `new_name = old_name` |

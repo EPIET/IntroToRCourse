@@ -154,7 +154,7 @@ For this exercise, we will produce the following labels for our variables:
 
 - `"Unknown"` will replace the missing values
 
-**Action** — Add `serogroup` to the same `mutate()` block and use `recoe_values()` to produce the necessary changes.
+**Action** — Add `serogroup` to the same `mutate()` block and use `recode_values()` to produce the necessary changes.
 
 **Action** — Verify the changes.
 
