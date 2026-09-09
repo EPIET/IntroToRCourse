@@ -16,7 +16,7 @@ imd <- import(here("data", "clean", "IMD_Sample_Clean.xlsx"))
 
 Yesterday, you were instructed to become familiar with IMD data from the department, as your supervisor is planning your first surveillance project around it. During the weekly department meeting, Kassandra, the head of department for infectious diseases epidemiology and surveillance, informed the team about an email shared by one of the regions, `R6`, expressing concern about a recent rise in IMD cases among female young adults.
 
-They asked your department for assistance in evaluating this signal, especially for adding national context and background information about other regions. Your colleagues start organizing a small task force, and Kassandra immediately appoints you to the team so you can get some first-hand experience at your new Institute. Your task will be to analyze IMD surveillance data from previous years of the affected region, and a few otherregions for comparison. It's a cleaned, ready-to-use dataframe that epidemiologists in the unit know very well, with annual reports published already.
+They asked your department for assistance in evaluating this signal, especially for adding national context and background information about other regions. Your colleagues start organizing a small task force, and Kassandra immediately appoints you to the team so you can get some first-hand experience at your new Institute. Your task will be to analyze IMD surveillance data from previous years of the affected region, and a few other regions for comparison. It's a cleaned, ready-to-use dataframe that epidemiologists in the unit know very well, with annual reports published already.
 
 *The perfect task for a brand new EPIET and EUPHEM fellow.*
 
@@ -47,7 +47,7 @@ Now, what is this `tidyverse` we keep talking about??
 
 ## Part 1 · The pipe — a new way to think about code
 
-## Filter: retaining the meaningful 
+## Filter: retaining the meaningful
 
 <!-- that's not base R; base R is using [] or subset. Here it's dplyr package. JAVI: Just dumped the base R references, I believe it is simpler now -->
 
@@ -218,18 +218,18 @@ Now you have a grasp of what actually the pipe `%>%` operator means when working
 
 This is what you learned:
 
-+---------------+------------------------------------------------------------------------------------------------------+
-| Function      | What it does                                                                                         |
-+===============+======================================================================================================+
-| `%>%`         | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
-|               |                                                                                                      |
-|               | Shortcut:                                                                                            |
-|               |                                                                                                      |
-|               | - Win: Ctrl + Shift + M                                                                              |
-|               | - Mac: Cmd + Shift + M                                                                               |
-+---------------+------------------------------------------------------------------------------------------------------+
-| `filter()`    | Retains rows matching a condition                                                                    |
-+---------------+------------------------------------------------------------------------------------------------------+
++------------+------------------------------------------------------------------------------------------------------+
+| Function   | What it does                                                                                         |
++============+======================================================================================================+
+| `%>%`      | Pipe operator, chains tidy functions together sequentially, passing modified data to the next action |
+|            |                                                                                                      |
+|            | Shortcut:                                                                                            |
+|            |                                                                                                      |
+|            | - Win: Ctrl + Shift + M                                                                              |
+|            | - Mac: Cmd + Shift + M                                                                               |
++------------+------------------------------------------------------------------------------------------------------+
+| `filter()` | Retains rows matching a condition                                                                    |
++------------+------------------------------------------------------------------------------------------------------+
 
 ```{=html}
 <script>

@@ -148,7 +148,7 @@ Both functions should return the same number — because each column has exactly
 opts_vector <- c(
   "A column that contains only numeric values",
   "Any object stored in the R Environment",
-  answer = "A sequence of values of the same type — equivalent to a single column in a dataframe",
+  answer = "A sequence of values of the same or different type — equivalent to a single column in a dataframe",
   "A dataframe with only one row"
 )
 ```

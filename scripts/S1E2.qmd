@@ -78,7 +78,7 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 
 **Action** — In RStudio, create a project through any of the following:
 
-1.  File → New Project → New Directory → New Project.
+1.  File → New Project → Existing Directory → Choose existing folder → Create project .
 
 2.  Create a project icon on the top-left menu
 
@@ -86,7 +86,7 @@ The `raw/` folder holds your original files exactly as received. You never edit 
 
 ![](/images/exercises/S1E2_3_project.png)
 
-**Action** — Select **Existing Directory** and choose the folder `IntroToR_Course` you have previously saved on your computer. 
+**Action** — Select **Existing Directory** and choose the folder `IntroToR_Course` you have previously saved on your computer.
 
 **Action** — Click **Create Project**. RStudio will reload and your project name should now appear in the top-right corner.
 
@@ -275,7 +275,12 @@ Two things are happening here:
 
 Notice how we used one function to crate an output (a computer path) that is the required argument for the other function - a nested approach.
 
-`rio::import()` supports many file formats and automatically detects the type from the file extension. When importing an Excel workbook with multiple sheets, don't forget to specify the sheet if your data is not on the first one: `imd_raw <- rio::import(here::here("data", "raw", "IMD_S1.xlsx"), which = "Cases"`)).
+`rio::import()` supports many file formats and automatically detects the type from the file extension. When importing an Excel workbook with multiple sheets, don't forget to specify the sheet if your data is not on the first one:
+
+``` r
+imd_raw <- rio::import(here::here("data", "raw", "IMD_S1.xlsx"), 
+                       which = "sheet1") # Argument for sheet selection 
+```
 
 **Action** — Check your Environment panel — you should see `imd_raw` appear there. What is different with this object compared with the previous ones?
 
@@ -290,7 +295,7 @@ Every time you start a new task in real life, you will need a Project to store e
 This is what you practiced and learned:
 
 |  |  |
-|:-----------------------------------|:-----------------------------------|
+|:---|:---|
 | **R Project** | A self-contained workspace anchored to a folder with a `.Rproj` file |
 | **Folder structure** | `data/raw`, `data/clean`, `scripts`, `outputs` — each with a clear role |
 | **`install.packages()`** | Downloads a package to your computer — once per machine |
