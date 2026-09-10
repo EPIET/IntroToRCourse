@@ -640,20 +640,20 @@ Save the pipeline as a script, not just run it
 </div>
 <hr>
 <p><strong>What does <code>case_when()</code> do?</strong></p>
-<div id="radio_DFYDULRJWL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DFYDULRJWL" value=""> <span>It recodes categorical values like <code>recode_values()</code></span></label><label><input type="radio" autocomplete="off" name="radio_DFYDULRJWL" value=""> <span>It filters rows based on a condition</span></label><label><input type="radio" autocomplete="off" name="radio_DFYDULRJWL" value="answer"> <span>It assigns values based on a sequence of conditions evaluated in order</span></label><label><input type="radio" autocomplete="off" name="radio_DFYDULRJWL" value=""> <span>It creates groups like <code>group_by()</code></span></label>
+<div id="radio_GGXAFNRQQZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GGXAFNRQQZ" value=""> <span>It recodes categorical values like <code>recode_values()</code></span></label><label><input type="radio" autocomplete="off" name="radio_GGXAFNRQQZ" value=""> <span>It filters rows based on a condition</span></label><label><input type="radio" autocomplete="off" name="radio_GGXAFNRQQZ" value="answer"> <span>It assigns values based on a sequence of conditions evaluated in order</span></label><label><input type="radio" autocomplete="off" name="radio_GGXAFNRQQZ" value=""> <span>It creates groups like <code>group_by()</code></span></label>
 </div>
 <p><strong>What happens to rows that do not match any condition in <code>case_when()</code> if you do not include a final <code>TRUE ~</code> line?</strong></p>
-<div id="radio_XOJENTUBTJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XOJENTUBTJ" value=""> <span>They are left unchanged</span></label><label><input type="radio" autocomplete="off" name="radio_XOJENTUBTJ" value=""> <span>The function throws an error</span></label><label><input type="radio" autocomplete="off" name="radio_XOJENTUBTJ" value="answer"> <span>They become <code>NA</code></span></label><label><input type="radio" autocomplete="off" name="radio_XOJENTUBTJ" value=""> <span>They take the value of the last condition</span></label>
+<div id="radio_CTKREBPUFY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CTKREBPUFY" value=""> <span>They are left unchanged</span></label><label><input type="radio" autocomplete="off" name="radio_CTKREBPUFY" value=""> <span>The function throws an error</span></label><label><input type="radio" autocomplete="off" name="radio_CTKREBPUFY" value="answer"> <span>They become <code>NA</code></span></label><label><input type="radio" autocomplete="off" name="radio_CTKREBPUFY" value=""> <span>They take the value of the last condition</span></label>
 </div>
 <p><strong>Why must the <code>Confirmed</code> condition appear first in the <code>case_classification case_when()</code> block?</strong></p>
-<div id="radio_MTLDUYINMM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MTLDUYINMM" value="answer"> <span>Because <code>case_when()</code> stops at the first matching condition — a confirmed case must be classified as Confirmed before any other rule can capture it</span></label><label><input type="radio" autocomplete="off" name="radio_MTLDUYINMM" value=""> <span>Because <code>lab_confirmed</code> is the first column in the dataframe</span></label><label><input type="radio" autocomplete="off" name="radio_MTLDUYINMM" value=""> <span>Because alphabetical order requires Confirmed to come before Probable</span></label><label><input type="radio" autocomplete="off" name="radio_MTLDUYINMM" value=""> <span>It does not matter — <code>case_when()</code> evaluates all conditions and picks the best match</span></label>
+<div id="radio_FLWDEMRXDX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FLWDEMRXDX" value="answer"> <span>Because <code>case_when()</code> stops at the first matching condition — a confirmed case must be classified as Confirmed before any other rule can capture it</span></label><label><input type="radio" autocomplete="off" name="radio_FLWDEMRXDX" value=""> <span>Because <code>lab_confirmed</code> is the first column in the dataframe</span></label><label><input type="radio" autocomplete="off" name="radio_FLWDEMRXDX" value=""> <span>Because alphabetical order requires Confirmed to come before Probable</span></label><label><input type="radio" autocomplete="off" name="radio_FLWDEMRXDX" value=""> <span>It does not matter — <code>case_when()</code> evaluates all conditions and picks the best match</span></label>
 </div>
 <p><strong>At which point of the pipeline do you place <code>filter()</code>?</strong></p>
-<div id="radio_QDKRCRKMVH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QDKRCRKMVH" value=""> <span>At the very beginning, before any other step</span></label><label><input type="radio" autocomplete="off" name="radio_QDKRCRKMVH" value=""> <span>Right after fixing column names</span></label><label><input type="radio" autocomplete="off" name="radio_QDKRCRKMVH" value="answer"> <span>After creating derived variables that depend on the columns being filtered</span></label><label><input type="radio" autocomplete="off" name="radio_QDKRCRKMVH" value=""> <span>It does not matter — <code>filter()</code> produces the same result at any point in the pipeline</span></label>
+<div id="radio_JPWNDMFATE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JPWNDMFATE" value=""> <span>At the very beginning, before any other step</span></label><label><input type="radio" autocomplete="off" name="radio_JPWNDMFATE" value=""> <span>Right after fixing column names</span></label><label><input type="radio" autocomplete="off" name="radio_JPWNDMFATE" value="answer"> <span>After creating derived variables that depend on the columns being filtered</span></label><label><input type="radio" autocomplete="off" name="radio_JPWNDMFATE" value=""> <span>It does not matter — <code>filter()</code> produces the same result at any point in the pipeline</span></label>
 </div>
 <hr>
 </section>
@@ -721,68 +721,77 @@ Save the pipeline as a script, not just run it
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize cleaning pipe</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>imd_cleaning <span class="ot">&lt;-</span> imd_raw <span class="sc">%&gt;%</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_years =</span> age,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">year      =</span> key_year</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_months         =</span> <span class="fu">as.numeric</span>(age_months),</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_date           =</span> <span class="fu">ymd</span>(key_date),</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">symptom_onset_date =</span> <span class="fu">ymd</span>(symptom_onset_date),</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">diagnostic_date    =</span> <span class="fu">ymd</span>(diagnostic_date)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      sex,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"m"</span>) <span class="sc">~</span> <span class="st">"Male"</span>,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"f"</span>) <span class="sc">~</span> <span class="st">"Female"</span>,</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">type_of_case =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      type_of_case,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Sec"</span> <span class="sc">~</span> <span class="st">"Second"</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">serogroup =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      serogroup,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      <span class="st">"B_NeisMen"</span> <span class="sc">~</span> <span class="st">"B"</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      <span class="st">"C_NeisMen"</span> <span class="sc">~</span> <span class="st">"C"</span>,</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Y_NeisMen"</span> <span class="sc">~</span> <span class="st">"Y"</span>,</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      <span class="st">"W_NeisMen"</span> <span class="sc">~</span> <span class="st">"W"</span>,</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      <span class="st">"NT_NeisMen"</span> <span class="sc">~</span> <span class="st">"Non Typable"</span>,</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Other_NeisMen"</span>, <span class="st">"A_NeisMen"</span>) <span class="sc">~</span> <span class="st">"Other"</span>,</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA</span> <span class="sc">~</span> <span class="st">"Unknown"</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fix names</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_years =</span> age, </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> key_year</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fix variable class</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_months =</span> <span class="fu">as.numeric</span>(age_months),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_date =</span> <span class="fu">ymd</span>(key_date),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">symptom_onset_date =</span> <span class="fu">ymd</span>(symptom_onset_date),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">diagnostic_date =</span> <span class="fu">ymd</span>(diagnostic_date)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># recode variables</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">recode_values</span>(</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      sex,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"m"</span>) <span class="sc">~</span> <span class="st">"Male"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"f"</span>) <span class="sc">~</span> <span class="st">"Female"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">serogroup =</span> <span class="fu">recode_values</span>(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      serogroup,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      <span class="st">"B_NeisMen"</span> <span class="sc">~</span> <span class="st">"B"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      <span class="st">"C_NeisMen"</span> <span class="sc">~</span> <span class="st">"C"</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Y_NeisMen"</span> <span class="sc">~</span> <span class="st">"Y"</span>,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="st">"W_NeisMen"</span> <span class="sc">~</span> <span class="st">"W"</span> ,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      <span class="st">"NT_NeisMen"</span> <span class="sc">~</span> <span class="st">"Non Typable"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Other_NeisMen"</span>, <span class="st">"A_NeisMen"</span>) <span class="sc">~</span> <span class="st">"Other"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA</span> <span class="sc">~</span> <span class="st">"Unknown"</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create new variables</span></span>
 <span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&lt;</span> <span class="dv">1</span>                          <span class="sc">~</span> <span class="st">"&lt; 1"</span>,</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">1</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">5</span>        <span class="sc">~</span> <span class="st">"1-4"</span>,</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">5</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">10</span>       <span class="sc">~</span> <span class="st">"5-9"</span>,</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">15</span>       <span class="sc">~</span> <span class="st">"10-14"</span>,</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">20</span>       <span class="sc">~</span> <span class="st">"15-19"</span>,</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">25</span>       <span class="sc">~</span> <span class="st">"20-24"</span>,</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">45</span>       <span class="sc">~</span> <span class="st">"25-44"</span>,</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">65</span>       <span class="sc">~</span> <span class="st">"45-64"</span>,</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">65</span>                        <span class="sc">~</span> <span class="st">"65+"</span>,</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                   <span class="sc">~</span> <span class="st">"Unknown"</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&lt;</span> <span class="dv">1</span>             <span class="sc">~</span> <span class="st">"&lt; 1"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">1</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">5</span>  <span class="sc">~</span> <span class="st">"1-4"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">5</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">"5-9"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">15</span> <span class="sc">~</span> <span class="st">"10-14"</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">"15-19"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"20-24"</span>,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">45</span> <span class="sc">~</span> <span class="st">"25-44"</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">65</span> <span class="sc">~</span> <span class="st">"45-64"</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">65</span>            <span class="sc">~</span> <span class="st">"65+"</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Unknown"</span></span>
 <span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_classification =</span> <span class="fu">case_when</span>(</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"Yes"</span>                                                              <span class="sc">~</span> <span class="st">"Confirmed"</span>,</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">"Probable"</span>,</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(type_of_case)  <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">"Suspected"</span>,</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                                                <span class="sc">~</span> <span class="st">"Discarded"</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">==</span> <span class="st">"Mening"</span>,</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    imported <span class="sc">==</span> <span class="st">"No"</span>,</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    case_classification <span class="sc">!=</span> <span class="st">"Discarded"</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>diagnostic_date, <span class="sc">-</span>disease, <span class="sc">-</span>imported)</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(imd_cleaning, <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"clean"</span> ,<span class="st">"IMD_Sample_Clean.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_classification =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"Yes"</span> <span class="sc">~</span> <span class="st">"Confirmed"</span>, </span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> </span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>        <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)  <span class="sc">~</span> <span class="st">"Probable"</span>,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> </span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)  <span class="sc">~</span> <span class="st">"Suspected"</span>,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Discarded"</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># final filter of excluded cases</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">==</span> <span class="st">"Mening"</span>,</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>    imported <span class="sc">==</span> <span class="st">"No"</span>,</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    case_classification <span class="sc">!=</span> <span class="st">"Discarded"</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  <span class="co"># discard columns no longer needed</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>diagnostic_date, <span class="sc">-</span>disease, <span class="sc">-</span>imported)</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Save data to new clean file</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(imd_cleaning, <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"clean"</span> ,<span class="st">"IMD_Sample_Clean.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1798,81 +1807,90 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize cleaning pipe</span></span>
 <span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a>imd_cleaning <span class="ot">&lt;-</span> imd_raw <span class="sc">%&gt;%</span></span>
-<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_years =</span> age,</span>
-<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>    <span class="at">year      =</span> key_year</span>
-<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_months         =</span> <span class="fu">as.numeric</span>(age_months),</span>
-<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_date           =</span> <span class="fu">ymd</span>(key_date),</span>
-<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>    <span class="at">symptom_onset_date =</span> <span class="fu">ymd</span>(symptom_onset_date),</span>
-<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>    <span class="at">diagnostic_date    =</span> <span class="fu">ymd</span>(diagnostic_date)</span>
-<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>      sex,</span>
-<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"m"</span>) <span class="sc">~</span> <span class="st">"Male"</span>,</span>
-<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"f"</span>) <span class="sc">~</span> <span class="st">"Female"</span>,</span>
-<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
-<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>    <span class="at">type_of_case =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>      type_of_case,</span>
-<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Sec"</span> <span class="sc">~</span> <span class="st">"Second"</span>,</span>
-<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
-<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>    <span class="at">serogroup =</span> <span class="fu">recode_values</span>(</span>
-<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>      serogroup,</span>
-<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a>      <span class="st">"B_NeisMen"</span> <span class="sc">~</span> <span class="st">"B"</span>,</span>
-<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>      <span class="st">"C_NeisMen"</span> <span class="sc">~</span> <span class="st">"C"</span>,</span>
-<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Y_NeisMen"</span> <span class="sc">~</span> <span class="st">"Y"</span>,</span>
-<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>      <span class="st">"W_NeisMen"</span> <span class="sc">~</span> <span class="st">"W"</span>,</span>
-<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a>      <span class="st">"NT_NeisMen"</span> <span class="sc">~</span> <span class="st">"Non Typable"</span>,</span>
-<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Other_NeisMen"</span>, <span class="st">"A_NeisMen"</span>) <span class="sc">~</span> <span class="st">"Other"</span>,</span>
-<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA</span> <span class="sc">~</span> <span class="st">"Unknown"</span></span>
-<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fix names</span></span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_years =</span> age, </span>
+<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> key_year</span>
+<span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fix variable class</span></span>
+<span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_months =</span> <span class="fu">as.numeric</span>(age_months),</span>
+<span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a>    <span class="at">key_date =</span> <span class="fu">ymd</span>(key_date),</span>
+<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a>    <span class="at">symptom_onset_date =</span> <span class="fu">ymd</span>(symptom_onset_date),</span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>    <span class="at">diagnostic_date =</span> <span class="fu">ymd</span>(diagnostic_date)</span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a>  <span class="co"># recode variables</span></span>
+<span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">recode_values</span>(</span>
+<span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a>      sex,</span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"m"</span>) <span class="sc">~</span> <span class="st">"Male"</span>,</span>
+<span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"F"</span>, <span class="st">"f"</span>) <span class="sc">~</span> <span class="st">"Female"</span>,</span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>      <span class="at">default =</span> <span class="cn">NA</span></span>
+<span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a>    <span class="at">serogroup =</span> <span class="fu">recode_values</span>(</span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>      serogroup,</span>
+<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a>      <span class="st">"B_NeisMen"</span> <span class="sc">~</span> <span class="st">"B"</span>,</span>
+<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a>      <span class="st">"C_NeisMen"</span> <span class="sc">~</span> <span class="st">"C"</span>,</span>
+<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Y_NeisMen"</span> <span class="sc">~</span> <span class="st">"Y"</span>,</span>
+<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>      <span class="st">"W_NeisMen"</span> <span class="sc">~</span> <span class="st">"W"</span> ,</span>
+<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>      <span class="st">"NT_NeisMen"</span> <span class="sc">~</span> <span class="st">"Non Typable"</span>,</span>
+<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"Other_NeisMen"</span>, <span class="st">"A_NeisMen"</span>) <span class="sc">~</span> <span class="st">"Other"</span>,</span>
+<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA</span> <span class="sc">~</span> <span class="st">"Unknown"</span></span>
+<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create new variables</span></span>
 <span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a>    <span class="at">age_group =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&lt;</span> <span class="dv">1</span>                          <span class="sc">~</span> <span class="st">"&lt; 1"</span>,</span>
-<span id="cb3-362"><a href="#cb3-362" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">1</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">5</span>        <span class="sc">~</span> <span class="st">"1-4"</span>,</span>
-<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">5</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">10</span>       <span class="sc">~</span> <span class="st">"5-9"</span>,</span>
-<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">15</span>       <span class="sc">~</span> <span class="st">"10-14"</span>,</span>
-<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">20</span>       <span class="sc">~</span> <span class="st">"15-19"</span>,</span>
-<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">25</span>       <span class="sc">~</span> <span class="st">"20-24"</span>,</span>
-<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">45</span>       <span class="sc">~</span> <span class="st">"25-44"</span>,</span>
-<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">65</span>       <span class="sc">~</span> <span class="st">"45-64"</span>,</span>
-<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">65</span>                        <span class="sc">~</span> <span class="st">"65+"</span>,</span>
-<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                   <span class="sc">~</span> <span class="st">"Unknown"</span></span>
+<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&lt;</span> <span class="dv">1</span>             <span class="sc">~</span> <span class="st">"&lt; 1"</span>,</span>
+<span id="cb3-362"><a href="#cb3-362" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">1</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">5</span>  <span class="sc">~</span> <span class="st">"1-4"</span>,</span>
+<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">5</span>  <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">"5-9"</span>,</span>
+<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">10</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">15</span> <span class="sc">~</span> <span class="st">"10-14"</span>,</span>
+<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">15</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">"15-19"</span>,</span>
+<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">20</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">25</span> <span class="sc">~</span> <span class="st">"20-24"</span>,</span>
+<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">45</span> <span class="sc">~</span> <span class="st">"25-44"</span>,</span>
+<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">45</span> <span class="sc">&amp;</span> age_years <span class="sc">&lt;</span> <span class="dv">65</span> <span class="sc">~</span> <span class="st">"45-64"</span>,</span>
+<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a>      age_years <span class="sc">&gt;=</span> <span class="dv">65</span>            <span class="sc">~</span> <span class="st">"65+"</span>,</span>
+<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Unknown"</span></span>
 <span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_classification =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"Yes"</span>                                                              <span class="sc">~</span> <span class="st">"Confirmed"</span>,</span>
-<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">"Probable"</span>,</span>
-<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(type_of_case)  <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)       <span class="sc">~</span> <span class="st">"Suspected"</span>,</span>
-<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span>                                                                                <span class="sc">~</span> <span class="st">"Discarded"</span></span>
-<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">==</span> <span class="st">"Mening"</span>,</span>
-<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a>    imported <span class="sc">==</span> <span class="st">"No"</span>,</span>
-<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a>    case_classification <span class="sc">!=</span> <span class="st">"Discarded"</span></span>
-<span id="cb3-383"><a href="#cb3-383" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-384"><a href="#cb3-384" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>diagnostic_date, <span class="sc">-</span>disease, <span class="sc">-</span>imported)</span>
-<span id="cb3-385"><a href="#cb3-385" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-386"><a href="#cb3-386" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(imd_cleaning, <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"clean"</span> ,<span class="st">"IMD_Sample_Clean.csv"</span>))</span>
-<span id="cb3-387"><a href="#cb3-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-388"><a href="#cb3-388" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-389"><a href="#cb3-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-390"><a href="#cb3-390" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb3-391"><a href="#cb3-391" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
-<span id="cb3-392"><a href="#cb3-392" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener("DOMContentLoaded", function() {</span></span>
-<span id="cb3-393"><a href="#cb3-393" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName("webex-radiogroup");</span></span>
-<span id="cb3-394"><a href="#cb3-394" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
-<span id="cb3-395"><a href="#cb3-395" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
-<span id="cb3-396"><a href="#cb3-396" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
-<span id="cb3-397"><a href="#cb3-397" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
-<span id="cb3-398"><a href="#cb3-398" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
-<span id="cb3-399"><a href="#cb3-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a>    <span class="at">case_classification =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"Yes"</span> <span class="sc">~</span> <span class="st">"Confirmed"</span>, </span>
+<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> </span>
+<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a>        <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)  <span class="sc">~</span> <span class="st">"Probable"</span>,</span>
+<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a>      lab_confirmed <span class="sc">==</span> <span class="st">"No"</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(type_of_case) <span class="sc">&amp;</span> </span>
+<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a>        <span class="sc">!</span><span class="fu">is.na</span>(clinical_presentation)  <span class="sc">~</span> <span class="st">"Suspected"</span>,</span>
+<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Discarded"</span></span>
+<span id="cb3-383"><a href="#cb3-383" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-384"><a href="#cb3-384" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-385"><a href="#cb3-385" aria-hidden="true" tabindex="-1"></a>  <span class="co"># final filter of excluded cases</span></span>
+<span id="cb3-386"><a href="#cb3-386" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb3-387"><a href="#cb3-387" aria-hidden="true" tabindex="-1"></a>    disease <span class="sc">==</span> <span class="st">"Mening"</span>,</span>
+<span id="cb3-388"><a href="#cb3-388" aria-hidden="true" tabindex="-1"></a>    imported <span class="sc">==</span> <span class="st">"No"</span>,</span>
+<span id="cb3-389"><a href="#cb3-389" aria-hidden="true" tabindex="-1"></a>    case_classification <span class="sc">!=</span> <span class="st">"Discarded"</span></span>
+<span id="cb3-390"><a href="#cb3-390" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-391"><a href="#cb3-391" aria-hidden="true" tabindex="-1"></a>  <span class="co"># discard columns no longer needed</span></span>
+<span id="cb3-392"><a href="#cb3-392" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>diagnostic_date, <span class="sc">-</span>disease, <span class="sc">-</span>imported)</span>
+<span id="cb3-393"><a href="#cb3-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-394"><a href="#cb3-394" aria-hidden="true" tabindex="-1"></a><span class="co"># Save data to new clean file</span></span>
+<span id="cb3-395"><a href="#cb3-395" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(imd_cleaning, <span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"clean"</span> ,<span class="st">"IMD_Sample_Clean.csv"</span>))</span>
+<span id="cb3-396"><a href="#cb3-396" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-397"><a href="#cb3-397" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-398"><a href="#cb3-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-399"><a href="#cb3-399" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb3-400"><a href="#cb3-400" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script&gt;</span></span>
+<span id="cb3-401"><a href="#cb3-401" aria-hidden="true" tabindex="-1"></a><span class="in">document.addEventListener("DOMContentLoaded", function() {</span></span>
+<span id="cb3-402"><a href="#cb3-402" aria-hidden="true" tabindex="-1"></a><span class="in">  var radiogroups = document.getElementsByClassName("webex-radiogroup");</span></span>
+<span id="cb3-403"><a href="#cb3-403" aria-hidden="true" tabindex="-1"></a><span class="in">  for (var i = 0; i &lt; radiogroups.length; i++) {</span></span>
+<span id="cb3-404"><a href="#cb3-404" aria-hidden="true" tabindex="-1"></a><span class="in">    radiogroups[i].onchange = radiogroups_func;</span></span>
+<span id="cb3-405"><a href="#cb3-405" aria-hidden="true" tabindex="-1"></a><span class="in">  }</span></span>
+<span id="cb3-406"><a href="#cb3-406" aria-hidden="true" tabindex="-1"></a><span class="in">});</span></span>
+<span id="cb3-407"><a href="#cb3-407" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/script&gt;</span></span>
+<span id="cb3-408"><a href="#cb3-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

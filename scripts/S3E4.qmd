@@ -312,17 +312,20 @@ imd_raw <- import(here("data", "raw", "IMD_Sample_Dirty.xlsx"))
 
 # Initialize cleaning pipe
 imd_cleaning <- imd_raw %>%
-  clean_names() %>%
+  # fix names
+  clean_names() %>% 
   rename(
-    age_years = age,
-    year      = key_year
-  ) %>%
+    age_years = age, 
+    year = key_year
+  ) %>% 
+  # fix variable class
   mutate(
-    age_months         = as.numeric(age_months),
-    key_date           = ymd(key_date),
+    age_months = as.numeric(age_months),
+    key_date = ymd(key_date),
     symptom_onset_date = ymd(symptom_onset_date),
-    diagnostic_date    = ymd(diagnostic_date)
-  ) %>%
+    diagnostic_date = ymd(diagnostic_date)
+  ) %>% 
+  # recode variables
   mutate(
     sex = recode_values(
       sex,
@@ -330,49 +333,55 @@ imd_cleaning <- imd_raw %>%
       c("F", "f") ~ "Female",
       default = NA
     ),
-    type_of_case = recode_values(
-      type_of_case,
-      "Sec" ~ "Second",
-      default = NA
-    ),
+    
     serogroup = recode_values(
       serogroup,
       "B_NeisMen" ~ "B",
       "C_NeisMen" ~ "C",
       "Y_NeisMen" ~ "Y",
-      "W_NeisMen" ~ "W",
+      "W_NeisMen" ~ "W" ,
       "NT_NeisMen" ~ "Non Typable",
       c("Other_NeisMen", "A_NeisMen") ~ "Other",
       NA ~ "Unknown"
     )
-  ) %>%
+  ) %>% 
+  # create new variables
   mutate(
     age_group = case_when(
-      age_years < 1                          ~ "< 1",
-      age_years >= 1  & age_years < 5        ~ "1-4",
-      age_years >= 5  & age_years < 10       ~ "5-9",
-      age_years >= 10 & age_years < 15       ~ "10-14",
-      age_years >= 15 & age_years < 20       ~ "15-19",
-      age_years >= 20 & age_years < 25       ~ "20-24",
-      age_years >= 25 & age_years < 45       ~ "25-44",
-      age_years >= 45 & age_years < 65       ~ "45-64",
-      age_years >= 65                        ~ "65+",
-      TRUE                                   ~ "Unknown"
+      age_years < 1             ~ "< 1",
+      age_years >= 1  & age_years < 5  ~ "1-4",
+      age_years >= 5  & age_years < 10 ~ "5-9",
+      age_years >= 10 & age_years < 15 ~ "10-14",
+      age_years >= 15 & age_years < 20 ~ "15-19",
+      age_years >= 20 & age_years < 25 ~ "20-24",
+      age_years >= 25 & age_years < 45 ~ "25-44",
+      age_years >= 45 & age_years < 65 ~ "45-64",
+      age_years >= 65            ~ "65+",
+      TRUE ~ "Unknown"
     ),
+    
     case_classification = case_when(
-      lab_confirmed == "Yes"                                                              ~ "Confirmed",
-      lab_confirmed == "No" & !is.na(type_of_case) & !is.na(clinical_presentation)       ~ "Probable",
-      lab_confirmed == "No" & is.na(type_of_case)  & !is.na(clinical_presentation)       ~ "Suspected",
-      TRUE                                                                                ~ "Discarded"
+      lab_confirmed == "Yes" ~ "Confirmed", 
+      
+      lab_confirmed == "No" & !is.na(type_of_case) & 
+        !is.na(clinical_presentation)  ~ "Probable",
+      
+      lab_confirmed == "No" & is.na(type_of_case) & 
+        !is.na(clinical_presentation)  ~ "Suspected",
+      
+      TRUE ~ "Discarded"
     )
   ) %>%
+  # final filter of excluded cases
   filter(
     disease == "Mening",
     imported == "No",
     case_classification != "Discarded"
   ) %>%
+  # discard columns no longer needed
   select(-diagnostic_date, -disease, -imported)
 
+# Save data to new clean file
 export(imd_cleaning, here("data", "clean" ,"IMD_Sample_Clean.csv"))
 ```
 :::
