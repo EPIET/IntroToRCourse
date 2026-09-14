@@ -69,6 +69,7 @@ website:
         contents:
           - "scripts/S6E1.qmd"
           - "scripts/S6E2.qmd"
+          - "scripts/S6E3.qmd"
 
   page-footer:
     left: "© 2026 – Intro to R Course"
